@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Policy – RandomWheel</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .legal-content { padding: 120px 0 80px; max-width: 800px; margin: 0 auto; }
+    .legal-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; }
+    .legal-card h1 { font-family: var(--font-display); color: var(--accent); margin-bottom: 24px; }
+    .legal-card h2 { color: var(--accent2); margin: 32px 0 16px; font-size: 1.4rem; }
+    .legal-card p { color: var(--text2); margin-bottom: 16px; line-height: 1.8; }
+    .last-updated { color: var(--text3); font-size: 0.9rem; margin-bottom: 40px; display: block; }
+  </style>
+</head>
+<body>
+
+<div id="header-root"></div>
+
+<main class="container">
+  <section class="legal-content">
+    <div class="legal-card">
+      <span class="last-updated">Last Updated: April 06, 2026</span>
+      <h1>Cookie Policy</h1>
+      <p>This Cookie Policy explains how RandomWheel uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them.</p>
+
+      <h2>What are cookies?</h2>
+      <p>Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.</p>
+
+      <h2>How we use cookies</h2>
+      <p>We use cookies for several reasons. Some cookies are required for technical reasons in order for our Website to operate. We refer to these as "essential" or "strictly necessary" cookies. Other cookies enable us to track and target the interests of our users to enhance the experience on our Online Properties.</p>
+
+      <h2>Local Storage</h2>
+      <p>In addition to cookies, we use Browser Local Storage to save your custom wheel configurations. This allows your labels and settings to persist even after you close your browser tab, without sending that data to our servers.</p>
+    </div>
+  </section>
+</main>
+
+<div id="footer-root"></div>
+
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('header-root').innerHTML = Header.render();
+    Header.init();
+    document.getElementById('footer-root').innerHTML = Footer.render();
+    Footer.init();
+  });
+</script>
+</body>
+</html>
