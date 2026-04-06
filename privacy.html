@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – RandomWheel</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .legal-content { padding: 120px 0 80px; max-width: 800px; margin: 0 auto; }
+    .legal-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; }
+    .legal-card h1 { font-family: var(--font-display); color: var(--accent); margin-bottom: 24px; }
+    .legal-card h2 { color: var(--accent2); margin: 32px 0 16px; font-size: 1.4rem; }
+    .legal-card p { color: var(--text2); margin-bottom: 16px; line-height: 1.8; }
+    .legal-card ul { margin-bottom: 16px; padding-left: 20px; color: var(--text2); }
+    .legal-card li { margin-bottom: 8px; }
+    .last-updated { color: var(--text3); font-size: 0.9rem; margin-bottom: 40px; display: block; }
+  </style>
+</head>
+<body>
+
+<div id="header-root"></div>
+
+<main class="container">
+  <section class="legal-content">
+    <div class="legal-card">
+      <span class="last-updated">Last Updated: April 06, 2026</span>
+      <h1>Privacy Policy</h1>
+      <p>At RandomWheel, accessible from randomwheel.github.io, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by RandomWheel and how we use it.</p>
+
+      <h2>1. Privacy First Philosophy</h2>
+      <p>Our application is designed to be "Privacy First." All wheel customizations, labels, and spin results are processed locally in your web browser. We do not store your custom wheel data on our servers.</p>
+
+      <h2>2. Log Files</h2>
+      <p>RandomWheel follows a standard procedure of using log files. These files log visitors when they visit websites. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable.</p>
+
+      <h2>3. Cookies and Web Beacons</h2>
+      <p>Like any other website, RandomWheel uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
+
+      <h2>4. Third-Party Privacy Policies</h2>
+      <p>RandomWheel's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</p>
+
+      <h2>5. Children's Information</h2>
+      <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. RandomWheel does not knowingly collect any Personal Identifiable Information from children under the age of 13.</p>
+
+      <h2>6. Consent</h2>
+      <p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
+    </div>
+  </section>
+</main>
+
+<div id="footer-root"></div>
+
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('header-root').innerHTML = Header.render();
+    Header.init();
+    document.getElementById('footer-root').innerHTML = Footer.render();
+    Footer.init();
+  });
+</script>
+</body>
+</html>
