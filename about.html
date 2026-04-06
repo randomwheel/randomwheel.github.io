@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us – RandomWheel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <style>
+    .about-hero { padding: 160px 0 80px; text-align: center; }
+    .about-hero h1 { font-family: var(--font-display); font-size: 3.5rem; color: var(--text); margin-bottom: 20px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 80px; }
+    .about-card { background: var(--surface); padding: 40px; border-radius: var(--radius); border: 1px solid var(--border); }
+    .about-card h3 { color: var(--accent); margin-bottom: 15px; font-family: var(--font-display); }
+    .about-card p { color: var(--text2); line-height: 1.7; }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } .about-hero h1 { font-size: 2.5rem; } }
+  </style>
+</head>
+<body>
+
+<div id="header-root"></div>
+
+<main class="container">
+  <section class="about-hero">
+    <h1>Fair Spins. Fast Decisions.</h1>
+    <p style="color: var(--text2); max-width: 600px; margin: 0 auto;">RandomWheel is a free, high-performance web utility designed to make decision-making fun and unbiased.</p>
+  </section>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>Our Mission</h3>
+      <p>We aim to provide the most responsive and customizable random picker tool on the web. Whether you are a teacher picking students or a group of friends deciding on dinner, we make the process instant and visual.</p>
+    </div>
+    <div class="about-card">
+      <h3>Privacy First</h3>
+      <p>Unlike other tools, we don't store your lists on a database. Everything happens in your browser's memory, ensuring your private data stays exactly where it belongs: with you.</p>
+    </div>
+  </div>
+</main>
+
+<div id="footer-root"></div>
+
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('header-root').innerHTML = Header.render();
+    Header.init();
+    document.getElementById('footer-root').innerHTML = Footer.render();
+    Footer.init();
+  });
+</script>
+</body>
+</html>
