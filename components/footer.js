@@ -38,33 +38,34 @@ const Footer = {
           <div class="footer-col">
             <h4>Popular Wheels</h4>
             <ul>
-              <li><a href="#" data-wheel="yes-no">Yes or No Wheel</a></li>
-              <li><a href="#" data-wheel="food-picker">Food Picker Wheel</a></li>
-              <li><a href="#" data-wheel="truth-dare">Truth or Dare</a></li>
-              <li><a href="#" data-wheel="name-picker">Random Name Picker</a></li>
-              <li><a href="#" data-wheel="prize">Prize & Raffle Wheel</a></li>
-              <li><a href="#" data-wheel="pokemon">Pokémon Type Wheel</a></li>
+              <li><a href="/#" data-wheel="yes-no">Yes or No Wheel</a></li>
+              <li><a href="/#" data-wheel="food-picker">Food Picker Wheel</a></li>
+              <li><a href="/#" data-wheel="truth-dare">Truth or Dare</a></li>
+              <li><a href="/#" data-wheel="name-picker">Random Name Picker</a></li>
+              <li><a href="/#" data-wheel="prize">Prize & Raffle Wheel</a></li>
+              <li><a href="/#" data-wheel="pokemon">Pokémon Type Wheel</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>More Wheels</h4>
             <ul>
-              <li><a href="#" data-wheel="workout">Workout Wheel</a></li>
-              <li><a href="#" data-wheel="decision">Decision Maker</a></li>
-              <li><a href="#" data-wheel="number">Number Generator</a></li>
-              <li><a href="#" data-wheel="color">Color Picker Wheel</a></li>
-              <li><a href="#" data-wheel="student">Student Picker</a></li>
-              <li><a href="#" data-wheel="fortune">Fortune Wheel</a></li>
+              <li><a href="/#" data-wheel="workout">Workout Wheel</a></li>
+              <li><a href="/#" data-wheel="decision">Decision Maker</a></li>
+              <li><a href="/#" data-wheel="number">Number Generator</a></li>
+              <li><a href="/#" data-wheel="color">Color Picker Wheel</a></li>
+              <li><a href="/#" data-wheel="student">Student Picker</a></li>
+              <li><a href="/#" data-wheel="fortune">Fortune Wheel</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>Resources</h4>
             <ul>
-              <li><a href="#how-it-works">How It Works</a></li>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#faq">FAQ</a></li>
-              <li><a href="#wheel-types">All Wheel Types</a></li>
-              <li><a href="#testimonials">Reviews</a></li>
+              <li><a href="/#how-it-works">How It Works</a></li>
+              <li><a href="/#features">Features</a></li>
+              <li><a href="/#faq">FAQ</a></li>
+              <li><a href="/#wheel-types">All Wheel Types</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -74,7 +75,7 @@ const Footer = {
         <div class="footer-bottom-inner">
           <p>&copy; ${year} RandomWheel.github.io — Free Online Spin Wheel. All rights reserved.</p>
           <p class="footer-legal">
-            <a href="#">Privacy Policy</a> &bull; <a href="#">Terms of Use</a> &bull; <a href="#">Cookie Policy</a>
+            <a href="/privacy">Privacy Policy</a> &bull; <a href="/terms">Terms of Use</a> &bull; <a href="/cookie">Cookie Policy</a>
           </p>
         </div>
       </div>
