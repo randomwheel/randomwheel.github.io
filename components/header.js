@@ -3,7 +3,7 @@ const Header = {
     return `
     <header class="site-header" id="site-header">
       <div class="header-inner">
-        <a href="#" class="logo" aria-label="RandomWheel Home">
+        <a href="/" class="logo" aria-label="RandomWheel Home">
           <div class="logo-icon">
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
               <circle cx="18" cy="18" r="16" stroke="url(#lg1)" stroke-width="2.5"/>
@@ -27,11 +27,11 @@ const Header = {
 
         <nav class="main-nav" id="main-nav" role="navigation" aria-label="Main navigation">
           <ul>
-            <li><a href="#spin-app">Spin Now</a></li>
-            <li><a href="#wheel-types">Wheel Types</a></li>
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#wheel-types">Wheel Types</a></li>
+            <li><a href="/#how-it-works">How It Works</a></li>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#faq">FAQ</a></li>
           </ul>
         </nav>
 
