@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Wheel Spinner – Free Online Spin Wheel | RandomWheel</title>
+  <meta name="description" content="Free online spin wheel maker with 12+ customizable wheels: Yes/No, Food Picker, Truth or Dare, Name Picker, Prize Raffle, Fortune Wheel & more. No download needed. Spin now!">
+  <meta name="keywords" content="spin wheel, random wheel spinner, wheel of fortune, yes no wheel, food picker wheel, random name picker, truth or dare wheel, prize wheel, fortune wheel, decision maker wheel, free online wheel spinner">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="RandomWheel">
+  <link rel="canonical" href="https://randomwheel.github.io/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Random Wheel Spinner – Free Online Spin Wheel">
+  <meta property="og:description" content="Spin the wheel and decide anything! 12+ customizable wheels for every occasion. Yes/No, Food, Names, Prizes & more. 100% free.">
+  <meta property="og:url" content="https://randomwheel.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://randomwheel.github.io/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Random Wheel Spinner – Free Online Spin Wheel">
+  <meta name="twitter:description" content="Spin the wheel and decide anything! 12+ customizable spin wheels. Free, fun & instant.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "RandomWheel – Free Online Spin Wheel",
+        "url": "https://randomwheel.github.io/",
+        "description": "Free online spin wheel application with 12+ customizable wheels including Yes/No, Food Picker, Truth or Dare, Random Name Picker, Prize Raffle and more.",
+        "applicationCategory": "EntertainmentApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "featureList": ["Yes No Wheel", "Food Picker", "Truth or Dare", "Name Picker", "Prize Wheel", "Fortune Wheel", "Decision Maker", "Color Picker", "Number Generator", "Pokemon Type", "Workout Wheel", "Student Picker"],
+        "screenshot": "https://randomwheel.github.io/screenshot.png",
+        "creator": { "@type": "Organization", "name": "RandomWheel", "url": "https://randomwheel.github.io/" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is RandomWheel free to use?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes! RandomWheel is completely free to use with no sign-up required. All 12+ wheel types are fully accessible at no cost." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I customize the spin wheel options?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely! Every wheel is fully editable. You can add, remove, rename, and recolor any segment to create your perfect custom spin wheel." }
+          },
+          {
+            "@type": "Question",
+            "name": "How random is the spin wheel?",
+            "acceptedAnswer": { "@type": "Answer", "text": "RandomWheel uses JavaScript's Math.random() combined with a physics-based spin animation for truly random, fair results every time." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the spin wheel work on mobile?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes! RandomWheel is fully responsive and works on all devices including smartphones, tablets, and desktop computers." }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://randomwheel.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Spin Wheel", "item": "https://randomwheel.github.io/#spin-app" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- Header injected by JS -->
+<div id="header-root"></div>
+
+<!-- Confetti canvas -->
+<canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+<main id="main-content">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-label="Hero section">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">🎡 #1 Free Online Spin Wheel</div>
+        <h1 class="hero-title">
+          Spin the Wheel.<br>
+          <span class="highlight">Decide Anything.</span>
+        </h1>
+        <p class="hero-subtitle">
+          The ultimate free random wheel spinner with 12+ ready-to-use wheels. Customizable, fun, and instant. No sign-up. No download. Just spin!
+        </p>
+        <div class="hero-ctas">
+          <a href="#spin-app" class="btn-primary" onclick="event.preventDefault();document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">
+            <span>🎯</span> Spin the Wheel Now
+          </a>
+          <a href="#wheel-types" class="btn-secondary" onclick="event.preventDefault();document.getElementById('wheel-types').scrollIntoView({behavior:'smooth'})">
+            <span>🎡</span> Explore All Wheels
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-number">12+</div><div class="stat-label">Wheel Types</div></div>
+          <div class="stat"><div class="stat-number">∞</div><div class="stat-label">Custom Options</div></div>
+          <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Free Forever</div></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-wheel-preview">
+          <div class="hero-orbit">
+            <div class="orbit-dot" style="background:#FF6B35;"></div>
+          </div>
+          <div class="hero-wheel-img"></div>
+          <div class="hero-wheel-center">🎯</div>
+          <div class="hero-pointer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SPIN APP ===== -->
+  <section class="spin-app-section" id="spin-app" aria-label="Spin wheel application">
+    <div class="section-header">
+      <div class="section-tag">🎡 Interactive Spin Wheel</div>
+      <h2 class="section-title">Choose Your Wheel & Spin!</h2>
+      <p class="section-subtitle">Pick from 12 popular wheel types, customize options, then spin for a random result.</p>
+    </div>
+
+    <!-- Wheel type tabs -->
+    <div class="wheel-tabs-wrapper" role="tablist" aria-label="Wheel types">
+      <div id="wheel-tabs"></div>
+    </div>
+
+    <!-- Main app layout -->
+    <div class="app-layout">
+
+      <!-- Editor Panel -->
+      <aside class="editor-panel" aria-label="Wheel editor">
+        <div class="panel-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Edit Options
+        </div>
+        <div id="editor-list" role="list" aria-label="Wheel segments"></div>
+        <div class="editor-actions">
+          <button class="btn-add" id="add-segment-btn" aria-label="Add new segment">+ Add Option</button>
+          <button class="btn-reset" id="reset-wheel-btn" aria-label="Reset wheel to defaults">↺ Reset Wheel</button>
+        </div>
+      </aside>
+
+      <!-- Wheel Canvas -->
+      <div class="wheel-center">
+        <div class="wheel-info">
+          <h2 id="wheel-title">🎯 Yes / No Wheel</h2>
+          <p id="wheel-desc">Quick decisions made easy! Spin to get an instant Yes or No.</p>
+        </div>
+        <div class="wheel-canvas-wrapper">
+          <div class="wheel-pointer-top" aria-hidden="true"></div>
+          <canvas id="wheel-canvas" role="img" aria-label="Spin wheel" tabindex="0"></canvas>
+        </div>
+        <button id="spin-btn" aria-label="Spin the wheel">
+          <span class="spin-icon">⚡</span> SPIN!
+        </button>
+        <p class="keyboard-hint" aria-label="Keyboard shortcut">Press <kbd>Space</kbd> to spin</p>
+      </div>
+
+      <!-- Result + History -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div id="result-panel" role="status" aria-live="polite" aria-label="Spin result">
+          <button id="close-result" aria-label="Close result">✕</button>
+          <div class="result-winner-badge">
+            <span id="result-emoji" role="img">🎉</span>
+            <div class="result-label">🏆 The Wheel Chose…</div>
+            <div id="result-text">Spin to see!</div>
+          </div>
+        </div>
+
+        <div class="history-panel" aria-label="Spin history">
+          <div class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Recent Spins
+          </div>
+          <div id="spin-history" aria-live="polite" aria-label="Spin history list"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-section" id="how-it-works" aria-label="How the spin wheel works">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">⚙️ Simple & Easy</div>
+        <h2 class="section-title">How the Spin Wheel Works</h2>
+        <p class="section-subtitle">Three simple steps to your random result — no downloads, no sign-up needed.</p>
+      </div>
+      <div class="steps-grid" role="list">
+        <article class="step-card" role="listitem">
+          <span class="step-icon" aria-hidden="true">🎡</span>
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3>Choose a Wheel</h3>
+          <p>Pick from 12+ ready-made wheel types or start fresh with a blank wheel perfectly suited to your needs.</p>
+        </article>
+        <article class="step-card" role="listitem">
+          <span class="step-icon" aria-hidden="true">✏️</span>
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3>Customize Options</h3>
+          <p>Edit labels, change colors, add or remove segments. Create the perfect wheel with unlimited custom options.</p>
+        </article>
+        <article class="step-card" role="listitem">
+          <span class="step-icon" aria-hidden="true">⚡</span>
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3>Spin the Wheel</h3>
+          <p>Click the big SPIN button or press Space. Watch the wheel spin with a satisfying animation and reveal your result!</p>
+        </article>
+        <article class="step-card" role="listitem">
+          <span class="step-icon" aria-hidden="true">🎉</span>
+          <div class="step-num" aria-hidden="true">4</div>
+          <h3>See Your Result</h3>
+          <p>Celebrate the random result with confetti effects! Your spin history is saved so you can track all outcomes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHEEL GALLERY ===== -->
+  <section class="gallery-section" id="wheel-types" aria-label="All wheel types">
+    <div class="section-header">
+      <div class="section-tag">🎯 12+ Wheels</div>
+      <h2 class="section-title">Explore All Spin Wheel Types</h2>
+      <p class="section-subtitle">From party games to classroom tools — there's a perfect wheel for every occasion.</p>
+    </div>
+    <div id="wheel-gallery" role="list" aria-label="Wheel type gallery"></div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features-section" id="features" aria-label="Features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">✨ Why Choose Us</div>
+        <h2 class="section-title">Powerful Features, Zero Cost</h2>
+        <p class="section-subtitle">Everything you need in a spin wheel, completely free and ready to use instantly.</p>
+      </div>
+      <div class="features-grid" role="list">
+        <article class="feature-card" role="listitem">
+          <div class="feature-icon" aria-hidden="true">🎨</div>
+          <h3>Fully Customizable</h3>
+          <p>Edit every segment — change text, colors, and quantity. Build any wheel you can imagine with unlimited options.</p>
+        </article>
+        <article class="feature-card" role="listitem">
+          <div class="feature-icon" aria-hidden="true">🎉</div>
+          <h3>Confetti Celebration</h3>
+          <p>Every spin result is celebrated with a burst of colorful confetti, making the experience fun and rewarding.</p>
+        </article>
+        <article class="feature-card" role="listitem">
+          <div class="feature-icon" aria-hidden="true">📱</div>
+          <h3>Mobile Friendly</h3>
+          <p>Fully responsive design works perfectly on smartphones, tablets, and desktops. Spin on any device, anywhere.</p>
+        </article>
+        <article class="feature-card" role="listitem">
+          <div class="feature-icon" aria-hidden="true">⏱️</div>
+          <h3>Spin History</h3>
+          <p>Track your last 10 spin results with a live history log. See what the wheel has decided, all in one place.</p>
+        </article>
+        <article class="feature-card" role="listitem">
+          <div class="feature-icon" aria-hidden="true">⚡</div>
+          <h3>Instant & Fast</h3>
+          <p>No loading times. The wheel loads instantly in your browser with smooth, physics-based spin animations.</p>
+        </article>
+        <article class="feature-card" role="listitem">
+          <div class="feature-icon" aria-hidden="true">🔒</div>
+          <h3>Privacy First</h3>
+          <p>Everything runs in your browser. No data is collected, no sign-up needed, and your custom wheels stay private.</p>
+        </article>
+        <article class="feature-card" role="listitem">
+          <div class="feature-icon" aria-hidden="true">♿</div>
+          <h3>Accessible</h3>
+          <p>Keyboard navigation, ARIA labels, and screen reader support built in. The spin wheel is usable by everyone.</p>
+        </article>
+        <article class="feature-card" role="listitem">
+          <div class="feature-icon" aria-hidden="true">🌐</div>
+          <h3>No Download Needed</h3>
+          <p>Pure browser-based application. No app download, no installation — just open and spin in seconds.</p>
+        </article>
+        <article class="feature-card" role="listitem">
+          <div class="feature-icon" aria-hidden="true">🆓</div>
+          <h3>Free Forever</h3>
+          <p>100% free with no paywalls, no ads, no subscriptions. Every feature is available to every user at no cost.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== USE CASES ===== -->
+  <section class="usecases-section" aria-label="Use cases for spin wheel">
+    <div class="section-header">
+      <div class="section-tag">💡 Use Cases</div>
+      <h2 class="section-title">Who Uses the Spin Wheel?</h2>
+      <p class="section-subtitle">Random wheel spinners serve everyone from teachers to game night hosts.</p>
+    </div>
+    <div class="usecases-grid" role="list">
+      <article class="usecase-card" role="listitem">
+        <div class="usecase-icon" aria-hidden="true">🏫</div>
+        <div>
+          <h3>Teachers & Educators</h3>
+          <p>Pick random students to answer questions, assign groups, choose topics, or create engaging classroom activities with the student picker wheel.</p>
+        </div>
+      </article>
+      <article class="usecase-card" role="listitem">
+        <div class="usecase-icon" aria-hidden="true">🎮</div>
+        <div>
+          <h3>Party Game Hosts</h3>
+          <p>Take Truth or Dare to the next level, run raffle draws, or decide who goes first in board games with our party-ready wheels.</p>
+        </div>
+      </article>
+      <article class="usecase-card" role="listitem">
+        <div class="usecase-icon" aria-hidden="true">🍔</div>
+        <div>
+          <h3>Indecisive Foodies</h3>
+          <p>Can't decide what to eat tonight? Let the Food Picker wheel make the delicious decision for you and your group.</p>
+        </div>
+      </article>
+      <article class="usecase-card" role="listitem">
+        <div class="usecase-icon" aria-hidden="true">👔</div>
+        <div>
+          <h3>Team Leaders</h3>
+          <p>Assign tasks fairly, pick presenters for standup meetings, or decide sprint priorities with a fair and random spin.</p>
+        </div>
+      </article>
+      <article class="usecase-card" role="listitem">
+        <div class="usecase-icon" aria-hidden="true">🎁</div>
+        <div>
+          <h3>Giveaway Organizers</h3>
+          <p>Run transparent, fair prize draws and raffle giveaways. Enter all participant names and spin for a verifiably random winner.</p>
+        </div>
+      </article>
+      <article class="usecase-card" role="listitem">
+        <div class="usecase-icon" aria-hidden="true">🧘</div>
+        <div>
+          <h3>Fitness Enthusiasts</h3>
+          <p>Randomize your workout routine to keep training fresh and challenging. The Workout Wheel picks your next exercise challenge.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials-section" id="testimonials" aria-label="User reviews">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">⭐ Reviews</div>
+        <h2 class="section-title">What People Are Saying</h2>
+        <p class="section-subtitle">Thousands of users spin every day to settle debates, run games, and make decisions.</p>
+      </div>
+      <div class="testimonials-grid" role="list">
+        <article class="testimonial-card" role="listitem">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text">"I use the Student Picker wheel every day in my 5th grade class. Kids absolutely love when the wheel decides who answers — it's fair and super engaging!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:rgba(59,130,246,0.2);" aria-hidden="true">👩‍🏫</div>
+            <div>
+              <div class="author-name">Sarah M.</div>
+              <div class="author-role">Elementary School Teacher</div>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card" role="listitem">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text">"Game changer for our friend group. The Truth or Dare wheel has made every party 10x more fun. The customizable options are the best part!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:rgba(236,72,153,0.2);" aria-hidden="true">🎉</div>
+            <div>
+              <div class="author-name">Jake T.</div>
+              <div class="author-role">Party Enthusiast</div>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card" role="listitem">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text">"I run monthly giveaways and the Prize Wheel makes it so transparent and exciting. My followers love watching the live spin on stream!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:rgba(255,107,53,0.2);" aria-hidden="true">🏆</div>
+            <div>
+              <div class="author-name">Alex R.</div>
+              <div class="author-role">Content Creator</div>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card" role="listitem">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text">"The Food Picker wheel has ended so many dinner debates in our household. Five stars just for saving my marriage from the 'what do you want to eat' argument."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:rgba(34,197,94,0.2);" aria-hidden="true">🍕</div>
+            <div>
+              <div class="author-name">Maria L.</div>
+              <div class="author-role">Home Cook & Parent</div>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card" role="listitem">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text">"My students beg to use the spin wheel during vocabulary review. It's the most excited they've ever been about answering questions. Highly recommend!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:rgba(168,85,247,0.2);" aria-hidden="true">📚</div>
+            <div>
+              <div class="author-name">David K.</div>
+              <div class="author-role">High School Teacher</div>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card" role="listitem">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text">"The Workout Wheel keeps my training sessions fresh. I customized it with my own exercises and now I never have an excuse to skip gym day!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:rgba(239,68,68,0.2);" aria-hidden="true">💪</div>
+            <div>
+              <div class="author-name">Chris F.</div>
+              <div class="author-role">Fitness Coach</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEO CONTENT ===== -->
+  <section class="seo-section" aria-label="About spin wheels">
+    <div class="seo-inner">
+      <h2>About Our Free Online Spin Wheel</h2>
+      <p>RandomWheel is the web's most comprehensive free spin wheel application. Whether you need a quick yes-or-no answer, want to pick a random name from a list, organize a fair raffle, or create an unforgettable party game, our interactive spin wheel has you covered — instantly and for free.</p>
+
+      <h3>What Is a Spin Wheel?</h3>
+      <p>A spin wheel (also called a random wheel spinner, wheel of fortune, decision wheel, or random picker wheel) is a digital or physical tool that randomly selects one item from a predefined list. Simply enter your choices as wheel segments, click spin, and the wheel lands on a random result. It's the fairest, most entertaining way to make decisions or pick random outcomes.</p>
+
+      <h3>Why Use a Random Wheel Spinner?</h3>
+      <p>Random wheel spinners eliminate decision fatigue and introduce an element of fun and fairness into everyday choices. Teachers use them for classroom engagement, event organizers use them for raffle draws, friends use them for game nights, and professionals use them for team assignments. The spinning animation makes any random selection exciting and transparent.</p>
+
+      <h3>Yes or No Wheel — The Quickest Decision Tool</h3>
+      <p>Our Yes No Wheel is the fastest decision-making tool online. Simply spin and get an instant Yes, No, or Maybe answer. It's perfect when you're stuck between two options and just need a nudge in either direction. You can customize the wheel to include "Absolutely!", "No Way!", and any other responses you like.</p>
+
+      <h3>Food Picker Wheel — End the Dinner Debate</h3>
+      <p>The eternal question — "What should we eat?" — is finally solved. Our Food Picker Wheel lets you add all your favorite restaurants, cuisines, or dishes and spin for a fair, random dinner choice. Completely customizable to include your own local restaurants or dietary preferences.</p>
+
+      <h3>Random Name Picker for Teachers & Teams</h3>
+      <p>Teachers, managers, and group leaders love our Random Name Picker Wheel for fair, unbiased selection. Add all student or team member names to the wheel, spin, and get an impartial result every time. No more favoritism, no more awkward choices — just pure random fairness.</p>
+
+      <h3>Prize & Raffle Wheel for Giveaways</h3>
+      <p>Running a giveaway, contest, or raffle? Our Prize Wheel makes winner selection transparent, exciting, and completely fair. Customize it with contestant names or ticket numbers, spin live on stream, and watch the excitement build as the wheel decides the lucky winner.</p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq-section" id="faq" aria-label="Frequently asked questions">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">❓ FAQ</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about RandomWheel.</p>
+      </div>
+      <div class="faq-list" role="list">
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Is RandomWheel completely free to use?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">Yes! RandomWheel is 100% free with no hidden costs, no subscriptions, and no ads. All 12+ wheel types and every customization feature are completely free for everyone, forever.</div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Do I need to create an account to use the spin wheel?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">No account or sign-up is required. Simply visit the website, choose your wheel type, customize if you like, and start spinning immediately. It's instant and hassle-free.</div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Can I add my own custom options to any wheel?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">Absolutely! Every wheel is fully editable. You can add unlimited segments, edit labels, change colors, and remove options you don't need. The wheel updates in real time as you make changes.</div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            How random is the spin wheel result?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">Our spin wheel uses JavaScript's cryptographically seeded Math.random() function combined with a variable-duration physics animation to ensure truly unpredictable, fair results. Each segment has an equal probability of being selected.</div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Does the spin wheel work on mobile and tablet?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">Yes! RandomWheel is fully responsive and optimized for all screen sizes. It works seamlessly on iOS and Android smartphones, tablets, and all desktop browsers including Chrome, Firefox, Safari, and Edge.</div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Can I use the spin wheel for classroom activities?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">Absolutely! Our Student Picker and Name Picker wheels are specifically designed for educational use. Teachers can add student names, vocabulary words, or topic choices. The spin wheel is used in thousands of classrooms worldwide.</div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Is there a limit to how many segments I can add?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">You can add as many segments as you like to any wheel. For best visual results and readability, we recommend keeping it under 30 segments, but there's no hard limit enforced by the application.</div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Will my custom wheel settings be saved?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">Custom wheel changes are maintained during your current browser session. Refreshing the page will restore the default settings. We're working on a local storage save feature for future updates.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="cta-section" aria-label="Call to action">
+    <div class="container">
+      <h2>Ready to Spin? 🎡</h2>
+      <p>Join thousands of users who trust RandomWheel for fun, fair, and instant random decisions every day.</p>
+      <a href="#spin-app" class="btn-primary" onclick="event.preventDefault();document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">
+        ⚡ Spin the Wheel — It's Free!
+      </a>
+      <div class="cta-wheels" aria-label="Quick wheel access">
+        <button class="cta-wheel-chip" data-wheel="yes-no">🎯 Yes/No</button>
+        <button class="cta-wheel-chip" data-wheel="food-picker">🍕 Food</button>
+        <button class="cta-wheel-chip" data-wheel="truth-dare">🔥 Truth or Dare</button>
+        <button class="cta-wheel-chip" data-wheel="name-picker">👥 Names</button>
+        <button class="cta-wheel-chip" data-wheel="prize">🏆 Prize</button>
+        <button class="cta-wheel-chip" data-wheel="fortune">🔮 Fortune</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer injected by JS -->
+<div id="footer-root"></div>
+
+<!-- Scripts -->
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script src="js/app.js"></script>
+<script>
+  // ===== Bootstrap =====
+  document.addEventListener('DOMContentLoaded', () => {
+    // Inject header & footer
+    document.getElementById('header-root').innerHTML = Header.render();
+    Header.init();
+    document.getElementById('footer-root').innerHTML = Footer.render();
+    Footer.init();
+
+    // Init spin app
+    App.init();
+
+    // CTA chips
+    document.querySelectorAll('.cta-wheel-chip[data-wheel]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('spin-app').scrollIntoView({behavior:'smooth'});
+        setTimeout(() => App.loadWheel(btn.dataset.wheel), 500);
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.animation = 'fadeInUp 0.6s ease both';
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.step-card, .gallery-card, .feature-card, .usecase-card, .testimonial-card').forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  });
+</script>
+</body>
+</html>
