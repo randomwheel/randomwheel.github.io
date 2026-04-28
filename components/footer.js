@@ -18,7 +18,7 @@ const Footer = {
                 <defs><linearGradient id="flg" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#FF6B35"/><stop offset="100%" stop-color="#00E5FF"/></linearGradient></defs>
               </svg>
             </div>
-            <div class="logo-text"><span class="logo-main">Random</span><span class="logo-accent">Wheel</span></div>
+            <div class="logo-text"><span class="logo-main">Spin The </span><span class="logo-accent">Wheel</span></div>
           </a>
           <p class="footer-tagline">The ultimate free online spin wheel for any decision, game, or random pick. Fun, fast & free forever.</p>
           <div class="footer-social">
