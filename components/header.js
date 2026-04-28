@@ -21,7 +21,7 @@ const Header = {
             </svg>
           </div>
           <div class="logo-text">
-            <span class="logo-main">Random</span><span class="logo-accent">Wheel</span>
+            <span class="logo-main">Spin The</span><span class="logo-accent">Wheel</span>
           </div>
         </a>
 
