@@ -49,6 +49,7 @@ const Footer = {
               <li><a href="/#" data-wheel="color">Color Picker Wheel</a></li>
               <li><a href="/#" data-wheel="student">Student Picker</a></li>
               <li><a href="/#" data-wheel="fortune">Fortune Wheel</a></li>
+              <li><a href="/lucky-spin" data-wheel="fortune">Lucky Spinner</a></li>
             </ul>
           </div>
           <div class="footer-col">
