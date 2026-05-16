@@ -1117,6 +1117,14 @@
   <script src="js/app.js"></script>
 
 <script>
+
+    // ===== Bootstrap =====
+  document.addEventListener('DOMContentLoaded', () => {
+    // Inject header & footer
+    document.getElementById('header-root').innerHTML = Header.render();
+    Header.init();
+    document.getElementById('footer-root').innerHTML = Footer.render();
+    Footer.init();
   // ===== DATA =====
   const COLORS = ['#FF6B35','#FFD700','#00E5FF','#FF1493','#22C55E','#A855F7','#3B82F6','#EF4444','#F97316','#06B6D4','#84CC16','#EC4899','#8B5CF6','#14B8A6','#F59E0B','#E879F9'];
   const EMOJIS = ['🏆','🎉','🎊','🌟','🍀','🎯','🔥','⚡','🌈','💎','🎁','🥇'];
