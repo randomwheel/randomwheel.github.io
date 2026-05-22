@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DH0NXE4ME3');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Food Picker Wheel – Spin to Choose What to Eat | Random Wheel</title>
+  <meta name="description" content="Free Food Picker Wheel – Can't decide what to eat? Spin the wheel and let fate choose your meal, restaurant, or cuisine. Perfect for indecisive foodies, groups, and daily lunch decisions.">
+  <meta name="keywords" content="food picker wheel, what to eat wheel, food decision wheel, restaurant wheel, dinner spinner, lunch wheel, meal picker, cuisine wheel, food roulette">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="RandomWheel">
+  <link rel="canonical" href="https://randomwheel.github.io/food-picker-wheel">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Food Picker Wheel – End the Dinner Debate">
+  <meta property="og:description" content="Spin the wheel to pick a restaurant, cuisine, or dish. Stop arguing about what to eat – let the wheel decide!">
+  <meta property="og:url" content="https://randomwheel.github.io/food-picker-wheel">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://randomwheel.github.io/og-foodpicker.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Food Picker Wheel – Spin to Choose What to Eat">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Page-specific styles -->
+  <style>
+    .food-category-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,107,53,0.15);
+      border-radius: 50px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .cuisine-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin: 32px 0;
+    }
+    .cuisine-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 60px;
+      padding: 10px 16px;
+      text-align: center;
+      font-weight: 700;
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+    .cuisine-chip:hover {
+      border-color: var(--accent2);
+      transform: translateY(-3px);
+      background: var(--surface2);
+    }
+    .food-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(255,107,53,0.05));
+      border-radius: var(--radius);
+      padding: 28px;
+      margin: 32px 0;
+    }
+    .food-stat-item {
+      text-align: center;
+    }
+    .food-stat-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--accent);
+    }
+    .craving-tip {
+      background: var(--bg3);
+      border-left: 4px solid var(--accent3);
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      margin: 24px 0;
+    }
+    @keyframes sizzle {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .winner-food {
+      animation: sizzle 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header injected -->
+<div id="header-root"></div>
+
+<main id="main-content">
+
+  <!-- SECTION 1: Hero with Food Theme -->
+  <section class="hero" aria-label="Food Picker Wheel Hero" style="min-height: 90vh;">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">🍕 Food Picker Wheel · What's for Dinner?</div>
+        <h1 class="hero-title">
+          Can't Decide <span class="highlight">What to Eat?</span><br>
+          Spin the Wheel!
+        </h1>
+        <p class="hero-subtitle">
+          The ultimate food decision maker. From pizza to sushi, tacos to Thai – let fate choose your next meal.
+          Perfect for lunch, dinner, date nights, and group outings.
+        </p>
+        <div class="hero-ctas">
+          <a href="#food-app" class="btn-primary" onclick="event.preventDefault();document.getElementById('food-app').scrollIntoView({behavior:'smooth'})">
+            <span>🍽️</span> Spin the Food Wheel
+          </a>
+          <a href="#cuisines" class="btn-secondary" onclick="event.preventDefault();document.getElementById('cuisines').scrollIntoView({behavior:'smooth'})">
+            <span>🌮</span> Explore Cuisines
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-number">30+</div><div class="stat-label">Food Options</div></div>
+          <div class="stat"><div class="stat-number">🍕🍣</div><div class="stat-label">Fully Editable</div></div>
+          <div class="stat"><div class="stat-number">∞</div><div class="stat-label">Custom Meals</div></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-wheel-preview" style="width: 280px; height: 280px;">
+          <div class="hero-wheel-img" style="background: conic-gradient(#FF6B35 0deg 60deg, #22C55E 60deg 120deg, #F59E0B 120deg 180deg, #EF4444 180deg 240deg, #8B5CF6 240deg 300deg, #EC4899 300deg 360deg);"></div>
+          <div class="hero-wheel-center">🍜</div>
+          <div class="hero-pointer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Main Food Picker Wheel App -->
+  <section class="spin-app-section" id="food-app" aria-label="Interactive Food Picker Wheel" style="padding-top: 40px;">
+    <div class="section-header">
+      <div class="section-tag">🍽️ Food Decision Wheel</div>
+      <h2 class="section-title">Spin & Find <span class="highlight">What to Eat</span></h2>
+      <p class="section-subtitle">Customize with your favorite restaurants, cuisines, or dishes. Let the wheel end the debate!</p>
+    </div>
+
+    <div class="app-layout" style="grid-template-columns: 280px 1fr 300px;">
+      <!-- Left Panel: Food Editor -->
+      <aside class="editor-panel" aria-label="Customize Food Options">
+        <div class="panel-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          🍔 Food Options
+        </div>
+        <div id="food-editor-list" role="list" aria-label="Food items on wheel" style="max-height: 320px; overflow-y: auto; margin-bottom: 12px;"></div>
+        <div class="editor-actions">
+          <button class="btn-add" id="food-add-btn">+ Add Food/Restaurant</button>
+          <button class="btn-reset" id="food-reset-default">↺ Reset to Popular Foods</button>
+        </div>
+        <div class="craving-tip" style="margin-top: 16px; font-size: 0.8rem;">
+          💡 <strong>Pro tip:</strong> Add your local favorites! Thai, Sushi, Burgers, Vegan – you name it.
+        </div>
+      </aside>
+
+      <!-- Wheel Center -->
+      <div class="wheel-center">
+        <div class="wheel-info">
+          <h2 id="food-wheel-title">🍕 Food Picker Wheel</h2>
+          <p id="food-wheel-desc">Add your favorite foods below, then spin to decide tonight's meal!</p>
+        </div>
+        <div class="wheel-canvas-wrapper">
+          <div class="wheel-pointer-top"></div>
+          <canvas id="food-wheel-canvas" width="500" height="500" style="width:100%; max-width:420px; height:auto; cursor:pointer;" aria-label="Food picker wheel" tabindex="0"></canvas>
+        </div>
+        <button id="food-spin-btn" class="btn-primary" style="background: linear-gradient(135deg, #22C55E, #F59E0B); box-shadow: 0 8px 32px rgba(34,197,94,0.4);">
+          <span class="spin-icon">🍽️</span> WHAT TO EAT?
+        </button>
+        <p class="keyboard-hint"><kbd>Space</kbd> to spin · <kbd>Enter</kbd> to close result</p>
+      </div>
+
+      <!-- Right Panel: Result + History -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div id="food-result-panel" role="status" aria-live="polite" style="background: var(--surface); border-radius: var(--radius); padding: 20px; border:1px solid var(--border); position:relative; opacity:0; transform:translateY(10px); transition: all var(--transition);">
+          <button id="food-close-result" style="position:absolute; top:12px; right:12px; background:none; border:none; color:var(--text3); cursor:pointer;">✕</button>
+          <div style="text-align:center;">
+            <span id="food-result-emoji" style="font-size:3rem;">🍽️</span>
+            <div class="result-label" style="margin: 8px 0 4px;">🍴 Tonight You're Eating...</div>
+            <div id="food-result-text" style="font-family: var(--font-display); font-size: clamp(1.5rem, 5vw, 2.2rem); color: var(--accent3);">—</div>
+          </div>
+        </div>
+
+        <div class="history-panel">
+          <div class="panel-title">📋 Meal History</div>
+          <div id="food-spin-history" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Popular Cuisine Quick Picks -->
+  <section class="features-section" id="cuisines" aria-label="Popular Cuisine Presets">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">🌍 Popular Cuisines</div>
+        <h2 class="section-title">Quick <span class="highlight">Food Presets</span></h2>
+        <p class="section-subtitle">Load ready-to-use cuisine wheels with one click. Customize anytime!</p>
+      </div>
+      <div class="cuisine-grid" id="cuisine-presets-grid">
+        <!-- JS will populate or static -->
+        <div class="cuisine-chip" data-food-preset="fastfood">🍔 Fast Food</div>
+        <div class="cuisine-chip" data-food-preset="asian">🥢 Asian</div>
+        <div class="cuisine-chip" data-food-preset="italian">🍝 Italian</div>
+        <div class="cuisine-chip" data-food-preset="mexican">🌮 Mexican</div>
+        <div class="cuisine-chip" data-food-preset="healthy">🥗 Healthy</div>
+        <div class="cuisine-chip" data-food-preset="dessert">🍰 Dessert</div>
+      </div>
+      <div class="food-stats">
+        <div class="food-stat-item"><div class="food-stat-number">1M+</div><div>Decisions Made</div></div>
+        <div class="food-stat-item"><div class="food-stat-number">🍕🍣🌮</div><div>Cuisines Available</div></div>
+        <div class="food-stat-item"><div class="food-stat-number">100%</div><div>Fair & Random</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: How It Works + Benefits -->
+  <section class="how-section" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">⚙️ How It Works</div>
+        <h2 class="section-title">From <span class="highlight">"I Don't Know"</span> to Dinner</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card"><span class="step-icon">📝</span><div class="step-num">1</div><h3>Add Your Foods</h3><p>Enter restaurants, cuisines, or specific dishes you're craving.</p></div>
+        <div class="step-card"><span class="step-icon">🎨</span><div class="step-num">2</div><h3>Customize Colors</h3><p>Change segment colors to match your mood or food type.</p></div>
+        <div class="step-card"><span class="step-icon">🎡</span><div class="step-num">3</div><h3>Spin the Wheel</h3><p>Click SPIN or press Space. Watch the wheel decide your fate.</p></div>
+        <div class="step-card"><span class="step-icon">🍽️</span><div class="step-num">4</div><h3>Enjoy Your Meal</h3><p>No more arguments – the wheel has spoken! Go eat.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Food Scenarios & Testimonials -->
+  <section class="usecases-section" aria-label="Food Wheel Scenarios">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">👥 Perfect For</div>
+        <h2 class="section-title">Who Uses the <span class="highlight">Food Picker Wheel</span>?</h2>
+      </div>
+      <div class="usecases-grid">
+        <div class="usecase-card"><div class="usecase-icon">👨‍👩‍👧‍👦</div><div><h3>Families</h3><p>Stop the "what's for dinner" debate. Let the wheel choose for everyone.</p></div></div>
+        <div class="usecase-card"><div class="usecase-icon">👫</div><div><h3>Couples</h3><p>Date night decision maker – from fancy Italian to casual tacos.</p></div></div>
+        <div class="usecase-card"><div class="usecase-icon">🍻</div><div><h3>Friend Groups</h3><p>Group lunch? Dinner party? Spin to satisfy everyone (or at least settle it).</p></div></div>
+        <div class="usecase-card"><div class="usecase-icon">🍱</div><div><h3>Meal Preppers</h3><p>Randomize your weekly meal plan for variety and excitement.</p></div></div>
+      </div>
+      <div class="quote-block" style="margin-top: 48px; background: linear-gradient(145deg, rgba(34,197,94,0.08), rgba(245,158,11,0.04));">
+        <span class="emoji-big">🗣️</span>
+        <p style="font-style: italic; font-size: 1.1rem;">"This food wheel saved my relationship. No more 'I don't know, what do you want?' — we just spin!"</p>
+        <p style="margin-top: 12px;">— Happy Foodie</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: FAQ about Food Wheel -->
+  <section class="faq-section" id="faq-food" aria-label="Food Picker FAQ">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">❓ FAQ</div>
+        <h2 class="section-title">Food Wheel <span class="highlight">Questions</span></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-question">Can I add my own restaurants?<span class="faq-chevron">▼</span></button><div class="faq-answer">Absolutely! Click "Add Food/Restaurant" and type any place, dish, or cuisine you love. Build your perfect local food wheel.</div></div>
+        <div class="faq-item"><button class="faq-question">Is the food decision truly random?<span class="faq-chevron">▼</span></button><div class="faq-answer">Yes! Physics-based spin animation + cryptographic randomness ensures a fair, unbiased result every time.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I use this for dietary restrictions?<span class="faq-chevron">▼</span></button><div class="faq-answer">Definitely. Customize the wheel with only vegan, keto, gluten-free, or any specific diet options you need.</div></div>
+        <div class="faq-item"><button class="faq-question">Does it work on my phone?<span class="faq-chevron">▼</span></button><div class="faq-answer">Yes! Fully responsive – spin from your smartphone at the restaurant or at home.</div></div>
+        <div class="faq-item"><button class="faq-question">How many food options can I add?<span class="faq-chevron">▼</span></button><div class="faq-answer">Unlimited! Add as many dishes or restaurants as you like. The wheel adjusts automatically.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: CTA Banner -->
+  <section class="cta-section" style="padding: 70px 0;">
+    <div class="container">
+      <h2>Stop Wasting Time Deciding 🍽️</h2>
+      <p>Spin the wheel, get your answer, and go eat. The easiest dinner decision you'll ever make.</p>
+      <button id="food-bottom-cta" class="btn-primary" style="background: linear-gradient(145deg, #F59E0B, #22C55E);">🎡 Spin the Food Wheel Now</button>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<div id="footer-root"></div>
+
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script>
+  // --- Food Picker Wheel Logic ---
+  (function(){
+    // Default food options (popular)
+    let foodSegments = [
+      { label: "🍕 Pizza", color: "#FF6B35", emoji: "🍕" },
+      { label: "🍣 Sushi", color: "#22C55E", emoji: "🍣" },
+      { label: "🌮 Tacos", color: "#F59E0B", emoji: "🌮" },
+      { label: "🍝 Pasta", color: "#EF4444", emoji: "🍝" },
+      { label: "🥗 Salad", color: "#10B981", emoji: "🥗" },
+      { label: "🍔 Burger", color: "#8B5CF6", emoji: "🍔" },
+      { label: "🍜 Ramen", color: "#EC4899", emoji: "🍜" },
+      { label: "🥘 Curry", color: "#FFD700", emoji: "🥘" }
+    ];
+    
+    let spinInProgress = false;
+    let currentRotation = 0;
+    let animFrame = null;
+    let canvas = null, ctx = null;
+    let historyList = [];
+
+    function drawFoodWheel() {
+      if(!canvas || !ctx || foodSegments.length === 0) return;
+      const w = canvas.width, h = canvas.height;
+      const centerX = w/2, centerY = h/2;
+      const radius = Math.min(w,h) * 0.44;
+      ctx.clearRect(0,0,w,h);
+      const angleStep = (Math.PI * 2) / foodSegments.length;
+      for(let i = 0; i < foodSegments.length; i++) {
+        const start = currentRotation + i * angleStep;
+        const end = start + angleStep;
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, start, end);
+        ctx.fillStyle = foodSegments[i].color;
+        ctx.fill();
+        ctx.strokeStyle = "rgba(0,0,0,0.2)";
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.save();
+        ctx.translate(centerX, centerY);
+        ctx.rotate(start + angleStep/2);
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        let fontSize = Math.max(11, radius * 0.11);
+        ctx.font = `bold ${fontSize}px "Nunito", sans-serif`;
+        let label = foodSegments[i].label;
+        let shortLabel = label.length > 14 ? label.slice(0,12)+".." : label;
+        ctx.fillStyle = "#ffffffdd";
+        ctx.fillText(shortLabel, radius * 0.7, 5);
+        ctx.restore();
+      }
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius*0.15, 0, 2*Math.PI);
+      ctx.fillStyle = "#111";
+      ctx.fill();
+      ctx.fillStyle = "white";
+      ctx.font = "bold 24px 'Segoe UI'";
+      ctx.fillText("🍽️", centerX-15, centerY+8);
+    }
+
+    function animateFoodSpin(targetAngle, duration=1600, callback){
+      const startAngle = currentRotation;
+      const startTime = performance.now();
+      function step(now){
+        const elapsed = now - startTime;
+        let t = Math.min(1, elapsed/duration);
+        const easeOut = 1 - Math.pow(1-t, 3);
+        currentRotation = startAngle + (targetAngle - startAngle) * easeOut;
+        drawFoodWheel();
+        if(t < 1) animFrame = requestAnimationFrame(step);
+        else {
+          currentRotation = targetAngle % (Math.PI*2);
+          drawFoodWheel();
+          if(callback) callback();
+          spinInProgress = false;
+          const btn = document.getElementById('food-spin-btn');
+          if(btn) btn.disabled = false;
+          animFrame = null;
+        }
+      }
+      if(animFrame) cancelAnimationFrame(animFrame);
+      animFrame = requestAnimationFrame(step);
+    }
+
+    function getCurrentFoodSegment(){
+      if(foodSegments.length === 0) return null;
+      const angleStep = (Math.PI*2)/foodSegments.length;
+      let rawAngle = (Math.PI*2 - (currentRotation % (Math.PI*2))) % (Math.PI*2);
+      let idx = Math.floor(rawAngle / angleStep) % foodSegments.length;
+      return foodSegments[idx];
+    }
+
+    function addFoodHistory(segment){
+      historyList.unshift({ label: segment.label, emoji: segment.emoji || "🍽️", timestamp: new Date() });
+      if(historyList.length > 12) historyList.pop();
+      renderFoodHistory();
+    }
+
+    function renderFoodHistory(){
+      const container = document.getElementById('food-spin-history');
+      if(!container) return;
+      if(historyList.length === 0){
+        container.innerHTML = '<div class="history-empty">🍽️ Spin to see your meal history!</div>';
+        return;
+      }
+      container.innerHTML = historyList.map(h => `
+        <div class="history-item">
+          <div class="hist-emoji">${h.emoji}</div>
+          <div class="hist-details"><strong>${escapeHtml(h.label)}</strong><small>${h.timestamp.toLocaleTimeString()}</small></div>
+        </div>
+      `).join('');
+    }
+
+    function showFoodResult(segment){
+      const panel = document.getElementById('food-result-panel');
+      const resultText = document.getElementById('food-result-text');
+      const resultEmoji = document.getElementById('food-result-emoji');
+      if(panel && resultText){
+        resultText.innerText = segment.label;
+        resultEmoji.innerText = segment.emoji || "🍽️";
+        panel.style.opacity = "1";
+        panel.style.transform = "translateY(0)";
+        // confetti
+        if(window.confetti) window.confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
+        addFoodHistory(segment);
+        panel.style.animation = 'pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        setTimeout(()=>{ if(panel) panel.style.animation = ''; }, 500);
+        // add winner animation class
+        const winnerDiv = document.getElementById('food-result-text');
+        if(winnerDiv) winnerDiv.classList.add('winner-food');
+        setTimeout(()=> winnerDiv?.classList.remove('winner-food'), 500);
+      }
+    }
+
+    function spinFoodWheel(){
+      if(spinInProgress || foodSegments.length === 0) return;
+      spinInProgress = true;
+      const spinBtn = document.getElementById('food-spin-btn');
+      if(spinBtn) spinBtn.disabled = true;
+      const spins = 10 + Math.random() * 8;
+      const extraAngle = Math.random() * Math.PI * 2;
+      const targetDelta = (Math.PI * 2 * spins) + extraAngle;
+      const target = currentRotation + targetDelta;
+      animateFoodSpin(target, 1600, () => {
+        const winner = getCurrentFoodSegment();
+        if(winner) showFoodResult(winner);
+        else { spinInProgress = false; if(spinBtn) spinBtn.disabled = false; }
+      });
+    }
+
+    function rebuildFoodEditor(){
+      const container = document.getElementById('food-editor-list');
+      if(!container) return;
+      container.innerHTML = '';
+      foodSegments.forEach((seg, idx) => {
+        const div = document.createElement('div');
+        div.className = 'editor-item';
+        div.innerHTML = `
+          <input type="color" class="seg-color" value="${seg.color}" data-idx="${idx}" style="background:${seg.color};">
+          <input type="text" class="seg-label" value="${escapeHtml(seg.label)}" data-idx="${idx}" maxlength="28">
+          <button class="seg-del" data-idx="${idx}" aria-label="Remove food">✕</button>
+        `;
+        container.appendChild(div);
+      });
+      document.querySelectorAll('#food-editor-list .seg-color').forEach(inp => {
+        inp.addEventListener('change', (e) => {
+          let i = parseInt(e.target.dataset.idx);
+          if(!isNaN(i) && foodSegments[i]){ foodSegments[i].color = e.target.value; drawFoodWheel(); }
+        });
+      });
+      document.querySelectorAll('#food-editor-list .seg-label').forEach(inp => {
+        inp.addEventListener('change', (e) => {
+          let i = parseInt(e.target.dataset.idx);
+          if(!isNaN(i) && foodSegments[i]){ foodSegments[i].label = e.target.value.trim() || "Food"; drawFoodWheel(); }
+        });
+      });
+      document.querySelectorAll('#food-editor-list .seg-del').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          let i = parseInt(btn.dataset.idx);
+          if(!isNaN(i) && foodSegments.length > 1){
+            foodSegments.splice(i,1);
+            rebuildFoodEditor();
+            drawFoodWheel();
+          }
+        });
+      });
+    }
+
+    function loadFoodPreset(preset){
+      if(preset === 'fastfood'){
+        foodSegments = [{ label:"🍔 Burger", color:"#FF6B35", emoji:"🍔"},{ label:"🍟 Fries", color:"#F59E0B", emoji:"🍟"},{ label:"🍕 Pizza", color:"#EF4444", emoji:"🍕"},{ label:"🌮 Tacos", color:"#22C55E", emoji:"🌮"},{ label:"🍗 Chicken", color:"#8B5CF6", emoji:"🍗"}];
+      } else if(preset === 'asian'){
+        foodSegments = [{ label:"🍣 Sushi", color:"#22C55E", emoji:"🍣"},{ label:"🍜 Ramen", color:"#FF6B35", emoji:"🍜"},{ label:"🥟 Dumplings", color:"#F59E0B", emoji:"🥟"},{ label:"🍛 Curry", color:"#EC4899", emoji:"🍛"},{ label:"🥡 Fried Rice", color:"#10B981", emoji:"🥡"}];
+      } else if(preset === 'italian'){
+        foodSegments = [{ label:"🍝 Pasta", color:"#EF4444", emoji:"🍝"},{ label:"🍕 Pizza", color:"#FF6B35", emoji:"🍕"},{ label:"🥗 Caprese", color:"#22C55E", emoji:"🥗"},{ label:"🍲 Risotto", color:"#F59E0B", emoji:"🍲"},{ label:"🍦 Gelato", color:"#EC4899", emoji:"🍦"}];
+      } else if(preset === 'mexican'){
+        foodSegments = [{ label:"🌮 Tacos", color:"#F59E0B", emoji:"🌮"},{ label:"🌯 Burrito", color:"#FF6B35", emoji:"🌯"},{ label:"🍳 Quesadilla", color:"#22C55E", emoji:"🍳"},{ label:"🥑 Guacamole", color:"#10B981", emoji:"🥑"},{ label:"🍹 Margarita", color:"#8B5CF6", emoji:"🍹"}];
+      } else if(preset === 'healthy'){
+        foodSegments = [{ label:"🥗 Salad", color:"#22C55E", emoji:"🥗"},{ label:"🥑 Avocado Toast", color:"#10B981", emoji:"🥑"},{ label:"🍲 Quinoa Bowl", color:"#F59E0B", emoji:"🍲"},{ label:"🥤 Smoothie", color:"#3B82F6", emoji:"🥤"},{ label:"🍣 Veggie Sushi", color:"#EC4899", emoji:"🍣"}];
+      } else if(preset === 'dessert'){
+        foodSegments = [{ label:"🍰 Cake", color:"#EC4899", emoji:"🍰"},{ label:"🍪 Cookie", color:"#F59E0B", emoji:"🍪"},{ label:"🍦 Ice Cream", color:"#3B82F6", emoji:"🍦"},{ label:"🧁 Cupcake", color:"#FF6B35", emoji:"🧁"},{ label:"🍫 Brownie", color:"#8B5CF6", emoji:"🍫"}];
+      } else {
+        foodSegments = [
+          { label:"🍕 Pizza", color:"#FF6B35", emoji:"🍕"},{ label:"🍣 Sushi", color:"#22C55E", emoji:"🍣"},{ label:"🌮 Tacos", color:"#F59E0B", emoji:"🌮"},
+          { label:"🍝 Pasta", color:"#EF4444", emoji:"🍝"},{ label:"🍔 Burger", color:"#8B5CF6", emoji:"🍔"},{ label:"🍜 Ramen", color:"#EC4899", emoji:"🍜"}
+        ];
+      }
+      rebuildFoodEditor();
+      drawFoodWheel();
+    }
+
+    function escapeHtml(str){ return String(str).replace(/[&<>]/g, function(m){ return m==='&'?'&amp;': m==='<'?'&lt;':'&gt;';}); }
+
+    function initFoodPicker(){
+      canvas = document.getElementById('food-wheel-canvas');
+      if(!canvas) return;
+      const sz = Math.min(window.innerWidth * 0.7, 450);
+      canvas.width = sz; canvas.height = sz;
+      canvas.style.width = `${sz}px`; canvas.style.height = `${sz}px`;
+      ctx = canvas.getContext('2d');
+      rebuildFoodEditor();
+      drawFoodWheel();
+      
+      document.getElementById('food-spin-btn')?.addEventListener('click', spinFoodWheel);
+      canvas.addEventListener('click', spinFoodWheel);
+      document.getElementById('food-add-btn')?.addEventListener('click', ()=>{
+        let newFood = prompt("Add a food, restaurant, or dish:", "🍣 New Dish");
+        if(newFood && newFood.trim()){
+          foodSegments.push({ label: newFood.trim(), color: "#" + Math.floor(Math.random()*16777215).toString(16), emoji: "🍽️" });
+          rebuildFoodEditor();
+          drawFoodWheel();
+        }
+      });
+      document.getElementById('food-reset-default')?.addEventListener('click', ()=> loadFoodPreset('default'));
+      document.getElementById('food-close-result')?.addEventListener('click', ()=>{
+        document.getElementById('food-result-panel').style.opacity = "0";
+        document.getElementById('food-result-panel').style.transform = "translateY(10px)";
+      });
+      document.addEventListener('keydown', (e) => {
+        if(e.code === 'Space' && !spinInProgress && document.activeElement?.tagName !== 'TEXTAREA' && document.activeElement?.tagName !== 'INPUT'){
+          e.preventDefault(); spinFoodWheel();
+        }
+      });
+      // cuisine chips
+      document.querySelectorAll('[data-food-preset]').forEach(chip => {
+        chip.addEventListener('click', () => {
+          const preset = chip.dataset.foodPreset;
+          if(preset === 'fastfood') loadFoodPreset('fastfood');
+          else if(preset === 'asian') loadFoodPreset('asian');
+          else if(preset === 'italian') loadFoodPreset('italian');
+          else if(preset === 'mexican') loadFoodPreset('mexican');
+          else if(preset === 'healthy') loadFoodPreset('healthy');
+          else if(preset === 'dessert') loadFoodPreset('dessert');
+          document.getElementById('food-app')?.scrollIntoView({behavior:'smooth'});
+        });
+      });
+      document.getElementById('food-bottom-cta')?.addEventListener('click', ()=>{
+        document.getElementById('food-app')?.scrollIntoView({behavior:'smooth'});
+        setTimeout(()=> spinFoodWheel(), 400);
+      });
+    }
+    
+    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initFoodPicker);
+    else initFoodPicker();
+    
+    if(!window.confetti){
+      const script = document.createElement('script');
+      script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1";
+      script.onload = () => { window.confetti = (opts) => canvasConfetti(opts); };
+      document.head.appendChild(script);
+    }
+  })();
+
+  // FAQ Accordion + Header/Footer
+  document.addEventListener('DOMContentLoaded', () => {
+    if(document.getElementById('header-root')) document.getElementById('header-root').innerHTML = window.Header?.render?.() || '<div class="site-header"><div class="header-inner"><a href="/" class="logo">RandomWheel</a></div></div>';
+    if(document.getElementById('footer-root')) document.getElementById('footer-root').innerHTML = window.Footer?.render?.() || '<footer style="text-align:center;padding:2rem;">© RandomWheel - Food Picker</footer>';
+    if(window.Header?.init) Header.init();
+    if(window.Footer?.init) Footer.init();
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  });
+</script>
+</body>
+</html>
