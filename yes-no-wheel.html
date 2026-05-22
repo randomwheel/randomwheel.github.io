@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DH0NXE4ME3');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Yes/No Wheel – Instant Decision Maker | Random Wheel</title>
+  <meta name="description" content="Free Yes/No Wheel – The ultimate decision maker. Spin to get an instant Yes, No, or Maybe. Perfect for quick answers, game nights, and tough choices. 100% free no download.">
+  <meta name="keywords" content="yes no wheel, yes no spinner, decision wheel, yes or no wheel, yes no picker, random yes no, wheel of answers, yes no generator">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="RandomWheel">
+  <link rel="canonical" href="https://randomwheel.github.io/yes-no-wheel">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Yes/No Wheel – Instant Decision Maker">
+  <meta property="og:description" content="Spin the Yes/No wheel for fast, fun answers. Customizable with Maybe, Absolutely, or No Way! Free interactive decision tool.">
+  <meta property="og:url" content="https://randomwheel.github.io/yes-no-wheel">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://randomwheel.github.io/og-yesno.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yes/No Wheel – Instant Decision Maker">
+  <meta name="twitter:description" content="Quick, fair, and fun. Spin the Yes/No wheel now for any dilemma.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- main style from existing CSS (same as index) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Additional dedicated page styles (not overriding, just enhancing) -->
+  <style>
+    /* yes-no page additional polish */
+    .yesno-hero {
+      background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(255,107,53,0.15) 0%, transparent 70%);
+    }
+    .yesno-wheel-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 24px;
+      transition: all var(--transition);
+    }
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .benefit-item {
+      background: rgba(255,255,255,0.02);
+      padding: 28px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: transform 0.2s ease, border-color 0.2s;
+    }
+    .benefit-item:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent2);
+    }
+    .benefit-icon {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+    }
+    .quote-block {
+      background: linear-gradient(145deg, rgba(255,107,53,0.08), rgba(0,229,255,0.04));
+      border-radius: 40px;
+      padding: 32px;
+      text-align: center;
+      margin: 48px 0;
+    }
+    .emoji-big {
+      font-size: 3rem;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    }
+    .quick-scenarios {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin: 32px 0;
+    }
+    .scenario-chip {
+      background: var(--surface2);
+      border-radius: 60px;
+      padding: 8px 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text2);
+      transition: all 0.2s ease;
+      cursor: default;
+      border: 1px solid var(--border);
+    }
+    .scenario-chip:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    @media (max-width: 680px) {
+      .yesno-hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- header injected via components (same as index) -->
+<div id="header-root"></div>
+
+<main id="main-content">
+
+  <!-- SECTION 1: Hero + Yes/No Wheel (core interactive wheel) -->
+  <section class="hero yesno-hero" aria-label="Yes No Wheel Hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner" style="gap: 48px;">
+      <div class="hero-content">
+        <div class="hero-badge">🎯 Yes / No Wheel · Instant Answers</div>
+        <h1 class="hero-title">
+          Yes/No Wheel:<br>
+          <span class="highlight">Decide in Seconds.</span>
+        </h1>
+        <p class="hero-subtitle">
+          The classic decision spinner — perfect for tough choices, party games, or a simple yes/no answer. 
+          Customize with "Maybe", "Absolutely", or "No way!" Fully free and instant.
+        </p>
+        <div class="hero-ctas">
+          <button id="hero-spin-cta" class="btn-primary" aria-label="Spin Yes/No wheel now">
+            <span>🎡</span> Spin the Yes/No Wheel
+          </button>
+          <button class="btn-secondary" onclick="document.getElementById('customization-tips').scrollIntoView({behavior:'smooth'});">
+            ✨ Customize Options
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-number">3+</div><div class="stat-label">Default Options</div></div>
+          <div class="stat"><div class="stat-number">∞</div><div class="stat-label">Custom Answers</div></div>
+          <div class="stat"><div class="stat-number">0s</div><div class="stat-label">Setup Time</div></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-wheel-preview" style="width: 280px; height: 280px;">
+          <div class="hero-wheel-img" style="background: conic-gradient(#22C55E 0 180deg, #EF4444 180deg 360deg);"></div>
+          <div class="hero-wheel-center">❓</div>
+          <div class="hero-pointer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Interactive Yes/No Wheel experience (dedicated spinner) -->
+  <section class="spin-app-section" id="yesno-app" aria-label="Interactive Yes No Wheel Spinner" style="padding-top: 40px;">
+    <div class="section-header">
+      <div class="section-tag">🎡 Spin & Decide</div>
+      <h2 class="section-title">The Original <span class="highlight">Yes or No Wheel</span></h2>
+      <p class="section-subtitle">Tap the wheel or click SPIN. Perfect for decisions, games, and procrastination relief.</p>
+    </div>
+
+    <div class="app-layout" style="grid-template-columns: 260px 1fr 300px;">
+      <!-- Editor panel for Yes/No customizing -->
+      <aside class="editor-panel" aria-label="Customize Yes No Wheel segments">
+        <div class="panel-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          🎲 Customize Answers
+        </div>
+        <div id="yesno-editor-list" role="list" aria-label="Segment options for Yes/No Wheel" style="max-height: 280px; overflow-y: auto;"></div>
+        <div class="editor-actions" style="margin-top: 14px;">
+          <button class="btn-add" id="yn-add-segment">+ Add Option (Yes/No/Maybe)</button>
+          <button class="btn-reset" id="yn-reset-default">↺ Reset to Classic Yes/No</button>
+        </div>
+        <p class="keyboard-hint" style="margin-top: 12px; text-align: center;"><kbd>✏️</kbd> Edit text, change colors</p>
+      </aside>
+
+      <!-- Wheel visual -->
+      <div class="wheel-center">
+        <div class="wheel-info">
+          <h2 id="yn-wheel-title">🎯 Yes / No Wheel</h2>
+          <p id="yn-wheel-desc">Quick decisions? Let the wheel decide Yes, No, or Maybe.</p>
+        </div>
+        <div class="wheel-canvas-wrapper">
+          <div class="wheel-pointer-top"></div>
+          <canvas id="yn-wheel-canvas" width="500" height="500" style="width:100%; max-width:400px; height:auto; cursor:pointer;" aria-label="Yes No Wheel spinner" tabindex="0"></canvas>
+        </div>
+        <button id="yn-spin-btn" class="btn-primary" style="background: linear-gradient(135deg, #22C55E, #3b82f6); box-shadow: 0 8px 32px rgba(34,197,94,0.4);">
+          <span class="spin-icon">🎡</span> SPIN & DECIDE
+        </button>
+        <p class="keyboard-hint"><kbd>Space</kbd> to spin · <kbd>Enter</kbd> to reset result panel</p>
+      </div>
+
+      <!-- Result & History -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div id="yn-result-panel" role="status" aria-live="polite">
+          <div class="result-winner-badge">
+            <span id="yn-result-emoji" role="img">🤔</span>
+            <div class="result-label">🏆 The Wheel Decided…</div>
+            <div id="yn-result-text">Spin to see Yes/No</div>
+          </div>
+          <button id="yn-close-result" aria-label="Close result panel" style="position: absolute; top: 12px; right: 12px; background: none; border: none; color: var(--text3); cursor: pointer;">✕</button>
+        </div>
+
+        <div class="history-panel">
+          <div class="panel-title">📋 Recent Answers</div>
+          <div id="yn-spin-history" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Benefits & Use Cases for Yes/No Wheel -->
+  <section class="features-section" id="customization-tips" aria-label="Why Yes/No Wheel rocks">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">⚡ Why It's Genius</div>
+        <h2 class="section-title">More Than Just <span class="highlight">Yes and No</span></h2>
+        <p class="section-subtitle">Endless possibilities: Add "Maybe", "Ask Again", "Absolutely!", or custom answers.</p>
+      </div>
+      <div class="benefit-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">🎭</div>
+          <h3>Fun Party Game</h3>
+          <p>Add funny alternatives like "Obviously Yes", "Nope", "Try Again" to spice up game nights.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">📚</div>
+          <h3>Classroom Tool</h3>
+          <p>Teachers use Yes/No wheel for rapid response polls, Q&A, and engagement boosters.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">💼</div>
+          <h3>Team Decisions</h3>
+          <p>Quickly decide project directions, feature approvals, or meeting icebreakers.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🎨</div>
+          <h3>Full Customization</h3>
+          <p>Change segment colors, text, or even add 5 different answers — tailor it to your mood.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Creative scenarios + quote block -->
+  <section class="usecases-section" style="background: var(--bg);">
+    <div class="container">
+      <div class="quote-block">
+        <span class="emoji-big">🤷‍♂️🤷‍♀️</span>
+        <h3 style="font-family: var(--font-display); margin: 12px 0 8px;">“Should I ... ?” – Let the Wheel Decide</h3>
+        <p style="color: var(--text2); max-width: 600px; margin: 0 auto;">From snack choices to life's little dilemmas, the Yes/No wheel brings clarity with a touch of excitement.</p>
+        <div class="quick-scenarios">
+          <span class="scenario-chip">🍕 Order pizza?</span>
+          <span class="scenario-chip">📺 Watch a movie?</span>
+          <span class="scenario-chip">🏋️‍♂️ Workout today?</span>
+          <span class="scenario-chip">💤 Take a nap?</span>
+          <span class="scenario-chip">🎮 Play games?</span>
+          <span class="scenario-chip">📖 Study more?</span>
+        </div>
+      </div>
+      <div class="section-header" style="margin-top: 20px;">
+        <div class="section-tag">🔮 Endless Fun</div>
+        <h2 class="section-title">Real-Life Yes/No <span class="highlight">Situations</span></h2>
+      </div>
+      <div class="usecases-grid">
+        <article class="usecase-card">
+          <div class="usecase-icon">❤️</div>
+          <div><h3>Relationship Questions</h3><p>"Should I text them?" "Confess my feelings?" — spin for a lighthearted nudge.</p></div>
+        </article>
+        <article class="usecase-card">
+          <div class="usecase-icon">🏡</div>
+          <div><h3>Home Decisions</h3><p>"Order takeout or cook?" "Clean today or tomorrow?" Yes/No wheel solves domestic stalemates.</p></div>
+        </article>
+        <article class="usecase-card">
+          <div class="usecase-icon">🎓</div>
+          <div><h3>Student Life</h3><p>"Should I join the study group?" "Ask a question in class?" risk-free fun.</p></div>
+        </article>
+        <article class="usecase-card">
+          <div class="usecase-icon">🎲</div>
+          <div><h3>Board Games</h3><p>Use the wheel for "yes/no" events, chance cards, or tie breakers. More exciting than a coin flip!</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: FAQ + Advanced Tips for Yes/No Wheel -->
+  <section class="faq-section" style="background: var(--bg2);" aria-label="Yes No Wheel FAQs">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">❓ Got questions?</div>
+        <h2 class="section-title">Yes/No Wheel <span class="highlight">Quick Answers</span></h2>
+        <p class="section-subtitle">Everything about the decision wheel — from randomness to customizing.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Is the Yes/No wheel truly random?<span class="faq-chevron">▼</span></button>
+          <div class="faq-answer">Absolutely! The wheel uses physics-based randomization plus JavaScript's Math.random, giving you fair and unbiased results each spin. No patterns, no repeats.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Can I add "Maybe" or extra options?<span class="faq-chevron">▼</span></button>
+          <div class="faq-answer">Yes! Our editor lets you add any text: "Maybe", "Absolutely Yes", "No way", "Ask later". You can also adjust colors to make them pop.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Do I need to download anything?<span class="faq-chevron">▼</span></button>
+          <div class="faq-answer">No, it's 100% browser-based. Works instantly on desktop, tablet, and mobile. No app, no sign-up, just spin.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Can I use this for streams or online classes?<span class="faq-chevron">▼</span></button>
+          <div class="faq-answer">Definitely! It’s perfect for Twitch, Zoom, YouTube, or classroom sessions. Resize and share screen, the wheel looks vibrant.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">How do I reset to classic Yes/No?<span class="faq-chevron">▼</span></button>
+          <div class="faq-answer">Click the "Reset to Classic Yes/No" button in the editor panel. It restores the default segments: Yes (Green) and No (Red).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: CTA banner (friendly) -->
+  <section class="cta-section" style="padding: 70px 0;">
+    <div class="container">
+      <h2>Spin the Yes/No Wheel Now 🎡</h2>
+      <p>Stop overthinking. One spin — one clear answer. Fun, fast, and free forever.</p>
+      <button id="bottom-spin-cta" class="btn-primary" style="background: linear-gradient(145deg, #FF6B35, #FF1493);">✨ Let the Wheel Decide ✨</button>
+      <div class="cta-wheels" style="margin-top: 28px;">
+        <span style="color: var(--text3);">Popular: </span>
+        <button class="cta-wheel-chip" data-yn-quick="yes">✅ Classic Yes/No</button>
+        <button class="cta-wheel-chip" data-yn-quick="maybe">🤔 Yes/No/Maybe</button>
+        <button class="cta-wheel-chip" data-yn-quick="funny">😜 Epic Yes/No</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer injected -->
+<div id="footer-root"></div>
+
+<!-- scripts from index + dedicated Yes/No Wheel app logic -->
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script>
+  // Standalone Yes/No wheel manager (full features)
+  (function(){
+    // ----- Default wheels presets -----
+    const classicYesNo = [
+      { label: "YES", color: "#22C55E", emoji: "✅" },
+      { label: "NO", color: "#EF4444", emoji: "❌" }
+    ];
+    const yesNoMaybe = [
+      { label: "YES", color: "#22C55E", emoji: "✅" },
+      { label: "NO", color: "#EF4444", emoji: "❌" },
+      { label: "MAYBE", color: "#FFD700", emoji: "🤔" }
+    ];
+    const funnyYesNo = [
+      { label: "ABSOLUTELY!", color: "#22C55E", emoji: "💪" },
+      { label: "NOPE", color: "#EF4444", emoji: "🚫" },
+      { label: "FOR SURE", color: "#3B82F6", emoji: "🎯" },
+      { label: "NO WAY", color: "#A855F7", emoji: "😱" }
+    ];
+    
+    let currentSegments = JSON.parse(JSON.stringify(classicYesNo)); // mutable
+    let spinInProgress = false;
+    let currentRotation = 0;
+    let animationFrame = null;
+    let canvas = null;
+    let ctx = null;
+    let historyList = [];
+    
+    // helpers
+    function drawWheel() {
+      if(!canvas || !ctx) return;
+      const w = canvas.width, h = canvas.height;
+      const centerX = w/2, centerY = h/2;
+      const radius = Math.min(w,h)*0.44;
+      ctx.clearRect(0,0,w,h);
+      if(currentSegments.length === 0) return;
+      const angleStep = (Math.PI * 2) / currentSegments.length;
+      for(let i=0; i<currentSegments.length; i++){
+        const start = currentRotation + i * angleStep;
+        const end = start + angleStep;
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, start, end);
+        ctx.fillStyle = currentSegments[i].color;
+        ctx.fill();
+        ctx.save();
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = "rgba(0,0,0,0.2)";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.restore();
+        ctx.save();
+        ctx.translate(centerX, centerY);
+        ctx.rotate(start + angleStep/2);
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.font = `bold ${Math.max(12, radius * 0.12)}px "Nunito", sans-serif`;
+        ctx.fillStyle = "#ffffffcc";
+        let label = currentSegments[i].label;
+        if(label.length > 14) label = label.slice(0,12)+"..";
+        ctx.fillText(label, radius * 0.66, 6);
+        ctx.restore();
+      }
+      // center circle
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius*0.16, 0, 2*Math.PI);
+      ctx.fillStyle = "#111";
+      ctx.fill();
+      ctx.fillStyle = "white";
+      ctx.font = "bold 22px 'Segoe UI'";
+      ctx.fillText("?", centerX-6, centerY+8);
+    }
+    
+    function animateSpin(targetAngle, duration=1800, onFinish){
+      const startAngle = currentRotation;
+      const startTime = performance.now();
+      function step(now){
+        const elapsed = now - startTime;
+        let t = Math.min(1, elapsed/duration);
+        const easeOut = 1 - Math.pow(1-t, 3);
+        currentRotation = startAngle + (targetAngle - startAngle) * easeOut;
+        drawWheel();
+        if(t < 1){
+          animationFrame = requestAnimationFrame(step);
+        } else {
+          currentRotation = targetAngle % (Math.PI*2);
+          drawWheel();
+          if(onFinish) onFinish();
+          animationFrame = null;
+          spinInProgress = false;
+          const spinBtn = document.getElementById('yn-spin-btn');
+          if(spinBtn) spinBtn.disabled = false;
+        }
+      }
+      if(animationFrame) cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(step);
+    }
+    
+    function getCurrentSegment(){
+      if(currentSegments.length === 0) return null;
+      const angleStep = (Math.PI * 2) / currentSegments.length;
+      let rawAngle = (Math.PI*2 - (currentRotation % (Math.PI*2))) % (Math.PI*2);
+      let idx = Math.floor(rawAngle / angleStep) % currentSegments.length;
+      return currentSegments[idx];
+    }
+    
+    function addHistory(segment){
+      historyList.unshift({ label: segment.label, emoji: segment.emoji || (segment.label==='YES'?'✅':segment.label==='NO'?'❌':'🎲'), timestamp: new Date() });
+      if(historyList.length > 12) historyList.pop();
+      renderHistory();
+    }
+    
+    function renderHistory(){
+      const container = document.getElementById('yn-spin-history');
+      if(!container) return;
+      if(historyList.length === 0){
+        container.innerHTML = '<div class="history-empty">✨ No spins yet. Hit SPIN!</div>';
+        return;
+      }
+      container.innerHTML = historyList.map(h => `
+        <div class="history-item">
+          <div class="hist-emoji">${h.emoji}</div>
+          <div class="hist-details"><strong>${h.label}</strong><small>${h.timestamp.toLocaleTimeString()}</small></div>
+        </div>
+      `).join('');
+    }
+    
+    function showResult(segment){
+      const panel = document.getElementById('yn-result-panel');
+      const resultText = document.getElementById('yn-result-text');
+      const resultEmoji = document.getElementById('yn-result-emoji');
+      if(!panel || !resultText) return;
+      resultText.innerText = segment.label;
+      resultEmoji.innerText = segment.emoji || (segment.label.includes('YES')?'✅':segment.label.includes('NO')?'❌':'🎉');
+      panel.classList.add('show');
+      // trigger confetti
+      if(typeof window.startConfetti === 'function') window.startConfetti();
+      else {
+        // simple fallback celebration effect
+        const canvasConf = document.getElementById('confetti-canvas');
+        if(canvasConf && window.confetti) window.confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
+      }
+      addHistory(segment);
+      // animate pop
+      panel.style.animation = 'pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      setTimeout(()=>{ panel.style.animation = ''; }, 500);
+    }
+    
+    function spinWheel(){
+      if(spinInProgress) return;
+      if(currentSegments.length === 0) return;
+      spinInProgress = true;
+      const spinBtn = document.getElementById('yn-spin-btn');
+      if(spinBtn) spinBtn.disabled = true;
+      const spins = 8 + Math.random() * 8;
+      const extraAngle = (Math.random() * Math.PI * 2);
+      const targetDelta = (Math.PI * 2 * spins) + extraAngle;
+      const target = currentRotation + targetDelta;
+      animateSpin(target, 1500, () => {
+        const seg = getCurrentSegment();
+        if(seg) showResult(seg);
+        else { spinInProgress = false; if(spinBtn) spinBtn.disabled = false; }
+      });
+    }
+    
+    function rebuildEditor(){
+      const container = document.getElementById('yesno-editor-list');
+      if(!container) return;
+      container.innerHTML = '';
+      currentSegments.forEach((seg, idx) => {
+        const div = document.createElement('div');
+        div.className = 'editor-item';
+        div.innerHTML = `
+          <input type="color" class="seg-color" value="${seg.color}" data-idx="${idx}" style="background:${seg.color};">
+          <input type="text" class="seg-label" value="${escapeHtml(seg.label)}" data-idx="${idx}" maxlength="24">
+          <button class="seg-del" data-idx="${idx}" aria-label="Delete option">✕</button>
+        `;
+        container.appendChild(div);
+      });
+      // attach events
+      document.querySelectorAll('.seg-color').forEach(inp => {
+        inp.addEventListener('change', (e) => {
+          let i = parseInt(e.target.dataset.idx);
+          if(!isNaN(i) && currentSegments[i]) currentSegments[i].color = e.target.value;
+          drawWheel();
+        });
+      });
+      document.querySelectorAll('.seg-label').forEach(inp => {
+        inp.addEventListener('change', (e) => {
+          let i = parseInt(e.target.dataset.idx);
+          if(!isNaN(i) && currentSegments[i]) currentSegments[i].label = e.target.value.trim() || '?';
+          drawWheel();
+        });
+      });
+      document.querySelectorAll('.seg-del').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          let i = parseInt(btn.dataset.idx);
+          if(!isNaN(i) && currentSegments.length > 1){
+            currentSegments.splice(i,1);
+            rebuildEditor();
+            drawWheel();
+          }
+        });
+      });
+    }
+    
+    function escapeHtml(str){ return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;});}
+    
+    function loadPreset(preset){
+      if(preset === 'classic') currentSegments = JSON.parse(JSON.stringify(classicYesNo));
+      else if(preset === 'maybe') currentSegments = JSON.parse(JSON.stringify(yesNoMaybe));
+      else if(preset === 'funny') currentSegments = JSON.parse(JSON.stringify(funnyYesNo));
+      else currentSegments = JSON.parse(JSON.stringify(classicYesNo));
+      rebuildEditor();
+      drawWheel();
+    }
+    
+    function initYesNoWheel(){
+      canvas = document.getElementById('yn-wheel-canvas');
+      if(!canvas) return;
+      const size = Math.min(window.innerWidth * 0.75, 450);
+      canvas.width = size; canvas.height = size;
+      canvas.style.width = `${size}px`; canvas.style.height = `${size}px`;
+      ctx = canvas.getContext('2d');
+      currentSegments = JSON.parse(JSON.stringify(classicYesNo));
+      rebuildEditor();
+      drawWheel();
+      const spinBtn = document.getElementById('yn-spin-btn');
+      if(spinBtn) spinBtn.addEventListener('click', spinWheel);
+      canvas.addEventListener('click', spinWheel);
+      document.getElementById('yn-add-segment')?.addEventListener('click', () => {
+        const newLabel = prompt('New answer label (e.g. "Maybe", "Absolutely")', "Custom");
+        if(newLabel && newLabel.trim()){
+          currentSegments.push({ label: newLabel.trim(), color: "#" + Math.floor(Math.random()*16777215).toString(16), emoji: "✨" });
+          rebuildEditor();
+          drawWheel();
+        }
+      });
+      document.getElementById('yn-reset-default')?.addEventListener('click', ()=>{ loadPreset('classic'); });
+      document.getElementById('yn-close-result')?.addEventListener('click', ()=>{
+        document.getElementById('yn-result-panel')?.classList.remove('show');
+      });
+      document.addEventListener('keydown', (e) => {
+        if(e.code === 'Space' && document.activeElement?.id !== 'yn-add-segment'){
+          e.preventDefault();
+          if(!spinInProgress) spinWheel();
+        }
+      });
+      // quick chips for presets
+      document.querySelectorAll('[data-yn-quick]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const type = btn.dataset.ynQuick;
+          if(type === 'yes') loadPreset('classic');
+          else if(type === 'maybe') loadPreset('maybe');
+          else if(type === 'funny') loadPreset('funny');
+          else loadPreset('classic');
+        });
+      });
+      document.getElementById('hero-spin-cta')?.addEventListener('click', ()=>{
+        document.getElementById('yesno-app')?.scrollIntoView({behavior:'smooth'});
+        setTimeout(()=> spinWheel(), 400);
+      });
+      document.getElementById('bottom-spin-cta')?.addEventListener('click', ()=>{
+        document.getElementById('yesno-app')?.scrollIntoView({behavior:'smooth'});
+        setTimeout(()=> spinWheel(), 400);
+      });
+    }
+    
+    window.ynWheelReady = initYesNoWheel;
+    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initYesNoWheel);
+    else initYesNoWheel();
+    
+    // confetti fallback (global)
+    if(typeof window.confetti !== 'function'){
+      const script = document.createElement('script');
+      script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1";
+      script.onload = () => { window.startConfetti = () => window.confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } }); };
+      document.head.appendChild(script);
+    } else { window.startConfetti = () => window.confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } }); }
+  })();
+  
+  // Header/Footer integration same as index
+  document.addEventListener('DOMContentLoaded', () => {
+    if(document.getElementById('header-root')) document.getElementById('header-root').innerHTML = Header?.render?.() || '<div class="site-header"><div class="header-inner"><a href="/" class="logo">RandomWheel</a></div></div>';
+    if(document.getElementById('footer-root')) document.getElementById('footer-root').innerHTML = Footer?.render?.() || '<footer>© RandomWheel</footer>';
+    if(window.Header?.init) Header.init();
+    if(window.Footer?.init) Footer.init();
+    // accordion faq for yes/no page
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  });
+</script>
+</body>
+</html>
