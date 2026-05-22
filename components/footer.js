@@ -32,12 +32,12 @@ const Footer = {
           <div class="footer-col">
             <h4>Popular Wheels</h4>
             <ul>
-              <li><a href="//#" data-wheel="yes-no">Yes or No Wheel</a></li>
-              <li><a href="/#" data-wheel="food-picker">Food Picker Wheel</a></li>
-              <li><a href="/#" data-wheel="truth-dare">Truth or Dare</a></li>
-              <li><a href="/#" data-wheel="name-picker">Random Name Picker</a></li>
-              <li><a href="/#" data-wheel="prize">Prize & Raffle Wheel</a></li>
-              <li><a href="/#" data-wheel="pokemon">Pokémon Type Wheel</a></li>
+              <li><a href="/yes-no-wheel">Yes or No Wheel</a></li>
+              <li><a href="/food-picker-wheel">Food Picker Wheel</a></li>
+              <li><a href="/truth-or-dare-wheel">Truth or Dare</a></li>
+              <li><a href="/random-name-picker">Random Name Picker</a></li>
+              <li><a href="/prize-wheel">Prize & Raffle Wheel</a></li>
+              <li><a href="/decision-wheel">Random Decision</a></li>
             </ul>
           </div>
           <div class="footer-col">
