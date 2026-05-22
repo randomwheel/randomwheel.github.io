@@ -1,0 +1,344 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DH0NXE4ME3');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Truth or Dare Wheel Spinner – Free Party Game | RandomWheel</title>
+  <meta name="description" content="Spin the online Truth or Dare wheel for party games, sleepovers, and hangouts! Hundreds of funny prompts, fully customizable segments, and instant results.">
+  <meta name="keywords" content="truth or dare wheel, random truth or dare generator, truth or dare spinner, party wheel spinner, decision wheel for games, dirty truth or dare online, clean truth or dare questions">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="RandomWheel">
+  <link rel="canonical" href="https://randomwheel.github.io/truth-or-dare-wheel">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <meta property="og:title" content="Random Truth or Dare Wheel Spinner – Free Party Game">
+  <meta property="og:description" content="Break the ice instantly! Custom Truth or Dare wheel spinner with ready-to-use prompts for friends, couples, and parties. 100% free.">
+  <meta property="og:url" content="https://randomwheel.github.io/truth-or-dare-wheel">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://randomwheel.github.io/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Random Truth or Dare Wheel Spinner – Free Party Game">
+  <meta name="twitter:description" content="Spin the ultimate decision wheel for your next game night. Clean or spicy prompts, fully editable online.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght=400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Random Truth or Dare Wheel Spinner",
+        "url": "https://randomwheel.github.io/truth-or-dare-wheel",
+        "description": "An interactive random wheel picker specifically designed to play Truth or Dare. Features pre-made prompt options and dynamic customizations.",
+        "applicationCategory": "EntertainmentApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://randomwheel.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Truth or Dare Wheel", "item": "https://randomwheel.github.io/truth-or-dare-wheel" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<div id="header-root"></div>
+
+<canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+<main id="main-content">
+
+  <section class="hero" aria-label="Truth or Dare Hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">🔥 The Ultimate Party Icebreaker</div>
+        <h1 class="hero-title">
+          Truth or Dare.<br>
+          <span class="highlight">Spin to Reveal.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Take your game nights, sleepovers, and parties to the next level. Spin to choose a player, or spin to get random challenges instantly! Fully customizable, mobile-friendly, and 100% free.
+        </p>
+        <div class="hero-ctas">
+          <a href="#spin-app" class="btn-primary" onclick="event.preventDefault();document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">
+            <span>🔥</span> Spin the Game Wheel
+          </a>
+          <a href="#party-ideas" class="btn-secondary" onclick="event.preventDefault();document.getElementById('party-ideas').scrollIntoView({behavior:'smooth'})">
+            <span>💡</span> Game Modes
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-number">Pure</div><div class="stat-label">Randomness</div></div>
+          <div class="stat"><div class="stat-number">∞</div><div class="stat-label">Custom Edits</div></div>
+          <div class="stat"><div class="stat-number">0$</div><div class="stat-label">No Account Needed</div></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-wheel-preview">
+          <div class="hero-orbit">
+            <div class="orbit-dot" style="background:#E63946;"></div>
+          </div>
+          <div class="hero-wheel-img" style="filter: hue-rotate(120deg) saturate(1.5);"></div>
+          <div class="hero-wheel-center">🔥</div>
+          <div class="hero-pointer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spin-app-section" id="spin-app" aria-label="Truth or dare app interface">
+    <div class="section-header">
+      <div class="section-tag">🎡 Party Mode Terminal</div>
+      <h2 class="section-title">Ready to Play? Spin the Wheel!</h2>
+      <p class="section-subtitle">Add your friends' names, input your own house rules, or stick with classic Truth or Dare prompts.</p>
+    </div>
+
+    <div class="app-layout">
+
+      <aside class="editor-panel" aria-label="Game configurations">
+        <div class="panel-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Edit Game Segments
+        </div>
+        <div id="editor-list" role="list" aria-label="Truth or dare slots"></div>
+        <div class="editor-actions">
+          <button class="btn-add" id="add-segment-btn" aria-label="Add new game segment">+ Add Choice</button>
+          <button class="btn-reset" id="reset-wheel-btn" aria-label="Reset game layout">↺ Default Rules</button>
+        </div>
+      </aside>
+
+      <div class="wheel-center">
+        <div class="wheel-info">
+          <h2 id="wheel-title">🔥 Truth or Dare Wheel</h2>
+          <p id="wheel-desc">Gather around your phone or computer. Spin to decide who faces the ultimate choice!</p>
+        </div>
+        <div class="wheel-canvas-wrapper">
+          <div class="wheel-pointer-top" aria-hidden="true"></div>
+          <canvas id="wheel-canvas" role="img" aria-label="Spinning truth or dare selector" tabindex="0"></canvas>
+        </div>
+        <div style="display:flex; gap:10px; justify-content:center; width:100%; max-width:280px; margin:0 auto;">
+          <button id="spin-btn" aria-label="Spin the party wheel" style="flex:1;">
+            <span class="spin-icon">⚡</span> SPIN!
+          </button>
+        </div>
+        <p class="keyboard-hint" aria-label="Hotkeys info">Press <kbd>Space</kbd> to spin</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div id="result-panel" role="status" aria-live="polite" aria-label="Game result window">
+          <button id="close-result" aria-label="Close result box">✕</button>
+          <div class="result-winner-badge">
+            <span id="result-emoji" role="img">👀</span>
+            <div class="result-label">The Wheel Decided...</div>
+            <div id="result-text">Who is going first?</div>
+          </div>
+        </div>
+
+        <div class="history-panel" aria-label="Previous picks log">
+          <div class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Past Challenges
+          </div>
+          <div id="spin-history" aria-live="polite" aria-label="Historical round records"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="how-section" id="how-to-play" aria-label="Rules guide">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">🎮 Game Mechanics</div>
+        <h2 class="section-title">How To Use the Truth or Dare Wheel</h2>
+        <p class="section-subtitle">Three fun variations to seamlessly customize your group party experience in seconds.</p>
+      </div>
+      <div class="steps-grid" role="list">
+        <article class="step-card" role="listitem">
+          <span class="step-icon" aria-hidden="true">👥</span>
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3>The Name Selector</h3>
+          <p>Input all player names into the wheel editor. Spin the wheel to pick a random target, who must then choose Truth or Dare out loud.</p>
+        </article>
+        <article class="step-card" role="listitem">
+          <span class="step-icon" aria-hidden="true">⚖️</span>
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3>The Split Decision</h3>
+          <p>Fill half the wheel slices with "TRUTH" and the other half with "DARE". Let destiny choose your group category path automatically!</p>
+        </article>
+        <article class="step-card" role="listitem">
+          <span class="step-icon" aria-hidden="true">⚡</span>
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3>Custom Challenges</h3>
+          <p>Type unique dares and funny truth prompts directly into the sidebar panel. Spin the custom wheel to launch instant consequences.</p>
+        </article>
+        <article class="step-card" role="listitem">
+          <span class="step-icon" aria-hidden="true">🎉</span>
+          <div class="step-num" aria-hidden="true">4</div>
+          <h3>No Escape!</h3>
+          <p>Celebrate the unpredictable dynamic result with a massive confetti animation burst. Complete the task or face custom penalties!</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo-section" id="party-ideas" aria-label="Game ideas deep dive" style="background: var(--bg3); padding: 100px 0;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 60px;">
+        <div class="section-tag">💡 Epic Ideas</div>
+        <h2 class="section-title">Spice Up Your Night with a <span class="highlight">Truth or Dare Generator</span></h2>
+        <p class="section-subtitle">Our <strong>interactive spin wheel</strong> format fits flawlessly with any friend circle, group dynamic, or setting.</p>
+      </div>
+
+      <div class="seo-inner" style="max-width: 1000px; margin: 0 auto;">
+        <p>Tired of recycling the exact same old questions every time you host a gathering? Our digital <strong>truth or dare wheel spinner</strong> replaces stale predictable patterns with fair, mathematical random selections. It serves beautifully as a clean icebreaker for school events or high-stakes entertainment at late-night get-togethers.</p>
+        
+        <p>If you're organizing a virtual hangout across webcam sessions, screen-share this <strong>random wheel picker</strong> window directly over Discord, Zoom, or Google Meet. It injects physical arcade suspense right onto your friends' screens as everyone watches the physics pointer click past choices until landing on its final victim.</p>
+        
+        <p>Need even more randomness? Combine it with our <strong>random name picker</strong> or <strong>decision maker wheel</strong> options to randomize who asks, who answers, or what type of extreme dare tier must be selected! The setup modifications are completely infinite.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="game-faqs" aria-label="Targeted truth or dare faqs">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">❓ Quick Answers</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about setting up and modifying our digital game board.</p>
+      </div>
+      <div class="faq-list" role="list">
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Are there pre-loaded adult or family prompts inside?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">By default, our system initializes with structural placeholders so you can instantly input custom prompts that perfectly fit your group's age range, comfort levels, and humor style.</div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Does the wheel support mobile responsive touch controls?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">Yes! This game spinner is entirely optimized for mobile devices. Just open it on your smartphone or browser and pass the screen around your friend circle to play seamlessly.</div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Are my typed custom truths and dares securely private?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">Absolutely. Everything operates completely client-side in your local browser window. No session text strings are ever transferred onto external database servers.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" aria-label="Alternative wheel options">
+    <div class="container">
+      <h2>Ready to Test Your Bravery? 🌪️</h2>
+      <p>Gather your circle, load up your wildest inputs, and spin to break the ice instantly.</p>
+      <a href="#spin-app" class="btn-primary" onclick="event.preventDefault();document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">
+        ⚡ Launch Truth or Dare Wheel
+      </a>
+      <div class="cta-wheels" aria-label="Fast routing navigation">
+        <a href="index.html" class="cta-wheel-chip" style="text-decoration:none; text-align:center;">🏠 Home Page</a>
+        <button class="cta-wheel-chip" data-wheel="yes-no">🎯 Yes/No</button>
+        <button class="cta-wheel-chip" data-wheel="food-picker">🍕 Food Picker</button>
+        <button class="cta-wheel-chip" data-wheel="name-picker">👥 Name Picker</button>
+        <button class="cta-wheel-chip" data-wheel="prize">🏆 Prize Wheel</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="footer-root"></div>
+
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Inject header & footer
+    document.getElementById('header-root').innerHTML = Header.render();
+    Header.init();
+    document.getElementById('footer-root').innerHTML = Footer.render();
+    Footer.init();
+
+    // Initialize foundational code bases
+    App.init();
+
+    // Preload truth-or-dare structure configurations if accessible 
+    if (typeof App.loadWheel === 'function') {
+      setTimeout(() => {
+        App.loadWheel('truth-dare');
+      }, 200);
+    }
+
+    // Connect layout redirect buttons
+    document.querySelectorAll('.cta-wheel-chip[data-wheel]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('spin-app').scrollIntoView({behavior:'smooth'});
+        if (typeof App.loadWheel === 'function') {
+          setTimeout(() => App.loadWheel(btn.dataset.wheel), 500);
+        }
+      });
+    });
+
+    // Accordion interaction mechanics
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Inview intersection trackers
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.animation = 'fadeInUp 0.6s ease both';
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.step-card, .faq-item').forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  });
+</script>
+</body>
+</html>
+
+```
