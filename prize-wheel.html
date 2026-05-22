@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DH0NXE4ME3');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Prize Wheel Spinner – Free Raffle & Giveaway Picker | Random Wheel</title>
+  <meta name="description" content="Create a customizable prize wheel spinner online. Perfect for virtual raffles, business giveaways, contests, and promotions. Free, mobile-friendly, and instant!">
+  <meta name="keywords" content="prize wheel, raffle wheel spinner, giveaway picker, random prize selector, custom gift wheel, online prize spinner, virtual ticket wheel, fair raffle maker">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="RandomWheel">
+  <link rel="canonical" href="https://randomwheel.github.io/prize-wheel">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <meta property="og:title" content="Online Prize Wheel Spinner – Free Raffle & Giveaway Picker">
+  <meta property="og:description" content="Spin the custom prize wheel for fair giveaways and raffles. Set rewards, edit names, and pick a winner instantly with live confetti.">
+  <meta property="og:url" content="https://randomwheel.github.io/prize-wheel">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://randomwheel.github.io/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Online Prize Wheel Spinner – Free Raffle & Giveaway Picker">
+  <meta name="twitter:description" content="Run live promotions, trade show draws, or random gift pickers with the ultimate free digital prize wheel spinner.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Random Prize Wheel Spinner",
+        "url": "https://randomwheel.github.io/prize-wheel",
+        "description": "An interactive digital prize wheel maker for hosting free online giveaways, live streams, trade shows, promotional contests, and random raffle draws.",
+        "applicationCategory": "EntertainmentApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://randomwheel.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Prize Wheel", "item": "https://randomwheel.github.io/prize-wheel" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<div id="header-root"></div>
+
+<canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+<main id="main-content">
+
+  <section class="hero" aria-label="Prize Wheel Hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">🎁 Customizable Giveaway Tool</div>
+        <h1 class="hero-title">
+          Online Prize Wheel.<br>
+          <span class="highlight">Spin For Winners.</span>
+        </h1>
+        <p class="hero-subtitle">
+          The perfect free tool for digital raffles, live streams, marketing events, and classroom rewards. Input your prizes, configure options, and celebrate winners with instant confetti draws!
+        </p>
+        <div class="hero-ctas">
+          <a href="#spin-app" class="btn-primary" onclick="event.preventDefault();document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">
+            <span>🏆</span> Launch Prize Spinner
+          </a>
+          <a href="#how-to-use" class="btn-secondary" onclick="event.preventDefault();document.getElementById('how-to-use').scrollIntoView({behavior:'smooth'})">
+            <span>📖</span> Setup Guide
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Fair Selection</div></div>
+          <div class="stat"><div class="stat-number">Live</div><div class="stat-label">Confetti Effects</div></div>
+          <div class="stat"><div class="stat-number">No</div><div class="stat-label">Limits on Entries</div></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-wheel-preview">
+          <div class="hero-orbit">
+            <div class="orbit-dot" style="background:#FFD700;"></div>
+          </div>
+          <div class="hero-wheel-img" style="filter: hue-rotate(45deg);"></div>
+          <div class="hero-wheel-center">🎁</div>
+          <div class="hero-pointer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spin-app-section" id="spin-app" aria-label="Prize wheel application">
+    <div class="section-header">
+      <div class="section-tag">💎 Live Draw Terminal</div>
+      <h2 class="section-title">Customize Prizes & Test Your Luck</h2>
+      <p class="section-subtitle">Tailor the values below to match your gifts, vouchers, or participant list, then give it a spin.</p>
+    </div>
+
+    <div class="app-layout">
+
+      <aside class="editor-panel" aria-label="Prize editor">
+        <div class="panel-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Manage Rewards
+        </div>
+        <div id="editor-list" role="list" aria-label="Prize pools"></div>
+        <div class="editor-actions">
+          <button class="btn-add" id="add-segment-btn" aria-label="Add new reward item">+ Add Item</button>
+          <button class="btn-reset" id="reset-wheel-btn" aria-label="Reset prize configurations">↺ Default Items</button>
+        </div>
+      </aside>
+
+      <div class="wheel-center">
+        <div class="wheel-info">
+          <h2 id="wheel-title">🏆 Giveaway & Prize Wheel</h2>
+          <p id="wheel-desc">Select winner tiers, cash rewards, custom products, or raffle numbers fairly.</p>
+        </div>
+        <div class="wheel-canvas-wrapper">
+          <div class="wheel-pointer-top" aria-hidden="true"></div>
+          <canvas id="wheel-canvas" role="img" aria-label="Interactive reward picker wheel" tabindex="0"></canvas>
+        </div>
+        <button id="spin-btn" aria-label="Trigger giveaway drop">
+          <span class="spin-icon">⚡</span> SPIN!
+        </button>
+        <p class="keyboard-hint" aria-label="Alternative shortcut text">Press <kbd>Space</kbd> to spin</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div id="result-panel" role="status" aria-live="polite" aria-label="Giveaway claim details">
+          <button id="close-result" aria-label="Dismiss winner banner">✕</button>
+          <div class="result-winner-badge">
+            <span id="result-emoji" role="img">🎉</span>
+            <div class="result-label">🎁 Winner Selected!</div>
+            <div id="result-text">Ready for entry drops...</div>
+          </div>
+        </div>
+
+        <div class="history-panel" aria-label="Draw archives">
+          <div class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Recent Rewards Paid
+          </div>
+          <div id="spin-history" aria-live="polite" aria-label="Logged raffle selections"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="how-section" id="how-to-use" aria-label="Instructions for raffle creator">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">⚙️ Simple Setup</div>
+        <h2 class="section-title">How To Host A Prize Wheel Giveaway</h2>
+        <p class="section-subtitle">Follow these quick actions to execute professional giveaways straight from your browser.</p>
+      </div>
+      <div class="steps-grid" role="list">
+        <article class="step-card" role="listitem">
+          <span class="step-icon" aria-hidden="true">📝</span>
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3>List Your Items</h3>
+          <p>Add specific product models, promotional percentages, custom gift codes, or tickets into the editor dashboard panel.</p>
+        </article>
+        <article class="step-card" role="listitem">
+          <span class="step-icon" aria-hidden="true">🎨</span>
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3>Brand Your Look</h3>
+          <p>Organize individual segment labels, adapt names, or re-roll structural defaults until your custom wheel is clean.</p>
+        </article>
+        <article class="step-card" role="listitem">
+          <span class="step-icon" aria-hidden="true">📣</span>
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3>Stream or Share</h3>
+          <p>Project your screen onto YouTube, Twitch, Zoom, or classroom Smartboards so audiences can observe the real-time spin.</p>
+        </article>
+        <article class="step-card" role="listitem">
+          <span class="step-icon" aria-hidden="true">👑</span>
+          <div class="step-num" aria-hidden="true">4</div>
+          <h3>Crown Winners</h3>
+          <p>Trigger the spin button, watch the tension build, and watch as dynamic physics choose your absolute winner transparently!</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo-section" id="use-case-deep-dive" aria-label="Optimized applications overview" style="background: var(--bg2); padding: 90px 0;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 50px;">
+        <div class="section-tag">💡 Strategic Solutions</div>
+        <h2 class="section-title">The Versatile <span class="highlight">Giveaway Wheel Spinner</span> for Every Occasion</h2>
+        <p class="section-subtitle">Boost active user retention, streamline local sweepstakes, or incentivize training objectives with our multi-purpose tool.</p>
+      </div>
+
+      <div class="seo-inner" style="max-width: 950px; margin: 0 auto; line-height: 1.8;">
+        <h3>Maximize Engagement via Live Stream Raffles</h3>
+        <p>Whether streaming on modern social channels or hosting community updates, nothing drives chat interaction quite like a dynamic <strong>raffle wheel spinner</strong>. Our browser platform runs natively with zero installations required, keeping stream visual framerates crisp and input latency non-existent. Simply replace segment contents on the fly to award loyal channel supporters instantly.</p>
+        
+        <h3>Elevate Classrooms with Digital Student Reward Wheels</h3>
+        <p>Incorporate gaming layouts directly within daily studies. Instructors regularly exploit our software as a custom classroom asset to assign bonus homework points, issue special recess privileges, or reward pop-quiz standouts fairly. The built-in <strong>random wheel picker</strong> preserves absolute neutrality, assuring children that every selection is unbiased.</p>
+        
+        <h3>Drive Conversion at Corporate Tradeshow Displays</h3>
+        <p>Ditch legacy paper ballot systems. Elevate customer interactions at exhibition booths by deploying a high-contrast <strong>spin the wheel generator</strong> on shared tablets or televisions. Passersby love trying their hand at winning promotional keychains, product discounts, or company merchandise, building brand familiarity organically.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="prize-faqs" aria-label="Targeted support query layout">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">❓ Knowledge Center</div>
+        <h2 class="section-title">Prize Wheel FAQs</h2>
+        <p class="section-subtitle">Answering standard questions regarding randomness transparency and distribution options.</p>
+      </div>
+      <div class="faq-list" role="list">
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            How do I guarantee to contestants that the results are 100% fair?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">Our application computes landing vectors using randomized browser seed offsets via JavaScript. No hidden biases or manual configurations favor specific tiers, ensuring all segments retain equal win distribution probabilities.</div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Can I insert complex emojis or prize symbols onto rows?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">Yes! Feel free to copy and paste specific emojis, icons, numbers, or unique currency strings directly into any text slot within the management panels.</div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Is there a programmatic script download requirement?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">No download is required. Everything runs locally inside modern modern mobile or desktop browsers, fully maintaining hardware privacy protocols while bypassing security installations.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" aria-label="Alternative entry variants">
+    <div class="container">
+      <h2>Launch Your Live Promotion Now! 🎡</h2>
+      <p>Transform regular community draws into unforgettable memories. Adjust your variables and select your lucky winners today.</p>
+      <a href="#spin-app" class="btn-primary" onclick="event.preventDefault();document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">
+        ⚡ Start Customizing Your Prizes
+      </a>
+      <div class="cta-wheels" aria-label="Alternate routing paths">
+        <a href="index.html" class="cta-wheel-chip" style="text-decoration:none; text-align:center;">🏠 Return Home</a>
+        <button class="cta-wheel-chip" data-wheel="yes-no">🎯 Yes/No Wheel</button>
+        <button class="cta-wheel-chip" data-wheel="name-picker">👥 Name Picker</button>
+        <button class="cta-wheel-chip" data-wheel="food-picker">🍕 Food Picker</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="footer-root"></div>
+
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Inject header & footer components natively
+    document.getElementById('header-root').innerHTML = Header.render();
+    Header.init();
+    document.getElementById('footer-root').innerHTML = Footer.render();
+    Footer.init();
+
+    // Init foundational app structures 
+    App.init();
+    
+    // Explicitly seed the 'prize' option profile if it exists inside the App manifest
+    if (typeof App.loadWheel === 'function') {
+      setTimeout(() => {
+        App.loadWheel('prize');
+      }, 200);
+    }
+
+    // Secondary navigation link listeners
+    document.querySelectorAll('.cta-wheel-chip[data-wheel]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('spin-app').scrollIntoView({behavior:'smooth'});
+        if (typeof App.loadWheel === 'function') {
+          setTimeout(() => App.loadWheel(btn.dataset.wheel), 500);
+        }
+      });
+    });
+
+    // Accordion expand/collapse behaviors
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Handle viewport tracking scroll indicators
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.animation = 'fadeInUp 0.6s ease both';
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.step-card, .feature-card, .faq-item').forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  });
+</script>
+</body>
+</html>
