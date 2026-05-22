@@ -11,7 +11,7 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Food Picker Wheel – Spin to Choose What to Eat | Random Wheel</title>
+  <title>Food Picker Wheel – Spin to Choose What to Eat | RandomWheel</title>
   <meta name="description" content="Free Food Picker Wheel – Can't decide what to eat? Spin the wheel and let fate choose your meal, restaurant, or cuisine. Perfect for indecisive foodies, groups, and daily lunch decisions.">
   <meta name="keywords" content="food picker wheel, what to eat wheel, food decision wheel, restaurant wheel, dinner spinner, lunch wheel, meal picker, cuisine wheel, food roulette">
   <meta name="robots" content="index, follow">
@@ -106,7 +106,7 @@
 </head>
 <body>
 
-<!-- Header injected -->
+<!-- Header will be loaded from components -->
 <div id="header-root"></div>
 
 <main id="main-content">
@@ -219,7 +219,6 @@
         <p class="section-subtitle">Load ready-to-use cuisine wheels with one click. Customize anytime!</p>
       </div>
       <div class="cuisine-grid" id="cuisine-presets-grid">
-        <!-- JS will populate or static -->
         <div class="cuisine-chip" data-food-preset="fastfood">🍔 Fast Food</div>
         <div class="cuisine-chip" data-food-preset="asian">🥢 Asian</div>
         <div class="cuisine-chip" data-food-preset="italian">🍝 Italian</div>
@@ -264,10 +263,10 @@
         <div class="usecase-card"><div class="usecase-icon">🍻</div><div><h3>Friend Groups</h3><p>Group lunch? Dinner party? Spin to satisfy everyone (or at least settle it).</p></div></div>
         <div class="usecase-card"><div class="usecase-icon">🍱</div><div><h3>Meal Preppers</h3><p>Randomize your weekly meal plan for variety and excitement.</p></div></div>
       </div>
-      <div class="quote-block" style="margin-top: 48px; background: linear-gradient(145deg, rgba(34,197,94,0.08), rgba(245,158,11,0.04));">
-        <span class="emoji-big">🗣️</span>
-        <p style="font-style: italic; font-size: 1.1rem;">"This food wheel saved my relationship. No more 'I don't know, what do you want?' — we just spin!"</p>
-        <p style="margin-top: 12px;">— Happy Foodie</p>
+      <div class="quote-block" style="margin-top: 48px; background: linear-gradient(145deg, rgba(34,197,94,0.08), rgba(245,158,11,0.04)); padding: 32px; border-radius: 40px; text-align: center;">
+        <span class="emoji-big" style="font-size: 3rem;">🗣️</span>
+        <p style="font-style: italic; font-size: 1.1rem; margin-top: 12px;">"This food wheel saved my relationship. No more 'I don't know, what do you want?' — we just spin!"</p>
+        <p style="margin-top: 12px; font-weight: bold;">— Happy Foodie</p>
       </div>
     </div>
   </section>
@@ -299,11 +298,48 @@
   </section>
 </main>
 
-<!-- Footer -->
+<!-- Footer will be loaded from components -->
 <div id="footer-root"></div>
 
+<!-- Scripts - Load components first, then app logic -->
 <script src="components/header.js"></script>
 <script src="components/footer.js"></script>
+<script>
+  // Wait for DOM and components to load
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize header and footer
+    if (typeof Header !== 'undefined' && Header.init) {
+      const headerRoot = document.getElementById('header-root');
+      if (headerRoot && Header.render) {
+        headerRoot.innerHTML = Header.render();
+      }
+      Header.init();
+    } else {
+      console.warn('Header component not loaded properly');
+      // Fallback header
+      const headerRoot = document.getElementById('header-root');
+      if (headerRoot) {
+        headerRoot.innerHTML = '<div class="site-header"><div class="header-inner"><a href="/" class="logo"><span class="logo-main">Random</span><span class="logo-accent">Wheel</span></a><nav class="main-nav"><ul><li><a href="/">Home</a></li><li><a href="/#spin-app">Spin Wheel</a></li></ul></nav></div></div>';
+      }
+    }
+    
+    if (typeof Footer !== 'undefined' && Footer.init) {
+      const footerRoot = document.getElementById('footer-root');
+      if (footerRoot && Footer.render) {
+        footerRoot.innerHTML = Footer.render();
+      }
+      Footer.init();
+    } else {
+      console.warn('Footer component not loaded properly');
+      // Fallback footer
+      const footerRoot = document.getElementById('footer-root');
+      if (footerRoot) {
+        footerRoot.innerHTML = '<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><div class="footer-tagline">Random Wheel Spinner - Free Online Spin Wheel</div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><p>© 2024 RandomWheel. All rights reserved.</p></div></div></footer>';
+      }
+    }
+  });
+</script>
+
 <script>
   // --- Food Picker Wheel Logic ---
   (function(){
@@ -567,9 +603,14 @@
       });
     }
     
-    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initFoodPicker);
-    else initFoodPicker();
+    // Initialize after DOM is ready
+    if(document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFoodPicker);
+    } else {
+      initFoodPicker();
+    }
     
+    // Load confetti library
     if(!window.confetti){
       const script = document.createElement('script');
       script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1";
@@ -578,12 +619,8 @@
     }
   })();
 
-  // FAQ Accordion + Header/Footer
-  document.addEventListener('DOMContentLoaded', () => {
-    if(document.getElementById('header-root')) document.getElementById('header-root').innerHTML = window.Header?.render?.() || '<div class="site-header"><div class="header-inner"><a href="/" class="logo">RandomWheel</a></div></div>';
-    if(document.getElementById('footer-root')) document.getElementById('footer-root').innerHTML = window.Footer?.render?.() || '<footer style="text-align:center;padding:2rem;">© RandomWheel - Food Picker</footer>';
-    if(window.Header?.init) Header.init();
-    if(window.Footer?.init) Footer.init();
+  // FAQ Accordion
+  document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.closest('.faq-item');
