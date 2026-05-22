@@ -11,7 +11,7 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Food Picker Wheel – Spin to Choose What to Eat | Random Wheel</title>
+  <title>Food Picker Wheel – Spin to Choose What to Eat | RandomWheel</title>
   <meta name="description" content="Free Food Picker Wheel – Can't decide what to eat? Spin the wheel and let fate choose your meal, restaurant, or cuisine. Perfect for indecisive foodies, groups, and daily lunch decisions.">
   <meta name="keywords" content="food picker wheel, what to eat wheel, food decision wheel, restaurant wheel, dinner spinner, lunch wheel, meal picker, cuisine wheel, food roulette">
   <meta name="robots" content="index, follow">
@@ -341,7 +341,7 @@
 </script>
 
 <script>
-  // --- Food Picker Wheel Logic ---
+  // --- Food Picker Wheel Logic (Fixed - Can spin multiple times) ---
   (function(){
     // Default food options (popular)
     let foodSegments = [
@@ -355,30 +355,41 @@
       { label: "🥘 Curry", color: "#FFD700", emoji: "🥘" }
     ];
     
-    let spinInProgress = false;
+    let isSpinning = false;
     let currentRotation = 0;
-    let animFrame = null;
-    let canvas = null, ctx = null;
+    let animationFrameId = null;
+    let canvas = null;
+    let ctx = null;
     let historyList = [];
 
     function drawFoodWheel() {
       if(!canvas || !ctx || foodSegments.length === 0) return;
-      const w = canvas.width, h = canvas.height;
-      const centerX = w/2, centerY = h/2;
-      const radius = Math.min(w,h) * 0.44;
-      ctx.clearRect(0,0,w,h);
+      const w = canvas.width;
+      const h = canvas.height;
+      const centerX = w/2;
+      const centerY = h/2;
+      const radius = Math.min(w, h) * 0.44;
+      
+      ctx.clearRect(0, 0, w, h);
+      
+      if (foodSegments.length === 0) return;
+      
       const angleStep = (Math.PI * 2) / foodSegments.length;
+      
       for(let i = 0; i < foodSegments.length; i++) {
         const start = currentRotation + i * angleStep;
         const end = start + angleStep;
+        
         ctx.beginPath();
         ctx.moveTo(centerX, centerY);
         ctx.arc(centerX, centerY, radius, start, end);
         ctx.fillStyle = foodSegments[i].color;
         ctx.fill();
+        
         ctx.strokeStyle = "rgba(0,0,0,0.2)";
         ctx.lineWidth = 1.5;
         ctx.stroke();
+        
         ctx.save();
         ctx.translate(centerX, centerY);
         ctx.rotate(start + angleStep/2);
@@ -392,136 +403,200 @@
         ctx.fillText(shortLabel, radius * 0.7, 5);
         ctx.restore();
       }
+      
+      // Draw center circle
       ctx.beginPath();
-      ctx.arc(centerX, centerY, radius*0.15, 0, 2*Math.PI);
-      ctx.fillStyle = "#111";
+      ctx.arc(centerX, centerY, radius * 0.15, 0, Math.PI * 2);
+      ctx.fillStyle = "#1a1a2e";
       ctx.fill();
       ctx.fillStyle = "white";
       ctx.font = "bold 24px 'Segoe UI'";
       ctx.fillText("🍽️", centerX-15, centerY+8);
     }
 
-    function animateFoodSpin(targetAngle, duration=1600, callback){
-      const startAngle = currentRotation;
+    function animateFoodSpin(targetRotation, duration, callback) {
+      const startRotation = currentRotation;
       const startTime = performance.now();
-      function step(now){
-        const elapsed = now - startTime;
-        let t = Math.min(1, elapsed/duration);
-        const easeOut = 1 - Math.pow(1-t, 3);
-        currentRotation = startAngle + (targetAngle - startAngle) * easeOut;
+      
+      function step(currentTime) {
+        const elapsed = currentTime - startTime;
+        let progress = Math.min(1, elapsed / duration);
+        // Easing function for smooth stop
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        
+        currentRotation = startRotation + (targetRotation - startRotation) * easeOut;
         drawFoodWheel();
-        if(t < 1) animFrame = requestAnimationFrame(step);
-        else {
-          currentRotation = targetAngle % (Math.PI*2);
+        
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(step);
+        } else {
+          currentRotation = targetRotation % (Math.PI * 2);
           drawFoodWheel();
-          if(callback) callback();
-          spinInProgress = false;
-          const btn = document.getElementById('food-spin-btn');
-          if(btn) btn.disabled = false;
-          animFrame = null;
+          isSpinning = false;
+          if (callback) callback();
+          // Re-enable spin button
+          const spinBtn = document.getElementById('food-spin-btn');
+          if (spinBtn) spinBtn.disabled = false;
+          animationFrameId = null;
         }
       }
-      if(animFrame) cancelAnimationFrame(animFrame);
-      animFrame = requestAnimationFrame(step);
+      
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+      animationFrameId = requestAnimationFrame(step);
     }
 
-    function getCurrentFoodSegment(){
-      if(foodSegments.length === 0) return null;
-      const angleStep = (Math.PI*2)/foodSegments.length;
-      let rawAngle = (Math.PI*2 - (currentRotation % (Math.PI*2))) % (Math.PI*2);
+    function getCurrentFoodSegment() {
+      if (foodSegments.length === 0) return null;
+      const angleStep = (Math.PI * 2) / foodSegments.length;
+      // Calculate which segment is at the top (pointer position)
+      let rawAngle = (Math.PI * 2 - (currentRotation % (Math.PI * 2))) % (Math.PI * 2);
       let idx = Math.floor(rawAngle / angleStep) % foodSegments.length;
       return foodSegments[idx];
     }
 
-    function addFoodHistory(segment){
-      historyList.unshift({ label: segment.label, emoji: segment.emoji || "🍽️", timestamp: new Date() });
-      if(historyList.length > 12) historyList.pop();
+    function addFoodHistory(segment) {
+      historyList.unshift({ 
+        label: segment.label, 
+        emoji: segment.emoji || "🍽️", 
+        timestamp: new Date() 
+      });
+      if (historyList.length > 12) historyList.pop();
       renderFoodHistory();
     }
 
-    function renderFoodHistory(){
+    function renderFoodHistory() {
       const container = document.getElementById('food-spin-history');
-      if(!container) return;
-      if(historyList.length === 0){
+      if (!container) return;
+      
+      if (historyList.length === 0) {
         container.innerHTML = '<div class="history-empty">🍽️ Spin to see your meal history!</div>';
         return;
       }
+      
       container.innerHTML = historyList.map(h => `
         <div class="history-item">
           <div class="hist-emoji">${h.emoji}</div>
-          <div class="hist-details"><strong>${escapeHtml(h.label)}</strong><small>${h.timestamp.toLocaleTimeString()}</small></div>
+          <div class="hist-details">
+            <strong>${escapeHtml(h.label)}</strong>
+            <small>${h.timestamp.toLocaleTimeString()}</small>
+          </div>
         </div>
       `).join('');
     }
 
-    function showFoodResult(segment){
+    function showFoodResult(segment) {
       const panel = document.getElementById('food-result-panel');
       const resultText = document.getElementById('food-result-text');
       const resultEmoji = document.getElementById('food-result-emoji');
-      if(panel && resultText){
+      
+      if (panel && resultText) {
         resultText.innerText = segment.label;
         resultEmoji.innerText = segment.emoji || "🍽️";
         panel.style.opacity = "1";
         panel.style.transform = "translateY(0)";
-        // confetti
-        if(window.confetti) window.confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
+        
+        // Trigger confetti celebration
+        if (typeof window.confetti === 'function') {
+          window.confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
+        } else if (typeof canvasConfetti === 'function') {
+          canvasConfetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
+        }
+        
         addFoodHistory(segment);
+        
         panel.style.animation = 'pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-        setTimeout(()=>{ if(panel) panel.style.animation = ''; }, 500);
-        // add winner animation class
+        setTimeout(() => {
+          if (panel) panel.style.animation = '';
+        }, 500);
+        
         const winnerDiv = document.getElementById('food-result-text');
-        if(winnerDiv) winnerDiv.classList.add('winner-food');
-        setTimeout(()=> winnerDiv?.classList.remove('winner-food'), 500);
+        if (winnerDiv) {
+          winnerDiv.classList.add('winner-food');
+          setTimeout(() => winnerDiv.classList.remove('winner-food'), 500);
+        }
       }
     }
 
-    function spinFoodWheel(){
-      if(spinInProgress || foodSegments.length === 0) return;
-      spinInProgress = true;
+    function spinFoodWheel() {
+      // Prevent spinning if already spinning
+      if (isSpinning) {
+        console.log("Spin already in progress");
+        return;
+      }
+      
+      if (foodSegments.length === 0) {
+        alert("Please add at least one food option to spin!");
+        return;
+      }
+      
+      isSpinning = true;
+      
+      // Disable spin button during animation
       const spinBtn = document.getElementById('food-spin-btn');
-      if(spinBtn) spinBtn.disabled = true;
-      const spins = 10 + Math.random() * 8;
+      if (spinBtn) spinBtn.disabled = true;
+      
+      // Calculate random spin - multiple full rotations plus random offset
+      const minSpins = 8;
+      const maxSpins = 16;
+      const spins = minSpins + Math.random() * (maxSpins - minSpins);
       const extraAngle = Math.random() * Math.PI * 2;
       const targetDelta = (Math.PI * 2 * spins) + extraAngle;
-      const target = currentRotation + targetDelta;
-      animateFoodSpin(target, 1600, () => {
+      const targetRotation = currentRotation + targetDelta;
+      
+      animateFoodSpin(targetRotation, 1800, () => {
         const winner = getCurrentFoodSegment();
-        if(winner) showFoodResult(winner);
-        else { spinInProgress = false; if(spinBtn) spinBtn.disabled = false; }
+        if (winner) {
+          showFoodResult(winner);
+        }
+        // Note: isSpinning is set to false in the animate callback
       });
     }
 
-    function rebuildFoodEditor(){
+    function rebuildFoodEditor() {
       const container = document.getElementById('food-editor-list');
-      if(!container) return;
+      if (!container) return;
+      
       container.innerHTML = '';
+      
       foodSegments.forEach((seg, idx) => {
         const div = document.createElement('div');
         div.className = 'editor-item';
         div.innerHTML = `
-          <input type="color" class="seg-color" value="${seg.color}" data-idx="${idx}" style="background:${seg.color};">
-          <input type="text" class="seg-label" value="${escapeHtml(seg.label)}" data-idx="${idx}" maxlength="28">
-          <button class="seg-del" data-idx="${idx}" aria-label="Remove food">✕</button>
+          <input type="color" class="seg-color" value="${seg.color}" data-idx="${idx}" style="background:${seg.color}; width:36px; height:36px; border-radius:8px; cursor:pointer;">
+          <input type="text" class="seg-label" value="${escapeHtml(seg.label)}" data-idx="${idx}" maxlength="28" style="flex:1; background:transparent; border:none; color:var(--text); font-weight:600; padding:8px;">
+          <button class="seg-del" data-idx="${idx}" aria-label="Remove food" style="background:none; border:none; color:var(--text3); cursor:pointer; font-size:18px;">✕</button>
         `;
         container.appendChild(div);
       });
+      
+      // Attach event listeners
       document.querySelectorAll('#food-editor-list .seg-color').forEach(inp => {
         inp.addEventListener('change', (e) => {
-          let i = parseInt(e.target.dataset.idx);
-          if(!isNaN(i) && foodSegments[i]){ foodSegments[i].color = e.target.value; drawFoodWheel(); }
+          const idx = parseInt(e.target.dataset.idx);
+          if (!isNaN(idx) && foodSegments[idx]) {
+            foodSegments[idx].color = e.target.value;
+            drawFoodWheel();
+          }
         });
       });
+      
       document.querySelectorAll('#food-editor-list .seg-label').forEach(inp => {
         inp.addEventListener('change', (e) => {
-          let i = parseInt(e.target.dataset.idx);
-          if(!isNaN(i) && foodSegments[i]){ foodSegments[i].label = e.target.value.trim() || "Food"; drawFoodWheel(); }
+          const idx = parseInt(e.target.dataset.idx);
+          if (!isNaN(idx) && foodSegments[idx]) {
+            foodSegments[idx].label = e.target.value.trim() || "Food";
+            drawFoodWheel();
+          }
         });
       });
+      
       document.querySelectorAll('#food-editor-list .seg-del').forEach(btn => {
         btn.addEventListener('click', (e) => {
-          let i = parseInt(btn.dataset.idx);
-          if(!isNaN(i) && foodSegments.length > 1){
-            foodSegments.splice(i,1);
+          const idx = parseInt(btn.dataset.idx);
+          if (!isNaN(idx) && foodSegments.length > 1) {
+            foodSegments.splice(idx, 1);
             rebuildFoodEditor();
             drawFoodWheel();
           }
@@ -529,93 +604,197 @@
       });
     }
 
-    function loadFoodPreset(preset){
-      if(preset === 'fastfood'){
-        foodSegments = [{ label:"🍔 Burger", color:"#FF6B35", emoji:"🍔"},{ label:"🍟 Fries", color:"#F59E0B", emoji:"🍟"},{ label:"🍕 Pizza", color:"#EF4444", emoji:"🍕"},{ label:"🌮 Tacos", color:"#22C55E", emoji:"🌮"},{ label:"🍗 Chicken", color:"#8B5CF6", emoji:"🍗"}];
-      } else if(preset === 'asian'){
-        foodSegments = [{ label:"🍣 Sushi", color:"#22C55E", emoji:"🍣"},{ label:"🍜 Ramen", color:"#FF6B35", emoji:"🍜"},{ label:"🥟 Dumplings", color:"#F59E0B", emoji:"🥟"},{ label:"🍛 Curry", color:"#EC4899", emoji:"🍛"},{ label:"🥡 Fried Rice", color:"#10B981", emoji:"🥡"}];
-      } else if(preset === 'italian'){
-        foodSegments = [{ label:"🍝 Pasta", color:"#EF4444", emoji:"🍝"},{ label:"🍕 Pizza", color:"#FF6B35", emoji:"🍕"},{ label:"🥗 Caprese", color:"#22C55E", emoji:"🥗"},{ label:"🍲 Risotto", color:"#F59E0B", emoji:"🍲"},{ label:"🍦 Gelato", color:"#EC4899", emoji:"🍦"}];
-      } else if(preset === 'mexican'){
-        foodSegments = [{ label:"🌮 Tacos", color:"#F59E0B", emoji:"🌮"},{ label:"🌯 Burrito", color:"#FF6B35", emoji:"🌯"},{ label:"🍳 Quesadilla", color:"#22C55E", emoji:"🍳"},{ label:"🥑 Guacamole", color:"#10B981", emoji:"🥑"},{ label:"🍹 Margarita", color:"#8B5CF6", emoji:"🍹"}];
-      } else if(preset === 'healthy'){
-        foodSegments = [{ label:"🥗 Salad", color:"#22C55E", emoji:"🥗"},{ label:"🥑 Avocado Toast", color:"#10B981", emoji:"🥑"},{ label:"🍲 Quinoa Bowl", color:"#F59E0B", emoji:"🍲"},{ label:"🥤 Smoothie", color:"#3B82F6", emoji:"🥤"},{ label:"🍣 Veggie Sushi", color:"#EC4899", emoji:"🍣"}];
-      } else if(preset === 'dessert'){
-        foodSegments = [{ label:"🍰 Cake", color:"#EC4899", emoji:"🍰"},{ label:"🍪 Cookie", color:"#F59E0B", emoji:"🍪"},{ label:"🍦 Ice Cream", color:"#3B82F6", emoji:"🍦"},{ label:"🧁 Cupcake", color:"#FF6B35", emoji:"🧁"},{ label:"🍫 Brownie", color:"#8B5CF6", emoji:"🍫"}];
+    function loadFoodPreset(preset) {
+      if (preset === 'fastfood') {
+        foodSegments = [
+          { label: "🍔 Burger", color: "#FF6B35", emoji: "🍔" },
+          { label: "🍟 Fries", color: "#F59E0B", emoji: "🍟" },
+          { label: "🍕 Pizza", color: "#EF4444", emoji: "🍕" },
+          { label: "🌮 Tacos", color: "#22C55E", emoji: "🌮" },
+          { label: "🍗 Chicken", color: "#8B5CF6", emoji: "🍗" }
+        ];
+      } else if (preset === 'asian') {
+        foodSegments = [
+          { label: "🍣 Sushi", color: "#22C55E", emoji: "🍣" },
+          { label: "🍜 Ramen", color: "#FF6B35", emoji: "🍜" },
+          { label: "🥟 Dumplings", color: "#F59E0B", emoji: "🥟" },
+          { label: "🍛 Curry", color: "#EC4899", emoji: "🍛" },
+          { label: "🥡 Fried Rice", color: "#10B981", emoji: "🥡" }
+        ];
+      } else if (preset === 'italian') {
+        foodSegments = [
+          { label: "🍝 Pasta", color: "#EF4444", emoji: "🍝" },
+          { label: "🍕 Pizza", color: "#FF6B35", emoji: "🍕" },
+          { label: "🥗 Caprese", color: "#22C55E", emoji: "🥗" },
+          { label: "🍲 Risotto", color: "#F59E0B", emoji: "🍲" },
+          { label: "🍦 Gelato", color: "#EC4899", emoji: "🍦" }
+        ];
+      } else if (preset === 'mexican') {
+        foodSegments = [
+          { label: "🌮 Tacos", color: "#F59E0B", emoji: "🌮" },
+          { label: "🌯 Burrito", color: "#FF6B35", emoji: "🌯" },
+          { label: "🍳 Quesadilla", color: "#22C55E", emoji: "🍳" },
+          { label: "🥑 Guacamole", color: "#10B981", emoji: "🥑" },
+          { label: "🍹 Margarita", color: "#8B5CF6", emoji: "🍹" }
+        ];
+      } else if (preset === 'healthy') {
+        foodSegments = [
+          { label: "🥗 Salad", color: "#22C55E", emoji: "🥗" },
+          { label: "🥑 Avocado Toast", color: "#10B981", emoji: "🥑" },
+          { label: "🍲 Quinoa Bowl", color: "#F59E0B", emoji: "🍲" },
+          { label: "🥤 Smoothie", color: "#3B82F6", emoji: "🥤" },
+          { label: "🍣 Veggie Sushi", color: "#EC4899", emoji: "🍣" }
+        ];
+      } else if (preset === 'dessert') {
+        foodSegments = [
+          { label: "🍰 Cake", color: "#EC4899", emoji: "🍰" },
+          { label: "🍪 Cookie", color: "#F59E0B", emoji: "🍪" },
+          { label: "🍦 Ice Cream", color: "#3B82F6", emoji: "🍦" },
+          { label: "🧁 Cupcake", color: "#FF6B35", emoji: "🧁" },
+          { label: "🍫 Brownie", color: "#8B5CF6", emoji: "🍫" }
+        ];
       } else {
         foodSegments = [
-          { label:"🍕 Pizza", color:"#FF6B35", emoji:"🍕"},{ label:"🍣 Sushi", color:"#22C55E", emoji:"🍣"},{ label:"🌮 Tacos", color:"#F59E0B", emoji:"🌮"},
-          { label:"🍝 Pasta", color:"#EF4444", emoji:"🍝"},{ label:"🍔 Burger", color:"#8B5CF6", emoji:"🍔"},{ label:"🍜 Ramen", color:"#EC4899", emoji:"🍜"}
+          { label: "🍕 Pizza", color: "#FF6B35", emoji: "🍕" },
+          { label: "🍣 Sushi", color: "#22C55E", emoji: "🍣" },
+          { label: "🌮 Tacos", color: "#F59E0B", emoji: "🌮" },
+          { label: "🍝 Pasta", color: "#EF4444", emoji: "🍝" },
+          { label: "🍔 Burger", color: "#8B5CF6", emoji: "🍔" },
+          { label: "🍜 Ramen", color: "#EC4899", emoji: "🍜" }
         ];
       }
       rebuildFoodEditor();
       drawFoodWheel();
     }
 
-    function escapeHtml(str){ return String(str).replace(/[&<>]/g, function(m){ return m==='&'?'&amp;': m==='<'?'&lt;':'&gt;';}); }
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+      });
+    }
 
-    function initFoodPicker(){
+    function initFoodPicker() {
       canvas = document.getElementById('food-wheel-canvas');
-      if(!canvas) return;
-      const sz = Math.min(window.innerWidth * 0.7, 450);
-      canvas.width = sz; canvas.height = sz;
-      canvas.style.width = `${sz}px`; canvas.style.height = `${sz}px`;
+      if (!canvas) {
+        console.error("Canvas element not found");
+        return;
+      }
+      
+      const size = Math.min(window.innerWidth * 0.7, 450);
+      canvas.width = size;
+      canvas.height = size;
+      canvas.style.width = `${size}px`;
+      canvas.style.height = `${size}px`;
       ctx = canvas.getContext('2d');
+      
       rebuildFoodEditor();
       drawFoodWheel();
       
-      document.getElementById('food-spin-btn')?.addEventListener('click', spinFoodWheel);
+      // Spin button event
+      const spinBtn = document.getElementById('food-spin-btn');
+      if (spinBtn) {
+        spinBtn.addEventListener('click', spinFoodWheel);
+      }
+      
+      // Canvas click to spin
       canvas.addEventListener('click', spinFoodWheel);
-      document.getElementById('food-add-btn')?.addEventListener('click', ()=>{
-        let newFood = prompt("Add a food, restaurant, or dish:", "🍣 New Dish");
-        if(newFood && newFood.trim()){
-          foodSegments.push({ label: newFood.trim(), color: "#" + Math.floor(Math.random()*16777215).toString(16), emoji: "🍽️" });
-          rebuildFoodEditor();
-          drawFoodWheel();
-        }
-      });
-      document.getElementById('food-reset-default')?.addEventListener('click', ()=> loadFoodPreset('default'));
-      document.getElementById('food-close-result')?.addEventListener('click', ()=>{
-        document.getElementById('food-result-panel').style.opacity = "0";
-        document.getElementById('food-result-panel').style.transform = "translateY(10px)";
-      });
+      
+      // Add food button
+      const addBtn = document.getElementById('food-add-btn');
+      if (addBtn) {
+        addBtn.addEventListener('click', () => {
+          let newFood = prompt("Add a food, restaurant, or dish:", "🍣 New Dish");
+          if (newFood && newFood.trim()) {
+            foodSegments.push({ 
+              label: newFood.trim(), 
+              color: "#" + Math.floor(Math.random() * 16777215).toString(16), 
+              emoji: "🍽️" 
+            });
+            rebuildFoodEditor();
+            drawFoodWheel();
+          }
+        });
+      }
+      
+      // Reset button
+      const resetBtn = document.getElementById('food-reset-default');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => loadFoodPreset('default'));
+      }
+      
+      // Close result button
+      const closeBtn = document.getElementById('food-close-result');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+          const panel = document.getElementById('food-result-panel');
+          if (panel) {
+            panel.style.opacity = "0";
+            panel.style.transform = "translateY(10px)";
+          }
+        });
+      }
+      
+      // Spacebar to spin
       document.addEventListener('keydown', (e) => {
-        if(e.code === 'Space' && !spinInProgress && document.activeElement?.tagName !== 'TEXTAREA' && document.activeElement?.tagName !== 'INPUT'){
-          e.preventDefault(); spinFoodWheel();
+        if (e.code === 'Space' && !isSpinning) {
+          const activeElement = document.activeElement;
+          if (activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA' || activeElement.tagName === 'BUTTON')) {
+            return;
+          }
+          e.preventDefault();
+          spinFoodWheel();
         }
       });
-      // cuisine chips
+      
+      // Cuisine preset chips
       document.querySelectorAll('[data-food-preset]').forEach(chip => {
         chip.addEventListener('click', () => {
           const preset = chip.dataset.foodPreset;
-          if(preset === 'fastfood') loadFoodPreset('fastfood');
-          else if(preset === 'asian') loadFoodPreset('asian');
-          else if(preset === 'italian') loadFoodPreset('italian');
-          else if(preset === 'mexican') loadFoodPreset('mexican');
-          else if(preset === 'healthy') loadFoodPreset('healthy');
-          else if(preset === 'dessert') loadFoodPreset('dessert');
-          document.getElementById('food-app')?.scrollIntoView({behavior:'smooth'});
+          loadFoodPreset(preset);
+          document.getElementById('food-app')?.scrollIntoView({ behavior: 'smooth' });
         });
       });
-      document.getElementById('food-bottom-cta')?.addEventListener('click', ()=>{
-        document.getElementById('food-app')?.scrollIntoView({behavior:'smooth'});
-        setTimeout(()=> spinFoodWheel(), 400);
-      });
+      
+      // Bottom CTA button
+      const bottomCta = document.getElementById('food-bottom-cta');
+      if (bottomCta) {
+        bottomCta.addEventListener('click', () => {
+          document.getElementById('food-app')?.scrollIntoView({ behavior: 'smooth' });
+          setTimeout(() => spinFoodWheel(), 500);
+        });
+      }
+      
+      // Hero button
+      const heroSpinBtn = document.querySelector('.hero-ctas .btn-primary');
+      if (heroSpinBtn) {
+        heroSpinBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementById('food-app')?.scrollIntoView({ behavior: 'smooth' });
+          setTimeout(() => spinFoodWheel(), 500);
+        });
+      }
     }
     
     // Initialize after DOM is ready
-    if(document.readyState === 'loading') {
+    if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initFoodPicker);
     } else {
       initFoodPicker();
     }
     
     // Load confetti library
-    if(!window.confetti){
+    if (typeof window.confetti === 'undefined' && typeof canvasConfetti === 'undefined') {
       const script = document.createElement('script');
       script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1";
-      script.onload = () => { window.confetti = (opts) => canvasConfetti(opts); };
+      script.onload = () => {
+        window.confetti = canvasConfetti;
+      };
       document.head.appendChild(script);
+    } else if (typeof canvasConfetti !== 'undefined') {
+      window.confetti = canvasConfetti;
     }
   })();
 
