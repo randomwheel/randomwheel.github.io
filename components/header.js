@@ -37,7 +37,7 @@ const Header = {
 
          <div class="header-actions">
           <button class="btn-spin-cta" onclick="document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             Spin Now
           </button>
           <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
