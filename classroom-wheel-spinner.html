@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Ways to Use a Random Wheel Spinner in the Classroom | Spin The Wheel</title>
+  <meta name="description" content="Discover 12+ creative ways teachers can use a random wheel spinner in the classroom to boost engagement, manage participation, and make learning fun. Free tips and ideas inside." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Spin The Wheel" />
+  <link rel="canonical" href="https://randomwheel.github.io/blog/classroom-wheel-spinner" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Creative Ways to Use a Random Wheel Spinner in the Classroom" />
+  <meta property="og:description" content="Discover 12+ creative ways teachers can use a random wheel spinner to boost engagement and make learning fun." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://randomwheel.github.io/blog/classroom-wheel-spinner" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- BlogPosting Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Creative Ways to Use a Random Wheel Spinner in the Classroom",
+    "description": "Discover 12+ creative ways teachers can use a random wheel spinner in the classroom to boost engagement, manage participation, and make learning fun.",
+    "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80",
+    "author": {
+      "@type": "Organization",
+      "name": "Spin The Wheel",
+      "url": "https://randomwheel.github.io"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Spin The Wheel",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://randomwheel.github.io/logo.png"
+      }
+    },
+    "datePublished": "2025-05-20",
+    "dateModified": "2025-05-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://randomwheel.github.io/blog/classroom-wheel-spinner"
+    },
+    "keywords": "random wheel spinner classroom, spin wheel for teachers, classroom spinner tool, random name picker teacher, student engagement wheel",
+    "articleSection": "Education",
+    "wordCount": "1400"
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a12;
+      --bg2: #10101e;
+      --bg3: #18182e;
+      --surface: #1e1e36;
+      --surface2: #26264a;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0f0ff;
+      --text2: #a0a0c0;
+      --text3: #6060a0;
+      --accent: #FF6B35;
+      --accent2: #00E5FF;
+      --accent3: #FFD700;
+      --accent4: #FF1493;
+      --success: #22C55E;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.4);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-display: 'Righteous', cursive;
+      --font-body: 'Nunito', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    a { color: var(--accent2); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--accent); }
+    img { max-width: 100%; height: auto; display: block; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,10,18,0.92); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow var(--transition);
+    }
+    .site-header.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.5); border-bottom-color: rgba(255,107,53,0.2); }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { flex-shrink: 0; filter: drop-shadow(0 0 8px rgba(255,107,53,0.5)); }
+    .logo-text { display: flex; align-items: baseline; gap: 1px; }
+    .logo-main { font-family: var(--font-display); font-size: 1.35rem; color: var(--text); }
+    .logo-accent { font-family: var(--font-display); font-size: 1.35rem; color: var(--accent); }
+    .main-nav ul { display: flex; list-style: none; gap: 4px; }
+    .main-nav a { padding: 8px 14px; border-radius: 8px; color: var(--text2); font-weight: 600; font-size: 0.9rem; transition: all var(--transition); }
+    .main-nav a:hover { color: var(--text); background: var(--surface); }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+    .btn-spin-cta {
+      display: flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg, var(--accent), #ff4500);
+      color: white; border: none; cursor: pointer;
+      padding: 8px 16px; border-radius: 50px; font-weight: 700;
+      font-family: var(--font-body); font-size: 0.8rem;
+      transition: all var(--transition); box-shadow: 0 4px 20px rgba(255,107,53,0.4);
+      text-decoration: none;
+    }
+    .btn-spin-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,107,53,0.6); color: white; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all var(--transition); display: block; }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ===== ARTICLE HERO ===== */
+    .article-hero {
+      padding: 110px 24px 0;
+      max-width: 860px; margin: 0 auto;
+      animation: fadeInUp 0.7s ease both;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; color: var(--text3); margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text3); }
+    .breadcrumb a:hover { color: var(--accent2); }
+    .breadcrumb-sep { color: var(--text3); }
+    .breadcrumb-current { color: var(--text2); }
+
+    .article-category {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(0,229,255,0.12); border: 1px solid rgba(0,229,255,0.25);
+      color: var(--accent2); padding: 5px 14px; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 800; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
+      line-height: 1.15; margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.75) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .article-title .hl { background: linear-gradient(135deg, var(--accent), var(--accent3)); -webkit-background-clip: text; background-clip: text; }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      color: var(--text3); font-size: 0.85rem; margin-bottom: 36px;
+    }
+    .meta-item { display: flex; align-items: center; gap: 6px; }
+    .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text3); }
+
+    /* ===== FEATURED IMAGE ===== */
+    .featured-img-wrap {
+      max-width: 860px; margin: 0 auto 0; padding: 0 24px;
+      animation: fadeInUp 0.7s 0.15s ease both;
+    }
+    .featured-img {
+      width: 100%; height: 420px; object-fit: cover;
+      border-radius: var(--radius); border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+    }
+    .img-caption {
+      text-align: center; color: var(--text3); font-size: 0.8rem;
+      margin-top: 10px; font-style: italic;
+    }
+
+    /* ===== ARTICLE LAYOUT ===== */
+    .article-layout {
+      max-width: 1140px; margin: 48px auto 0; padding: 0 24px;
+      display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start;
+    }
+
+    /* ===== ARTICLE BODY ===== */
+    .article-body { min-width: 0; animation: fadeInUp 0.7s 0.25s ease both; }
+
+    .article-body p { color: var(--text2); margin-bottom: 20px; line-height: 1.75; font-size: 1.02rem; }
+    .article-body h2 {
+      font-family: var(--font-display); font-size: 1.65rem;
+      margin: 44px 0 16px; color: var(--text);
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+    }
+    .article-body h2 .num { color: var(--accent); margin-right: 6px; }
+    .article-body h3 { font-size: 1.1rem; font-weight: 800; margin: 28px 0 10px; color: var(--accent2); }
+    .article-body ul, .article-body ol { color: var(--text2); padding-left: 22px; margin-bottom: 20px; }
+    .article-body li { margin-bottom: 8px; line-height: 1.7; font-size: 1rem; }
+    .article-body strong { color: var(--text); font-weight: 800; }
+
+    /* Tip box */
+    .tip-box {
+      background: rgba(0,229,255,0.07); border: 1px solid rgba(0,229,255,0.2);
+      border-left: 3px solid var(--accent2);
+      border-radius: var(--radius-sm); padding: 18px 20px; margin: 28px 0;
+    }
+    .tip-box .tip-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent2); font-weight: 800; margin-bottom: 6px; }
+    .tip-box p { margin: 0; color: var(--text2); font-size: 0.95rem; }
+
+    /* Idea cards grid */
+    .ideas-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 28px 0;
+    }
+    .idea-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 20px;
+      transition: all var(--transition);
+    }
+    .idea-card:hover { border-color: rgba(255,107,53,0.25); transform: translateY(-3px); }
+    .idea-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .idea-card h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 6px; color: var(--text); }
+    .idea-card p { color: var(--text3); font-size: 0.85rem; margin: 0; line-height: 1.5; }
+
+    /* Quote pull */
+    .pull-quote {
+      border-left: 3px solid var(--accent);
+      margin: 32px 0; padding: 16px 24px;
+      background: rgba(255,107,53,0.06);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .pull-quote p { color: var(--text); font-size: 1.1rem; font-style: italic; margin: 0; font-weight: 700; }
+
+    /* CTA inline */
+    .inline-cta {
+      background: linear-gradient(135deg, rgba(255,107,53,0.15), rgba(0,229,255,0.08));
+      border: 1px solid rgba(255,107,53,0.25);
+      border-radius: var(--radius); padding: 28px; margin: 36px 0; text-align: center;
+    }
+    .inline-cta h3 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 8px; }
+    .inline-cta p { color: var(--text2); font-size: 0.9rem; margin-bottom: 18px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--accent), #ff4500);
+      color: white; border: none; cursor: pointer;
+      padding: 12px 28px; border-radius: 50px; font-weight: 800;
+      font-family: var(--font-body); font-size: 0.95rem;
+      transition: all var(--transition); text-decoration: none;
+      box-shadow: 0 6px 24px rgba(255,107,53,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(255,107,53,0.6); color: white; }
+
+    /* Tags */
+    .article-tags { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border); }
+    .article-tags h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); margin-bottom: 12px; }
+    .tags-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text2); padding: 5px 14px; border-radius: 50px;
+      font-size: 0.82rem; font-weight: 700; transition: all var(--transition);
+    }
+    .tag:hover { border-color: var(--accent2); color: var(--accent2); }
+
+    /* ===== SIDEBAR ===== */
+    .article-sidebar { position: sticky; top: 88px; animation: fadeInUp 0.7s 0.3s ease both; }
+
+    .sidebar-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px; margin-bottom: 20px;
+    }
+    .sidebar-card h4 {
+      font-family: var(--font-display); font-size: 1rem; margin-bottom: 16px;
+      color: var(--accent2);
+    }
+    .toc-list { list-style: none; padding: 0; }
+    .toc-list li { margin-bottom: 10px; }
+    .toc-list a {
+      color: var(--text2); font-size: 0.88rem; font-weight: 600;
+      display: block; padding: 5px 10px; border-radius: 6px;
+      border-left: 2px solid transparent; transition: all var(--transition);
+    }
+    .toc-list a:hover { background: var(--surface2); color: var(--text); border-left-color: var(--accent); padding-left: 14px; }
+
+    .related-list { list-style: none; padding: 0; }
+    .related-list li { padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a { color: var(--text2); font-size: 0.88rem; font-weight: 700; display: block; transition: all var(--transition); }
+    .related-list a:hover { color: var(--accent); padding-left: 4px; }
+
+    .sidebar-cta {
+      background: linear-gradient(135deg, rgba(255,107,53,0.15), rgba(255,215,0,0.08));
+      border: 1px solid rgba(255,107,53,0.25);
+      border-radius: var(--radius); padding: 24px; text-align: center;
+    }
+    .sidebar-cta .wheel-mini {
+      width: 64px; height: 64px; margin: 0 auto 14px;
+      background: conic-gradient(#FF6B35 0 60deg, #FFD700 60deg 120deg, #00E5FF 120deg 180deg, #FF1493 180deg 240deg, #22C55E 240deg 300deg, #A855F7 300deg 360deg);
+      border-radius: 50%; box-shadow: 0 0 20px rgba(255,107,53,0.3);
+      animation: slowSpin 6s linear infinite;
+    }
+    .sidebar-cta h4 { font-family: var(--font-display); font-size: 1rem; margin-bottom: 8px; }
+    .sidebar-cta p { color: var(--text2); font-size: 0.82rem; margin-bottom: 14px; }
+    .btn-cta-sm {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg, var(--accent), #ff4500);
+      color: white; padding: 10px 20px; border-radius: 50px;
+      font-weight: 800; font-size: 0.85rem; font-family: var(--font-body);
+      transition: all var(--transition); text-decoration: none;
+      box-shadow: 0 4px 16px rgba(255,107,53,0.4);
+    }
+    .btn-cta-sm:hover { transform: translateY(-2px); color: white; box-shadow: 0 8px 24px rgba(255,107,53,0.6); }
+
+    /* ===== FOOTER ===== */
+    .site-footer { background: var(--bg); border-top: 1px solid var(--border); margin-top: 80px; }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto; padding: 56px 24px 36px;
+      display: grid; grid-template-columns: 1.5fr 2fr; gap: 64px;
+    }
+    .footer-tagline { color: var(--text2); font-size: 0.9rem; line-height: 1.6; margin: 12px 0 20px; max-width: 300px; }
+    .footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .footer-col h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); margin-bottom: 14px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .footer-col a { color: var(--text2); font-size: 0.88rem; transition: all var(--transition); }
+    .footer-col a:hover { color: var(--text); padding-left: 4px; }
+    .footer-bottom { border-top: 1px solid var(--border); padding: 18px 24px; }
+    .footer-bottom-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+    }
+    .footer-bottom p { color: var(--text3); font-size: 0.83rem; }
+    .footer-legal { display: flex; gap: 14px; }
+    .footer-legal a { color: var(--text3); font-size: 0.83rem; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slowSpin { to { transform: rotate(360deg); } }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      .main-nav {
+        position: fixed; top: 68px; left: 0; right: 0;
+        background: rgba(10,10,18,0.97); backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        transform: translateY(-100%); opacity: 0; pointer-events: none;
+        transition: all var(--transition); padding: 20px 24px 24px;
+      }
+      .main-nav.nav-open { transform: translateY(0); opacity: 1; pointer-events: all; }
+      .main-nav ul { flex-direction: column; gap: 4px; }
+      .main-nav a { display: block; padding: 12px 16px; font-size: 1rem; }
+      .hamburger { display: flex; }
+
+      .article-hero { padding-top: 90px; }
+      .featured-img { height: 220px; }
+      .article-layout { grid-template-columns: 1fr; }
+      .article-sidebar { position: static; }
+      .ideas-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+      .footer-links { grid-template-columns: repeat(2, 1fr); }
+      .footer-bottom-inner { flex-direction: column; text-align: center; }
+      .footer-legal { justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-links { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+ <!-- Header injected by JS -->
+<div id="header-root"></div>
+
+  <!-- ARTICLE HERO -->
+  <div class="article-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Classroom Wheel Spinner</span>
+    </nav>
+    <div class="article-category">🎓 Education</div>
+    <h1 class="article-title">Creative Ways to Use a <span class="hl">Random Wheel Spinner</span> in the Classroom</h1>
+    <div class="article-meta">
+      <span class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        May 20, 2025
+      </span>
+      <span class="meta-dot"></span>
+      <span class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        7 min read
+      </span>
+      <span class="meta-dot"></span>
+      <span class="meta-item">By Spin The Wheel Team</span>
+    </div>
+  </div>
+
+  <!-- FEATURED IMAGE -->
+  <div class="featured-img-wrap">
+    <img
+      src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80&auto=format&fit=crop"
+      alt="Teacher engaging students in a classroom activity using interactive tools"
+      class="featured-img"
+      width="1200" height="420"
+      loading="eager"
+    />
+    <p class="img-caption">Photo: A lively classroom where interactive tools transform participation. Credit: Unsplash</p>
+  </div>
+
+  <!-- ARTICLE LAYOUT -->
+  <div class="article-layout">
+
+    <!-- ARTICLE BODY -->
+    <article class="article-body" itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content="Creative Ways to Use a Random Wheel Spinner in the Classroom" />
+      <meta itemprop="datePublished" content="2025-05-20" />
+
+      <p>If you're a teacher searching for fresh ways to energize your lessons, a <strong>random wheel spinner</strong> might be the most underutilized tool in your digital toolkit. Whether you're managing class participation, creating spontaneous learning moments, or simply trying to pick a student fairly, spin wheels turn routine classroom tasks into something students actually look forward to.</p>
+
+      <p>In this guide, we'll walk through <strong>12 creative, classroom-tested ideas</strong> for using a free online wheel spinner — from daily warm-ups to summative reviews. Let's spin things up!</p>
+
+      <div class="tip-box">
+        <div class="tip-label">💡 Quick Tip</div>
+        <p>You don't need any special software. A free browser-based spin wheel — like the one on this site — works on any device, including interactive whiteboards, tablets, and smartphones.</p>
+      </div>
+
+      <h2 id="why-it-works"><span class="num">01.</span> Why Random Wheel Spinners Work in Education</h2>
+      <p>Before diving into specific ideas, it's worth understanding <em>why</em> randomness is pedagogically powerful. Research in cognitive science suggests that <strong>unpredictable reward structures</strong> — the same principle behind gamification — increase dopamine engagement. When students don't know who'll be called on next, attention sharpens across the whole room.</p>
+      <p>Additionally, spin wheels eliminate perceived teacher bias. Students accept the outcome of a wheel spin more readily than a teacher's hand-raised call. It's fair, fast, and fun.</p>
+
+      <div class="pull-quote">
+        <p>"When the wheel decides, students stop thinking 'why does she always pick the same kids?' — everyone's in the game."</p>
+      </div>
+
+      <h2 id="participation"><span class="num">02.</span> Cold-Call Participation — Without the Dread</h2>
+      <p>The classic use case. Add every student's name to the wheel and spin it when you want a volunteer. The key is framing: position it as <strong>exciting</strong>, not anxiety-inducing. Consider a "lifeline" rule — any student spun can pass once per week. This preserves the randomness while reducing participation anxiety.</p>
+      <h3>Best practices for name picker wheels:</h3>
+      <ul>
+        <li>Use the "remove after pick" option so every student gets called once before any repeat</li>
+        <li>Colour-code names by table group to balance group discussion</li>
+        <li>Keep the wheel visible on a projector so students can see who's left</li>
+      </ul>
+
+      <h2 id="lesson-ideas"><span class="num">03.</span> 12 Creative Classroom Wheel Ideas</h2>
+      <p>Here's where things get truly exciting. These ideas span every subject and age group:</p>
+
+      <div class="ideas-grid">
+        <div class="idea-card">
+          <div class="idea-icon">📖</div>
+          <h4>Vocabulary Roulette</h4>
+          <p>Load 10–15 vocab words. The spun word gets defined, used in a sentence, and illustrated on the board.</p>
+        </div>
+        <div class="idea-card">
+          <div class="idea-icon">🔢</div>
+          <h4>Math Fact Sprint</h4>
+          <p>Numbers 1–12 on the wheel. Spin twice to generate a multiplication or addition problem to solve in 10 seconds.</p>
+        </div>
+        <div class="idea-card">
+          <div class="idea-icon">🌍</div>
+          <h4>Country Deep-Dive</h4>
+          <p>Geography class? Spin a country name and spend 3 minutes finding its capital, population, and one fun fact.</p>
+        </div>
+        <div class="idea-card">
+          <div class="idea-icon">🎭</div>
+          <h4>Drama Prompt Wheel</h4>
+          <p>Scenarios like "You're a detective", "It's 1820", "You speak only in questions" — spin for instant improv fun.</p>
+        </div>
+        <div class="idea-card">
+          <div class="idea-icon">🔬</div>
+          <h4>Lab Role Randomizer</h4>
+          <p>Assign "recorder", "materials manager", "presenter", "tester" roles randomly each session for fair lab rotations.</p>
+        </div>
+        <div class="idea-card">
+          <div class="idea-icon">📝</div>
+          <h4>Writing Prompt Spinner</h4>
+          <p>Creative writing topics on the wheel — spin at the start of free-write Friday and let imaginations run wild.</p>
+        </div>
+        <div class="idea-card">
+          <div class="idea-icon">🏆</div>
+          <h4>Bonus Point Wheel</h4>
+          <p>Correct answers earn a spin at the bonus wheel: "5 extra points", "choose your seat", "homework pass", "free spin".</p>
+        </div>
+        <div class="idea-card">
+          <div class="idea-icon">🗣️</div>
+          <h4>Discussion Starter</h4>
+          <p>Ethical dilemmas, debate topics, or "would you rather" scenarios — perfect for sparking critical thinking discussions.</p>
+        </div>
+      </div>
+
+      <h2 id="reviews"><span class="num">04.</span> Gamified Review Sessions</h2>
+      <p>Spin wheels truly shine during <strong>test review</strong>. Create a wheel with different review question categories — "True/False", "Explain in 30 seconds", "Draw it", "Teach it to a partner". Spin the category, then ask a question from that style. This breaks the monotony of traditional Q&A review and keeps all learning styles engaged.</p>
+      <p>For whole-class reviews, try a <strong>team-based format</strong>: spin a team name first, then spin a question type. Teams compete for points. The unpredictability of which team gets which question type adds strategic excitement.</p>
+
+      <h2 id="transitions"><span class="num">05.</span> Managing Transitions and Routines</h2>
+      <p>Beyond content delivery, wheel spinners are brilliant <strong>classroom management tools</strong>. Use them for:</p>
+      <ul>
+        <li><strong>Line leader selection</strong> — fair, fast, no arguments</li>
+        <li><strong>Classroom jobs</strong> — "board eraser", "plant waterer", "paper collector" rotated weekly</li>
+        <li><strong>Early finisher activities</strong> — spin to choose from enrichment options</li>
+        <li><strong>Brain break picker</strong> — "stretch", "silent read", "doodle", "mindfulness minute"</li>
+      </ul>
+
+      <div class="inline-cta">
+        <h3>Ready to try it in your class? 🎡</h3>
+        <p>Our free classroom wheel works on any device, no login required. Customize it with your students' names in seconds.</p>
+        <a href="/" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Launch Free Wheel Spinner
+        </a>
+      </div>
+
+      <h2 id="pro-tips"><span class="num">06.</span> Pro Tips for Maximum Classroom Impact</h2>
+      <p>After hearing from hundreds of educators, here are the tips that make the biggest difference:</p>
+      <ul>
+        <li><strong>Name your wheel.</strong> "Ms. Johnson's Lucky Wheel" creates ownership and makes it feel special.</li>
+        <li><strong>Include "Wildcard" segments.</strong> Mystery options like "class choice" or "ask a friend for help" add delightful unpredictability.</li>
+        <li><strong>Use sound.</strong> The ticking spin sound dramatically increases the excitement — don't mute it!</li>
+        <li><strong>Celebrate every spin.</strong> A small round of applause for whoever gets picked reframes it as recognition, not exposure.</li>
+        <li><strong>Save and share.</strong> Create subject-specific wheels and bookmark them — no re-entry needed each lesson.</li>
+      </ul>
+
+      <h2 id="digital-age"><span class="num">07.</span> Wheel Spinners in the Digital-First Classroom</h2>
+      <p>For teachers running hybrid or fully remote classes, a browser-based wheel spinner is a seamless inclusion in any <strong>Zoom, Google Meet, or Teams session</strong>. Share your screen and let students call out their guess before the wheel stops — it recreates the physical classroom energy in a digital environment.</p>
+      <p>Many teachers have also integrated wheel spinners into <strong>Google Classroom assignments</strong>, embedding a link to a pre-configured wheel students can spin independently during center rotations or self-paced activities.</p>
+
+      <div class="article-tags">
+        <h4>Topics</h4>
+        <div class="tags-list">
+          <a href="#" class="tag">Classroom Tools</a>
+          <a href="#" class="tag">Student Engagement</a>
+          <a href="#" class="tag">Random Name Picker</a>
+          <a href="#" class="tag">Teaching Tips</a>
+          <a href="#" class="tag">Gamification</a>
+          <a href="#" class="tag">EdTech</a>
+          <a href="#" class="tag">Free Tools</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="article-sidebar">
+      <div class="sidebar-card">
+        <h4>📋 Table of Contents</h4>
+        <ul class="toc-list">
+          <li><a href="#why-it-works">Why It Works</a></li>
+          <li><a href="#participation">Cold-Call Participation</a></li>
+          <li><a href="#lesson-ideas">12 Creative Ideas</a></li>
+          <li><a href="#reviews">Gamified Reviews</a></li>
+          <li><a href="#transitions">Managing Transitions</a></li>
+          <li><a href="#pro-tips">Pro Tips</a></li>
+          <li><a href="#digital-age">Digital-First Classrooms</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-cta">
+        <div class="wheel-mini" aria-hidden="true"></div>
+        <h4>Try It Free Now</h4>
+        <p>No sign-up. Works on any device. Loved by 500K+ teachers.</p>
+        <a href="/" class="btn-cta-sm">
+          🎡 Spin The Wheel
+        </a>
+      </div>
+
+      <div class="sidebar-card" style="margin-top: 20px;">
+        <h4>📚 Related Articles</h4>
+        <ul class="related-list">
+          <li><a href="/blog/random-name-picker-teachers">Random Name Picker: Tips & Best Practices</a></li>
+          <li><a href="/blog/truth-or-dare-wheel">Truth or Dare Wheel: 100+ Party Prompts</a></li>
+          <li><a href="/blog/prize-draw-giveaway">Run a Fair Prize Draw with a Spin Wheel</a></li>
+          <li><a href="/blog/decision-fatigue">End Decision Fatigue with a Decision Wheel</a></li>
+          <li><a href="/blog/psychology-spin-wheels">The Psychology Behind Spin Wheels</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div><!-- /article-layout -->
+
+  <!-- FOOTER -->
+  <!-- Footer injected by JS -->
+<div id="footer-root"></div>
+
+<!-- Scripts -->
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 40);
+    });
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('main-nav');
+    hamburger.addEventListener('click', () => {
+      const open = nav.classList.toggle('nav-open');
+      hamburger.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+  </script>
+</body>
+</html>
