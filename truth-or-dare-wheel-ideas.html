@@ -101,6 +101,42 @@
     ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
 
     /* ===== HEADER ===== */
+
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,10,18,0.92); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow var(--transition);
+    }
+    .site-header.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.5); border-bottom-color: rgba(255,107,53,0.2); }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { flex-shrink: 0; filter: drop-shadow(0 0 8px rgba(255,107,53,0.5)); }
+    .logo-text { display: flex; align-items: baseline; gap: 1px; }
+    .logo-main { font-family: var(--font-display); font-size: 1.35rem; color: var(--text); }
+    .logo-accent { font-family: var(--font-display); font-size: 1.35rem; color: var(--accent); }
+    .main-nav ul { display: flex; list-style: none; gap: 4px; }
+    .main-nav a { padding: 8px 14px; border-radius: 8px; color: var(--text2); font-weight: 600; font-size: 0.9rem; transition: all var(--transition); }
+    .main-nav a:hover { color: var(--text); background: var(--surface); }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+    .btn-spin-cta {
+      display: flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg, var(--accent4), #c0105e);
+      color: white; border: none; cursor: pointer;
+      padding: 8px 16px; border-radius: 50px; font-weight: 700;
+      font-family: var(--font-body); font-size: 0.8rem;
+      transition: all var(--transition); box-shadow: 0 4px 20px rgba(255,20,147,0.4);
+      text-decoration: none;
+    }
+    .btn-spin-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,20,147,0.6); color: white; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all var(--transition); display: block; }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     
 
     /* ===== ARTICLE HERO ===== */
@@ -385,7 +421,7 @@
 
   <!-- HEADER -->
   <!-- Header injected by JS -->
-<div id="header-root"></div>
+<div id="site-header"></div>
 
   <!-- ARTICLE HERO -->
   <div class="article-hero">
@@ -631,7 +667,7 @@
 
   <!-- FOOTER -->
   <!-- Footer injected by JS -->
-<div id="footer-root"></div>
+<div id="site-footer"></div>
 
 <!-- Scripts -->
 <script src="components/header.js"></script>
