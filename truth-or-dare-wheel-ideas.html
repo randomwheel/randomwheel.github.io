@@ -19,6 +19,7 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Spin The Wheel" />
   <link rel="canonical" href="https://randomwheel.github.io/truth-or-dare-wheel-ideas" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Truth or Dare Wheel Ideas: 100+ Fun Prompts for Parties & Game Nights" />
@@ -675,9 +676,13 @@
 
    <script>
     // Header scroll
-    window.addEventListener('scroll', () => {
-      document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 40);
-    });
+    // Header scroll fix
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('site-header');
+  if (header) {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }
+});
     // Hamburger
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('main-nav');
