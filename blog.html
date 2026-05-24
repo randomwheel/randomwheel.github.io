@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Blog | Random Wheel Spinner - Tips, Ideas & Guides</title>
+  <meta name="description" content="Explore creative tips, classroom ideas, party prompts, and psychology insights about spin wheels. Read our blog for inspiration and best practices.">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Google AdSense & Analytics (consistent with main site) -->
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DH0NXE4ME3');
+  </script>
+
+  <!-- Preconnect & Fonts (same as main) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Reuse global CSS from original style (with minor blog additions) -->
+  <style>
+    /* ===== RESET & BASE (inherits from main style) ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a12;
+      --bg2: #10101e;
+      --bg3: #18182e;
+      --surface: #1e1e36;
+      --surface2: #26264a;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0f0ff;
+      --text2: #a0a0c0;
+      --text3: #6060a0;
+      --accent: #FF6B35;
+      --accent2: #00E5FF;
+      --accent3: #FFD700;
+      --accent4: #FF1493;
+      --success: #22C55E;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.4);
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.6);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-display: 'Righteous', cursive;
+      --font-body: 'Nunito', sans-serif;
+    }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: var(--accent2); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--accent); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    /* header/footer styles (condensed, matching original) */
+    .site-header {
+      position: sticky; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,10,18,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-main { font-family: var(--font-display); font-size: 1.35rem; color: var(--text); }
+    .logo-accent { font-family: var(--font-display); font-size: 1.35rem; color: var(--accent); }
+    .main-nav ul { display: flex; list-style: none; gap: 4px; }
+    .main-nav a { padding: 8px 14px; border-radius: 8px; color: var(--text2); font-weight: 600; transition: all var(--transition); }
+    .main-nav a:hover { color: var(--text); background: var(--surface); }
+    .btn-spin-cta {
+      display: flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg, var(--accent), #ff4500);
+      color: white; border: none; cursor: pointer;
+      padding: 8px 16px; border-radius: 50px; font-weight: 700;
+      transition: all var(--transition);
+      box-shadow: 0 4px 20px rgba(255,107,53,0.4);
+    }
+    .btn-spin-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,107,53,0.6); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all var(--transition); display: block; }
+    
+    /* Blog specific enhancements */
+    .blog-hero {
+      padding: 60px 0 40px;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,107,53,0.08), transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .blog-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      background: linear-gradient(135deg, #fff, var(--accent2));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+    .blog-sub {
+      color: var(--text2);
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 32px;
+      padding: 60px 0 80px;
+    }
+    .blog-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .blog-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,107,53,0.4);
+      box-shadow: var(--shadow-lg);
+    }
+    .card-badge {
+      background: rgba(255,107,53,0.15);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 30px;
+      display: inline-block;
+      margin: 20px 20px 0 20px;
+      width: fit-content;
+      text-transform: uppercase;
+    }
+    .blog-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1.3;
+      margin: 12px 20px 10px;
+      color: var(--text);
+    }
+    .blog-excerpt {
+      color: var(--text2);
+      font-size: 0.95rem;
+      margin: 0 20px 20px;
+      flex: 1;
+    }
+    .blog-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 20px 20px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text3);
+    }
+    .read-link {
+      font-weight: 800;
+      color: var(--accent2);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap var(--transition);
+    }
+    .read-link:hover { gap: 10px; color: var(--accent); }
+    .topic-tag {
+      background: var(--bg3);
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    /* Footer (same style as main) */
+    .site-footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto; padding: 48px 24px 32px;
+      display: grid; grid-template-columns: 1.5fr 2fr; gap: 64px;
+    }
+    .footer-logo { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 12px; display: inline-block; }
+    .footer-tagline { color: var(--text2); font-size: 0.9rem; max-width: 280px; }
+    .footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .footer-col h4 { font-size: 0.85rem; text-transform: uppercase; color: var(--text3); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col a { color: var(--text2); font-size: 0.85rem; transition: padding var(--transition); }
+    .footer-col a:hover { color: var(--text); padding-left: 6px; }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text3);
+    }
+    @media (max-width: 768px) {
+      .header-inner { padding: 0 16px; }
+      .main-nav { display: none; }
+      .hamburger { display: flex; }
+      .articles-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-links { grid-template-columns: repeat(2, 1fr); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .blog-card {
+      animation: fadeInUp 0.5s ease backwards;
+    }
+    .blog-card:nth-child(1) { animation-delay: 0.05s; }
+    .blog-card:nth-child(2) { animation-delay: 0.1s; }
+    .blog-card:nth-child(3) { animation-delay: 0.15s; }
+    .blog-card:nth-child(4) { animation-delay: 0.2s; }
+    .blog-card:nth-child(5) { animation-delay: 0.25s; }
+    .blog-card:nth-child(6) { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+<!-- Header replica (matching main site style + nav links) -->
+<!-- Header injected by JS -->
+<div id="header-root"></div>
+
+<main>
+  <!-- Blog Hero -->
+  <section class="blog-hero">
+    <div class="container">
+      <div class="hero-badge" style="display: inline-block; margin-bottom: 16px;">✨ RandomWheel Insider</div>
+      <h1 class="blog-title">Spin smarter, decide better.</h1>
+      <p class="blog-sub">Explore expert guides, creative classroom hacks, party inspiration and psychology insights — all powered by the randomness you love.</p>
+    </div>
+  </section>
+
+  <!-- Articles Grid: 6 cards based on provided topics -->
+  <div class="container">
+    <div class="articles-grid">
+      
+      <!-- Article 1: Creative Ways to Use a Random Wheel Spinner in the Classroom -->
+      <article class="blog-card">
+        <div class="card-badge">📚 EDUCATION</div>
+        <h3>Creative Ways to Use a Random Wheel Spinner in the Classroom</h3>
+        <div class="blog-excerpt">
+          Engage students with interactive decision-making: from vocabulary reviews to random group assignments. Discover 15+ fun, low-prep activities that keep learners excited.
+        </div>
+        <div class="blog-meta">
+          <span class="topic-tag">🎓 Teacher Tools</span>
+          <a href="#" class="read-link" data-article="classroom-tips">Read more →</a>
+        </div>
+      </article>
+
+      <!-- Article 2: Truth or Dare Wheel Ideas: 100+ Fun Prompts for Parties and Game Nights -->
+      <article class="blog-card">
+        <div class="card-badge">🎉 PARTY GAMES</div>
+        <h3>Truth or Dare Wheel Ideas: 100+ Fun Prompts</h3>
+        <div class="blog-excerpt">
+          Level up game night! We've curated over 100 wild truths and hilarious dares. Customize your wheel and turn any gathering into an unforgettable experience.
+        </div>
+        <div class="blog-meta">
+          <span class="topic-tag">🔥 Truth or Dare</span>
+          <a href="#" class="read-link" data-article="truth-dare-prompts">Read more →</a>
+        </div>
+      </article>
+
+      <!-- Article 3: How to Run a Fair Prize Draw or Giveaway Using a Free Spin Wheel -->
+      <article class="blog-card">
+        <div class="card-badge">🏆 GIVEAWAYS</div>
+        <h3>How to Run a Fair Prize Draw Using a Free Spin Wheel</h3>
+        <div class="blog-excerpt">
+          Transparent, verifiable, and exciting: use our digital wheel spinner for raffles, contests, and prize giveaways. Step-by-step guide to ensure total fairness.
+        </div>
+        <div class="blog-meta">
+          <span class="topic-tag">🎁 Raffle Ideas</span>
+          <a href="#" class="read-link" data-article="fair-giveaway">Read more →</a>
+        </div>
+      </article>
+
+      <!-- Article 4: End Decision Fatigue: Best Decision-Making Wheels for Everyday Life -->
+      <article class="blog-card">
+        <div class="card-badge">🧠 DECISION TOOL</div>
+        <h3>End Decision Fatigue: Best Decision-Making Wheels for Everyday Life</h3>
+        <div class="blog-excerpt">
+          What to eat? Weekend plan? Outfit choice? Overcome choice overload with custom spin wheels. Practical setups to streamline small & big decisions.
+        </div>
+        <div class="blog-meta">
+          <span class="topic-tag">⚡ Productivity</span>
+          <a href="#" class="read-link" data-article="decision-fatigue">Read more →</a>
+        </div>
+      </article>
+
+      <!-- Article 5: Random Name Picker for Teachers: Tips, Tricks & Best Practices -->
+      <article class="blog-card">
+        <div class="card-badge">👩‍🏫 CLASSROOM</div>
+        <h3>Random Name Picker for Teachers: Tips, Tricks & Best Practices</h3>
+        <div class="blog-excerpt">
+          Boost engagement and inclusion with the ultimate random name picker. Learn how to manage participation, avoid bias, and create equitable classrooms.
+        </div>
+        <div class="blog-meta">
+          <span class="topic-tag">🏷️ Name Picker</span>
+          <a href="#" class="read-link" data-article="name-picker-tips">Read more →</a>
+        </div>
+      </article>
+
+      <!-- Article 6: Why Spin Wheels Work: The Psychology Behind Random Decision Tools -->
+      <article class="blog-card">
+        <div class="card-badge">🔮 PSYCHOLOGY</div>
+        <h3>Why Spin Wheels Work: The Psychology Behind Random Decision Tools</h3>
+        <div class="blog-excerpt">
+          Discover why randomness reduces regret and increases satisfaction. The cognitive science behind decision wheels, gamification, and perceived fairness.
+        </div>
+        <div class="blog-meta">
+          <span class="topic-tag">🧠 Behavioral Science</span>
+          <a href="#" class="read-link" data-article="psychology-wheels">Read more →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Simple modal/detail placeholder for demo (since full article pages not created, but user expects blog cards with navigation links -> we'll show an alert preview but maintain realistic UX) -->
+  <div id="articleModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); z-index: 1000; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: var(--surface); max-width: 600px; width: 100%; border-radius: var(--radius); border: 1px solid var(--border); padding: 28px; position: relative;">
+      <button id="closeModalBtn" style="position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--text2); font-size: 24px; cursor: pointer;">&times;</button>
+      <h3 id="modalTitle" style="font-family: var(--font-display); margin-bottom: 16px; color: var(--accent2);">Article Preview</h3>
+      <div id="modalContent" style="color: var(--text2); line-height: 1.7;">
+        <p>Full article content is coming soon! At RandomWheel, we are dedicated to bring you in-depth guides and inspiration. Meanwhile, try our interactive spin wheel and experience the magic of random decisions.</p>
+        <div style="margin-top: 24px; text-align: center;">
+          <a href="index.html#spin-app" class="btn-primary" style="display: inline-block; padding: 12px 28px;">🎡 Spin the Wheel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter / extra blog CTA (optional) -->
+  <section style="background: var(--bg2); padding: 60px 0; text-align: center; border-top: 1px solid var(--border);">
+    <div class="container">
+      <h2 style="font-family: var(--font-display); font-size: 1.8rem;">Never miss a spin insight</h2>
+      <p style="color: var(--text2); max-width: 500px; margin: 12px auto 28px;">Get new blog posts, wheel ideas and free resources straight to your inbox.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <input type="email" placeholder="Your email" style="background: var(--bg3); border: 1px solid var(--border); padding: 14px 20px; border-radius: 60px; color: white; width: 260px; outline: none;">
+        <button class="btn-primary" style="padding: 14px 28px;">Subscribe →</button>
+      </div>
+      <p class="keyboard-hint" style="margin-top: 20px; font-size: 0.7rem;">No spam, only random fun.</p>
+    </div>
+  </section>
+</main>
+
+<!-- Footer (same as main style) -->
+<!-- Footer injected by JS -->
+<div id="footer-root"></div>
+  <script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+
+<script>
+  // Mobile menu toggle (consistent with original)
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const nav = document.querySelector('.main-nav');
+  if(mobileBtn && nav) {
+    mobileBtn.addEventListener('click', () => {
+      nav.classList.toggle('nav-open');
+      mobileBtn.classList.toggle('active');
+      if(!nav.style.display && window.innerWidth <= 768) nav.style.display = 'block';
+      if(window.innerWidth <= 768) {
+        if(nav.classList.contains('nav-open')) nav.style.display = 'block';
+        else nav.style.display = 'none';
+      }
+    });
+    window.addEventListener('resize', () => {
+      if(window.innerWidth > 768) { nav.style.display = ''; nav.classList.remove('nav-open'); mobileBtn.classList.remove('active'); }
+      else if(!nav.classList.contains('nav-open')) nav.style.display = 'none';
+    });
+    if(window.innerWidth <= 768) nav.style.display = 'none';
+  }
+
+  // Modal logic: show article demo modal for each "Read more" link
+  const modal = document.getElementById('articleModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalContentDiv = document.getElementById('modalContent');
+  const closeModal = document.getElementById('closeModalBtn');
+  
+  const articleDetails = {
+    'classroom-tips': {
+      title: '🎓 Creative Ways to Use a Random Wheel Spinner in the Classroom',
+      content: `<p><strong>From icebreakers to assessment:</strong> Discover how teachers worldwide boost participation with our interactive spin wheel. Use it for vocabulary drills, random reading selections, group assignments, and even reward systems. Customize segments with student names, topics, or challenges. The wheel eliminates favoritism and adds an element of surprise that students love. Pro tip: Create a "Brain Break" wheel with 5-minute movement activities!</p><p style="margin-top:12px;">✨ Bonus: Try the 'Student Picker' wheel in the main app to call on learners equitably.</p><div style="margin-top: 20px;"><a href="index.html#spin-app" class="btn-secondary" style="display:inline-block;">Launch Classroom Wheel →</a></div>`
+    },
+    'truth-dare-prompts': {
+      title: '🔥 Truth or Dare Wheel: 100+ Party Prompts',
+      content: `<p>Spin to unlock hilarious dares and revealing truths. Our ultimate list includes classic challenges ("Sing a ridiculous song"), spicy dares ("Send a funny voice note to the group chat"), and thoughtful truths ("What's your hidden talent?"). Customize your own Truth or Dare wheel for family nights, teens, or adult parties. Add custom segments like 'Double Dare' or 'Mystery Shot'. Let the wheel decide the fun — no more arguing over who goes next!</p><div style="margin-top:20px;"><a href="index.html#spin-app" class="btn-primary" style="display:inline-block;">Try Truth or Dare Wheel →</a></div>`
+    },
+    'fair-giveaway': {
+      title: '🏆 How to Run a Fair Prize Draw or Giveaway Using a Free Spin Wheel',
+      content: `<p>Running a raffle? Our spin wheel ensures 100% transparency. Step 1: Add participant names as custom segments. Step 2: Spin live on screen – everyone sees the result in real time. Step 3: Celebrate the winner with confetti! No hidden algorithms. Perfect for Facebook giveaways, classroom contests, or corporate events. Plus, you can record the spin for proof. Trusted by thousands of community managers.</p><div style="margin-top:20px;"><a href="index.html#spin-app" class="btn-secondary">Build Your Raffle Wheel →</a></div>`
+    },
+    'decision-fatigue': {
+      title: '⚡ End Decision Fatigue: Best Decision-Making Wheels',
+      content: `<p>From "What's for dinner?" to "Which movie tonight?" — reduce daily stress by delegating small decisions to our wheel. Build your custom "Life Decisions" wheel: options like workout, relax, try a new recipe, call a friend. The psychology is simple: random delegation removes second-guessing and regret. Try 'Yes/No' for quick dilemmas or build a weekly menu wheel. Overcome analysis paralysis instantly.</p><div style="margin-top:20px;"><a href="index.html#spin-app" class="btn-primary">Create Custom Decision Wheel →</a></div>`
+    },
+    'name-picker-tips': {
+      title: '🏷️ Random Name Picker for Teachers: Tips, Tricks & Best Practices',
+      content: `<p>Encourage active participation without calling on the same students. Use our Name Picker wheel to randomly select a student to answer, present, or lead an activity. Best practices: update the wheel weekly, add 'Bonus Point' segments for gamification, and combine with class rewards. Also excellent for assigning roles: project leader, scribe, timekeeper. Make every learner feel included.</p><div style="margin-top:20px;"><a href="index.html#spin-app" class="btn-secondary">Try Name Picker →</a></div>`
+    },
+    'psychology-wheels': {
+      title: '🧠 Why Spin Wheels Work: The Psychology Behind Random Decision Tools',
+      content: `<p>Randomness relieves the burden of choice. Studies show when outcomes are visibly random, people feel more satisfied and less responsible for "wrong" choices. Our spin wheel adds visual excitement, endorphin release, and perceived fairness. It's why spin wheels beat coin flips or dice: the spinning animation creates anticipation and a sense of 'fate' deciding, reducing post-decision dissonance.</p><div style="margin-top:20px;"><a href="index.html#spin-app" class="btn-primary">Spin & Experience the Psychology →</a></div>`
+    }
+  };
+  
+  function openArticle(key) {
+    const data = articleDetails[key];
+    if(data) {
+      modalTitle.innerText = data.title;
+      modalContentDiv.innerHTML = data.content;
+      modal.style.display = 'flex';
+    } else {
+      modalTitle.innerText = 'Read Full Article';
+      modalContentDiv.innerHTML = `<p>We're preparing the complete guide. Meanwhile, start spinning with our free random wheel and see the magic for yourself.</p><div style="margin-top:20px;"><a href="index.html#spin-app" class="btn-primary">✨ Spin the Wheel</a></div>`;
+      modal.style.display = 'flex';
+    }
+  }
+  
+  document.querySelectorAll('.read-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const articleRef = link.getAttribute('data-article');
+      if(articleRef && articleDetails[articleRef]) openArticle(articleRef);
+      else openArticle('default');
+    });
+  });
+  
+  if(closeModal) {
+    closeModal.addEventListener('click', () => { modal.style.display = 'none'; });
+    modal.addEventListener('click', (e) => { if(e.target === modal) modal.style.display = 'none'; });
+  }
+  
+  // Optional: cta-wheel chips & quick link to main spin section
+  const wheelLinks = document.querySelectorAll('[data-wheel]');
+  wheelLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'index.html#spin-app';
+    });
+  });
+  
+  // Smooth scroll for intra-page anchors (if any from footer)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href').substring(1);
+      if(targetId && targetId !== '' && document.getElementById(targetId)) {
+        e.preventDefault();
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
