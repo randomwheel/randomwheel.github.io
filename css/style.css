@@ -82,11 +82,11 @@ img { max-width: 100%; height: auto; }
 .header-actions { display: flex; align-items: center; gap: 12px; }
 
 .btn-spin-cta {
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 6px;
   background: linear-gradient(135deg, var(--accent), #ff4500);
   color: white; border: none; cursor: pointer;
-  padding: 10px 20px; border-radius: 50px; font-weight: 700;
-  font-family: var(--font-body); font-size: 0.9rem;
+  padding: 8px 16px; border-radius: 50px; font-weight: 700;
+  font-family: var(--font-body); font-size: 0.8rem;
   transition: all var(--transition);
   box-shadow: 0 4px 20px rgba(255,107,53,0.4);
 }
