@@ -32,18 +32,18 @@ const Header = {
             <li><a href="/#how-it-works">How It Works</a></li>
             <li><a href="/#features">Features</a></li>
             <li><a href="/#faq">FAQ</a></li>
-            <div class="header-actions">
+          </ul>          
+        </nav>
+
+         <div class="header-actions">
           <button class="btn-spin-cta" onclick="document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             Spin Now
           </button>
           <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
         </div>
-          </ul>
-           
-        </nav>
 
        
       </div>
