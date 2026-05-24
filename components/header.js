@@ -35,8 +35,8 @@ const Header = {
           </ul>          
         </nav>
 
-         <div class="header-actions">
-          <button class="btn-spin-cta" onclick="document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">
+         <div class="header-actions" id="header-actions">
+          <button class="btn-spin-cta" id="btn-spin-cta" onclick="document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             Spin Now
           </button>
@@ -52,6 +52,9 @@ const Header = {
   init() {
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('main-nav');
+    const ctaButton = document.getElementById('btn-spin-cta');
+    const headerActions = document.getElementById('header-actions');
+
     if (hamburger && nav) {
       hamburger.addEventListener('click', () => {
         const open = nav.classList.toggle('nav-open');
@@ -59,6 +62,26 @@ const Header = {
         hamburger.setAttribute('aria-expanded', open);
       });
     }
+
+    // Handle moving the CTA button into mobile nav or back to header
+    if (ctaButton && nav && headerActions) {
+      const handleCtaResponsive = () => {
+        if (window.innerWidth <= 768) { // Matches your mobile breakpoint
+          if (!nav.contains(ctaButton)) {
+            nav.appendChild(ctaButton);
+          }
+        } else {
+          if (!headerActions.contains(ctaButton)) {
+            headerActions.insertBefore(ctaButton, hamburger);
+          }
+        }
+      };
+
+      // Run on load and on window resize
+      handleCtaResponsive();
+      window.addEventListener('resize', handleCtaResponsive);
+    }
+
     // Sticky header shadow
     window.addEventListener('scroll', () => {
       const h = document.getElementById('site-header');
