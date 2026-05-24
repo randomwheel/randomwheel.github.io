@@ -671,6 +671,27 @@
 <script src="components/header.js"></script>
 <script src="components/footer.js"></script>
 
+   <script>
+    // Header scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 40);
+    });
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('main-nav');
+    hamburger.addEventListener('click', () => {
+      const open = nav.classList.toggle('nav-open');
+      hamburger.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    // Prompt tabs
+    function switchTab(btn, panelId) {
+      document.querySelectorAll('.prompt-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.prompts-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(panelId).classList.add('active');
+    }
+  </script>
  
 </body>
 </html>
