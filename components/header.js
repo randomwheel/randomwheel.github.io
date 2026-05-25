@@ -32,6 +32,7 @@ const Header = {
             <li><a href="/#how-it-works">How It Works</a></li>
             <li><a href="/#features">Features</a></li>
             <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/blog">Blog</a></li>
           </ul>          
         </nav>
 
