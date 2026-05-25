@@ -652,10 +652,7 @@
 
   // FAQ & Header integration
   document.addEventListener('DOMContentLoaded', () => {
-    if(document.getElementById('header-root')) document.getElementById('header-root').innerHTML = (window.Header?.render?.() || '<div class="site-header"><div class="header-inner"><a href="/" class="logo">RandomWheel</a></div></div>');
-    if(document.getElementById('footer-root')) document.getElementById('footer-root').innerHTML = (window.Footer?.render?.() || '<footer style="text-align:center;padding:2rem;">© RandomWheel</footer>');
-    if(window.Header?.init) Header.init();
-    if(window.Footer?.init) Footer.init();
+    
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.closest('.faq-item');
