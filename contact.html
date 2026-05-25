@@ -11,19 +11,42 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <style>
     .contact-container { padding: 140px 0 80px; max-width: 600px; margin: 0 auto; }
-    .contact-form { background: var(--surface); padding: 40px; border-radius: var(--radius); border: 1px solid var(--border); }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; color: var(--text); margin-bottom: 8px; font-weight: 600; }
-    .form-group input, .form-group textarea { 
-      width: 100%; padding: 12px 16px; background: var(--bg2); border: 1px solid var(--border); 
-      border-radius: var(--radius-sm); color: var(--text); font-family: inherit;
+    .contact-details { 
+      background: var(--surface); 
+      padding: 40px; 
+      border-radius: var(--radius); 
+      border: 1px solid var(--border); 
+      text-align: center;
     }
-    .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); outline: none; }
-    .submit-btn { 
-      width: 100%; padding: 14px; background: var(--accent); color: white; border: none; 
-      border-radius: var(--radius-sm); font-weight: 800; cursor: pointer; transition: 0.3s;
+    .info-card {
+      margin: 25px 0;
+      padding: 15px;
+      background: var(--bg2);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
     }
-    .submit-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+    .info-label {
+      display: block;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .info-value {
+      font-size: 1.25rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .info-value a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .info-value a:hover {
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
@@ -35,21 +58,19 @@
     <h1 style="font-family: var(--font-display); color: var(--text); margin-bottom: 10px; text-align: center;">Get in Touch</h1>
     <p style="color: var(--text2); text-align: center; margin-bottom: 40px;">Have a feature request or found a bug? Let us know!</p>
     
-    <form class="contact-form">
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" placeholder="Your Name" required>
+    <div class="contact-details">
+      <div class="info-card">
+        <span class="info-label">Founder</span>
+        <div class="info-value">Mubeen</div>
       </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="your@email.com" required>
+      
+      <div class="info-card">
+        <span class="info-label">Email Us</span>
+        <div class="info-value">
+          <a href="mailto:mubeenahmedzex@gmail.com">mubeenahmedzex@gmail.com</a>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea rows="5" placeholder="How can we help?" required></textarea>
-      </div>
-      <button type="submit" class="submit-btn">Send Message</button>
-    </form>
+    </div>
   </div>
 </main>
 
