@@ -421,8 +421,7 @@
 <body>
 
   <!-- HEADER -->
-  <!-- Header injected by JS -->
-<div id="site-header"></div>
+  <div id="header-root"></div>
 
   <!-- ARTICLE HERO -->
   <div class="article-hero">
@@ -667,15 +666,14 @@
   </div><!-- /article-layout -->
 
   <!-- FOOTER -->
-  <!-- Footer injected by JS -->
-<div id="site-footer"></div>
+ <div id="footer-root"></div>
 
 <!-- Scripts -->
 <script src="components/header.js"></script>
 <script src="components/footer.js"></script>
 <script src="js/app.js"></script>
 
-   <script>
+  <script>
   document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('header-root').innerHTML = Header.render();
     Header.init();
