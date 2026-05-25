@@ -673,6 +673,16 @@
 <!-- Scripts -->
 <script src="components/header.js"></script>
 <script src="components/footer.js"></script>
+<script src="js/app.js"></script>
+
+   <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('header-root').innerHTML = Header.render();
+    Header.init();
+    document.getElementById('footer-root').innerHTML = Footer.render();
+    Footer.init();
+  });
+</script>
 
    <script>
     // Header scroll
