@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Name Picker for Teachers: Tips, Tricks & Best Practices | Spin The Wheel</title>
+  <meta name="description" content="Everything teachers need to know about using a random name picker in the classroom. Tips, tricks, best practices, and free tool recommendations to boost fair participation." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Spin The Wheel" />
+  <link rel="canonical" href="https://randomwheel.github.io/random-name-picker-teachers" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Random Name Picker for Teachers: Tips, Tricks & Best Practices" />
+  <meta property="og:description" content="Everything teachers need to know about using a random name picker — tips, tricks, and best practices to boost fair participation in any classroom." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://randomwheel.github.io/random-name-picker-teachers" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1200&q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Random Name Picker for Teachers: Tips, Tricks & Best Practices" />
+  <meta name="twitter:description" content="Boost fair participation in your classroom with these expert random name picker tips and tricks." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1200&q=80" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- BlogPosting Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Random Name Picker for Teachers: Tips, Tricks & Best Practices",
+    "description": "Everything teachers need to know about using a random name picker in the classroom. Tips, tricks, best practices, and free tool recommendations to boost fair participation.",
+    "image": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1200&q=80",
+    "author": {
+      "@type": "Organization",
+      "name": "Spin The Wheel",
+      "url": "https://randomwheel.github.io"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Spin The Wheel",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://randomwheel.github.io/logo.png"
+      }
+    },
+    "datePublished": "2025-05-22",
+    "dateModified": "2025-05-22",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://randomwheel.github.io/random-name-picker-teachers"
+    },
+    "keywords": "random name picker for teachers, classroom name picker, spin wheel teacher, student name selector, fair participation classroom, cold call tool",
+    "articleSection": "Education",
+    "wordCount": "1550"
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a12;
+      --bg2: #10101e;
+      --bg3: #18182e;
+      --surface: #1e1e36;
+      --surface2: #26264a;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0f0ff;
+      --text2: #a0a0c0;
+      --text3: #6060a0;
+      --accent: #FF6B35;
+      --accent2: #00E5FF;
+      --accent3: #FFD700;
+      --accent4: #FF1493;
+      --success: #22C55E;
+      --purple: #A855F7;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.4);
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.6);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-display: 'Righteous', cursive;
+      --font-body: 'Nunito', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    a { color: var(--accent2); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--accent); }
+    img { max-width: 100%; height: auto; display: block; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
+
+    /* ── HEADER ── */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,18,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: box-shadow var(--transition); }
+    .site-header.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.5); border-bottom-color: rgba(168,85,247,0.25); }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { flex-shrink: 0; filter: drop-shadow(0 0 8px rgba(255,107,53,0.5)); }
+    .logo-text { display: flex; align-items: baseline; }
+    .logo-main { font-family: var(--font-display); font-size: 1.35rem; color: var(--text); }
+    .logo-accent { font-family: var(--font-display); font-size: 1.35rem; color: var(--accent); }
+    .main-nav ul { display: flex; list-style: none; gap: 4px; }
+    .main-nav a { padding: 8px 14px; border-radius: 8px; color: var(--text2); font-weight: 600; font-size: 0.9rem; transition: all var(--transition); }
+    .main-nav a:hover { color: var(--text); background: var(--surface); }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+    .btn-spin-cta { display: flex; align-items: center; gap: 6px; background: linear-gradient(135deg, var(--purple), #7c3aed); color: white; border: none; cursor: pointer; padding: 8px 16px; border-radius: 50px; font-weight: 800; font-family: var(--font-body); font-size: 0.8rem; transition: all var(--transition); box-shadow: 0 4px 20px rgba(168,85,247,0.4); text-decoration: none; }
+    .btn-spin-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(168,85,247,0.6); color: white; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all var(--transition); display: block; }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HERO ── */
+    .article-hero { padding: 110px 24px 0; max-width: 860px; margin: 0 auto; animation: fadeInUp 0.7s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--text3); margin-bottom: 24px; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--text3); }
+    .breadcrumb a:hover { color: var(--accent2); }
+    .breadcrumb-sep { color: var(--text3); }
+    .breadcrumb-current { color: var(--text2); }
+    .article-category { display: inline-flex; align-items: center; gap: 6px; background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.28); color: var(--purple); padding: 5px 14px; border-radius: 50px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 20px; }
+    .article-title { font-family: var(--font-display); font-size: clamp(1.9rem, 4.5vw, 3rem); line-height: 1.15; margin-bottom: 20px; background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.75) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .article-title .hl { background: linear-gradient(135deg, var(--purple), var(--accent2)); -webkit-background-clip: text; background-clip: text; }
+    .article-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; color: var(--text3); font-size: 0.85rem; margin-bottom: 36px; }
+    .meta-item { display: flex; align-items: center; gap: 6px; }
+    .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text3); }
+
+    /* ── FEATURED IMAGE ── */
+    .featured-img-wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; animation: fadeInUp 0.7s 0.15s ease both; }
+    .featured-img { width: 100%; height: 420px; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
+    .img-caption { text-align: center; color: var(--text3); font-size: 0.8rem; margin-top: 10px; font-style: italic; }
+
+    /* ── LAYOUT ── */
+    .article-layout { max-width: 1140px; margin: 48px auto 0; padding: 0 24px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+
+    /* ── ARTICLE BODY ── */
+    .article-body { min-width: 0; animation: fadeInUp 0.7s 0.25s ease both; }
+    .article-body p { color: var(--text2); margin-bottom: 20px; line-height: 1.75; font-size: 1.02rem; }
+    .article-body h2 { font-family: var(--font-display); font-size: 1.65rem; margin: 44px 0 16px; color: var(--text); padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .article-body h2 .num { color: var(--purple); margin-right: 6px; }
+    .article-body h3 { font-size: 1.1rem; font-weight: 800; margin: 28px 0 10px; color: var(--accent2); }
+    .article-body ul, .article-body ol { color: var(--text2); padding-left: 22px; margin-bottom: 20px; }
+    .article-body li { margin-bottom: 8px; line-height: 1.7; font-size: 1rem; }
+    .article-body strong { color: var(--text); font-weight: 800; }
+
+    /* Tip / Info boxes */
+    .tip-box { background: rgba(168,85,247,0.07); border: 1px solid rgba(168,85,247,0.22); border-left: 3px solid var(--purple); border-radius: var(--radius-sm); padding: 18px 20px; margin: 28px 0; }
+    .tip-box .tip-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--purple); font-weight: 800; margin-bottom: 6px; }
+    .tip-box p { margin: 0; color: var(--text2); font-size: 0.95rem; }
+
+    .stat-box { background: rgba(0,229,255,0.06); border: 1px solid rgba(0,229,255,0.2); border-left: 3px solid var(--accent2); border-radius: var(--radius-sm); padding: 18px 20px; margin: 28px 0; }
+    .stat-box .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent2); font-weight: 800; margin-bottom: 6px; }
+    .stat-box p { margin: 0; color: var(--text2); font-size: 0.95rem; }
+
+    /* Tricks grid */
+    .tricks-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 28px 0; }
+    .trick-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px; transition: all var(--transition); position: relative; overflow: hidden; }
+    .trick-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--purple), var(--accent2)); opacity: 0; transition: opacity var(--transition); }
+    .trick-card:hover { border-color: rgba(168,85,247,0.25); transform: translateY(-3px); }
+    .trick-card:hover::before { opacity: 1; }
+    .trick-num { font-family: var(--font-display); font-size: 2rem; color: rgba(168,85,247,0.2); line-height: 1; margin-bottom: 8px; }
+    .trick-card h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 6px; color: var(--text); }
+    .trick-card p { color: var(--text3); font-size: 0.85rem; margin: 0; line-height: 1.55; }
+
+    /* Best practices accordion-style list */
+    .bp-list { display: flex; flex-direction: column; gap: 12px; margin: 24px 0; }
+    .bp-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px 20px; display: flex; gap: 16px; align-items: flex-start; transition: all var(--transition); }
+    .bp-item:hover { border-color: rgba(168,85,247,0.2); }
+    .bp-icon { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, rgba(168,85,247,0.2), rgba(0,229,255,0.1)); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .bp-text h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 4px; color: var(--text); }
+    .bp-text p { color: var(--text2); font-size: 0.88rem; margin: 0; line-height: 1.55; }
+
+    /* Pull quote */
+    .pull-quote { border-left: 3px solid var(--purple); margin: 32px 0; padding: 16px 24px; background: rgba(168,85,247,0.06); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+    .pull-quote p { color: var(--text); font-size: 1.1rem; font-style: italic; margin: 0; font-weight: 700; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 24px 0; }
+    .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
+    .faq-q { padding: 16px 20px; font-weight: 800; font-size: 0.95rem; color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; user-select: none; }
+    .faq-q:hover { background: var(--surface2); }
+    .faq-arrow { color: var(--purple); font-size: 1.1rem; transition: transform var(--transition); flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.2s ease; }
+    .faq-item.open .faq-a { max-height: 200px; padding: 0 20px 16px; }
+    .faq-a p { color: var(--text2); font-size: 0.92rem; margin: 0; line-height: 1.65; }
+
+    /* Inline CTA */
+    .inline-cta { background: linear-gradient(135deg, rgba(168,85,247,0.13), rgba(0,229,255,0.07)); border: 1px solid rgba(168,85,247,0.25); border-radius: var(--radius); padding: 28px; margin: 36px 0; text-align: center; }
+    .inline-cta h3 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 8px; }
+    .inline-cta p { color: var(--text2); font-size: 0.9rem; margin-bottom: 18px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--purple), #7c3aed); color: white; border: none; cursor: pointer; padding: 13px 30px; border-radius: 50px; font-weight: 800; font-family: var(--font-body); font-size: 0.95rem; transition: all var(--transition); text-decoration: none; box-shadow: 0 6px 24px rgba(168,85,247,0.4); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(168,85,247,0.6); color: white; }
+
+    /* Tags */
+    .article-tags { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border); }
+    .article-tags h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); margin-bottom: 12px; }
+    .tags-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { background: var(--surface); border: 1px solid var(--border); color: var(--text2); padding: 5px 14px; border-radius: 50px; font-size: 0.82rem; font-weight: 700; transition: all var(--transition); }
+    .tag:hover { border-color: var(--purple); color: var(--purple); }
+
+    /* ── SIDEBAR ── */
+    .article-sidebar { position: sticky; top: 88px; animation: fadeInUp 0.7s 0.3s ease both; }
+    .sidebar-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; }
+    .sidebar-card h4 { font-family: var(--font-display); font-size: 1rem; margin-bottom: 16px; color: var(--purple); }
+    .toc-list { list-style: none; padding: 0; }
+    .toc-list li { margin-bottom: 10px; }
+    .toc-list a { color: var(--text2); font-size: 0.88rem; font-weight: 600; display: block; padding: 5px 10px; border-radius: 6px; border-left: 2px solid transparent; transition: all var(--transition); }
+    .toc-list a:hover { background: var(--surface2); color: var(--text); border-left-color: var(--purple); padding-left: 14px; }
+    .related-list { list-style: none; padding: 0; }
+    .related-list li { padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .related-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-list a { color: var(--text2); font-size: 0.88rem; font-weight: 700; display: block; transition: all var(--transition); }
+    .related-list a:hover { color: var(--purple); padding-left: 4px; }
+    .sidebar-cta { background: linear-gradient(135deg, rgba(168,85,247,0.13), rgba(0,229,255,0.07)); border: 1px solid rgba(168,85,247,0.25); border-radius: var(--radius); padding: 24px; text-align: center; }
+    .wheel-mini { width: 64px; height: 64px; margin: 0 auto 14px; background: conic-gradient(#A855F7 0 60deg, #00E5FF 60deg 120deg, #FF6B35 120deg 180deg, #FFD700 180deg 240deg, #22C55E 240deg 300deg, #FF1493 300deg 360deg); border-radius: 50%; box-shadow: 0 0 20px rgba(168,85,247,0.35); animation: slowSpin 6s linear infinite; }
+    .sidebar-cta h4 { font-family: var(--font-display); font-size: 1rem; margin-bottom: 8px; }
+    .sidebar-cta p { color: var(--text2); font-size: 0.82rem; margin-bottom: 14px; }
+    .btn-cta-sm { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, var(--purple), #7c3aed); color: white; padding: 10px 20px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; font-family: var(--font-body); transition: all var(--transition); text-decoration: none; box-shadow: 0 4px 16px rgba(168,85,247,0.4); }
+    .btn-cta-sm:hover { transform: translateY(-2px); color: white; box-shadow: 0 8px 24px rgba(168,85,247,0.6); }
+
+    /* ── FOOTER ── */
+    .site-footer { background: var(--bg); border-top: 1px solid var(--border); margin-top: 80px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 56px 24px 36px; display: grid; grid-template-columns: 1.5fr 2fr; gap: 64px; }
+    .footer-tagline { color: var(--text2); font-size: 0.9rem; line-height: 1.6; margin: 12px 0 20px; max-width: 300px; }
+    .footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .footer-col h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); margin-bottom: 14px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .footer-col a { color: var(--text2); font-size: 0.88rem; transition: all var(--transition); }
+    .footer-col a:hover { color: var(--text); padding-left: 4px; }
+    .footer-bottom { border-top: 1px solid var(--border); padding: 18px 24px; }
+    .footer-bottom-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { color: var(--text3); font-size: 0.83rem; }
+    .footer-legal { display: flex; gap: 14px; }
+    .footer-legal a { color: var(--text3); font-size: 0.83rem; }
+    .footer-legal a:hover { color: var(--text2); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slowSpin { to { transform: rotate(360deg); } }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .main-nav { position: fixed; top: 68px; left: 0; right: 0; background: rgba(10,10,18,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transform: translateY(-100%); opacity: 0; pointer-events: none; transition: all var(--transition); padding: 20px 24px 24px; }
+      .main-nav.nav-open { transform: translateY(0); opacity: 1; pointer-events: all; }
+      .main-nav ul { flex-direction: column; gap: 4px; }
+      .main-nav a { display: block; padding: 12px 16px; font-size: 1rem; }
+      .hamburger { display: flex; }
+      .article-hero { padding-top: 90px; }
+      .featured-img { height: 220px; }
+      .article-layout { grid-template-columns: 1fr; }
+      .article-sidebar { position: static; }
+      .tricks-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+      .footer-links { grid-template-columns: repeat(2, 1fr); }
+      .footer-bottom-inner { flex-direction: column; text-align: center; }
+      .footer-legal { justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .footer-links { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div id="header-root"></div>
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a><span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Random Name Picker for Teachers</span>
+    </nav>
+    <div class="article-category">🎓 Education</div>
+    <h1 class="article-title"><span class="hl">Random Name Picker</span> for Teachers: Tips, Tricks &amp; Best Practices</h1>
+    <div class="article-meta">
+      <span class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        May 22, 2025
+      </span>
+      <span class="meta-dot"></span>
+      <span class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        8 min read
+      </span>
+      <span class="meta-dot"></span>
+      <span class="meta-item">By Spin The Wheel Team</span>
+    </div>
+  </div>
+
+  <!-- FEATURED IMAGE -->
+  <div class="featured-img-wrap">
+    <img
+      src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1200&q=80&auto=format&fit=crop"
+      alt="Open books and educational materials on a classroom desk representing student learning and teacher tools"
+      class="featured-img"
+      width="1200" height="420"
+      loading="eager"
+    />
+    <p class="img-caption">Photo: A fair, random name picker transforms classroom dynamics and makes every student feel equally valued. Credit: Unsplash</p>
+  </div>
+
+  <!-- LAYOUT -->
+  <div class="article-layout">
+    <article class="article-body" itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content="Random Name Picker for Teachers: Tips, Tricks & Best Practices" />
+      <meta itemprop="datePublished" content="2025-05-22" />
+
+      <p>Ask any experienced teacher what they struggle with most and you'll consistently hear the same answer: <strong>equitable participation</strong>. Getting students to contribute fairly — without always calling on the same raised hands, avoiding shy students, or unintentionally favouring certain groups — is one of the most persistent challenges in the classroom. A <strong>random name picker</strong> elegantly solves all of it.</p>
+
+      <p>But there's a right way and a wrong way to use one. Done poorly, a random name picker increases anxiety. Done well, it becomes one of the most powerful tools in your pedagogical arsenal. This guide covers everything you need to know — from the psychology behind it, to specific tricks veteran teachers swear by.</p>
+
+      <div class="stat-box">
+        <div class="stat-label">📊 Research Insight</div>
+        <p>Studies on classroom equity consistently show that without structured randomisation, teachers call on high-achieving or highly verbal students up to <strong>4× more often</strong> than quieter peers — usually without realising it. A name picker wheel levels the playing field automatically.</p>
+      </div>
+
+      <h2 id="why-random"><span class="num">01.</span> Why Random Beats "Raise Your Hand"</h2>
+      <p>The traditional hand-raise system has a fundamental design flaw: it self-selects for confidence. Students who already know the answer — or who are simply more extroverted — dominate discussions, while others opt out entirely. Over time, this creates a two-tier classroom where some students grow accustomed to invisibility.</p>
+      <p>A <strong>random name picker</strong> disrupts this pattern at the root. When every student knows they <em>could</em> be called on at any moment, the incentive to stay mentally engaged is constant. Research in active learning consistently shows that unpredictable call-on structures increase on-task behaviour across the whole room — not just for the student who gets selected.</p>
+
+      <div class="pull-quote">
+        <p>"The moment I introduced a name wheel, my quiet students started pre-preparing answers. They couldn't opt out anymore — and most of them actually preferred it."</p>
+      </div>
+
+      <h2 id="setup"><span class="num">02.</span> Setting Up Your Name Picker Wheel the Right Way</h2>
+      <p>The setup matters more than most teachers realise. Here's how to configure your wheel for maximum classroom effectiveness:</p>
+
+      <h3>Loading your class roster</h3>
+      <p>Open the spin wheel editor and paste your class list — one name per line. Use <strong>first names only</strong> for younger classes to keep the experience friendly. For older students or where there are name duplicates, use first name + last initial (e.g. "Sarah K.").</p>
+
+      <h3>Use "remove after spin" for equitable coverage</h3>
+      <p>Activate the option to remove a student's name after they've been selected. This guarantees <strong>every student gets called on exactly once</strong> before anyone faces a second spin. It's the single most effective fairness setting available — and students respond very well to it once they understand the system.</p>
+
+      <h3>Create subject-specific wheels</h3>
+      <p>Save separate wheels for different classes or subjects. A Year 9 English wheel is different from a Year 9 Maths wheel — especially if ability groupings vary. Bookmark each configured wheel and you never need to re-enter names again.</p>
+
+      <h3>Keep it visible on the projector</h3>
+      <p>Project the wheel on your classroom screen <em>before</em> you spin. Seeing their own name on the wheel before it moves is a powerful engagement trigger — students instinctively track where the wheel might land, even if they don't admit it.</p>
+
+      <h2 id="tricks"><span class="num">03.</span> 8 Tricks That Make Name Pickers Work Better</h2>
+      <p>These are the lesser-known techniques that separate a good name picker implementation from a great one:</p>
+
+      <div class="tricks-grid">
+        <div class="trick-card">
+          <div class="trick-num">01</div>
+          <h4>The "Think First" Pause</h4>
+          <p>Give 10–15 seconds of thinking time before spinning. Students who know they might be called prepare an answer instead of hoping someone else gets picked.</p>
+        </div>
+        <div class="trick-card">
+          <div class="trick-num">02</div>
+          <h4>The Lifeline Rule</h4>
+          <p>Every student gets one "phone a friend" per lesson — they can redirect the question to a classmate of their choice. Reduces anxiety while keeping everyone involved.</p>
+        </div>
+        <div class="trick-card">
+          <div class="trick-num">03</div>
+          <h4>Celebrate the Spin</h4>
+          <p>Frame being selected as recognition, not exposure. A small "ooh!" from you or brief applause reframes the moment as exciting rather than threatening.</p>
+        </div>
+        <div class="trick-card">
+          <div class="trick-num">04</div>
+          <h4>Add Wildcard Segments</h4>
+          <p>Include a few "Whole Class" or "Table Vote" segments. When these land, the whole group answers together — providing natural breaks from individual pressure.</p>
+        </div>
+        <div class="trick-card">
+          <div class="trick-num">05</div>
+          <h4>Double Entry for Absentees</h4>
+          <p>When a student is absent and their name spins, simply spin again. No need to remove them — their return keeps the wheel accurate for future lessons.</p>
+        </div>
+        <div class="trick-card">
+          <div class="trick-num">06</div>
+          <h4>The "No Wrong Answer" Contract</h4>
+          <p>Explicitly tell students you'll never humiliate a wrong answer. The wheel only works if the psychological safety is genuine — model grace when answers miss the mark.</p>
+        </div>
+        <div class="trick-card">
+          <div class="trick-num">07</div>
+          <h4>Use It for Roles, Not Just Answers</h4>
+          <p>Spin to assign discussion leaders, board writers, or group reporters. This removes the social pressure of volunteering for visible roles and rotates responsibility fairly.</p>
+        </div>
+        <div class="trick-card">
+          <div class="trick-num">08</div>
+          <h4>Show the Remaining Names</h4>
+          <p>When using "remove after spin," explicitly show the shrinking list. Students count down whose turn is coming — this builds surprising excitement near the end of a lesson.</p>
+        </div>
+      </div>
+
+      <div class="inline-cta">
+        <h3>Build Your Class Wheel in Under a Minute 🎡</h3>
+        <p>Free, browser-based, works on any whiteboard or projector. No account needed — ever.</p>
+        <a href="/random-name-picker" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Launch Name Picker — Free
+        </a>
+      </div>
+
+      <h2 id="best-practices"><span class="num">04.</span> Best Practices by Grade Level</h2>
+      <p>The same tool works differently across age groups. Here's how to tailor your approach:</p>
+
+      <div class="bp-list">
+        <div class="bp-item">
+          <div class="bp-icon">🧒</div>
+          <div class="bp-text">
+            <h4>Primary School (Ages 5–11)</h4>
+            <p>Make the wheel a character — name it "Mr. Spinner" or "The Magic Wheel." Younger students embrace the gamification completely. Use it for everything from answering questions to choosing who lines up first. Keep the "remove after spin" rule — young children are acutely sensitive to fairness and will notice if some students get more spins than others.</p>
+          </div>
+        </div>
+        <div class="bp-item">
+          <div class="bp-icon">📚</div>
+          <div class="bp-text">
+            <h4>Middle School (Ages 11–14)</h4>
+            <p>This is the age group most likely to feel embarrassed. Normalise the wheel from day one of the school year. Establish the lifeline rule early and enforce psychological safety firmly. At this age, peer reaction matters enormously — ensure the class culture around wheel spins is supportive before relying on it daily.</p>
+          </div>
+        </div>
+        <div class="bp-item">
+          <div class="bp-icon">🎓</div>
+          <div class="bp-text">
+            <h4>High School (Ages 14–18)</h4>
+            <p>Older students often appreciate the wheel's fairness once it's explained plainly. Be transparent: "I use this so I don't unconsciously call on the same people." This candour builds respect. At this level, use the wheel primarily for higher-order questions — save cold-calls for questions worth thinking about, not factual recall.</p>
+          </div>
+        </div>
+        <div class="bp-item">
+          <div class="bp-icon">🏛️</div>
+          <div class="bp-text">
+            <h4>University / Adult Education</h4>
+            <p>Frame it as a seminar facilitation tool rather than a classroom management device. Adult learners respond to the democratic framing — it prevents any one person from dominating discussion. Works particularly well in large lecture settings where voluntary participation skews heavily toward a vocal minority.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="anxiety"><span class="num">05.</span> Handling Anxiety Around Random Selection</h2>
+      <p>The most common concern teachers raise about random name pickers is student anxiety. This is a legitimate concern — and worth addressing head-on rather than dismissing.</p>
+      <p>The key distinction is between <strong>productive discomfort</strong> (the kind that drives engagement and growth) and <strong>threat anxiety</strong> (the kind that shuts down cognition entirely). Your job is to stay firmly in the first category.</p>
+      <ul>
+        <li><strong>Always give thinking time before spinning</strong> — never spin and immediately demand an answer</li>
+        <li><strong>Accept partial answers</strong> — "I'm not sure, but I think..." is a valid and valuable response</li>
+        <li><strong>Never use the wheel punitively</strong> — spinning it more frequently when students are distracted teaches dread, not respect</li>
+        <li><strong>Check in privately</strong> with students who have diagnosed anxiety disorders — consider a pre-agreed signal system where they can indicate they need a pass that lesson</li>
+        <li><strong>Model vulnerability yourself</strong> — occasionally wonder aloud about an answer before revealing it. Normalise not being certain.</li>
+      </ul>
+
+      <h2 id="faq"><span class="num">06.</span> Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">
+            Can I use a name picker wheel for large classes of 30+ students?
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-a"><p>Absolutely. The wheel handles any number of names — segments simply resize automatically. For very large classes, the "remove after spin" feature is especially valuable, ensuring no student waits the entire lesson without being called.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            What if I teach multiple classes with different rosters?
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-a"><p>Create and bookmark a separate wheel for each class. You can save a unique URL for each configured wheel and access it instantly at the start of every lesson — no re-entry required.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            Does the random name picker work on an interactive whiteboard?
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-a"><p>Yes. Any browser-based wheel works perfectly on SMART Boards, Promethean boards, and any touchscreen display. You can spin directly from the board — students love tapping the screen to trigger the spin.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            Should I tell students in advance that I use a random picker?
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-a"><p>Yes — transparency builds trust. Explain the system at the start of the year, including any rules like lifelines or the "remove after spin" guarantee. When students understand the system, they're far more likely to engage with it positively.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            Can I weight names to call on some students more than others?
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-a"><p>Yes. Simply add a student's name multiple times on the wheel to increase their probability of being selected. This can be used subtly to ensure students who have been absent get more catch-up participation opportunities.</p></div>
+        </div>
+      </div>
+
+      <div class="article-tags">
+        <h4>Topics</h4>
+        <div class="tags-list">
+          <a href="#" class="tag">Random Name Picker</a>
+          <a href="#" class="tag">Classroom Tools</a>
+          <a href="#" class="tag">Teacher Tips</a>
+          <a href="#" class="tag">Student Participation</a>
+          <a href="#" class="tag">Classroom Management</a>
+          <a href="#" class="tag">EdTech</a>
+          <a href="#" class="tag">Free Tools</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="article-sidebar">
+      <div class="sidebar-card">
+        <h4>📋 Table of Contents</h4>
+        <ul class="toc-list">
+          <li><a href="#why-random">Why Random Beats Hand-Raise</a></li>
+          <li><a href="#setup">Setting Up the Wheel</a></li>
+          <li><a href="#tricks">8 Pro Tricks</a></li>
+          <li><a href="#best-practices">Tips by Grade Level</a></li>
+          <li><a href="#anxiety">Handling Anxiety</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <div class="wheel-mini" aria-hidden="true"></div>
+        <h4>Free Name Picker</h4>
+        <p>Works on any whiteboard or projector. Loved by 500K+ teachers.</p>
+        <a href="/random-name-picker" class="btn-cta-sm">🎡 Try It Now</a>
+      </div>
+      <div class="sidebar-card" style="margin-top:20px;">
+        <h4>📚 Related Articles</h4>
+        <ul class="related-list">
+          <li><a href="/blog/classroom-wheel-spinner">Creative Classroom Wheel Ideas</a></li>
+          <li><a href="/blog/truth-or-dare-wheel">Truth or Dare Wheel Prompts</a></li>
+          <li><a href="/blog/prize-draw-giveaway">Run a Fair Prize Draw</a></li>
+          <li><a href="/blog/decision-fatigue">End Decision Fatigue</a></li>
+          <li><a href="/blog/psychology-spin-wheels">The Psychology of Spin Wheels</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <!-- Footer injected by JS -->
+<div id="footer-root"></div>
+
+<!-- Scripts -->
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script src="js/app.js"></script>
+
+  <script>
+ // ===== Bootstrap =====
+  document.addEventListener('DOMContentLoaded', () => {
+    // Inject header & footer
+    document.getElementById('header-root').innerHTML = Header.render();
+    Header.init();
+    document.getElementById('footer-root').innerHTML = Footer.render();
+    Footer.init();
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 40);
+    });
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('main-nav');
+    hamburger.addEventListener('click', () => {
+      const open = nav.classList.toggle('nav-open');
+      hamburger.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>
