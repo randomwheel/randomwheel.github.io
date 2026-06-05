@@ -288,6 +288,8 @@
   </section>
 
   <!-- ===== VIDEO TUTORIAL SECTION ===== -->
+
+<!-- ===== VIDEO TUTORIAL SECTION ===== -->
 <section class="video-tutorial-section" id="video-tutorial" aria-label="Spin the wheel video tutorial">
   <div class="container">
     <div class="section-header">
@@ -301,7 +303,7 @@
       <div class="video-main">
         <div class="video-wrapper" data-video-id="aOkF-3nL0uw">
           <div class="video-thumbnail" id="video-thumbnail">
-            <img src="https://youtu.be/aOkF-3nL0uw" alt="Spin the Wheel Tutorial Thumbnail" loading="lazy">
+            <img src="https://i9.ytimg.com/vi/aOkF-3nL0uw/mqdefault.jpg?v=6a231853&sqp=CKyyjNEG&rs=AOn4CLBGjr8qUBUeEdTkGfZ4M1s0Z-ZWKQ" alt="Spin the Wheel Tutorial Thumbnail" loading="lazy">
             <button class="video-play-btn" aria-label="Play tutorial video">
               <svg width="68" height="68" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -316,12 +318,12 @@
           <h3>How to Use the Spin Wheel — Full Tutorial</h3>
           <p>Learn everything you need to know about our interactive spin wheel: selecting different wheel types, customizing segments, spinning mechanics, and understanding the random result algorithm. Perfect for beginners and advanced users alike!</p>
           <div class="video-stats">
-            <span>📺 1:16 min</span>
+            <span>📺 5:32 min</span>
             <span>🎯 Beginner to Pro</span>
             <span>⚡ Step-by-Step</span>
           </div>
         </div>
-      </div>      
+      </div>     
     </div>
   </div>
 </section>
@@ -345,13 +347,61 @@
   background: linear-gradient(90deg, transparent, var(--accent), var(--accent2), transparent);
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-tag {
+  display: inline-block;
+  background: rgba(0,229,255,0.1);
+  border: 1px solid rgba(0,229,255,0.25);
+  color: var(--accent2);
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.section-title .highlight {
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  color: var(--text2);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
 .video-grid {
   display: grid;
   grid-template-columns: 1fr 340px;
   gap: 32px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0;
+  justify-content: center;
+  align-items: start;
 }
 
 /* Main Video */
@@ -361,6 +411,7 @@
   border-radius: var(--radius);
   overflow: hidden;
   transition: transform var(--transition), box-shadow var(--transition);
+  width: 100%;
 }
 
 .video-main:hover {
@@ -594,20 +645,31 @@
   .video-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+    justify-items: center;
   }
   
   .video-sidebar {
     order: 2;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
   }
   
   .video-main {
     order: 1;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .video-tutorial-section {
     padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 16px;
   }
   
   .video-meta h3 {
@@ -630,6 +692,28 @@
   .playlist-info h4 {
     font-size: 0.8rem;
   }
+  
+  .video-play-btn {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .video-play-btn svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-play-btn {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .video-play-btn svg {
+    width: 28px;
+    height: 28px;
+  }
 }
 </style>
 
@@ -646,7 +730,7 @@
     
     // Clear previous player if exists
     if (currentPlayer && currentContainer !== containerElement) {
-      currentPlayer.destroy();
+      if (currentPlayer.remove) currentPlayer.remove();
     }
     
     // Create iframe
@@ -681,7 +765,7 @@
   
   // Playlist items
   const playlistItems = document.querySelectorAll('.playlist-item');
-  playlistItems.forEach((item, index) => {
+  playlistItems.forEach((item) => {
     item.addEventListener('click', () => {
       const videoId = item.dataset.videoId;
       const mainWrapper = document.querySelector('.video-wrapper');
