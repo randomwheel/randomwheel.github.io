@@ -289,497 +289,230 @@
 
   <!-- ===== VIDEO TUTORIAL SECTION ===== -->
 
-<!-- ===== VIDEO TUTORIAL SECTION ===== -->
-<section class="video-tutorial-section" id="video-tutorial" aria-label="Spin the wheel video tutorial">
+<section class="tutorial-section" id="tutorial" aria-label="Spin the wheel video tutorial">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">📺 Video Tutorial</div>
+      <div class="section-tag">🎥 Watch & Learn</div>
       <h2 class="section-title">Spin The Wheel <span class="highlight">Tutorial</span></h2>
-      <p class="section-subtitle">Watch our step-by-step guide to master the spin wheel — from basic spins to advanced customizations.</p>
+      <p class="section-subtitle">Master the random wheel spinner in under 2 minutes — customize, spin, and celebrate like a pro.</p>
     </div>
 
-    <div class="video-grid">
-      <!-- Main Video Player -->
-      <div class="video-main">
-        <div class="video-wrapper" data-video-id="aOkF-3nL0uw">
-          <div class="video-thumbnail" id="video-thumbnail">
-            <img src="https://i9.ytimg.com/vi/aOkF-3nL0uw/mqdefault.jpg?v=6a231853&sqp=CKyyjNEG&rs=AOn4CLBGjr8qUBUeEdTkGfZ4M1s0Z-ZWKQ" alt="Spin the Wheel Tutorial Thumbnail" loading="lazy">
-            <button class="video-play-btn" aria-label="Play tutorial video">
-              <svg width="68" height="68" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
-              </svg>
-            </button>
-          </div>
-          <div id="video-player-container" class="video-player-container" style="display: none;"></div>
+    <div class="tutorial-wrapper">
+      <div class="tutorial-video-container">
+        <div class="video-glow" aria-hidden="true"></div>
+        <div class="video-aspect">
+          <iframe 
+            class="tutorial-iframe"
+            src="https://youtu.be/aOkF-3nL0uw" 
+            title="Spin the Wheel Tutorial — Complete Guide to RandomWheel"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
         </div>
-        <div class="video-meta">
-          <div class="video-badge">🎯 Complete Guide</div>
-          <h3>How to Use the Spin Wheel — Full Tutorial</h3>
-          <p>Learn everything you need to know about our interactive spin wheel: selecting different wheel types, customizing segments, spinning mechanics, and understanding the random result algorithm. Perfect for beginners and advanced users alike!</p>
-          <div class="video-stats">
-            <span>📺 5:32 min</span>
-            <span>🎯 Beginner to Pro</span>
-            <span>⚡ Step-by-Step</span>
-          </div>
-        </div>    
-    
+      </div>
+      <div class="tutorial-description">
+        <div class="tutorial-icon" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <h3>Everything You Need to Know</h3>
+        <p>In this quick tutorial, you'll learn how to choose from <strong>12+ wheel types</strong>, fully customize every segment's text and color, add unlimited options, and spin with satisfying physics-based animation.</p>
+        <p>Plus, discover pro tips: resetting wheels, tracking spin history, keyboard shortcuts (Space to spin!), and how to use the wheel for classrooms, parties, giveaways, or daily decisions.</p>
+        <div class="tutorial-stats">
+          <span>⏱️ Under 2 minutes</span>
+          <span>🎯 Beginner friendly</span>
+          <span>⚡ 100% free tutorial</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
-/* ===== VIDEO TUTORIAL SECTION ===== */
-.video-tutorial-section {
-  padding: 100px 0;
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.video-tutorial-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), var(--accent2), transparent);
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.section-tag {
-  display: inline-block;
-  background: rgba(0,229,255,0.1);
-  border: 1px solid rgba(0,229,255,0.25);
-  color: var(--accent2);
-  padding: 4px 14px;
-  border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-}
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  margin-bottom: 14px;
-  line-height: 1.2;
-}
-
-.section-title .highlight {
-  background: linear-gradient(135deg, var(--accent), var(--accent3));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.section-subtitle {
-  color: var(--text2);
-  font-size: 1.05rem;
-  max-width: 560px;
-  margin: 0 auto;
-}
-
-.video-grid {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 32px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0;
-  justify-content: center;
-  align-items: start;
-}
-
-/* Main Video */
-.video-main {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: transform var(--transition), box-shadow var(--transition);
-  width: 100%;
-}
-
-.video-main:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-  border-color: rgba(255,107,53,0.3);
-}
-
-.video-wrapper {
-  position: relative;
-  background: #000;
-  aspect-ratio: 16 / 9;
-  width: 100%;
-}
-
-.video-thumbnail {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-
-.video-thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.7);
-  border: none;
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--transition);
-  backdrop-filter: blur(4px);
-  color: white;
-}
-
-.video-play-btn svg {
-  width: 48px;
-  height: 48px;
-  margin-left: 6px;
-}
-
-.video-play-btn:hover {
-  background: var(--accent);
-  transform: translate(-50%, -50%) scale(1.1);
-  box-shadow: 0 0 30px rgba(255,107,53,0.6);
-}
-
-.video-player-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.video-player-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.video-meta {
-  padding: 24px;
-}
-
-.video-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, rgba(255,107,53,0.15), rgba(255,107,53,0.05));
-  border: 1px solid rgba(255,107,53,0.3);
-  color: var(--accent);
-  padding: 4px 14px;
-  border-radius: 50px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin-bottom: 12px;
-}
-
-.video-meta h3 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  margin-bottom: 12px;
-  color: var(--text);
-}
-
-.video-meta p {
-  color: var(--text2);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.video-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
-}
-
-.video-stats span {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.85rem;
-  color: var(--text3);
-  background: var(--bg3);
-  padding: 4px 12px;
-  border-radius: 50px;
-}
-
-/* Sidebar */
-.video-sidebar {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  height: fit-content;
-}
-
-.sidebar-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 800;
-  font-size: 1rem;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-  color: var(--text);
-}
-
-.video-playlist {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.playlist-item {
-  display: flex;
-  gap: 12px;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: var(--radius-sm);
-  background: var(--bg3);
-  transition: all var(--transition);
-}
-
-.playlist-item:hover {
-  background: var(--surface2);
-  transform: translateX(4px);
-}
-
-.playlist-thumb {
-  position: relative;
-  width: 100px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.playlist-thumb img {
-  width: 100%;
-  height: 60px;
-  object-fit: cover;
-  display: block;
-}
-
-.play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.6);
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  color: white;
-  opacity: 0;
-  transition: opacity var(--transition);
-}
-
-.playlist-item:hover .play-icon {
-  opacity: 1;
-}
-
-.playlist-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.playlist-info h4 {
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: var(--text);
-  margin-bottom: 4px;
-}
-
-.playlist-info p {
-  font-size: 0.75rem;
-  color: var(--text2);
-  margin-bottom: 4px;
-}
-
-.duration {
-  font-size: 0.7rem;
-  color: var(--text3);
-  display: inline-block;
-}
-
-/* Mobile Responsive */
-@media (max-width: 900px) {
-  .video-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    justify-items: center;
+  /* Tutorial Section Styles — Matches existing design system */
+  .tutorial-section {
+    padding: 100px 0;
+    background: var(--bg2);
+    position: relative;
+    overflow: hidden;
   }
-  
-  .video-sidebar {
-    order: 2;
-    max-width: 600px;
-    width: 100%;
+
+  .tutorial-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent2), var(--accent), transparent);
+    opacity: 0.3;
+  }
+
+  .tutorial-wrapper {
+    max-width: 1100px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
   }
-  
-  .video-main {
-    order: 1;
-    max-width: 800px;
+
+  .tutorial-video-container {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .tutorial-video-container:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 32px 64px rgba(0,0,0,0.6);
+  }
+
+  .video-glow {
+    position: absolute;
+    inset: -4px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+    border-radius: calc(var(--radius) + 4px);
+    opacity: 0;
+    filter: blur(20px);
+    transition: opacity var(--transition);
+    z-index: -1;
+  }
+
+  .tutorial-video-container:hover .video-glow {
+    opacity: 0.5;
+  }
+
+  .video-aspect {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    background: var(--bg3);
+  }
+
+  .tutorial-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: 0 auto;
+    height: 100%;
+    border: none;
+    border-radius: var(--radius);
   }
-}
 
-@media (max-width: 768px) {
-  .video-tutorial-section {
-    padding: 60px 0;
+  .tutorial-description {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    transition: all var(--transition);
   }
-  
-  .container {
-    padding: 0 16px;
-  }
-  
-  .video-meta h3 {
-    font-size: 1.2rem;
-  }
-  
-  .video-stats span {
-    font-size: 0.7rem;
-    padding: 2px 8px;
-  }
-  
-  .playlist-item {
-    padding: 6px;
-  }
-  
-  .playlist-thumb {
-    width: 80px;
-  }
-  
-  .playlist-info h4 {
-    font-size: 0.8rem;
-  }
-  
-  .video-play-btn {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .video-play-btn svg {
-    width: 36px;
-    height: 36px;
-  }
-}
 
-@media (max-width: 480px) {
-  .video-play-btn {
-    width: 50px;
-    height: 50px;
+  .tutorial-description:hover {
+    border-color: rgba(0, 229, 255, 0.3);
+    transform: translateX(6px);
   }
-  
-  .video-play-btn svg {
-    width: 28px;
-    height: 28px;
+
+  .tutorial-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, rgba(255,107,53,0.15), rgba(0,229,255,0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: var(--accent2);
   }
-}
+
+  .tutorial-description h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #fff, rgba(255,255,255,0.7));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .tutorial-description p {
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+
+  .tutorial-description p strong {
+    color: var(--accent2);
+    font-weight: 800;
+  }
+
+  .tutorial-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .tutorial-stats span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg3);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text2);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .tutorial-wrapper {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .tutorial-description {
+      text-align: center;
+    }
+
+    .tutorial-icon {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tutorial-stats {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .tutorial-section {
+      padding: 60px 0;
+    }
+
+    .tutorial-description h3 {
+      font-size: 1.3rem;
+    }
+
+    .tutorial-description {
+      padding: 24px 20px;
+    }
+
+    .tutorial-stats {
+      gap: 12px;
+    }
+  }
 </style>
-
-<script>
-// YouTube Player API for video tutorial section
-(function() {
-  let currentPlayer = null;
-  let currentContainer = null;
-
-  function loadYouTubeVideo(videoId, containerElement, thumbnailElement) {
-    // Hide thumbnail, show container
-    if (thumbnailElement) thumbnailElement.style.display = 'none';
-    containerElement.style.display = 'block';
-    
-    // Clear previous player if exists
-    if (currentPlayer && currentContainer !== containerElement) {
-      if (currentPlayer.remove) currentPlayer.remove();
-    }
-    
-    // Create iframe
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1&rel=0&modestbranding=1`;
-    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-    iframe.allowFullscreen = true;
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.border = 'none';
-    
-    containerElement.innerHTML = '';
-    containerElement.appendChild(iframe);
-    currentPlayer = iframe;
-    currentContainer = containerElement;
-  }
-
-  // Main video play button
-  const mainWrapper = document.querySelector('.video-wrapper');
-  if (mainWrapper) {
-    const thumbnail = mainWrapper.querySelector('.video-thumbnail');
-    const container = mainWrapper.querySelector('#video-player-container');
-    const videoId = mainWrapper.dataset.videoId;
-    
-    const playBtn = mainWrapper.querySelector('.video-play-btn');
-    if (playBtn) {
-      playBtn.addEventListener('click', () => {
-        loadYouTubeVideo(videoId, container, thumbnail);
-      });
-    }
-  }
-  
-  // Playlist items
-  const playlistItems = document.querySelectorAll('.playlist-item');
-  playlistItems.forEach((item) => {
-    item.addEventListener('click', () => {
-      const videoId = item.dataset.videoId;
-      const mainWrapper = document.querySelector('.video-wrapper');
-      const thumbnail = mainWrapper.querySelector('.video-thumbnail');
-      const container = mainWrapper.querySelector('#video-player-container');
-      
-      // Update main video with selected one
-      loadYouTubeVideo(videoId, container, thumbnail);
-      
-      // Scroll to video
-      mainWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-})();
-</script>
 
   <!-- ===== FEATURES ===== -->
   <section class="features-section" id="features" aria-label="Features">
