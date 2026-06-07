@@ -1028,19 +1028,7 @@
 <!-- Scripts - Load components first, then app logic -->
 <script src="components/header.js"></script>
 <script src="components/footer.js"></script>
-
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    if (typeof Header !== 'undefined') {
-      document.getElementById('header-root').innerHTML = Header.render();
-      Header.init();
-    }
-    if (typeof Footer !== 'undefined') {
-      document.getElementById('footer-root').innerHTML = Footer.render();
-      Footer.init();
-    }
-  });
-</script>
+ 
 
 <!-- ===== GAME SCRIPT ===== -->
 <script>
