@@ -331,46 +331,46 @@
     .cps-lbl { font-size: 0.72rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; }
 
     /* Main clicker */
-    .clicker-area {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px; text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .clicker-area::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(210,105,30,0.06) 0%, transparent 70%);
-    }
-    #main-cookie {
-      width: 200px; height: 200px; border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #F4A460, #D2691E 50%, #8B4513 100%);
-      box-shadow: 0 0 40px rgba(210,105,30,0.4), 0 0 80px rgba(210,105,30,0.15);
-      margin: 0 auto 20px;
-      cursor: pointer; transition: transform 0.08s, box-shadow 0.08s;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 4rem; user-select: none; position: relative;
-    }
-    #main-cookie::before {
-      content: '';
-      position: absolute; inset: 0; border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.18), transparent 60%);
-    }
-    #main-cookie::after {
-      content: '';
-      position: absolute; inset: 0; border-radius: 50%;
-      background:
-        radial-gradient(circle at 40% 45%, rgba(101,67,33,0.7) 4%, transparent 5%),
-        radial-gradient(circle at 65% 35%, rgba(101,67,33,0.7) 5%, transparent 6%),
-        radial-gradient(circle at 55% 65%, rgba(101,67,33,0.7) 4%, transparent 5%),
-        radial-gradient(circle at 30% 65%, rgba(101,67,33,0.7) 3%, transparent 4%),
-        radial-gradient(circle at 70% 60%, rgba(101,67,33,0.7) 4%, transparent 5%),
-        radial-gradient(circle at 48% 28%, rgba(101,67,33,0.7) 3%, transparent 4%);
-    }
-    #main-cookie:hover { box-shadow: 0 0 60px rgba(210,105,30,0.6), 0 0 120px rgba(210,105,30,0.25); }
-    #main-cookie:active { transform: scale(0.92); }
-    #main-cookie.clicked { animation: cookiePop 0.15s ease; }
-    @keyframes cookiePop { 0%,100%{transform:scale(1)} 50%{transform:scale(0.9)} }
+    /* Main clicker */
+.clicker-area {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.clicker-area::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(210,105,30,0.06) 0%, transparent 70%);
+}
+#main-cookie {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
+  cursor: pointer;
+  transition: transform 0.08s, box-shadow 0.08s;
+  user-select: none;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#main-cookie img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: transform 0.08s;
+  filter: drop-shadow(0 0 20px rgba(210,105,30,0.4));
+}
+#main-cookie img:hover {
+  filter: drop-shadow(0 0 40px rgba(210,105,30,0.6));
+}
+#main-cookie:active img {
+  transform: scale(0.92);
+}
+#main-cookie.clicked img {
+  animation: cookiePop 0.15s ease;
+}
+@keyframes cookiePop { 0%,100%{transform:scale(1)} 50%{transform:scale(0.9)} }
 
     .click-hint { color: var(--text3); font-size: 0.82rem; }
     #cpc-display { font-weight: 800; color: var(--cookie-light); }
@@ -746,7 +746,9 @@
         <!-- Clicker -->
         <div class="clicker-area">
           <div class="golden-cookie" id="golden-cookie" title="Golden Cookie! Click fast!">⭐</div>
-          <div id="main-cookie" role="button" aria-label="Click to bake cookie" tabindex="0"></div>
+          <div id="main-cookie" role="button" aria-label="Click to bake cookie" tabindex="0">
+  <img src="images/cookie3.png" alt="Cookie">
+</div>
           <p class="click-hint">Click the cookie! +<span id="cpc-display">1</span> per click</p>
           <div class="frenzy-bar" id="frenzy-bar">
             <div class="frenzy-fill" id="frenzy-fill" style="width:100%"></div>
