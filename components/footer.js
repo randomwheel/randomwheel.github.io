@@ -66,6 +66,13 @@ const Footer = {
               <li><a href="/blog">Blog</a></li>
             </ul>
           </div>
+          <div class="footer-col">
+            <h4>More Games</h4>
+            <ul>            
+              <li><a href="/2048-game">2048 Game</a></li>
+              <li><a href="/memory-match">Memory Match</a></li> 
+            </ul>
+          </div>
         </div>
       </div>
 
