@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Food Picker Wheel – Spin to Choose What to Eat | RandomWheel</title>
   <meta name="description" content="Free Food Picker Wheel – Can't decide what to eat? Spin the wheel and let fate choose your meal, restaurant, or cuisine. Perfect for indecisive foodies, groups, and daily lunch decisions.">
-  <meta name="keywords" content="food picker wheel, what to eat wheel, food decision wheel, restaurant wheel, dinner spinner, lunch wheel, meal picker, cuisine wheel, food roulette">
+  <meta name="keywords" content="food picker wheel, what to eat wheel, food decision wheel, restaurant wheel, dinner spinner, lunch wheel, meal picker, cuisine wheel, food roulette, food spin the wheel, food spin wheel, spin the wheel food, spin the wheel for food, food spinner, fast food spin the wheel, fast food spin wheel, food chooser wheel, food decider wheel">
   <meta name="robots" content="index, follow">
   <meta name="author" content="RandomWheel">
   <link rel="canonical" href="https://randomwheel.github.io/food-picker-wheel">
@@ -127,6 +127,107 @@
     }
     .winner-food {
       animation: sizzle 0.5s ease;
+    }
+
+    /* --- New: Benefit Highlights Section --- */
+    .benefit-highlights-section {
+      padding: 80px 0;
+    }
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .benefit-card {
+      background: linear-gradient(160deg, var(--surface), var(--bg3));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .benefit-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent3);
+      box-shadow: var(--shadow);
+    }
+    .benefit-icon {
+      font-size: 2.2rem;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .benefit-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .benefit-card p {
+      color: var(--text2);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* --- New: Spotlight Section (text + illustration) --- */
+    .food-spotlight-section {
+      padding: 80px 0;
+      background: var(--bg2);
+    }
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .spotlight-text .section-tag { margin-bottom: 16px; }
+    .spotlight-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .spotlight-text p {
+      color: var(--text2);
+      font-size: 1.02rem;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .spotlight-text ul {
+      list-style: none;
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .spotlight-text ul li {
+      color: var(--text2);
+      padding-left: 28px;
+      position: relative;
+      font-size: 0.98rem;
+    }
+    .spotlight-text ul li::before {
+      content: "🍴";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .spotlight-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: var(--surface);
+    }
+    .spotlight-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    @media (max-width: 860px) {
+      .spotlight-grid {
+        grid-template-columns: 1fr;
+      }
+      .spotlight-image { order: -1; }
     }
   </style>
 </head>
@@ -272,6 +373,81 @@
         <div class="step-card"><span class="step-icon">🎨</span><div class="step-num">2</div><h3>Customize Colors</h3><p>Change segment colors to match your mood or food type.</p></div>
         <div class="step-card"><span class="step-icon">🎡</span><div class="step-num">3</div><h3>Spin the Wheel</h3><p>Click SPIN or press Space. Watch the wheel decide your fate.</p></div>
         <div class="step-card"><span class="step-icon">🍽️</span><div class="step-num">4</div><h3>Enjoy Your Meal</h3><p>No more arguments – the wheel has spoken! Go eat.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4.5: Benefit Highlights -->
+  <section class="benefit-highlights-section" aria-label="Benefits of the Food Spin Wheel">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">✨ Why Spin?</div>
+        <h2 class="section-title">More Than Just a <span class="highlight">Food Spinner</span></h2>
+        <p class="section-subtitle">A good food chooser wheel does more than pick a meal – it ends the back-and-forth and gets everyone to the table faster.</p>
+      </div>
+      <div class="benefit-grid">
+        <div class="benefit-card">
+          <span class="benefit-icon">⚡</span>
+          <h3>Instant Decisions</h3>
+          <p>No more endless "what do you feel like?" texts. This food decider wheel gives you (and your group) an answer in seconds.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">🎯</span>
+          <h3>Truly Unbiased</h3>
+          <p>Every entry on the wheel gets an equal shot. Whether it's a fast food spin wheel or a fine-dining list, the result is fair and random.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">🧩</span>
+          <h3>Endlessly Customizable</h3>
+          <p>Build your own spin the wheel for food list — restaurants, cuisines, recipes, or leftovers you need to use up tonight.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">📱</span>
+          <h3>Works Anywhere</h3>
+          <p>Open this food spin the wheel on your phone while standing in front of the fridge, in the car, or at the office during lunch.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">🔁</span>
+          <h3>Saved for Next Time</h3>
+          <p>Your custom list sticks around in the browser, so your favorite spin wheel food setup is ready whenever hunger strikes.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">🎉</span>
+          <h3>Makes It Fun</h3>
+          <p>Turn a boring decision into a mini game with sound effects, confetti, and a satisfying spin every time you use the food picker wheel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4.6: Spotlight - Text + Image -->
+  <section class="food-spotlight-section" aria-label="How the Food Spin Wheel Helps with Decision Fatigue">
+    <div class="container">
+      <div class="spotlight-grid">
+        <div class="spotlight-text">
+          <div class="section-tag">🧠 Decision Fatigue, Solved</div>
+          <h2>Tired of Asking <span class="highlight">"What Should We Eat?"</span></h2>
+          <p>
+            The average person makes dozens of small decisions every day, and "what's for dinner" is often the one that drags on the longest.
+            A food spinner takes that choice off your plate (pun intended) by turning your shortlist into a quick, visual spin.
+          </p>
+          <p>
+            Whether you're searching for a fast food spin the wheel option on a busy night, planning a themed dinner with a cuisine wheel,
+            or just trying to use up what's in the fridge, spinning removes the back-and-forth and gets you to a decision instantly.
+          </p>
+          <ul>
+            <li>Add restaurants, dishes, or cuisines as your own wheel segments</li>
+            <li>Use ready-made presets like Fast Food, Asian, Italian, and Mexican</li>
+            <li>Great as a dinner spinner for couples, families, and friend groups</li>
+            <li>Re-spin anytime — there's no limit to how many times you can decide</li>
+          </ul>
+          <p>
+            Next time the group chat turns into a 20-message debate about food, skip it — open the food picker wheel and spin.
+          </p>
+        </div>
+        <div class="spotlight-image">
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20450%22%20role%3D%22img%22%20aria-label%3D%22Illustration%20of%20a%20table%20full%20of%20food%20choices%20including%20pizza%2C%20sushi%2C%20tacos%20and%20a%20burger%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bgGrad%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%231e1e36%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2310101e%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22600%22%20height%3D%22450%22%20fill%3D%22url%28%23bgGrad%29%22/%3E%0A%0A%20%20%3C%21--%20Table%20--%3E%0A%20%20%3Cellipse%20cx%3D%22300%22%20cy%3D%22250%22%20rx%3D%22260%22%20ry%3D%22160%22%20fill%3D%22%2326264a%22/%3E%0A%20%20%3Cellipse%20cx%3D%22300%22%20cy%3D%22250%22%20rx%3D%22260%22%20ry%3D%22160%22%20fill%3D%22none%22%20stroke%3D%22rgba%28255%2C255%2C255%2C0.06%29%22%20stroke-width%3D%222%22/%3E%0A%0A%20%20%3C%21--%20Pizza%20plate%20--%3E%0A%20%20%3Ccircle%20cx%3D%22190%22%20cy%3D%22170%22%20r%3D%2268%22%20fill%3D%22%231e1e36%22%20stroke%3D%22rgba%28255%2C255%2C255%2C0.1%29%22%20stroke-width%3D%223%22/%3E%0A%20%20%3Ccircle%20cx%3D%22190%22%20cy%3D%22170%22%20r%3D%2252%22%20fill%3D%22%23FFD700%22/%3E%0A%20%20%3Cpath%20d%3D%22M190%20170%20L190%20118%20A52%2052%200%200%201%20235%20196%20Z%22%20fill%3D%22%23FF6B35%22/%3E%0A%20%20%3Cpath%20d%3D%22M190%20170%20L235%20196%20A52%2052%200%200%201%20145%20196%20Z%22%20fill%3D%22%2322C55E%22%20opacity%3D%220.85%22/%3E%0A%20%20%3Ccircle%20cx%3D%22178%22%20cy%3D%22150%22%20r%3D%226%22%20fill%3D%22%23EF4444%22/%3E%0A%20%20%3Ccircle%20cx%3D%22205%22%20cy%3D%22160%22%20r%3D%226%22%20fill%3D%22%23EF4444%22/%3E%0A%20%20%3Ccircle%20cx%3D%22195%22%20cy%3D%22185%22%20r%3D%226%22%20fill%3D%22%23EF4444%22/%3E%0A%20%20%3Ctext%20x%3D%22190%22%20y%3D%22252%22%20text-anchor%3D%22middle%22%20font-size%3D%2214%22%20fill%3D%22%23a0a0c0%22%20font-family%3D%22Nunito%2C%20sans-serif%22%20font-weight%3D%22700%22%3EPizza%3C/text%3E%0A%0A%20%20%3C%21--%20Sushi%20plate%20--%3E%0A%20%20%3Ccircle%20cx%3D%22410%22%20cy%3D%22160%22%20r%3D%2268%22%20fill%3D%22%231e1e36%22%20stroke%3D%22rgba%28255%2C255%2C255%2C0.1%29%22%20stroke-width%3D%223%22/%3E%0A%20%20%3Crect%20x%3D%22372%22%20y%3D%22138%22%20width%3D%2230%22%20height%3D%2244%22%20rx%3D%226%22%20fill%3D%22%23f0f0ff%22/%3E%0A%20%20%3Crect%20x%3D%22372%22%20y%3D%22138%22%20width%3D%2230%22%20height%3D%2214%22%20rx%3D%226%22%20fill%3D%22%23FF6B35%22/%3E%0A%20%20%3Crect%20x%3D%22408%22%20y%3D%22138%22%20width%3D%2230%22%20height%3D%2244%22%20rx%3D%226%22%20fill%3D%22%23f0f0ff%22/%3E%0A%20%20%3Crect%20x%3D%22408%22%20y%3D%22138%22%20width%3D%2230%22%20height%3D%2214%22%20rx%3D%226%22%20fill%3D%22%2300E5FF%22/%3E%0A%20%20%3Crect%20x%3D%22390%22%20y%3D%22172%22%20width%3D%2240%22%20height%3D%2230%22%20rx%3D%2215%22%20fill%3D%22%2322C55E%22/%3E%0A%20%20%3Ctext%20x%3D%22410%22%20y%3D%22242%22%20text-anchor%3D%22middle%22%20font-size%3D%2214%22%20fill%3D%22%23a0a0c0%22%20font-family%3D%22Nunito%2C%20sans-serif%22%20font-weight%3D%22700%22%3ESushi%3C/text%3E%0A%0A%20%20%3C%21--%20Tacos%20--%3E%0A%20%20%3Ccircle%20cx%3D%22170%22%20cy%3D%22320%22%20r%3D%2268%22%20fill%3D%22%231e1e36%22%20stroke%3D%22rgba%28255%2C255%2C255%2C0.1%29%22%20stroke-width%3D%223%22/%3E%0A%20%20%3Cpath%20d%3D%22M120%20330%20A50%2030%200%200%201%20220%20330%20L210%20330%20A40%2022%200%200%200%20130%20330%20Z%22%20fill%3D%22%23F59E0B%22/%3E%0A%20%20%3Cpath%20d%3D%22M130%20330%20A40%2022%200%200%201%20210%20330%20L205%20322%20A35%2018%200%200%200%20135%20322%20Z%22%20fill%3D%22%2322C55E%22/%3E%0A%20%20%3Ccircle%20cx%3D%22150%22%20cy%3D%22318%22%20r%3D%223.5%22%20fill%3D%22%23EF4444%22/%3E%0A%20%20%3Ccircle%20cx%3D%22170%22%20cy%3D%22314%22%20r%3D%223.5%22%20fill%3D%22%23EF4444%22/%3E%0A%20%20%3Ccircle%20cx%3D%22190%22%20cy%3D%22318%22%20r%3D%223.5%22%20fill%3D%22%23EF4444%22/%3E%0A%20%20%3Ctext%20x%3D%22170%22%20y%3D%22402%22%20text-anchor%3D%22middle%22%20font-size%3D%2214%22%20fill%3D%22%23a0a0c0%22%20font-family%3D%22Nunito%2C%20sans-serif%22%20font-weight%3D%22700%22%3ETacos%3C/text%3E%0A%0A%20%20%3C%21--%20Burger%20--%3E%0A%20%20%3Ccircle%20cx%3D%22410%22%20cy%3D%22320%22%20r%3D%2268%22%20fill%3D%22%231e1e36%22%20stroke%3D%22rgba%28255%2C255%2C255%2C0.1%29%22%20stroke-width%3D%223%22/%3E%0A%20%20%3Cpath%20d%3D%22M372%20312%20A38%2024%200%200%201%20448%20312%20Z%22%20fill%3D%22%23F59E0B%22/%3E%0A%20%20%3Crect%20x%3D%22372%22%20y%3D%22312%22%20width%3D%2276%22%20height%3D%228%22%20fill%3D%22%2322C55E%22/%3E%0A%20%20%3Crect%20x%3D%22372%22%20y%3D%22320%22%20width%3D%2276%22%20height%3D%2212%22%20fill%3D%22%238B5CF6%22/%3E%0A%20%20%3Crect%20x%3D%22372%22%20y%3D%22332%22%20width%3D%2276%22%20height%3D%228%22%20fill%3D%22%23EF4444%22/%3E%0A%20%20%3Cpath%20d%3D%22M372%20340%20A38%2014%200%200%200%20448%20340%20Z%22%20fill%3D%22%23F59E0B%22/%3E%0A%20%20%3Ctext%20x%3D%22410%22%20y%3D%22402%22%20text-anchor%3D%22middle%22%20font-size%3D%2214%22%20fill%3D%22%23a0a0c0%22%20font-family%3D%22Nunito%2C%20sans-serif%22%20font-weight%3D%22700%22%3EBurger%3C/text%3E%0A%0A%20%20%3C%21--%20Center%20dot%20/%20wheel%20hint%20--%3E%0A%20%20%3Ccircle%20cx%3D%22300%22%20cy%3D%22240%22%20r%3D%2234%22%20fill%3D%22%230a0a12%22%20stroke%3D%22%23FFD700%22%20stroke-width%3D%223%22/%3E%0A%20%20%3Ctext%20x%3D%22300%22%20y%3D%22250%22%20text-anchor%3D%22middle%22%20font-size%3D%2228%22%20font-family%3D%22sans-serif%22%3E%F0%9F%8E%A1%3C/text%3E%0A%3C/svg%3E%0A" alt="Illustration of a table with pizza, sushi, tacos and a burger, with a wheel icon in the center" loading="lazy" width="600" height="450">
+        </div>
       </div>
     </div>
   </section>
