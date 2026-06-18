@@ -28,8 +28,7 @@ const Header = {
         <nav class="main-nav" id="main-nav" role="navigation" aria-label="Main navigation">
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/#wheel-types">Wheel Types</a></li>
-            <li><a href="/cookie-clicker">Cookie Clicker</a></li>
+            <li><a href="/#wheel-types">Wheel Types</a></li>            
             <li><a href="/#how-it-works">How It Works</a></li>
             <li><a href="/#features">Features</a></li>
             <li><a href="/#faq">FAQ</a></li>
