@@ -1,0 +1,72 @@
+# Random Wheel Spinner – Free Online Spin Wheel
+
+> The ultimate free random wheel spinner with 12+ ready‑to‑use wheels. Fully customizable, fun, and instant. No sign‑up, no download, just spin! Make decisions, run games, pick students, choose meals, and more — all with a satisfying physics‑based spin animation.
+
+## Quick Links
+- [Spin Wheel](https://randomwheel.github.io/): The main wheel spinner — pick a wheel type, customize, and spin instantly.
+- [Wheel Types](#wheel-types): Yes/No, Food Picker, Truth or Dare, Random Name Picker, Prize/Raffle Wheel, Pokémon Type, Workout Wheel, Decision Maker, Number Generator, Color Picker, Student Picker, Fortune Wheel, and more.
+- [How It Works](#how-it-works): Choose a wheel → Customize options → Spin the wheel → See your result with confetti.
+- [Features](#features): Fully customizable, confetti celebration, mobile friendly, spin history, instant & fast, privacy first, accessible, no download needed, free forever.
+- [Use Cases](#use-cases): Teachers & educators, party game hosts, indecisive foodies, team leaders, giveaway organizers, fitness enthusiasts.
+- [Tutorial](#tutorial): Learn how to use the random wheel spinner in under 2 minutes.
+- [FAQ](#faq): Frequently asked questions about free usage, customization, privacy, and more.
+
+## Wheel Types — 12+ Ready‑to‑Use Wheels
+- **Yes / No Wheel** — Quick decisions made easy. Spin to get an instant Yes, No, or Maybe.
+- **Food Picker** — Can't decide what to eat? Let the wheel choose your next meal!
+- **Truth or Dare** — Spice up your party! Spin for Truth, Dare, or wild surprises.
+- **Random Name Picker** — Pick a random name from your list. Perfect for classrooms & teams!
+- **Prize / Raffle Wheel** — Run fair raffles & giveaways. Spin to pick a lucky winner.
+- **Pokémon Type** — Which Pokémon type will you get? Spin for your battle advantage!
+- **Workout Wheel** — No more workout excuses! Spin for your exercise challenge.
+- **Decision Maker** — Stuck between choices? Let the wheel make your decision!
+- **Number Generator** — Generate random numbers 1–12 for games, math, or fun!
+- **Color Picker** — Spin for a random color! Great for art, design, and color challenges.
+- **Student Picker** — Fair student selection for teachers! Spin to pick who answers next.
+- **Fortune Wheel** — What does fate have in store? Spin your fortune wheel to find out!
+
+## How It Works
+Three simple steps to your random result — no downloads, no sign‑up needed:
+
+1. **Choose a Wheel** — Pick from 12+ ready‑made wheel types or start fresh with a blank wheel perfectly suited to your needs.
+2. **Customize Options** — Edit labels, change colors, add or remove segments. Create the perfect wheel with unlimited custom options.
+3. **Spin the Wheel** — Click the big SPIN button or press Space. Watch the wheel spin with a satisfying animation and reveal your result!
+4. **See Your Result** — Celebrate the random result with confetti effects! Your spin history is saved so you can track all outcomes.
+
+## Key Features
+- **Fully Customizable** — Edit every segment — change text, colors, and quantity. Build any wheel you can imagine with unlimited options.
+- **Confetti Celebration** — Every spin result is celebrated with a burst of colorful confetti, making the experience fun and rewarding.
+- **Mobile Friendly** — Fully responsive design works perfectly on smartphones, tablets, and desktops. Spin on any device, anywhere.
+- **Spin History** — Track your last 10 spin results with a live history log. See what the wheel has decided, all in one place.
+- **Instant & Fast** — No loading times. The wheel loads instantly in your browser with smooth, physics‑based spin animations.
+- **Privacy First** — Everything runs in your browser. No data is collected, no sign‑up needed, and your custom wheels stay private.
+- **Accessible** — Keyboard navigation, ARIA labels, and screen reader support built in. The spin wheel is usable by everyone.
+- **No Download Needed** — Pure browser‑based application. No app download, no installation — just open and spin in seconds.
+- **Free Forever** — 100% free with no paywalls, no subscriptions. Every feature is available to every user at no cost.
+
+## Who Uses the Spin Wheel?
+- **Teachers & Educators** — Pick random students to answer questions, assign groups, choose topics, or create engaging classroom activities with the student picker wheel.
+- **Party Game Hosts** — Take Truth or Dare to the next level, run raffle draws, or decide who goes first in board games with our party‑ready wheels.
+- **Indecisive Foodies** — Can't decide what to eat tonight? Let the Food Picker wheel make the delicious decision for you and your group.
+- **Team Leaders** — Assign tasks fairly, pick presenters for standup meetings, or decide sprint priorities with a fair and random spin.
+- **Giveaway Organizers** — Run transparent, fair prize draws and raffle giveaways. Enter all participant names and spin for a verifiably random winner.
+- **Fitness Enthusiasts** — Randomize your workout routine to keep training fresh and challenging. The Workout Wheel picks your next exercise challenge.
+
+## Tutorial — Learn in Under 2 Minutes
+Master the random wheel spinner in under 2 minutes — customize, spin, and celebrate like a pro. In this quick tutorial, you'll learn how to:
+- Choose from 12+ wheel types
+- Fully customize every segment's text and color
+- Add unlimited options
+- Spin with satisfying physics‑based animation
+- Reset wheels, track spin history, and use keyboard shortcuts (Space to spin!)
+- Use the wheel for classrooms, parties, giveaways, or daily decisions
+
+## FAQ
+- **Is it really free?** Yes — 100% free with no hidden charges, no premium tiers, and no subscription fees. All features are available to every user at no cost.
+- **Do I need to create an account?** No account is required at all. Simply visit the site and start spinning immediately.
+- **Where are my custom wheels stored?** All custom wheels are stored exclusively in your browser's local storage. Nothing is uploaded to external servers. Your data stays completely private.
+- **Can I customize the wheel?** Absolutely. You can edit every segment's text and color, add or remove segments, and create unlimited custom wheels.
+- **Does it work on mobile?** Yes! Fully responsive and optimized for smartphones, tablets, and desktops. Spin on any device, anywhere.
+- **What happens if I clear my browser data?** Clearing browser data or local storage will delete your custom wheels and spin history. We recommend noting down important wheels if you need to keep them.
+- **Does it work offline?** After the initial page load, the wheel runs entirely in your browser. No internet connection is required to spin.
+- **Are there ads?** No, zero ads. Just a clean, distraction‑free spinning experience.
