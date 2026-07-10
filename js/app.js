@@ -324,7 +324,11 @@ class SpinWheel {
     const arc = (2 * Math.PI) / n;
     const extraSpins = 5 + Math.random() * 5;
     const targetSegment = Math.floor(Math.random() * n);
-    const targetAngle = (2 * Math.PI * extraSpins) + (2 * Math.PI - targetSegment * arc) - this.currentRotation % (2 * Math.PI);
+    
+    // Calculate the target angle so the target segment aligns with the TOP pointer
+    // The pointer is at the top (12 o'clock), which is -π/2 in canvas coordinates
+    // We want the target segment's center to be at the top
+    const targetAngle = (2 * Math.PI * extraSpins) + (-Math.PI / 2 - targetSegment * arc) - this.currentRotation % (2 * Math.PI);
     const totalAngle = targetAngle;
     const spinDuration = duration || (3000 + Math.random() * 2000);
 
@@ -332,7 +336,6 @@ class SpinWheel {
     const startRot = this.currentRotation;
 
     const ease = (t) => {
-      // Ease in then ease out (sine)
       return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     };
 
@@ -346,10 +349,18 @@ class SpinWheel {
         requestAnimationFrame(tick);
       } else {
         this.spinning = false;
-        // Determine winner
-        const normalised = ((this.currentRotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-        const pointer = (Math.PI / 2 - normalised + 2 * Math.PI) % (2 * Math.PI);
-        const idx = Math.floor(pointer / arc) % n;
+        // Determine winner - pointer is at the TOP (-π/2)
+        // The segment at the top is the one whose center is at -π/2
+        const pointerAngle = -Math.PI / 2; // Top of the wheel
+        
+        // Calculate which segment the pointer is pointing at
+        // A segment's center angle = this.currentRotation + i * arc - Math.PI / 2
+        // We want: pointerAngle = this.currentRotation + i * arc - Math.PI / 2
+        // So: i = (pointerAngle - this.currentRotation + Math.PI / 2) / arc
+        let rawIdx = (pointerAngle - this.currentRotation + Math.PI / 2) / arc;
+        let idx = Math.floor(((rawIdx % n) + n) % n);
+        idx = idx % n;
+        
         this.onResult(this.segments[idx], idx);
         if (this.confettiEnabled) launchConfetti();
       }
@@ -591,7 +602,6 @@ const App = {
     const resetBtn = document.getElementById('reset-wheel-btn');
     if (resetBtn) resetBtn.addEventListener('click', () => {
       const id = this.currentWheel;
-      // restore from a deep copy concept by reinitializing
       this.loadWheel(id);
     });
 
