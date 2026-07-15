@@ -4,6 +4,7 @@ const WHEELS = {
     name: 'Yes / No Wheel',
     icon: '🎯',
     description: 'Quick decisions made easy! Spin to get an instant Yes or No.',
+    longDescription: 'The Yes/No Wheel is your ultimate decision-making companion. Whether you\'re deciding on a dinner choice, trying to pick a movie, or just need a quick answer to a tough question, this wheel gives you a clear, unbiased result every time. With multiple Yes and No segments plus a Maybe option, you get a nuanced answer rather than a simple binary choice. Perfect for couples, friends, or anyone facing decision paralysis. Customize the responses to match your personality — add "Absolutely!", "No Way!", or "Ask Again" for a more fun experience.',
     segments: [
       { label: 'YES', color: '#22c55e', emoji: '✅' },
       { label: 'NO', color: '#ef4444', emoji: '❌' },
@@ -16,7 +17,8 @@ const WHEELS = {
   'food-picker': {
     name: 'Food Picker',
     icon: '🍕',
-    description: "Can't decide what to eat? Let the wheel choose your next meal!",
+    description: 'Can\'t decide what to eat? Let the wheel choose your next meal!',
+    longDescription: 'The Food Picker Wheel puts an end to the eternal "what\'s for dinner?" debate. Featuring 10 popular food options ranging from Pizza and Sushi to Tacos and Ramen, this wheel covers all the classics. Whether you\'re dining alone or with a group, simply spin and let fate decide your next culinary adventure. The wheel includes a diverse mix of cuisines — Italian, Japanese, Mexican, American, and more. You can easily customize the options to include your favorite local restaurants, specific dishes, or even dietary preferences like vegan or gluten-free options. Perfect for meal planning, food dates, or just when you\'re feeling indecisive.',
     segments: [
       { label: 'Pizza', color: '#FF6B35', emoji: '🍕' },
       { label: 'Sushi', color: '#FF1493', emoji: '🍣' },
@@ -34,6 +36,7 @@ const WHEELS = {
     name: 'Truth or Dare',
     icon: '🔥',
     description: 'Spice up your party! Spin for Truth, Dare, or wild surprises.',
+    longDescription: 'The Truth or Dare Wheel is the ultimate party game enhancer. Perfect for sleepovers, college parties, or any social gathering, this wheel adds an element of surprise to the classic game. With segments including Truth, Dare, Skip, and the thrilling Double Dare, every spin creates unforgettable moments. The wheel\'s balanced mix ensures players never know what\'s coming next. Use it to break the ice, get to know friends better, or just create hilarious memories. The Truth segments encourage honest conversations, while Dares challenge players to step out of their comfort zones. Perfect for groups of all sizes — from intimate hangouts to large parties.',
     segments: [
       { label: 'TRUTH', color: '#3B82F6', emoji: '💬' },
       { label: 'DARE', color: '#EF4444', emoji: '🔥' },
@@ -47,6 +50,7 @@ const WHEELS = {
     name: 'Random Name Picker',
     icon: '👥',
     description: 'Pick a random name from your list. Perfect for classrooms & teams!',
+    longDescription: 'The Random Name Picker Wheel is an essential tool for teachers, team leaders, and event organizers. Featuring 8 pre-populated names (Alice, Bob, Carol, David, Emma, Frank, Grace, Henry), this wheel makes selecting a random individual fair, fun, and completely unbiased. Teachers can use it to call on students for questions, assign group projects, or pick classroom helpers. Team leaders can use it for standup meeting rotations, assigning tasks, or choosing presenters. The wheel eliminates favoritism and makes the selection process transparent and engaging. Customize with your own names in seconds — perfect for classrooms of any size, sports teams, or any group setting where random selection is needed.',
     segments: [
       { label: 'Alice', color: '#FF6B6B', emoji: '👩' },
       { label: 'Bob', color: '#4ECDC4', emoji: '👨' },
@@ -62,6 +66,7 @@ const WHEELS = {
     name: 'Prize / Raffle Wheel',
     icon: '🏆',
     description: 'Run fair raffles & giveaways! Spin to pick a lucky winner.',
+    longDescription: 'The Prize & Raffle Wheel is your go-to tool for running fair, exciting giveaways and competitions. Whether you\'re hosting a corporate event, a charity fundraiser, a YouTube live stream, or a classroom contest, this wheel makes winner selection transparent and thrilling. With segments including Grand Prize 🥇, 2nd Prize 🥈, 3rd Prize 🥉, Free Entry 🎟️, and Bonus! ⭐, every spin creates anticipation. The "Try Again" and "Better Luck" segments add an element of suspense and engagement, keeping participants on the edge of their seats. Perfect for live events, online streams, or any setting where you need to select winners randomly and fairly. Customize the prizes to match your specific giveaway.',
     segments: [
       { label: '🥇 Grand Prize', color: '#FFD700', emoji: '🏆' },
       { label: 'Try Again', color: '#6B7280', emoji: '🔄' },
@@ -77,6 +82,7 @@ const WHEELS = {
     name: 'Pokémon Type',
     icon: '⚡',
     description: 'Which Pokémon type will you get? Spin for your battle advantage!',
+    longDescription: 'The Pokémon Type Wheel is a must-have for any Pokémon trainer or enthusiast. Featuring 12 different Pokémon types — Fire 🔥, Water 💧, Grass 🌿, Electric ⚡, Psychic 🔮, Ice ❄️, Dragon 🐉, Dark 🌑, Steel 🔩, Ghost 👻, Fighting 🥊, and Flying 🪶 — this wheel adds a fun, competitive element to your Pokémon battles. Use it to randomly determine your battle team, choose a type for a themed playthrough, or just test your knowledge of type matchups. The wheel includes a perfect mix of offensive, defensive, and balanced types, making every spin an exciting challenge. Great for Pokémon Go players, card game enthusiasts, or any fan of the franchise looking to add randomness to their gameplay.',
     segments: [
       { label: 'Fire 🔥', color: '#F08030', emoji: '🔥' },
       { label: 'Water 💧', color: '#6890F0', emoji: '💧' },
@@ -96,6 +102,7 @@ const WHEELS = {
     name: 'Workout Wheel',
     icon: '💪',
     description: 'No more workout excuses! Spin for your exercise challenge.',
+    longDescription: 'The Workout Wheel eliminates workout boredom and decision fatigue. Featuring 8 challenging exercises — 20 Push-ups, 30 Squats, 1 Min Plank, 15 Burpees, 40 Jumping Jacks, 10 Pull-ups, 25 Sit-ups, and a Rest Day 🎉 — this wheel keeps your fitness routine fresh and exciting. Perfect for home workouts, gym sessions, or group fitness classes, the wheel introduces variety and challenge to every session. The inclusion of a Rest Day segment adds a fun twist, making rest feel like a reward rather than a break. Customize the exercises to match your fitness level, add new challenges, or create themed workout wheels for specific muscle groups. Whether you\'re a beginner or a fitness enthusiast, this wheel keeps you motivated and engaged.',
     segments: [
       { label: '20 Push-ups', color: '#EF4444', emoji: '💪' },
       { label: '30 Squats', color: '#F59E0B', emoji: '🦵' },
@@ -111,6 +118,7 @@ const WHEELS = {
     name: 'Decision Maker',
     icon: '🤔',
     description: 'Stuck between choices? Let the wheel make your decision!',
+    longDescription: 'The Decision Maker Wheel is your personal advisor for life\'s tough choices. Featuring 8 response options — Go For It!, Wait & See, Absolutely!, Skip It, Ask a Friend, Do It Now, Think More, and YES! 100% — this wheel provides nuanced, thoughtful guidance when you\'re stuck between options. Whether you\'re deciding on a career move, a relationship decision, a purchase choice, or just what to do on a Saturday night, the wheel offers clear, actionable responses. Each segment is designed to provide meaningful guidance rather than simple binary answers, making it more useful for complex decisions. Perfect for those moments when you need an objective third party to help you see things clearly.',
     segments: [
       { label: 'Go For It!', color: '#22C55E', emoji: '✅' },
       { label: 'Wait & See', color: '#F59E0B', emoji: '⏳' },
@@ -126,6 +134,7 @@ const WHEELS = {
     name: 'Number Generator',
     icon: '🎲',
     description: 'Generate random numbers 1–12 for games, math, or fun!',
+    longDescription: 'The Number Generator Wheel is your ultimate random number tool for any situation. Featuring numbers 1 through 12 in vibrant, distinct colors, this wheel is perfect for games, classroom activities, math practice, or just settling disputes. Teachers use it to randomly select numbers for math drills, group activities, or classroom games. Board game enthusiasts use it as a digital die for games that require number selection. Parents use it to help children learn numbers and counting in a fun, visual way. Each number segment is clearly labeled and color-coded, making it easy to read and visually engaging. Perfect for any situation where you need a random number between 1 and 12.',
     segments: [
       { label: '1', color: '#FF6B6B', emoji: '' },
       { label: '2', color: '#FF8E53', emoji: '' },
@@ -145,6 +154,7 @@ const WHEELS = {
     name: 'Color Picker',
     icon: '🎨',
     description: 'Spin for a random color! Great for art, design, and color challenges.',
+    longDescription: 'The Color Picker Wheel is a vibrant tool for artists, designers, and anyone who loves color. Featuring 10 stunning colors — Red 🔴, Orange 🟠, Yellow 🟡, Green 🟢, Blue 🔵, Indigo 🟣, Violet 💜, Pink 🩷, Cyan 🩵, and Lime 🟩 — this wheel provides endless inspiration for creative projects. Use it to choose color schemes for art projects, randomly select colors for design challenges, or just explore the beautiful spectrum of colors. Perfect for graphic designers, painters, interior decorators, or anyone needing a splash of color inspiration. Each color is represented with its emoji, making the wheel visually appealing and easy to use. Spin for your next color challenge or creative project!',
     segments: [
       { label: 'Red', color: '#EF4444', emoji: '🔴' },
       { label: 'Orange', color: '#F97316', emoji: '🟠' },
@@ -162,6 +172,7 @@ const WHEELS = {
     name: 'Student Picker',
     icon: '🏫',
     description: 'Fair student selection for teachers! Spin to pick who answers next.',
+    longDescription: 'The Student Picker Wheel is an essential classroom management tool designed specifically for teachers and educators. Featuring 8 organized segments — Row 1, Row 2, Row 3, Front Row, Back Row, Volunteer?, Group A, and Group B — this wheel makes classroom participation fair, fun, and engaging. Teachers can use it to randomly select students for answering questions, presenting projects, participating in activities, or assigning groups. The wheel eliminates bias and ensures every student has an equal chance of being called upon, reducing student anxiety and promoting inclusivity. Great for K-12 classrooms, higher education, and even corporate training sessions. Customize with your own class lists, student names, or group categories.',
     segments: [
       { label: 'Row 1', color: '#3B82F6', emoji: '📚' },
       { label: 'Row 2', color: '#22C55E', emoji: '✏️' },
@@ -177,6 +188,7 @@ const WHEELS = {
     name: 'Fortune Wheel',
     icon: '🔮',
     description: 'What does fate have in store? Spin your fortune wheel to find out!',
+    longDescription: 'The Fortune Wheel is your personal oracle for life\'s mysteries. Featuring 8 mystical segments — Great Fortune! 🌟, Adventure Awaits 🗺️, Love is Near 💕, Wealth Incoming 💰, Good Health 💚, New Beginnings 🌱, Lucky Day! 🍀, and Be Patient ⏳ — this wheel provides insightful, uplifting predictions for your future. Whether you\'re looking for guidance, inspiration, or just a bit of fun, the Fortune Wheel offers meaningful responses that spark reflection and optimism. Perfect for self-reflection, morning motivation, or just adding a touch of magic to your day. Use it to get a sense of what the universe has in store, or just to add some excitement to your daily routine. Every spin brings a new perspective and a positive message.',
     segments: [
       { label: 'Great Fortune!', color: '#FFD700', emoji: '🌟' },
       { label: 'Adventure Awaits', color: '#FF6B35', emoji: '🗺️' },
