@@ -1,41 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
-     crossorigin="anonymous"></script>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DH0NXE4ME3');
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random Wheel Spinner – Free Online Spin the Wheel | RandomWheel</title>
-  <meta name="description" content="Free online spin wheel maker with 12+ customizable wheels: Yes/No, Food Picker, Truth or Dare, Name Picker, Prize Raffle, Fortune Wheel & more. No download needed. Spin now!">
-  <meta name="keywords" content="spin the wheel, spin wheel, random wheel spinner, wheel spinner, random wheel, wheel of names, yes or no wheel, random name picker, food wheel, food picker, prize wheel, raffle wheel, giveaway wheel, decision wheel, wheel randomizer, randomizer wheel, free wheel spinner, online wheel spinner, truth or dare wheel, wheel of fortune, fortune wheel, name picker wheel">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="RandomWheel">
+  <title>Random Wheel Spinner – Spin the Wheel Online | Free & Fun</title>
+  <meta name="description" content="Spin the wheel instantly! Free online random wheel spinner with 12+ customizable wheels. Yes/No, Food Picker, Truth or Dare, Name Picker & more.">
   <link rel="canonical" href="https://randomwheel.github.io/">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <meta name="google-adsense-platform-account" content="ca-pub-9759808041159779">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Random Wheel Spinner – Free Online Spin Wheel">
-  <meta property="og:description" content="Spin the wheel and decide anything! 12+ customizable wheels for every occasion. Yes/No, Food, Names, Prizes & more. 100% free.">
-  <meta property="og:url" content="https://randomwheel.github.io/">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://randomwheel.github.io/images/og-image.PNG">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Random Wheel Spinner – Free Online Spin Wheel">
-  <meta name="twitter:description" content="Spin the wheel and decide anything! 12+ customizable spin wheels. Free, fun & instant.">
-
-  <!-- Fonts -->
+  <!-- Google AdSense Auto Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DH0NXE4ME3');
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -83,7 +63,7 @@
     ::-webkit-scrollbar-track { background: var(--bg3); }
     ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 3px; }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER (injected) ===== */
     .site-header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(255, 255, 255, 0.92);
@@ -306,7 +286,7 @@
     .tab-icon { font-size: 0.9rem; }
     .tab-label { font-size: 0.75rem; }
 
-    /* ===== OTHER SECTIONS (compact) ===== */
+    /* ===== OTHER SECTIONS ===== */
     .section-header { text-align: center; margin-bottom: 32px; }
     .section-tag { display: inline-block; background: rgba(0, 201, 167, 0.1); border: 1px solid rgba(0, 201, 167, 0.2); color: var(--accent2); padding: 4px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
     .section-title { font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.4rem); margin-bottom: 8px; color: var(--text); }
@@ -382,7 +362,7 @@
     .cta-wheel-chip { display: flex; align-items: center; gap: 4px; background: var(--surface); border: 1px solid var(--border); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: all var(--transition); color: var(--text); }
     .cta-wheel-chip:hover { border-color: var(--accent2); color: var(--accent2); transform: translateY(-2px); }
 
-    /* ===== FOOTER ===== */
+    /* ===== FOOTER (injected) ===== */
     .site-footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 0 20px; }
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.5fr 2fr; gap: 40px; }
     .footer-tagline { color: var(--text2); font-size: 0.85rem; line-height: 1.6; max-width: 280px; }
@@ -439,8 +419,8 @@
   </style>
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
- <div id="header-root"></div>
+  <!-- ===== HEADER INJECTION POINT ===== -->
+  <div id="header-root"></div>
 
   <!-- ===== CONFETTI ===== -->
   <canvas id="confetti-canvas" aria-hidden="true"></canvas>
@@ -632,21 +612,12 @@
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ===== FOOTER INJECTION POINT ===== -->
   <div id="footer-root"></div>
 
+  <!-- ===== EXTERNAL SCRIPTS ===== -->
   <script src="/components/header.js"></script>
-<script src="/components/footer.js"></script>
-   <script src="/js/app.js"></script>
- <script>
-   // ===== Bootstrap =====
-  document.addEventListener('DOMContentLoaded', () => {
-    // Inject header & footer
-    document.getElementById('header-root').innerHTML = Header.render();
-    Header.init();
-    document.getElementById('footer-root').innerHTML = Footer.render();
-    Footer.init();
-    </script>
+  <script src="/components/footer.js"></script>
   <script>
     // ========== WHEEL DATA ==========
     const WHEELS = {
@@ -731,7 +702,6 @@
           ctx.fillText(label, 0, 0);
           ctx.restore();
         }
-        // Center
         ctx.beginPath();
         ctx.arc(this.cx, this.cy, 26, 0, 2 * Math.PI);
         ctx.fillStyle = '#ffffff';
@@ -944,12 +914,6 @@
         document.addEventListener('keydown', e => {
           if (e.code === 'Space' && e.target === document.body) { e.preventDefault(); this.spinWheel(); }
         });
-        // Hamburger
-        document.getElementById('hamburger').addEventListener('click', () => {
-          const nav = document.getElementById('main-nav');
-          nav.classList.toggle('nav-open');
-          document.getElementById('hamburger').classList.toggle('active');
-        });
         // CTA chips
         document.querySelectorAll('.cta-wheel-chip').forEach(btn => {
           btn.addEventListener('click', () => {
@@ -968,13 +932,56 @@
         });
         // Header scroll
         window.addEventListener('scroll', () => {
-          document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 30);
+          const header = document.querySelector('.site-header');
+          if (header) header.classList.toggle('scrolled', window.scrollY > 30);
         });
       }
     };
 
     // ========== BOOT ==========
     document.addEventListener('DOMContentLoaded', () => {
+      // Inject header & footer
+      if (typeof Header !== 'undefined' && Header.render) {
+        document.getElementById('header-root').innerHTML = Header.render();
+        if (Header.init) Header.init();
+      } else {
+        // Fallback if header.js not loaded
+        document.getElementById('header-root').innerHTML = `
+          <header class="site-header" id="site-header">
+            <div class="header-inner">
+              <a href="#" class="logo"><span class="logo-icon" style="font-size:1.8rem;">🎡</span><span class="logo-text"><span class="logo-main">Random</span><span class="logo-accent">Wheel</span></span></a>
+              <nav class="main-nav" id="main-nav"><ul><li><a href="#spin-app">Spin</a></li><li><a href="#how-it-works">How It Works</a></li><li><a href="#wheel-types">Wheels</a></li><li><a href="#faq">FAQ</a></li></ul></nav>
+              <div class="header-actions"><button class="btn-spin-cta" onclick="document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">🎯 Spin Now</button><button class="hamburger" id="hamburger"><span></span><span></span><span></span></button></div>
+            </div>
+          </header>
+        `;
+        // Hamburger fallback
+        document.getElementById('hamburger')?.addEventListener('click', () => {
+          const nav = document.getElementById('main-nav');
+          nav.classList.toggle('nav-open');
+          document.getElementById('hamburger').classList.toggle('active');
+        });
+      }
+
+      if (typeof Footer !== 'undefined' && Footer.render) {
+        document.getElementById('footer-root').innerHTML = Footer.render();
+        if (Footer.init) Footer.init();
+      } else {
+        document.getElementById('footer-root').innerHTML = `
+          <footer class="site-footer">
+            <div class="footer-inner">
+              <div><div style="font-family:var(--font-display);font-size:1.4rem;margin-bottom:8px;">🎡 Random<span style="color:var(--accent)">Wheel</span></div><p class="footer-tagline">The #1 free online spin wheel. Make decisions fun and fair.</p></div>
+              <div class="footer-links">
+                <div class="footer-col"><h4>Wheels</h4><ul><li><a href="#spin-app" onclick="event.preventDefault();App.loadWheel('yes-no');document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">Yes/No</a></li><li><a href="#spin-app" onclick="event.preventDefault();App.loadWheel('food-picker');document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">Food Picker</a></li><li><a href="#spin-app" onclick="event.preventDefault();App.loadWheel('truth-dare');document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">Truth or Dare</a></li></ul></div>
+                <div class="footer-col"><h4>More</h4><ul><li><a href="#spin-app" onclick="event.preventDefault();App.loadWheel('name-picker');document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">Name Picker</a></li><li><a href="#spin-app" onclick="event.preventDefault();App.loadWheel('prize');document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">Prize Wheel</a></li><li><a href="#spin-app" onclick="event.preventDefault();App.loadWheel('fortune');document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">Fortune Wheel</a></li></ul></div>
+                <div class="footer-col"><h4>Info</h4><ul><li><a href="#how-it-works">How It Works</a></li><li><a href="#faq">FAQ</a></li><li><a href="#">Privacy</a></li></ul></div>
+              </div>
+            </div>
+            <div class="footer-bottom"><div class="footer-bottom-inner"><p>&copy; 2025 RandomWheel. All rights reserved.</p><div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div></div>
+          </footer>
+        `;
+      }
+
       App.init();
     });
   </script>
