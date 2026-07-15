@@ -1,584 +1,958 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
-     crossorigin="anonymous"></script>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DH0NXE4ME3');
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random Wheel Spinner – Free Online Spin the Wheel | RandomWheel</title>
-  <meta name="description" content="Free online spin wheel maker with 12+ customizable wheels: Yes/No, Food Picker, Truth or Dare, Name Picker, Prize Raffle, Fortune Wheel & more. No download needed. Spin now!">
-  <meta name="keywords" content="spin the wheel, spin wheel, random wheel spinner, wheel spinner, random wheel, wheel of names, yes or no wheel, random name picker, food wheel, food picker, prize wheel, raffle wheel, giveaway wheel, decision wheel, wheel randomizer, randomizer wheel, free wheel spinner, online wheel spinner, truth or dare wheel, wheel of fortune, fortune wheel, name picker wheel">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="RandomWheel">
+  <title>Random Wheel Spinner – Spin the Wheel Online | Free & Fun</title>
+  <meta name="description" content="Spin the wheel instantly! Free online random wheel spinner with 12+ customizable wheels. Yes/No, Food Picker, Truth or Dare, Name Picker & more.">
   <link rel="canonical" href="https://randomwheel.github.io/">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <meta name="google-adsense-platform-account" content="ca-pub-9759808041159779">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Random Wheel Spinner – Free Online Spin Wheel">
-  <meta property="og:description" content="Spin the wheel and decide anything! 12+ customizable wheels for every occasion. Yes/No, Food, Names, Prizes & more. 100% free.">
-  <meta property="og:url" content="https://randomwheel.github.io/">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://randomwheel.github.io/images/og-image.PNG">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Random Wheel Spinner – Free Online Spin Wheel">
-  <meta name="twitter:description" content="Spin the wheel and decide anything! 12+ customizable spin wheels. Free, fun & instant.">
-
-  <!-- Fonts -->
+  <!-- Google AdSense Auto Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DH0NXE4ME3');
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f8faff;
+      --bg2: #ffffff;
+      --bg3: #f0f4ff;
+      --surface: #ffffff;
+      --surface2: #eef2f9;
+      --border: rgba(0, 0, 0, 0.08);
+      --text: #1a1a2e;
+      --text2: #4a4a6a;
+      --text3: #8888aa;
+      --accent: #FF6B35;
+      --accent2: #00C9A7;
+      --accent3: #FFD700;
+      --accent4: #FF1493;
+      --success: #22C55E;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.12);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-display: 'Righteous', cursive;
+      --font-body: 'Nunito', sans-serif;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    a { color: var(--accent2); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--accent); }
+    img { max-width: 100%; height: auto; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg3); }
+    ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 3px; }
 
-  <link rel="stylesheet" href="/css/style.css">
-  
+    /* ===== HEADER ===== */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow var(--transition);
+      height: 68px;
+      display: flex;
+      align-items: center;
+    }
+    .site-header.scrolled { box-shadow: 0 4px 32px rgba(0, 0, 0, 0.06); }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { flex-shrink: 0; filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.3)); }
+    .logo-main { font-family: var(--font-display); font-size: 1.35rem; color: var(--text); }
+    .logo-accent { font-family: var(--font-display); font-size: 1.35rem; color: var(--accent); }
+    .main-nav ul { display: flex; list-style: none; gap: 4px; }
+    .main-nav a { padding: 8px 14px; border-radius: 8px; color: var(--text2); font-weight: 600; font-size: 0.9rem; transition: all var(--transition); }
+    .main-nav a:hover { color: var(--text); background: var(--bg3); }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+    .btn-spin-cta {
+      display: flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg, var(--accent), #ff4500);
+      color: white; border: none; cursor: pointer;
+      padding: 8px 16px; border-radius: 50px; font-weight: 700;
+      font-family: var(--font-body); font-size: 0.8rem;
+      transition: all var(--transition);
+      box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+    }
+    .btn-spin-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all var(--transition); display: block; }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  <!-- Schema Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        "name": "RandomWheel – Free Online Spin Wheel",
-        "url": "https://randomwheel.github.io/",
-        "description": "Free online spin wheel application with 12+ customizable wheels including Yes/No, Food Picker, Truth or Dare, Random Name Picker, Prize Raffle and more.",
-        "image": "https://randomwheel.github.io/images/og-image.PNG",
-        "applicationCategory": "EntertainmentApplication",
-        "operatingSystem": "Any",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "featureList": ["Yes No Wheel", "Food Picker", "Truth or Dare", "Name Picker", "Prize Wheel", "Fortune Wheel", "Decision Maker", "Color Picker", "Number Generator", "Pokemon Type", "Workout Wheel", "Student Picker"],
-        "screenshot": "https://randomwheel.github.io/images/og-image.PNG",
-        "creator": { "@type": "Organization", "name": "RandomWheel", "url": "https://randomwheel.github.io/" }
-      },
-    {
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "Spin The Wheel - Random Wheel - Decide Anything",
-  "description": "Step-by-step tutorial on how to use the interactive spin wheel, customize segments, and get random results.",
-  "thumbnailUrl": "https://i9.ytimg.com/vi/aOkF-3nL0uw/mqdefault.jpg?v=6a231853&sqp=CIS3jNEG&rs=AOn4CLBE7DQ4ogcV3Q-vChu7yJYevRFbKg",
-  "uploadDate": "2026-06-05",
-  "duration": "PT1M17S",
-  "contentUrl": "https://www.youtube.com/watch?v=aOkF-3nL0uw",
-  "embedUrl": "https://www.youtube.com/embed/aOkF-3nL0uw?si=ILV_Vit8uqXVV3U6",
-  "interactionCount": "0"
-},
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Is RandomWheel free to use?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes! RandomWheel is completely free to use with no sign-up required. All 12+ wheel types are fully accessible at no cost." }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I customize the spin wheel options?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely! Every wheel is fully editable. You can add, remove, rename, and recolor any segment to create your perfect custom spin wheel." }
-          },
-          {
-            "@type": "Question",
-            "name": "How random is the spin wheel?",
-            "acceptedAnswer": { "@type": "Answer", "text": "RandomWheel uses JavaScript's Math.random() combined with a physics-based spin animation for truly random, fair results every time." }
-          },
-          {
-            "@type": "Question",
-            "name": "Does the spin wheel work on mobile?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes! RandomWheel is fully responsive and works on all devices including smartphones, tablets, and desktop computers." }
-          }
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://randomwheel.github.io/" },
-          { "@type": "ListItem", "position": 2, "name": "Spin Wheel", "item": "https://randomwheel.github.io/#spin-app" }
-        ]
-      }
-    ]
-  }
-  </script>
+    /* ===== HERO + APP (merged) ===== */
+    .hero-app-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 80px 0 40px;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-app-inner {
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      width: 100%;
+    }
+    .hero-app-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .hero-app-header .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255, 107, 53, 0.1); border: 1px solid rgba(255, 107, 53, 0.2);
+      color: var(--accent); padding: 6px 16px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 700; margin-bottom: 8px;
+    }
+    .hero-app-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      color: var(--text);
+    }
+    .hero-app-header h1 .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-app-header p {
+      font-size: 1.05rem; color: var(--text2); max-width: 600px; margin: 8px auto 0;
+    }
+
+    .app-layout {
+      display: grid; grid-template-columns: 280px 1fr 300px; gap: 20px;
+      margin-top: 12px;
+    }
+    .editor-panel {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px;
+      max-height: 550px; display: flex; flex-direction: column;
+      box-shadow: var(--shadow);
+    }
+    .panel-title {
+      font-weight: 800; font-size: 1rem; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px; color: var(--text);
+    }
+    #editor-list {
+      flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;
+      margin-bottom: 10px;
+    }
+    .editor-item {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--bg3); border-radius: var(--radius-sm);
+      padding: 6px;
+    }
+    .seg-color { width: 28px; height: 28px; border: 2px solid var(--border); border-radius: 6px; cursor: pointer; background: none; flex-shrink: 0; }
+    .seg-label { flex: 1; background: transparent; border: none; color: var(--text); font-family: var(--font-body); font-size: 0.85rem; outline: none; font-weight: 600; }
+    .seg-label:focus { color: var(--accent2); }
+    .seg-del { background: none; border: none; color: var(--text3); cursor: pointer; font-size: 14px; padding: 2px 6px; border-radius: 4px; transition: all var(--transition); flex-shrink: 0; }
+    .seg-del:hover { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+    .editor-actions { display: flex; flex-direction: column; gap: 6px; }
+    .btn-add, .btn-reset {
+      width: 100%; padding: 8px; border-radius: var(--radius-sm);
+      font-family: var(--font-body); font-weight: 700; font-size: 0.85rem;
+      cursor: pointer; transition: all var(--transition); border: 1px solid;
+    }
+    .btn-add { background: rgba(0, 201, 167, 0.1); border-color: rgba(0, 201, 167, 0.3); color: var(--accent2); }
+    .btn-add:hover { background: rgba(0, 201, 167, 0.15); }
+    .btn-reset { background: rgba(0, 0, 0, 0.03); border-color: var(--border); color: var(--text2); }
+    .btn-reset:hover { background: rgba(0, 0, 0, 0.05); }
+
+    .wheel-center {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .wheel-info { text-align: center; }
+    #wheel-title { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 2px; color: var(--text); }
+    #wheel-desc { color: var(--text2); font-size: 0.85rem; margin-bottom: 2px; }
+    #toggle-desc { background: none; border: none; color: var(--text3); font-size: 0.7rem; cursor: pointer; text-decoration: underline dotted; padding: 2px 8px; font-family: var(--font-body); }
+    #wheel-long-desc {
+      color: var(--text3); font-size: 0.78rem; line-height: 1.5;
+      max-width: 400px; margin: 4px auto 0;
+      padding: 6px 12px; background: var(--bg3); border-radius: var(--radius-sm);
+      border-left: 3px solid var(--accent2);
+      display: none; text-align: left;
+      transition: all var(--transition);
+    }
+    #wheel-long-desc.visible { display: block; animation: fadeInUp 0.4s ease both; }
+
+    .wheel-canvas-wrapper {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #wheel-canvas {
+      display: block; cursor: pointer; transition: filter var(--transition);
+      background: white;
+      border-radius: 50%;
+      box-shadow: var(--shadow-lg);
+      max-width: 100%;
+      height: auto;
+    }
+    #wheel-canvas:hover { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.3)); }
+    .wheel-pointer-top {
+      position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-top: 32px solid var(--accent3);
+      filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.4));
+      z-index: 5;
+    }
+    #spin-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: linear-gradient(135deg, var(--accent), #ff3300);
+      color: white; border: none; cursor: pointer;
+      padding: 14px 40px; border-radius: 50px;
+      font-family: var(--font-display); font-size: 1.2rem;
+      letter-spacing: 1px;
+      transition: all var(--transition);
+      box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3);
+      width: 100%; max-width: 260px;
+    }
+    #spin-btn:hover:not(:disabled) { transform: translateY(-4px) scale(1.02); box-shadow: 0 16px 48px rgba(255, 107, 53, 0.5); }
+    #spin-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .spin-icon { font-size: 1.2rem; animation: spinIcon 2s linear infinite; }
+    .keyboard-hint { color: var(--text3); font-size: 0.7rem; margin-top: 4px; }
+    .keyboard-hint kbd { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; font-size: 0.7rem; }
+
+    #result-panel {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px;
+      display: flex; flex-direction: column; gap: 8px;
+      opacity: 0; transform: translateY(10px); pointer-events: none;
+      transition: all var(--transition);
+      position: relative;
+      box-shadow: var(--shadow);
+    }
+    #result-panel.show { opacity: 1; transform: translateY(0); pointer-events: all; }
+    #result-panel.pop { animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .result-winner-badge { text-align: center; background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 53, 0.06)); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: var(--radius-sm); padding: 16px; }
+    #result-emoji { font-size: 2.5rem; display: block; margin-bottom: 4px; animation: bounce 0.5s ease; }
+    .result-label { font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; }
+    #result-text { font-family: var(--font-display); font-size: 1.4rem; color: var(--accent); word-break: break-word; }
+    #close-result { position: absolute; top: 8px; right: 8px; background: none; border: none; color: var(--text3); cursor: pointer; font-size: 16px; padding: 2px 6px; border-radius: 4px; transition: all var(--transition); }
+    #close-result:hover { background: var(--bg3); color: var(--text); }
+
+    .history-panel {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    #spin-history { display: flex; flex-direction: column; gap: 6px; max-height: 200px; overflow-y: auto; }
+    .history-item { display: flex; align-items: center; gap: 10px; background: var(--bg3); border-radius: var(--radius-sm); padding: 8px; animation: fadeInLeft 0.3s ease; }
+    .hist-emoji { font-size: 1.3rem; flex-shrink: 0; }
+    .hist-details { display: flex; flex-direction: column; gap: 1px; }
+    .hist-details strong { font-size: 0.9rem; color: var(--text); }
+    .hist-details small { font-size: 0.7rem; color: var(--text3); }
+    .history-empty { color: var(--text3); font-size: 0.85rem; text-align: center; padding: 16px 0; }
+
+    /* ===== WHEEL TABS ===== */
+    .wheel-tabs-wrapper { overflow-x: auto; padding-bottom: 8px; margin-bottom: 12px; scrollbar-width: thin; scrollbar-color: var(--surface2) transparent; }
+    #wheel-tabs { display: flex; gap: 6px; width: max-content; padding: 0 8px; margin: 0 auto; }
+    .wheel-tab-btn {
+      display: flex; align-items: center; gap: 4px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text2); cursor: pointer; white-space: nowrap;
+      padding: 6px 14px; border-radius: 50px; font-weight: 700;
+      font-family: var(--font-body); font-size: 0.8rem;
+      transition: all var(--transition);
+    }
+    .wheel-tab-btn:hover { border-color: var(--accent2); color: var(--text); }
+    .wheel-tab-btn.active { background: linear-gradient(135deg, var(--accent), #ff4500); border-color: transparent; color: white; box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3); }
+    .tab-icon { font-size: 0.9rem; }
+    .tab-label { font-size: 0.75rem; }
+
+    /* ===== OTHER SECTIONS (compact) ===== */
+    .section-header { text-align: center; margin-bottom: 32px; }
+    .section-tag { display: inline-block; background: rgba(0, 201, 167, 0.1); border: 1px solid rgba(0, 201, 167, 0.2); color: var(--accent2); padding: 4px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.4rem); margin-bottom: 8px; color: var(--text); }
+    .section-subtitle { color: var(--text2); font-size: 0.95rem; max-width: 560px; margin: 0 auto; }
+    .how-section, .gallery-section, .features-section, .usecases-section, .seo-section, .faq-section, .cta-section { padding: 60px 0; }
+    .how-section { background: var(--bg2); }
+    .gallery-section { background: var(--bg); }
+    .features-section { background: var(--bg2); }
+    .usecases-section { background: var(--bg); }
+    .seo-section { background: var(--bg3); }
+    .faq-section { background: var(--bg2); }
+    .cta-section { background: linear-gradient(135deg, rgba(255, 107, 53, 0.06), rgba(0, 201, 167, 0.04)); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; }
+
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .step-card { text-align: center; padding: 28px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); transition: all var(--transition); box-shadow: var(--shadow); }
+    .step-card:hover { transform: translateY(-6px); border-color: rgba(255, 107, 53, 0.2); }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #ff4500); font-family: var(--font-display); font-size: 1.2rem; color: white; margin-bottom: 12px; box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3); }
+    .step-icon { font-size: 2rem; display: block; margin-bottom: 4px; }
+    .step-card h3 { font-size: 1rem; margin-bottom: 4px; font-weight: 800; }
+    .step-card p { color: var(--text2); font-size: 0.85rem; }
+
+    #wheel-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .gallery-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; transition: all var(--transition); box-shadow: var(--shadow); display: flex; flex-direction: column; }
+    .gallery-card:hover { transform: translateY(-4px); border-color: rgba(0, 201, 167, 0.2); }
+    .gallery-card .card-icon { font-size: 2rem; margin-bottom: 6px; }
+    .gallery-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 4px; }
+    .gallery-card p { color: var(--text2); font-size: 0.82rem; line-height: 1.4; margin-bottom: 12px; flex: 1; }
+    .btn-try-wheel { background: rgba(0, 201, 167, 0.1); border: 1px solid rgba(0, 201, 167, 0.2); color: var(--accent2); padding: 6px 14px; border-radius: 50px; font-family: var(--font-body); font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: all var(--transition); align-self: flex-start; }
+    .btn-try-wheel:hover { background: rgba(0, 201, 167, 0.2); transform: translateX(4px); }
+
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; transition: all var(--transition); box-shadow: var(--shadow); }
+    .feature-card:hover { border-color: rgba(255, 107, 53, 0.2); transform: translateY(-4px); }
+    .feature-icon { width: 44px; height: 44px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 10px; background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 107, 53, 0.03)); }
+    .feature-card h3 { font-size: 0.95rem; font-weight: 800; margin-bottom: 4px; }
+    .feature-card p { color: var(--text2); font-size: 0.85rem; }
+
+    .usecases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .usecase-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; display: flex; align-items: flex-start; gap: 16px; transition: all var(--transition); box-shadow: var(--shadow); }
+    .usecase-card:hover { border-color: rgba(0, 201, 167, 0.2); transform: translateY(-4px); }
+    .usecase-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .usecase-card h3 { font-size: 0.95rem; font-weight: 800; margin-bottom: 2px; }
+    .usecase-card p { color: var(--text2); font-size: 0.82rem; }
+
+    .seo-inner { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .seo-inner h2 { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 12px; color: var(--text); }
+    .seo-inner h3 { font-size: 1.1rem; font-weight: 800; margin: 20px 0 6px; color: var(--accent2); }
+    .seo-inner p { color: var(--text2); margin-bottom: 10px; line-height: 1.7; }
+
+    .faq-list { max-width: 780px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow); }
+    .faq-question { width: 100%; background: none; border: none; color: var(--text); text-align: left; padding: 16px 20px; cursor: pointer; font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; gap: 12px; transition: background var(--transition); }
+    .faq-question:hover { background: var(--bg3); }
+    .faq-chevron { width: 20px; height: 20px; border-radius: 50%; background: var(--bg3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform var(--transition); font-size: 12px; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; padding: 0 20px; color: var(--text2); font-size: 0.9rem; line-height: 1.6; }
+    .faq-item.open .faq-answer { max-height: 200px; padding: 0 20px 16px; }
+
+    .cta-section h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 8px; }
+    .cta-section p { color: var(--text2); font-size: 1rem; max-width: 500px; margin: 0 auto 24px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--accent), #ff4500);
+      color: white; border: none; cursor: pointer;
+      padding: 14px 32px; border-radius: 50px; font-weight: 800;
+      font-family: var(--font-body); font-size: 1rem;
+      transition: all var(--transition);
+      box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3);
+      text-decoration: none;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(255, 107, 53, 0.4); color: white; }
+    .cta-wheels { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .cta-wheel-chip { display: flex; align-items: center; gap: 4px; background: var(--surface); border: 1px solid var(--border); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: all var(--transition); color: var(--text); }
+    .cta-wheel-chip:hover { border-color: var(--accent2); color: var(--accent2); transform: translateY(-2px); }
+
+    /* ===== FOOTER ===== */
+    .site-footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 0 20px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.5fr 2fr; gap: 40px; }
+    .footer-tagline { color: var(--text2); font-size: 0.85rem; line-height: 1.6; max-width: 280px; }
+    .footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .footer-col h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); margin-bottom: 10px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .footer-col a { color: var(--text2); font-size: 0.85rem; transition: all var(--transition); }
+    .footer-col a:hover { color: var(--text); padding-left: 4px; }
+    .footer-bottom { border-top: 1px solid var(--border); padding: 16px 24px; margin-top: 20px; }
+    .footer-bottom-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .footer-bottom p { color: var(--text3); font-size: 0.8rem; }
+    .footer-legal { display: flex; gap: 12px; }
+    .footer-legal a { color: var(--text3); font-size: 0.8rem; }
+
+    /* ===== CONFETTI ===== */
+    #confetti-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 9999; display: none; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes slowSpin { to { transform: rotate(360deg); } }
+    @keyframes spinIcon { to { transform: rotate(360deg); } }
+    @keyframes pop { 0% { transform: scale(0.9); } 60% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 1024px) {
+      .app-layout { grid-template-columns: 240px 1fr; }
+      .history-panel { grid-column: 1 / -1; }
+    }
+    @media (max-width: 768px) {
+      .main-nav { position: fixed; top: 68px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transform: translateY(-100%); opacity: 0; pointer-events: none; transition: all var(--transition); padding: 16px 20px; }
+      .main-nav.nav-open { transform: translateY(0); opacity: 1; pointer-events: all; }
+      .main-nav ul { flex-direction: column; gap: 4px; }
+      .main-nav a { display: block; padding: 10px 14px; font-size: 0.95rem; }
+      .hamburger { display: flex; }
+      .app-layout { grid-template-columns: 1fr; }
+      .editor-panel { max-height: 260px; }
+      #editor-list { max-height: 120px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .footer-links { grid-template-columns: repeat(2, 1fr); }
+      .footer-bottom-inner { flex-direction: column; text-align: center; }
+      .hero-app-header h1 { font-size: 1.8rem; }
+    }
+    @media (max-width: 480px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .footer-links { grid-template-columns: 1fr; }
+      #wheel-gallery { grid-template-columns: 1fr 1fr; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .usecases-grid { grid-template-columns: 1fr; }
+      .btn-primary { width: 100%; justify-content: center; }
+      #spin-btn { max-width: 100%; }
+    }
+  </style>
 </head>
 <body>
+  <!-- ===== HEADER ===== -->
+ <div id="header-root"></div>
 
-<!-- Header injected by JS -->
-<div id="header-root"></div>
+  <!-- ===== CONFETTI ===== -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
 
-<!-- Confetti canvas -->
-<canvas id="confetti-canvas" aria-hidden="true"></canvas>
-
-<main id="main-content">
-
-  <!-- ===== HERO ===== -->
-  <section class="hero" aria-label="Hero section">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="hero-grid" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-badge">🎡 #1 Free Online Spin Wheel</div>
-      <h1 class="hero-title">
-        Spin the Wheel.<br>
-        <span class="highlight">Decide Anything.</span>
-      </h1>
-      <p class="hero-subtitle">
-        The ultimate free random wheel spinner with 12+ ready-to-use wheels. Customizable, fun, and instant. No sign-up. No download. Just spin!
-      </p>
-      <div class="hero-ctas">
-        <a href="#spin-app" class="btn-primary" onclick="event.preventDefault();document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">
-          <span>🎯</span> Spin the Wheel Now
-        </a>
-        <a href="#wheel-types" class="btn-secondary" onclick="event.preventDefault();document.getElementById('wheel-types').scrollIntoView({behavior:'smooth'})">
-          <span>🎡</span> Explore All Wheels
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-number">12+</div><div class="stat-label">Wheel Types</div></div>
-        <div class="stat"><div class="stat-number">∞</div><div class="stat-label">Custom Options</div></div>
-        <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Free Forever</div></div>
-      </div>
-    </div>
-  </div>
-</section>  
-
-  <!-- ===== SPIN APP ===== -->
-  <section class="spin-app-section" id="spin-app" aria-label="Spin wheel application">
-    <div class="section-header">
-      <div class="section-tag">🎡 Interactive Spin Wheel</div>
-      <h2 class="section-title">Choose Your Wheel & Spin!</h2>
-      <p class="section-subtitle">Pick from 12 popular wheel types, customize options, then spin for a random result.</p>
-    </div>
-
-    <!-- Wheel type tabs -->
-    <div class="wheel-tabs-wrapper" role="tablist" aria-label="Wheel types">
-      <div id="wheel-tabs"></div>
-    </div>
-
-    <!-- Main app layout -->
-    <div class="app-layout">
-
-      <!-- Editor Panel -->
-      <aside class="editor-panel" aria-label="Wheel editor">
-        <div class="panel-title">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-          Edit Options
+  <main>
+    <!-- ===== HERO + APP (merged) ===== -->
+    <section class="hero-app-section" id="spin-app" aria-label="Spin wheel application">
+      <div class="hero-app-inner">
+        <div class="hero-app-header">
+          <div class="hero-badge">🎡 #1 Free Online Spin Wheel</div>
+          <h1>Spin the Wheel. <span class="highlight">Decide Anything.</span></h1>
+          <p>12+ customizable wheels: Yes/No, Food, Truth or Dare, Name Picker, Prize & more. Instant, free, no sign-up.</p>
         </div>
-        <div id="editor-list" role="list" aria-label="Wheel segments"></div>
-        <div class="editor-actions">
-          <button class="btn-add" id="add-segment-btn" aria-label="Add new segment">+ Add Option</button>
-          <button class="btn-reset" id="reset-wheel-btn" aria-label="Reset wheel to defaults">↺ Reset Wheel</button>
-        </div>
-      </aside>
 
-      <!-- Wheel Canvas -->
-      <div class="wheel-center">
-        <div class="wheel-info">
-          <h2 id="wheel-title">🎯 Yes / No Wheel</h2>
-          <p id="wheel-desc">Quick decisions made easy! Spin to get an instant Yes or No.</p>
+        <!-- Wheel tabs -->
+        <div class="wheel-tabs-wrapper" role="tablist" aria-label="Wheel types">
+          <div id="wheel-tabs"></div>
         </div>
-        <div class="wheel-canvas-wrapper">
-          <div class="wheel-pointer-top" aria-hidden="true"></div>
-          <canvas id="wheel-canvas" role="img" aria-label="Spin wheel" tabindex="0"></canvas>
-        </div>
-        <button id="spin-btn" aria-label="Spin the wheel">
-          <span class="spin-icon">⚡</span> SPIN!
-        </button>
-        <p class="keyboard-hint" aria-label="Keyboard shortcut">Press <kbd>Space</kbd> to spin</p>
-      </div>
 
-      <!-- Result + History -->
-      <div style="display:flex;flex-direction:column;gap:20px;">
-        <div id="result-panel" role="status" aria-live="polite" aria-label="Spin result">
-          <button id="close-result" aria-label="Close result">✕</button>
-          <div class="result-winner-badge">
-            <span id="result-emoji" role="img">🎉</span>
-            <div class="result-label">🏆 The Wheel Chose…</div>
-            <div id="result-text">Spin to see!</div>
+        <!-- App Layout -->
+        <div class="app-layout">
+          <!-- Editor -->
+          <aside class="editor-panel" aria-label="Wheel editor">
+            <div class="panel-title">✏️ Edit Options</div>
+            <div id="editor-list" role="list" aria-label="Wheel segments"></div>
+            <div class="editor-actions">
+              <button class="btn-add" id="add-segment-btn">+ Add Option</button>
+              <button class="btn-reset" id="reset-wheel-btn">↺ Reset Wheel</button>
+            </div>
+          </aside>
+
+          <!-- Wheel -->
+          <div class="wheel-center">
+            <div class="wheel-info">
+              <h2 id="wheel-title">🎯 Yes / No Wheel</h2>
+              <p id="wheel-desc">Quick decisions made easy! Spin to get an instant Yes or No.</p>
+              <button id="toggle-desc" aria-expanded="false">Read more →</button>
+              <div id="wheel-long-desc"></div>
+            </div>
+            <div class="wheel-canvas-wrapper">
+              <div class="wheel-pointer-top" aria-hidden="true"></div>
+              <canvas id="wheel-canvas" role="img" aria-label="Spin wheel" tabindex="0" width="400" height="400"></canvas>
+            </div>
+            <button id="spin-btn" aria-label="Spin the wheel">
+              <span class="spin-icon">⚡</span> SPIN!
+            </button>
+            <p class="keyboard-hint">Press <kbd>Space</kbd> to spin</p>
+          </div>
+
+          <!-- Result + History -->
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div id="result-panel" role="status" aria-live="polite" aria-label="Spin result">
+              <button id="close-result" aria-label="Close result">✕</button>
+              <div class="result-winner-badge">
+                <span id="result-emoji" role="img">🎉</span>
+                <div class="result-label">🏆 The Wheel Chose…</div>
+                <div id="result-text">Spin to see!</div>
+              </div>
+            </div>
+            <div class="history-panel" aria-label="Spin history">
+              <div class="panel-title">⏱️ Recent Spins</div>
+              <div id="spin-history" aria-live="polite" aria-label="Spin history list"></div>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="history-panel" aria-label="Spin history">
-          <div class="panel-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Recent Spins
-          </div>
-          <div id="spin-history" aria-live="polite" aria-label="Spin history list"></div>
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="how-section" id="how-it-works" aria-label="How the spin wheel works">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">⚙️ Simple & Easy</div>
+          <h2 class="section-title">How the Spin Wheel Works</h2>
+          <p class="section-subtitle">Three simple steps to your random result.</p>
+        </div>
+        <div class="steps-grid" role="list">
+          <article class="step-card" role="listitem"><span class="step-icon">🎡</span><div class="step-num">1</div><h3>Choose a Wheel</h3><p>Pick from 12+ ready-made wheel types.</p></article>
+          <article class="step-card" role="listitem"><span class="step-icon">✏️</span><div class="step-num">2</div><h3>Customize Options</h3><p>Edit labels, colors, add or remove segments.</p></article>
+          <article class="step-card" role="listitem"><span class="step-icon">⚡</span><div class="step-num">3</div><h3>Spin the Wheel</h3><p>Click SPIN or press Space. Watch it go!</p></article>
+          <article class="step-card" role="listitem"><span class="step-icon">🎉</span><div class="step-num">4</div><h3>See Your Result</h3><p>Celebrate with confetti! History is saved.</p></article>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>  
-
-  <!-- ===== HOW IT WORKS ===== -->
-  <section class="how-section" id="how-it-works" aria-label="How the spin wheel works">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag">⚙️ Simple & Easy</div>
-        <h2 class="section-title">How the Spin Wheel Works</h2>
-        <p class="section-subtitle">Three simple steps to your random result — no downloads, no sign-up needed.</p>
+    <!-- ===== WHEEL GALLERY ===== -->
+    <section class="gallery-section" id="wheel-types" aria-label="All wheel types">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">🎯 12+ Wheels</div>
+          <h2 class="section-title">Explore All Spin Wheel Types</h2>
+          <p class="section-subtitle">From party games to classroom tools — there's a perfect wheel for every occasion.</p>
+        </div>
+        <div id="wheel-gallery" role="list" aria-label="Wheel type gallery"></div>
       </div>
-      <div class="steps-grid" role="list">
-        <article class="step-card" role="listitem">
-          <span class="step-icon" aria-hidden="true">🎡</span>
-          <div class="step-num" aria-hidden="true">1</div>
-          <h3>Choose a Wheel</h3>
-          <p>Pick from 12+ ready-made wheel types or start fresh with a blank wheel perfectly suited to your needs.</p>
-        </article>
-        <article class="step-card" role="listitem">
-          <span class="step-icon" aria-hidden="true">✏️</span>
-          <div class="step-num" aria-hidden="true">2</div>
-          <h3>Customize Options</h3>
-          <p>Edit labels, change colors, add or remove segments. Create the perfect wheel with unlimited custom options.</p>
-        </article>
-        <article class="step-card" role="listitem">
-          <span class="step-icon" aria-hidden="true">⚡</span>
-          <div class="step-num" aria-hidden="true">3</div>
-          <h3>Spin the Wheel</h3>
-          <p>Click the big SPIN button or press Space. Watch the wheel spin with a satisfying animation and reveal your result!</p>
-        </article>
-        <article class="step-card" role="listitem">
-          <span class="step-icon" aria-hidden="true">🎉</span>
-          <div class="step-num" aria-hidden="true">4</div>
-          <h3>See Your Result</h3>
-          <p>Celebrate the random result with confetti effects! Your spin history is saved so you can track all outcomes.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== POPULAR WHEELS & SEARCHES ===== -->
-<section class="seo-section" id="popular-wheels" aria-label="Popular spin wheel searches and uses" style="background: var(--bg3); padding: 100px 0;">
-  <div class="container">
-    <div class="section-header" style="margin-bottom: 60px;">
-      <div class="section-tag">🔍 Most Popular</div>
-      <h2 class="section-title">Discover Our <span class="highlight">Interactive Spin Wheel</span></h2>
-      <p class="section-subtitle">From education to entertainment — the ultimate <strong>free spin wheel</strong> and <strong>digital wheel spinner</strong> trusted by thousands.</p>
-    </div>
-
-    <div class="seo-inner" style="max-width: 1000px;">
-      <p>Whether you're looking for a <strong>classroom spinner wheel</strong>, <strong>random student picker wheel</strong>, or <strong>free online spinner for classroom</strong> activities, our <strong>interactive spin wheel</strong> delivers perfect results every time.</p>
-      
-      <p>Built as the most powerful <strong>random wheel generator</strong> and <strong>spin the wheel generator</strong>, it also functions as a versatile <strong>random wheel picker</strong> and <strong>wheel picker</strong>. Teachers and students love it as a <strong>free wheel spinner</strong> that brings engagement to any lesson.</p>
-      
-      <p>Make game nights unforgettable with our <strong>spin wheel game</strong> and <strong>spinning wheel game</strong> options. For events and parties, use it as a <strong>giveaway wheel spinner</strong>, <strong>prize wheel</strong>, or <strong>raffle wheel</strong> to ensure fair and exciting draws.</p>
-      
-      <p>This fully customizable <strong>free spin wheel</strong> works perfectly as your go-to <strong>digital wheel spinner</strong> across all devices. Create, customize, and spin instantly with our <strong>random wheel picker</strong> that adapts to any need.</p>
-      
-      <div style="text-align: center; margin-top: 48px;">
-        <a href="#spin-app" class="btn-primary" onclick="event.preventDefault();document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">
-          Try the Best Interactive Spin Wheel Now →
-        </a>
-      </div>
-    </div>
-  </div>
-</section>  
-
-  <!-- ===== WHEEL GALLERY ===== -->
-  <section class="gallery-section" id="wheel-types" aria-label="All wheel types">
-    <div class="section-header">
-      <div class="section-tag">🎯 12+ Wheels</div>
-      <h2 class="section-title">Explore All Spin Wheel Types</h2>
-      <p class="section-subtitle">From party games to classroom tools — there's a perfect wheel for every occasion.</p>
-    </div>
-    <div id="wheel-gallery" role="list" aria-label="Wheel type gallery"></div>
-  </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="features-section" id="features" aria-label="Features">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag">✨ Why Choose Us</div>
-        <h2 class="section-title">Powerful Features, Zero Cost</h2>
-        <p class="section-subtitle">Everything you need in a spin wheel, completely free and ready to use instantly.</p>
-      </div>
-      <div class="features-grid" role="list">
-        <article class="feature-card" role="listitem">
-          <div class="feature-icon" aria-hidden="true">🎨</div>
-          <h3>Fully Customizable</h3>
-          <p>Edit every segment — change text, colors, and quantity. Build any wheel you can imagine with unlimited options.</p>
-        </article>
-        <article class="feature-card" role="listitem">
-          <div class="feature-icon" aria-hidden="true">🎉</div>
-          <h3>Confetti Celebration</h3>
-          <p>Every spin result is celebrated with a burst of colorful confetti, making the experience fun and rewarding.</p>
-        </article>
-        <article class="feature-card" role="listitem">
-          <div class="feature-icon" aria-hidden="true">📱</div>
-          <h3>Mobile Friendly</h3>
-          <p>Fully responsive design works perfectly on smartphones, tablets, and desktops. Spin on any device, anywhere.</p>
-        </article>
-        <article class="feature-card" role="listitem">
-          <div class="feature-icon" aria-hidden="true">⏱️</div>
-          <h3>Spin History</h3>
-          <p>Track your last 10 spin results with a live history log. See what the wheel has decided, all in one place.</p>
-        </article>
-        <article class="feature-card" role="listitem">
-          <div class="feature-icon" aria-hidden="true">⚡</div>
-          <h3>Instant & Fast</h3>
-          <p>No loading times. The wheel loads instantly in your browser with smooth, physics-based spin animations.</p>
-        </article>
-        <article class="feature-card" role="listitem">
-          <div class="feature-icon" aria-hidden="true">🔒</div>
-          <h3>Privacy First</h3>
-          <p>Everything runs in your browser. No data is collected, no sign-up needed, and your custom wheels stay private.</p>
-        </article>
-        <article class="feature-card" role="listitem">
-          <div class="feature-icon" aria-hidden="true">♿</div>
-          <h3>Accessible</h3>
-          <p>Keyboard navigation, ARIA labels, and screen reader support built in. The spin wheel is usable by everyone.</p>
-        </article>
-        <article class="feature-card" role="listitem">
-          <div class="feature-icon" aria-hidden="true">🌐</div>
-          <h3>No Download Needed</h3>
-          <p>Pure browser-based application. No app download, no installation — just open and spin in seconds.</p>
-        </article>
-        <article class="feature-card" role="listitem">
-          <div class="feature-icon" aria-hidden="true">🆓</div>
-          <h3>Free Forever</h3>
-          <p>100% free with no paywalls, no subscriptions. Every feature is available to every user at no cost.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-  
-
-  <!-- ===== USE CASES ===== -->
-  <section class="usecases-section" aria-label="Use cases for spin wheel">
-    <div class="section-header">
-      <div class="section-tag">💡 Use Cases</div>
-      <h2 class="section-title">Who Uses the Spin Wheel?</h2>
-      <p class="section-subtitle">Random wheel spinners serve everyone from teachers to game night hosts.</p>
-    </div>
-    <div class="usecases-grid" role="list">
-      <article class="usecase-card" role="listitem">
-        <div class="usecase-icon" aria-hidden="true">🏫</div>
-        <div>
-          <h3>Teachers & Educators</h3>
-          <p>Pick random students to answer questions, assign groups, choose topics, or create engaging classroom activities with the student picker wheel.</p>
+    <!-- ===== FEATURES ===== -->
+    <section class="features-section" id="features" aria-label="Features">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">✨ Why Choose Us</div>
+          <h2 class="section-title">Powerful Features, Zero Cost</h2>
+          <p class="section-subtitle">Everything you need in a spin wheel, completely free.</p>
         </div>
-      </article>
-      <article class="usecase-card" role="listitem">
-        <div class="usecase-icon" aria-hidden="true">🎮</div>
-        <div>
-          <h3>Party Game Hosts</h3>
-          <p>Take Truth or Dare to the next level, run raffle draws, or decide who goes first in board games with our party-ready wheels.</p>
-        </div>
-      </article>
-      <article class="usecase-card" role="listitem">
-        <div class="usecase-icon" aria-hidden="true">🍔</div>
-        <div>
-          <h3>Indecisive Foodies</h3>
-          <p>Can't decide what to eat tonight? Let the Food Picker wheel make the delicious decision for you and your group.</p>
-        </div>
-      </article>
-      <article class="usecase-card" role="listitem">
-        <div class="usecase-icon" aria-hidden="true">👔</div>
-        <div>
-          <h3>Team Leaders</h3>
-          <p>Assign tasks fairly, pick presenters for standup meetings, or decide sprint priorities with a fair and random spin.</p>
-        </div>
-      </article>
-      <article class="usecase-card" role="listitem">
-        <div class="usecase-icon" aria-hidden="true">🎁</div>
-        <div>
-          <h3>Giveaway Organizers</h3>
-          <p>Run transparent, fair prize draws and raffle giveaways. Enter all participant names and spin for a verifiably random winner.</p>
-        </div>
-      </article>
-      <article class="usecase-card" role="listitem">
-        <div class="usecase-icon" aria-hidden="true">🧘</div>
-        <div>
-          <h3>Fitness Enthusiasts</h3>
-          <p>Randomize your workout routine to keep training fresh and challenging. The Workout Wheel picks your next exercise challenge.</p>
-        </div>
-      </article>
-    </div>
-  </section>  
-
-  <!-- ===== SEO CONTENT ===== -->
-  <section class="seo-section" aria-label="About spin wheels">
-    <div class="seo-inner">
-      <h2>About Our Free Online Spin Wheel</h2>
-      <p>RandomWheel is the web's most comprehensive free spin wheel application. Whether you need a quick yes-or-no answer, want to pick a random name from a list, organize a fair raffle, or create an unforgettable party game, our interactive spin wheel has you covered — instantly and for free.</p>
-
-      <h3>What Is a Spin Wheel?</h3>
-      <p>A spin wheel (also called a random wheel spinner, wheel of fortune, decision wheel, or random picker wheel) is a digital or physical tool that randomly selects one item from a predefined list. Simply enter your choices as wheel segments, click spin, and the wheel lands on a random result. It's the fairest, most entertaining way to make decisions or pick random outcomes.</p>
-
-      <h3>Why Use a Random Wheel Spinner?</h3>
-      <p>Random wheel spinners eliminate decision fatigue and introduce an element of fun and fairness into everyday choices. Teachers use them for classroom engagement, event organizers use them for raffle draws, friends use them for game nights, and professionals use them for team assignments. The spinning animation makes any random selection exciting and transparent.</p>
-
-      <h3>Yes or No Wheel — The Quickest Decision Tool</h3>
-      <p>Our Yes No Wheel is the fastest decision-making tool online. Simply spin and get an instant Yes, No, or Maybe answer. It's perfect when you're stuck between two options and just need a nudge in either direction. You can customize the wheel to include "Absolutely!", "No Way!", and any other responses you like.</p>
-
-      <h3>Food Picker Wheel — End the Dinner Debate</h3>
-      <p>The eternal question — "What should we eat?" — is finally solved. Our Food Picker Wheel lets you add all your favorite restaurants, cuisines, or dishes and spin for a fair, random dinner choice. Completely customizable to include your own local restaurants or dietary preferences.</p>
-
-      <h3>Random Name Picker for Teachers & Teams</h3>
-      <p>Teachers, managers, and group leaders love our Random Name Picker Wheel for fair, unbiased selection. Add all student or team member names to the wheel, spin, and get an impartial result every time. No more favoritism, no more awkward choices — just pure random fairness.</p>
-
-      <h3>Prize & Raffle Wheel for Giveaways</h3>
-      <p>Running a giveaway, contest, or raffle? Our Prize Wheel makes winner selection transparent, exciting, and completely fair. Customize it with contestant names or ticket numbers, spin live on stream, and watch the excitement build as the wheel decides the lucky winner.</p>
-    </div>
-  </section>  
-
-  <!-- ===== FAQ ===== -->
-  <section class="faq-section" id="faq" aria-label="Frequently asked questions">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag">❓ FAQ</div>
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-subtitle">Everything you need to know about RandomWheel.</p>
-      </div>
-      <div class="faq-list" role="list">
-        <div class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false">
-            Is RandomWheel completely free to use?
-            <span class="faq-chevron" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq-answer">Yes! RandomWheel is 100% free with no hidden costs, no subscriptions. All 12+ wheel types and every customization feature are completely free for everyone, forever.</div>
-        </div>
-        <div class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false">
-            Do I need to create an account to use the spin wheel?
-            <span class="faq-chevron" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq-answer">No account or sign-up is required. Simply visit the website, choose your wheel type, customize if you like, and start spinning immediately. It's instant and hassle-free.</div>
-        </div>
-        <div class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false">
-            Can I add my own custom options to any wheel?
-            <span class="faq-chevron" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq-answer">Absolutely! Every wheel is fully editable. You can add unlimited segments, edit labels, change colors, and remove options you don't need. The wheel updates in real time as you make changes.</div>
-        </div>
-        <div class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false">
-            How random is the spin wheel result?
-            <span class="faq-chevron" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq-answer">Our spin wheel uses JavaScript's cryptographically seeded Math.random() function combined with a variable-duration physics animation to ensure truly unpredictable, fair results. Each segment has an equal probability of being selected.</div>
-        </div>
-        <div class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false">
-            Does the spin wheel work on mobile and tablet?
-            <span class="faq-chevron" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq-answer">Yes! RandomWheel is fully responsive and optimized for all screen sizes. It works seamlessly on iOS and Android smartphones, tablets, and all desktop browsers including Chrome, Firefox, Safari, and Edge.</div>
-        </div>
-        <div class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false">
-            Can I use the spin wheel for classroom activities?
-            <span class="faq-chevron" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq-answer">Absolutely! Our Student Picker and Name Picker wheels are specifically designed for educational use. Teachers can add student names, vocabulary words, or topic choices. The spin wheel is used in thousands of classrooms worldwide.</div>
-        </div>
-        <div class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false">
-            Is there a limit to how many segments I can add?
-            <span class="faq-chevron" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq-answer">You can add as many segments as you like to any wheel. For best visual results and readability, we recommend keeping it under 30 segments, but there's no hard limit enforced by the application.</div>
-        </div>
-        <div class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false">
-            Will my custom wheel settings be saved?
-            <span class="faq-chevron" aria-hidden="true">▼</span>
-          </button>
-          <div class="faq-answer">Custom wheel changes are maintained during your current browser session. Refreshing the page will restore the default settings. We're working on a local storage save feature for future updates.</div>
+        <div class="features-grid" role="list">
+          <article class="feature-card" role="listitem"><div class="feature-icon">🎨</div><h3>Fully Customizable</h3><p>Edit every segment — text, colors, quantity.</p></article>
+          <article class="feature-card" role="listitem"><div class="feature-icon">🎉</div><h3>Confetti Celebration</h3><p>Burst of color on every spin result.</p></article>
+          <article class="feature-card" role="listitem"><div class="feature-icon">📱</div><h3>Mobile Friendly</h3><p>Works perfectly on all devices.</p></article>
+          <article class="feature-card" role="listitem"><div class="feature-icon">⏱️</div><h3>Spin History</h3><p>Track your last 10 results.</p></article>
+          <article class="feature-card" role="listitem"><div class="feature-icon">⚡</div><h3>Instant & Fast</h3><p>No loading, smooth animations.</p></article>
+          <article class="feature-card" role="listitem"><div class="feature-icon">🔒</div><h3>Privacy First</h3><p>No data collected, no sign-up.</p></article>
         </div>
       </div>
-    </div>
-  </section>  
+    </section>
 
-  <!-- ===== CTA BANNER ===== -->
-  <section class="cta-section" aria-label="Call to action">
-    <div class="container">
-      <h2>Ready to Spin? 🎡</h2>
-      <p>Join thousands of users who trust RandomWheel for fun, fair, and instant random decisions every day.</p>
-      <a href="#spin-app" class="btn-primary" onclick="event.preventDefault();document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">
-        ⚡ Spin the Wheel — It's Free!
-      </a>
-      <div class="cta-wheels" aria-label="Quick wheel access">
-        <button class="cta-wheel-chip" data-wheel="yes-no">🎯 Yes/No</button>
-        <button class="cta-wheel-chip" data-wheel="food-picker">🍕 Food</button>
-        <button class="cta-wheel-chip" data-wheel="truth-dare">🔥 Truth or Dare</button>
-        <button class="cta-wheel-chip" data-wheel="name-picker">👥 Names</button>
-        <button class="cta-wheel-chip" data-wheel="prize">🏆 Prize</button>
-        <button class="cta-wheel-chip" data-wheel="fortune">🔮 Fortune</button>
+    <!-- ===== USE CASES ===== -->
+    <section class="usecases-section" aria-label="Use cases">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">💡 Use Cases</div>
+          <h2 class="section-title">Who Uses the Spin Wheel?</h2>
+          <p class="section-subtitle">Random wheel spinners serve everyone from teachers to game night hosts.</p>
+        </div>
+        <div class="usecases-grid" role="list">
+          <article class="usecase-card" role="listitem"><div class="usecase-icon">🏫</div><div><h3>Teachers & Educators</h3><p>Pick students, assign groups, create engaging activities.</p></div></article>
+          <article class="usecase-card" role="listitem"><div class="usecase-icon">🎮</div><div><h3>Party Game Hosts</h3><p>Truth or Dare, raffle draws, decide who goes first.</p></div></article>
+          <article class="usecase-card" role="listitem"><div class="usecase-icon">🍔</div><div><h3>Indecisive Foodies</h3><p>Let the Food Picker make the delicious decision.</p></div></article>
+          <article class="usecase-card" role="listitem"><div class="usecase-icon">👔</div><div><h3>Team Leaders</h3><p>Assign tasks, pick presenters, decide priorities.</p></div></article>
+          <article class="usecase-card" role="listitem"><div class="usecase-icon">🎁</div><div><h3>Giveaway Organizers</h3><p>Run transparent, fair prize draws.</p></div></article>
+          <article class="usecase-card" role="listitem"><div class="usecase-icon">🧘</div><div><h3>Fitness Enthusiasts</h3><p>Randomize your workout routine.</p></div></article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-</main> 
-  
+    <!-- ===== SEO CONTENT ===== -->
+    <section class="seo-section" aria-label="About spin wheels">
+      <div class="seo-inner">
+        <h2>About Our Free Online Spin Wheel</h2>
+        <p>RandomWheel is the web's most comprehensive free spin wheel application. Whether you need a quick yes-or-no answer, want to pick a random name, organize a raffle, or create an unforgettable party game — we've got you covered.</p>
+        <h3>What Is a Spin Wheel?</h3>
+        <p>A spin wheel (also called a random wheel spinner, wheel of fortune, or decision wheel) randomly selects one item from a list. Enter your choices, click spin, and the wheel lands on a random result. It's the fairest, most entertaining way to make decisions.</p>
+        <h3>Why Use a Random Wheel Spinner?</h3>
+        <p>Random wheel spinners eliminate decision fatigue and add fun and fairness to choices. Teachers use them for engagement, event organizers for raffles, friends for game nights, and professionals for team assignments.</p>
+        <h3>Yes or No Wheel — The Quickest Decision Tool</h3>
+        <p>Our Yes No Wheel is the fastest decision-maker. Spin and get an instant Yes, No, or Maybe. Perfect when you're stuck between two options.</p>
+        <h3>Food Picker Wheel — End the Dinner Debate</h3>
+        <p>The eternal "What should we eat?" is finally solved. Add your favorite restaurants or cuisines and spin for a fair choice.</p>
+        <h3>Random Name Picker for Teachers & Teams</h3>
+        <p>Teachers and leaders love our Name Picker for fair, unbiased selection. Add names, spin, and get an impartial result every time.</p>
+        <h3>Prize & Raffle Wheel for Giveaways</h3>
+        <p>Running a giveaway? Our Prize Wheel makes winner selection transparent and exciting. Customize with contestants and spin live.</p>
+      </div>
+    </section>
 
-<!-- Footer injected by JS -->
-<div id="footer-root"></div>
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section" id="faq" aria-label="Frequently asked questions">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">❓ FAQ</div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Everything you need to know about RandomWheel.</p>
+        </div>
+        <div class="faq-list" role="list">
+          <div class="faq-item" role="listitem"><button class="faq-question" aria-expanded="false">Is RandomWheel completely free to use?<span class="faq-chevron">▼</span></button><div class="faq-answer">Yes! 100% free with no hidden costs. All 12+ wheels and features are free forever.</div></div>
+          <div class="faq-item" role="listitem"><button class="faq-question" aria-expanded="false">Do I need an account?<span class="faq-chevron">▼</span></button><div class="faq-answer">No account or sign-up is required. Visit, choose a wheel, and spin instantly.</div></div>
+          <div class="faq-item" role="listitem"><button class="faq-question" aria-expanded="false">Can I add my own custom options?<span class="faq-chevron">▼</span></button><div class="faq-answer">Absolutely! Every wheel is fully editable. Add unlimited segments, edit labels, change colors.</div></div>
+          <div class="faq-item" role="listitem"><button class="faq-question" aria-expanded="false">How random is the spin wheel?<span class="faq-chevron">▼</span></button><div class="faq-answer">Uses JavaScript's Math.random() with physics animation for fair, unpredictable results.</div></div>
+          <div class="faq-item" role="listitem"><button class="faq-question" aria-expanded="false">Does it work on mobile?<span class="faq-chevron">▼</span></button><div class="faq-answer">Yes! Fully responsive and optimized for all devices.</div></div>
+        </div>
+      </div>
+    </section>
 
-<!-- Scripts -->
-<script src="/components/header.js"></script>
+    <!-- ===== CTA ===== -->
+    <section class="cta-section" aria-label="Call to action">
+      <div class="container">
+        <h2>Ready to Spin? 🎡</h2>
+        <p>Join thousands who trust RandomWheel for fun, fair, instant decisions.</p>
+        <a href="#spin-app" class="btn-primary" onclick="event.preventDefault();document.getElementById('spin-app').scrollIntoView({behavior:'smooth'})">⚡ Spin the Wheel — It's Free!</a>
+        <div class="cta-wheels">
+          <button class="cta-wheel-chip" data-wheel="yes-no">🎯 Yes/No</button>
+          <button class="cta-wheel-chip" data-wheel="food-picker">🍕 Food</button>
+          <button class="cta-wheel-chip" data-wheel="truth-dare">🔥 Truth or Dare</button>
+          <button class="cta-wheel-chip" data-wheel="name-picker">👥 Names</button>
+          <button class="cta-wheel-chip" data-wheel="prize">🏆 Prize</button>
+          <button class="cta-wheel-chip" data-wheel="fortune">🔮 Fortune</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <div id="footer-root"></div>
+
+  <script src="/components/header.js"></script>
 <script src="/components/footer.js"></script>
-<script src="/js/app.js"></script>
-<script>
-  // ===== Bootstrap =====
-  document.addEventListener('DOMContentLoaded', () => {
-    // Inject header & footer
-    document.getElementById('header-root').innerHTML = Header.render();
-    Header.init();
-    document.getElementById('footer-root').innerHTML = Footer.render();
-    Footer.init();
 
-    // Init spin app
-    App.init();
 
-    // CTA chips
-    document.querySelectorAll('.cta-wheel-chip[data-wheel]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.getElementById('spin-app').scrollIntoView({behavior:'smooth'});
-        setTimeout(() => App.loadWheel(btn.dataset.wheel), 500);
-      });
-    });
+  <script>
+    // ========== WHEEL DATA ==========
+    const WHEELS = {
+      'yes-no': { name: 'Yes / No Wheel', icon: '🎯', description: 'Quick decisions made easy! Spin to get an instant Yes or No.', longDescription: 'The Yes/No Wheel is your ultimate decision-making companion. Whether you\'re deciding on dinner, a movie, or just need a quick answer, this wheel gives you a clear, unbiased result. Customize the responses to match your personality — add "Absolutely!", "No Way!", or "Ask Again" for more fun.', segments: [{ label: 'YES', color: '#22c55e', emoji: '✅' },{ label: 'NO', color: '#ef4444', emoji: '❌' },{ label: 'YES', color: '#16a34a', emoji: '✅' },{ label: 'MAYBE', color: '#f59e0b', emoji: '🤔' },{ label: 'YES', color: '#22c55e', emoji: '✅' },{ label: 'NO', color: '#dc2626', emoji: '❌' }] },
+      'food-picker': { name: 'Food Picker', icon: '🍕', description: 'Can\'t decide what to eat? Let the wheel choose your next meal!', longDescription: 'The Food Picker Wheel puts an end to the "what\'s for dinner?" debate. Featuring 10 popular food options from Pizza to Ramen, this wheel covers all the classics. Customize with your favorite local restaurants or dietary preferences.', segments: [{ label: 'Pizza', color: '#FF6B35', emoji: '🍕' },{ label: 'Sushi', color: '#FF1493', emoji: '🍣' },{ label: 'Tacos', color: '#FFD700', emoji: '🌮' },{ label: 'Burger', color: '#8B4513', emoji: '🍔' },{ label: 'Salad', color: '#22c55e', emoji: '🥗' },{ label: 'Pasta', color: '#FF6B6B', emoji: '🍝' },{ label: 'Ramen', color: '#FF8C00', emoji: '🍜' },{ label: 'Steak', color: '#8B0000', emoji: '🥩' },{ label: 'Curry', color: '#FFA500', emoji: '🍛' },{ label: 'Pho', color: '#DAA520', emoji: '🍲' }] },
+      'truth-dare': { name: 'Truth or Dare', icon: '🔥', description: 'Spice up your party! Spin for Truth, Dare, or wild surprises.', longDescription: 'The Truth or Dare Wheel is the ultimate party game enhancer. Perfect for sleepovers, college parties, or any social gathering. With segments including Truth, Dare, Skip, and Double Dare, every spin creates unforgettable moments.', segments: [{ label: 'TRUTH', color: '#3B82F6', emoji: '💬' },{ label: 'DARE', color: '#EF4444', emoji: '🔥' },{ label: 'TRUTH', color: '#6366F1', emoji: '💬' },{ label: 'DARE', color: '#EC4899', emoji: '🔥' },{ label: 'SKIP', color: '#6B7280', emoji: '⏭️' },{ label: 'DOUBLE DARE', color: '#DC2626', emoji: '💥' }] },
+      'name-picker': { name: 'Random Name Picker', icon: '👥', description: 'Pick a random name from your list. Perfect for classrooms & teams!', longDescription: 'The Random Name Picker Wheel is essential for teachers, team leaders, and event organizers. Add any names you want — the wheel makes selecting a random individual fair, fun, and completely unbiased.', segments: [{ label: 'Alice', color: '#FF6B6B', emoji: '👩' },{ label: 'Bob', color: '#4ECDC4', emoji: '👨' },{ label: 'Carol', color: '#FFD93D', emoji: '👩' },{ label: 'David', color: '#6BCB77', emoji: '👨' },{ label: 'Emma', color: '#FF6B35', emoji: '👩' },{ label: 'Frank', color: '#845EC2', emoji: '👨' },{ label: 'Grace', color: '#FF9671', emoji: '👩' },{ label: 'Henry', color: '#00C9A7', emoji: '👨' }] },
+      'prize': { name: 'Prize / Raffle Wheel', icon: '🏆', description: 'Run fair raffles & giveaways! Spin to pick a lucky winner.', longDescription: 'The Prize & Raffle Wheel is your go-to for fair, exciting giveaways. Whether you\'re hosting a corporate event, charity fundraiser, or YouTube live stream, this wheel makes winner selection transparent and thrilling.', segments: [{ label: '🥇 Grand Prize', color: '#FFD700', emoji: '🏆' },{ label: 'Try Again', color: '#6B7280', emoji: '🔄' },{ label: '🥈 2nd Prize', color: '#C0C0C0', emoji: '🎖️' },{ label: 'Better Luck', color: '#9CA3AF', emoji: '😅' },{ label: '🥉 3rd Prize', color: '#CD7F32', emoji: '🎗️' },{ label: 'Free Entry', color: '#22C55E', emoji: '🎟️' },{ label: 'Bonus!', color: '#F59E0B', emoji: '⭐' },{ label: 'Try Again', color: '#6B7280', emoji: '🔄' }] },
+      'pokemon': { name: 'Pokémon Type', icon: '⚡', description: 'Which Pokémon type will you get? Spin for your battle advantage!', longDescription: 'The Pokémon Type Wheel is a must-have for any Pokémon trainer. Featuring 12 types — Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Dark, Steel, Ghost, Fighting, and Flying — this wheel adds a fun, competitive element to your battles.', segments: [{ label: 'Fire 🔥', color: '#F08030', emoji: '🔥' },{ label: 'Water 💧', color: '#6890F0', emoji: '💧' },{ label: 'Grass 🌿', color: '#78C850', emoji: '🌿' },{ label: 'Electric ⚡', color: '#F8D030', emoji: '⚡' },{ label: 'Psychic 🔮', color: '#F85888', emoji: '🔮' },{ label: 'Ice ❄️', color: '#98D8D8', emoji: '❄️' },{ label: 'Dragon 🐉', color: '#7038F8', emoji: '🐉' },{ label: 'Dark 🌑', color: '#705848', emoji: '🌑' },{ label: 'Steel 🔩', color: '#B8B8D0', emoji: '🔩' },{ label: 'Ghost 👻', color: '#705898', emoji: '👻' },{ label: 'Fighting 🥊', color: '#C03028', emoji: '🥊' },{ label: 'Flying 🪶', color: '#A890F0', emoji: '🪶' }] },
+      'workout': { name: 'Workout Wheel', icon: '💪', description: 'No more workout excuses! Spin for your exercise challenge.', longDescription: 'The Workout Wheel eliminates workout boredom. Featuring 8 challenging exercises — Push-ups, Squats, Plank, Burpees, Jumping Jacks, Pull-ups, Sit-ups, and Rest Day — this wheel keeps your fitness routine fresh.', segments: [{ label: '20 Push-ups', color: '#EF4444', emoji: '💪' },{ label: '30 Squats', color: '#F59E0B', emoji: '🦵' },{ label: '1 Min Plank', color: '#10B981', emoji: '🏋️' },{ label: '15 Burpees', color: '#8B5CF6', emoji: '🔥' },{ label: '40 Jumping Jacks', color: '#3B82F6', emoji: '⚡' },{ label: '10 Pull-ups', color: '#EC4899', emoji: '💪' },{ label: '25 Sit-ups', color: '#F97316', emoji: '🎯' },{ label: 'Rest Day 🎉', color: '#22C55E', emoji: '😴' }] },
+      'decision': { name: 'Decision Maker', icon: '🤔', description: 'Stuck between choices? Let the wheel make your decision!', longDescription: 'The Decision Maker Wheel provides nuanced guidance for life\'s tough choices. With 8 response options — Go For It!, Wait & See, Absolutely!, Skip It, Ask a Friend, Do It Now, Think More, and YES! 100% — it offers meaningful guidance.', segments: [{ label: 'Go For It!', color: '#22C55E', emoji: '✅' },{ label: 'Wait & See', color: '#F59E0B', emoji: '⏳' },{ label: 'Absolutely!', color: '#3B82F6', emoji: '💯' },{ label: 'Skip It', color: '#EF4444', emoji: '❌' },{ label: 'Ask a Friend', color: '#8B5CF6', emoji: '👥' },{ label: 'Do It Now', color: '#F97316', emoji: '⚡' },{ label: 'Think More', color: '#6B7280', emoji: '🤔' },{ label: 'YES! 100%', color: '#EC4899', emoji: '🎯' }] },
+      'number': { name: 'Number Generator', icon: '🎲', description: 'Generate random numbers 1–12 for games, math, or fun!', longDescription: 'The Number Generator Wheel is perfect for games, classroom activities, math practice, or settling disputes. Features numbers 1 through 12 in vibrant colors.', segments: [{ label: '1', color: '#FF6B6B', emoji: '' },{ label: '2', color: '#FF8E53', emoji: '' },{ label: '3', color: '#FFD700', emoji: '' },{ label: '4', color: '#4ECDC4', emoji: '' },{ label: '5', color: '#45B7D1', emoji: '' },{ label: '6', color: '#96CEB4', emoji: '' },{ label: '7', color: '#D4A5A5', emoji: '' },{ label: '8', color: '#9B59B6', emoji: '' },{ label: '9', color: '#3498DB', emoji: '' },{ label: '10', color: '#E74C3C', emoji: '' },{ label: '11', color: '#2ECC71', emoji: '' },{ label: '12', color: '#F39C12', emoji: '' }] },
+      'color': { name: 'Color Picker', icon: '🎨', description: 'Spin for a random color! Great for art, design, and color challenges.', longDescription: 'The Color Picker Wheel provides endless inspiration for creative projects. Featuring 10 stunning colors — Red, Orange, Yellow, Green, Blue, Indigo, Violet, Pink, Cyan, and Lime.', segments: [{ label: 'Red', color: '#EF4444', emoji: '🔴' },{ label: 'Orange', color: '#F97316', emoji: '🟠' },{ label: 'Yellow', color: '#EAB308', emoji: '🟡' },{ label: 'Green', color: '#22C55E', emoji: '🟢' },{ label: 'Blue', color: '#3B82F6', emoji: '🔵' },{ label: 'Indigo', color: '#6366F1', emoji: '🟣' },{ label: 'Violet', color: '#A855F7', emoji: '💜' },{ label: 'Pink', color: '#EC4899', emoji: '🩷' },{ label: 'Cyan', color: '#06B6D4', emoji: '🩵' },{ label: 'Lime', color: '#84CC16', emoji: '🟩' }] },
+      'student': { name: 'Student Picker', icon: '🏫', description: 'Fair student selection for teachers! Spin to pick who answers next.', longDescription: 'The Student Picker Wheel is designed for teachers and educators. Use it to randomly select students for answering questions, presenting projects, or assigning groups. Eliminates bias and ensures every student has an equal chance.', segments: [{ label: 'Row 1', color: '#3B82F6', emoji: '📚' },{ label: 'Row 2', color: '#22C55E', emoji: '✏️' },{ label: 'Row 3', color: '#F59E0B', emoji: '📖' },{ label: 'Front Row', color: '#EF4444', emoji: '🎓' },{ label: 'Back Row', color: '#8B5CF6', emoji: '📝' },{ label: 'Volunteer?', color: '#EC4899', emoji: '🙋' },{ label: 'Group A', color: '#06B6D4', emoji: '👨‍🏫' },{ label: 'Group B', color: '#F97316', emoji: '👩‍🏫' }] },
+      'fortune': { name: 'Fortune Wheel', icon: '🔮', description: 'What does fate have in store? Spin your fortune wheel to find out!', longDescription: 'The Fortune Wheel is your personal oracle. Featuring 8 mystical segments — Great Fortune!, Adventure Awaits, Love is Near, Wealth Incoming, Good Health, New Beginnings, Lucky Day!, and Be Patient — this wheel provides insightful, uplifting predictions.', segments: [{ label: 'Great Fortune!', color: '#FFD700', emoji: '🌟' },{ label: 'Adventure Awaits', color: '#FF6B35', emoji: '🗺️' },{ label: 'Love is Near', color: '#FF1493', emoji: '💕' },{ label: 'Wealth Incoming', color: '#228B22', emoji: '💰' },{ label: 'Good Health', color: '#00CED1', emoji: '💚' },{ label: 'New Beginnings', color: '#9400D3', emoji: '🌱' },{ label: 'Lucky Day!', color: '#FF4500', emoji: '🍀' },{ label: 'Be Patient', color: '#4682B4', emoji: '⏳' }] }
+    };
 
-    // FAQ accordion
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => {
-          i.classList.remove('open');
-          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    // ========== SPIN WHEEL ENGINE ==========
+    class SpinWheel {
+      constructor(canvasId, options = {}) {
+        this.canvas = document.getElementById(canvasId);
+        this.ctx = this.canvas.getContext('2d');
+        this.segments = [];
+        this.currentRotation = 0;
+        this.spinning = false;
+        this.onResult = options.onResult || (() => {});
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+      }
+      resize() {
+        const dpr = window.devicePixelRatio || 1;
+        const parent = this.canvas.parentElement;
+        const size = Math.min(parent.offsetWidth - 20, 420, 440);
+        this.canvas.style.width = size + 'px';
+        this.canvas.style.height = size + 'px';
+        this.canvas.width = size * dpr;
+        this.canvas.height = size * dpr;
+        this.ctx.scale(dpr, dpr);
+        this.size = size;
+        this.cx = size / 2;
+        this.cy = size / 2;
+        this.r = size / 2 - 10;
+        this.draw();
+      }
+      loadWheel(wheelData) {
+        this.segments = wheelData.segments.map(s => ({...s}));
+        this.currentRotation = 0;
+        this.draw();
+      }
+      draw() {
+        const ctx = this.ctx;
+        const n = this.segments.length;
+        if (!n) return;
+        ctx.clearRect(0, 0, this.size, this.size);
+        const arc = (2 * Math.PI) / n;
+        for (let i = 0; i < n; i++) {
+          const startAngle = this.currentRotation + i * arc - Math.PI / 2;
+          const endAngle = startAngle + arc;
+          const seg = this.segments[i];
+          ctx.beginPath();
+          ctx.moveTo(this.cx, this.cy);
+          ctx.arc(this.cx, this.cy, this.r, startAngle, endAngle);
+          ctx.closePath();
+          ctx.fillStyle = seg.color;
+          ctx.fill();
+          ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+          ctx.lineWidth = 2;
+          ctx.stroke();
+          ctx.save();
+          ctx.translate(this.cx, this.cy);
+          ctx.rotate(startAngle + arc / 2);
+          const textR = this.r * 0.65;
+          ctx.translate(textR, 0);
+          const fontSize = Math.max(10, Math.min(16, this.r / n * 1.2));
+          ctx.font = `bold ${fontSize}px 'Nunito', sans-serif`;
+          ctx.fillStyle = '#fff';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.shadowColor = 'rgba(0,0,0,0.5)';
+          ctx.shadowBlur = 4;
+          const label = seg.label.length > 10 ? seg.label.substring(0, 9) + '…' : seg.label;
+          ctx.fillText(label, 0, 0);
+          ctx.restore();
+        }
+        // Center
+        ctx.beginPath();
+        ctx.arc(this.cx, this.cy, 26, 0, 2 * Math.PI);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255,255,255,0.8)';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        ctx.font = '18px serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.shadowBlur = 0;
+        ctx.fillText('🎯', this.cx, this.cy);
+      }
+      spin(duration = null) {
+        if (this.spinning) return;
+        this.spinning = true;
+        const n = this.segments.length;
+        const arc = (2 * Math.PI) / n;
+        const extraSpins = 5 + Math.random() * 5;
+        const targetSegment = Math.floor(Math.random() * n);
+        const totalAngle = (2 * Math.PI * extraSpins) + (-Math.PI / 2 - targetSegment * arc) - this.currentRotation % (2 * Math.PI);
+        const spinDuration = duration || (3000 + Math.random() * 2000);
+        const start = performance.now();
+        const startRot = this.currentRotation;
+        const ease = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        const tick = (now) => {
+          const elapsed = now - start;
+          const t = Math.min(elapsed / spinDuration, 1);
+          this.currentRotation = startRot + totalAngle * ease(t);
+          this.draw();
+          if (t < 1) requestAnimationFrame(tick);
+          else {
+            this.spinning = false;
+            const pointerAngle = -Math.PI / 2;
+            let rawIdx = (pointerAngle - this.currentRotation + Math.PI / 2) / arc;
+            let idx = Math.floor(((rawIdx % n) + n) % n);
+            idx = idx % n;
+            this.onResult(this.segments[idx], idx);
+            launchConfetti();
+          }
+        };
+        requestAnimationFrame(tick);
+      }
+    }
+
+    // ========== CONFETTI ==========
+    function launchConfetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      if (!canvas) return;
+      canvas.style.display = 'block';
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const pieces = Array.from({length: 100}, () => ({
+        x: Math.random() * canvas.width,
+        y: -20,
+        r: 4 + Math.random() * 8,
+        d: 1 + Math.random() * 2,
+        color: ['#FF6B35','#FFD700','#00E5FF','#FF1493','#22C55E','#A855F7'][Math.floor(Math.random()*6)],
+        tilt: Math.random() * 10 - 10,
+        tiltAngle: 0,
+        tiltSpeed: 0.1 + Math.random() * 0.15
+      }));
+      let frame = 0;
+      const draw = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pieces.forEach(p => {
+          p.tiltAngle += p.tiltSpeed;
+          p.y += p.d + 1;
+          p.x += Math.sin(p.tiltAngle) * 2;
+          ctx.save();
+          ctx.beginPath();
+          ctx.fillStyle = p.color;
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.tiltAngle);
+          ctx.fillRect(-p.r/2, -p.r/2, p.r, p.r * 0.5);
+          ctx.restore();
         });
-        if (!isOpen) {
-          item.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
+        frame++;
+        if (frame < 120) requestAnimationFrame(draw);
+        else { ctx.clearRect(0, 0, canvas.width, canvas.height); canvas.style.display='none'; }
+      };
+      requestAnimationFrame(draw);
+    }
 
-    // Scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.animation = 'fadeInUp 0.6s ease both';
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
+    // ========== APP CONTROLLER ==========
+    const App = {
+      currentWheel: 'yes-no',
+      wheel: null,
+      spinHistory: [],
+      init() {
+        this.wheel = new SpinWheel('wheel-canvas', { onResult: (seg, idx) => this.showResult(seg, idx) });
+        this.loadWheel('yes-no');
+        this.buildWheelTabs();
+        this.buildWheelGallery();
+        this.bindEvents();
+        this.renderHistory();
+      },
+      loadWheel(id) {
+        this.currentWheel = id;
+        const data = WHEELS[id];
+        if (!data) return;
+        this.wheel.loadWheel(data);
+        this.updateWheelInfo(data);
+        this.buildEditor(id);
+        document.querySelectorAll('.wheel-tab-btn').forEach(b => b.classList.toggle('active', b.dataset.wheel === id));
+      },
+      updateWheelInfo(data) {
+        document.getElementById('wheel-title').textContent = data.icon + ' ' + data.name;
+        document.getElementById('wheel-desc').textContent = data.description;
+        const longDesc = document.getElementById('wheel-long-desc');
+        longDesc.textContent = data.longDescription || data.description;
+        longDesc.classList.remove('visible');
+        const toggle = document.getElementById('toggle-desc');
+        toggle.textContent = 'Read more →';
+        toggle.setAttribute('aria-expanded', 'false');
+      },
+      buildWheelTabs() {
+        const container = document.getElementById('wheel-tabs');
+        container.innerHTML = Object.entries(WHEELS).map(([id, w]) =>
+          `<button class="wheel-tab-btn" data-wheel="${id}" role="tab"><span class="tab-icon">${w.icon}</span><span class="tab-label">${w.name}</span></button>`
+        ).join('');
+        container.querySelectorAll('.wheel-tab-btn').forEach(btn => {
+          btn.addEventListener('click', () => this.loadWheel(btn.dataset.wheel));
+        });
+      },
+      buildWheelGallery() {
+        const container = document.getElementById('wheel-gallery');
+        container.innerHTML = Object.entries(WHEELS).map(([id, w]) =>
+          `<article class="gallery-card" data-wheel="${id}"><div class="card-icon">${w.icon}</div><h3>${w.name}</h3><p>${w.description}</p><button class="btn-try-wheel" data-wheel="${id}">Try This Wheel →</button></article>`
+        ).join('');
+        container.querySelectorAll('.btn-try-wheel').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.getElementById('spin-app').scrollIntoView({behavior:'smooth'});
+            setTimeout(() => this.loadWheel(btn.dataset.wheel), 400);
+          });
+        });
+      },
+      buildEditor(id) {
+        const data = WHEELS[id];
+        const container = document.getElementById('editor-list');
+        container.innerHTML = data.segments.map((seg, i) =>
+          `<div class="editor-item" data-index="${i}"><input type="color" class="seg-color" value="${seg.color}" data-index="${i}"><input type="text" class="seg-label" value="${seg.label}" data-index="${i}" maxlength="20" placeholder="Label…"><button class="seg-del" data-index="${i}">✕</button></div>`
+        ).join('');
+        container.querySelectorAll('.seg-label').forEach(inp => {
+          inp.addEventListener('input', e => {
+            WHEELS[this.currentWheel].segments[e.target.dataset.index].label = e.target.value;
+            this.wheel.loadWheel(WHEELS[this.currentWheel]);
+          });
+        });
+        container.querySelectorAll('.seg-color').forEach(inp => {
+          inp.addEventListener('input', e => {
+            WHEELS[this.currentWheel].segments[e.target.dataset.index].color = e.target.value;
+            this.wheel.loadWheel(WHEELS[this.currentWheel]);
+          });
+        });
+        container.querySelectorAll('.seg-del').forEach(btn => {
+          btn.addEventListener('click', e => {
+            const idx = parseInt(e.target.dataset.index);
+            if (WHEELS[this.currentWheel].segments.length <= 2) return;
+            WHEELS[this.currentWheel].segments.splice(idx, 1);
+            this.buildEditor(this.currentWheel);
+            this.wheel.loadWheel(WHEELS[this.currentWheel]);
+          });
+        });
+      },
+      addSegment() {
+        const colors = ['#FF6B35','#FFD700','#00E5FF','#FF1493','#22C55E','#A855F7','#3B82F6','#EF4444'];
+        WHEELS[this.currentWheel].segments.push({ label: 'New Option', color: colors[Math.floor(Math.random()*colors.length)], emoji: '' });
+        this.buildEditor(this.currentWheel);
+        this.wheel.loadWheel(WHEELS[this.currentWheel]);
+      },
+      spinWheel() {
+        if (this.wheel.spinning) return;
+        const btn = document.getElementById('spin-btn');
+        btn.disabled = true;
+        btn.innerHTML = 'Spinning…';
+        this.wheel.spin();
+      },
+      showResult(seg, idx) {
+        const btn = document.getElementById('spin-btn');
+        btn.disabled = false;
+        btn.innerHTML = '<span class="spin-icon">⚡</span> SPIN!';
+        const panel = document.getElementById('result-panel');
+        document.getElementById('result-text').textContent = seg.label;
+        document.getElementById('result-emoji').textContent = seg.emoji || '🎉';
+        panel.classList.add('show', 'pop');
+        setTimeout(() => panel.classList.remove('pop'), 500);
+        this.spinHistory.unshift({ wheel: WHEELS[this.currentWheel].name, result: seg.label, emoji: seg.emoji || '🎉', time: new Date().toLocaleTimeString() });
+        if (this.spinHistory.length > 10) this.spinHistory.pop();
+        this.renderHistory();
+      },
+      renderHistory() {
+        const el = document.getElementById('spin-history');
+        if (!this.spinHistory.length) { el.innerHTML = '<p class="history-empty">No spins yet. Give it a spin! 🎡</p>'; return; }
+        el.innerHTML = this.spinHistory.map(h =>
+          `<div class="history-item"><span class="hist-emoji">${h.emoji}</span><div class="hist-details"><strong>${h.result}</strong><small>${h.wheel} · ${h.time}</small></div></div>`
+        ).join('');
+      },
+      bindEvents() {
+        document.getElementById('spin-btn').addEventListener('click', () => this.spinWheel());
+        document.getElementById('add-segment-btn').addEventListener('click', () => this.addSegment());
+        document.getElementById('reset-wheel-btn').addEventListener('click', () => this.loadWheel(this.currentWheel));
+        document.getElementById('close-result').addEventListener('click', () => document.getElementById('result-panel').classList.remove('show'));
+        document.getElementById('toggle-desc').addEventListener('click', () => {
+          const long = document.getElementById('wheel-long-desc');
+          const isVis = long.classList.toggle('visible');
+          document.getElementById('toggle-desc').textContent = isVis ? 'Read less ↑' : 'Read more →';
+        });
+        document.addEventListener('keydown', e => {
+          if (e.code === 'Space' && e.target === document.body) { e.preventDefault(); this.spinWheel(); }
+        });
+        // Hamburger
+        document.getElementById('hamburger').addEventListener('click', () => {
+          const nav = document.getElementById('main-nav');
+          nav.classList.toggle('nav-open');
+          document.getElementById('hamburger').classList.toggle('active');
+        });
+        // CTA chips
+        document.querySelectorAll('.cta-wheel-chip').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.getElementById('spin-app').scrollIntoView({behavior:'smooth'});
+            setTimeout(() => this.loadWheel(btn.dataset.wheel), 400);
+          });
+        });
+        // FAQ
+        document.querySelectorAll('.faq-question').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-question').setAttribute('aria-expanded','false'); });
+            if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+          });
+        });
+        // Header scroll
+        window.addEventListener('scroll', () => {
+          document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 30);
+        });
+      }
+    };
 
-    document.querySelectorAll('.step-card, .gallery-card, .feature-card, .usecase-card, .testimonial-card').forEach(el => {
-      el.style.opacity = '0';
-      observer.observe(el);
+    // ========== BOOT ==========
+    document.addEventListener('DOMContentLoaded', () => {
+      App.init();
     });
-  });
-</script>
+  </script>
+  <!-- Auto Ads initialization -->
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 </body>
 </html>
