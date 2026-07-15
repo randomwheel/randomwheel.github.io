@@ -467,26 +467,103 @@ const App = {
     });
   },
 
-  updateWheelInfo(data) {
-    const title = document.getElementById('wheel-title');
-    const desc = document.getElementById('wheel-desc');
-    if (title) title.textContent = data.icon + ' ' + data.name;
-    if (desc) desc.textContent = data.description;
-  },
+  // Update the updateWheelInfo method in App
+updateWheelInfo(data) {
+  const title = document.getElementById('wheel-title');
+  const desc = document.getElementById('wheel-desc');
+  const longDesc = document.getElementById('wheel-long-desc');
+  const toggleBtn = document.getElementById('toggle-desc');
+  
+  if (title) title.textContent = data.icon + ' ' + data.name;
+  if (desc) desc.textContent = data.description;
+  if (longDesc) {
+    longDesc.textContent = data.longDescription || data.description;
+    longDesc.classList.remove('visible');
+  }
+  if (toggleBtn) {
+    toggleBtn.textContent = 'Read more →';
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  }
+},
 
-  buildWheelTabs() {
-    const container = document.getElementById('wheel-tabs');
-    if (!container) return;
-    container.innerHTML = Object.entries(WHEELS).map(([id, w]) => `
-      <button class="wheel-tab-btn${id === this.currentWheel ? ' active' : ''}" data-wheel="${id}" title="${w.name}">
-        <span class="tab-icon">${w.icon}</span>
-        <span class="tab-label">${w.name}</span>
-      </button>
-    `).join('');
-    container.querySelectorAll('.wheel-tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => this.loadWheel(btn.dataset.wheel));
+// Update the bindEvents method
+bindEvents() {
+  const spinBtn = document.getElementById('spin-btn');
+  if (spinBtn) spinBtn.addEventListener('click', () => this.spinWheel());
+
+  const addBtn = document.getElementById('add-segment-btn');
+  if (addBtn) addBtn.addEventListener('click', () => this.addSegment());
+
+  const resetBtn = document.getElementById('reset-wheel-btn');
+  if (resetBtn) resetBtn.addEventListener('click', () => {
+    const id = this.currentWheel;
+    this.loadWheel(id);
+  });
+
+  // Toggle long description
+  const toggleBtn = document.getElementById('toggle-desc');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const longDesc = document.getElementById('wheel-long-desc');
+      const isVisible = longDesc.classList.toggle('visible');
+      toggleBtn.textContent = isVisible ? 'Read less ↑' : 'Read more →';
+      toggleBtn.setAttribute('aria-expanded', isVisible);
     });
-  },
+  }
+
+  // Keyboard spin
+  document.addEventListener('keydown', e => {
+    if (e.code === 'Space' && e.target === document.body) {
+      e.preventDefault();
+      this.spinWheel();
+    }
+  });
+
+  // Close result panel
+  const closeResult = document.getElementById('close-result');
+  if (closeResult) closeResult.addEventListener('click', () => {
+    document.getElementById('result-panel').classList.remove('show');
+  });
+},
+
+ // Update the bindEvents method
+bindEvents() {
+  const spinBtn = document.getElementById('spin-btn');
+  if (spinBtn) spinBtn.addEventListener('click', () => this.spinWheel());
+
+  const addBtn = document.getElementById('add-segment-btn');
+  if (addBtn) addBtn.addEventListener('click', () => this.addSegment());
+
+  const resetBtn = document.getElementById('reset-wheel-btn');
+  if (resetBtn) resetBtn.addEventListener('click', () => {
+    const id = this.currentWheel;
+    this.loadWheel(id);
+  });
+
+   // Toggle long description
+  const toggleBtn = document.getElementById('toggle-desc');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const longDesc = document.getElementById('wheel-long-desc');
+      const isVisible = longDesc.classList.toggle('visible');
+      toggleBtn.textContent = isVisible ? 'Read less ↑' : 'Read more →';
+      toggleBtn.setAttribute('aria-expanded', isVisible);
+    });
+  }
+  // Keyboard spin
+  document.addEventListener('keydown', e => {
+    if (e.code === 'Space' && e.target === document.body) {
+      e.preventDefault();
+      this.spinWheel();
+    }
+  });
+
+  // Close result panel
+  const closeResult = document.getElementById('close-result');
+  if (closeResult) closeResult.addEventListener('click', () => {
+    document.getElementById('result-panel').classList.remove('show');
+  });
+},
 
   buildWheelGallery() {
     const container = document.getElementById('wheel-gallery');
