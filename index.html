@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DH0NXE4ME3');
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random Wheel Spinner – Spin the Wheel Online | Free & Fun</title>
-  <meta name="description" content="Spin the wheel instantly! Free online random wheel spinner with 12+ customizable wheels. Yes/No, Food Picker, Truth or Dare, Name Picker & more.">
+  <title>Random Wheel Spinner – Free Online Spin the Wheel | RandomWheel</title>
+  <meta name="description" content="Free online spin wheel maker with 12+ customizable wheels: Yes/No, Food Picker, Truth or Dare, Name Picker, Prize Raffle, Fortune Wheel & more. No download needed. Spin now!">
+  <meta name="keywords" content="spin the wheel, spin wheel, random wheel spinner, wheel spinner, random wheel, wheel of names, yes or no wheel, random name picker, food wheel, food picker, prize wheel, raffle wheel, giveaway wheel, decision wheel, wheel randomizer, randomizer wheel, free wheel spinner, online wheel spinner, truth or dare wheel, wheel of fortune, fortune wheel, name picker wheel">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="RandomWheel">
   <link rel="canonical" href="https://randomwheel.github.io/">
-  <!-- Google AdSense Auto Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779" crossorigin="anonymous"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-DH0NXE4ME3');
-  </script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <meta name="google-adsense-platform-account" content="ca-pub-9759808041159779">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Random Wheel Spinner – Free Online Spin Wheel">
+  <meta property="og:description" content="Spin the wheel and decide anything! 12+ customizable wheels for every occasion. Yes/No, Food, Names, Prizes & more. 100% free.">
+  <meta property="og:url" content="https://randomwheel.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://randomwheel.github.io/images/og-image.PNG">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Random Wheel Spinner – Free Online Spin Wheel">
+  <meta name="twitter:description" content="Spin the wheel and decide anything! 12+ customizable spin wheels. Free, fun & instant.">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -617,8 +637,15 @@
 
   <script src="/components/header.js"></script>
 <script src="/components/footer.js"></script>
-
-
+ <script>
+   // ===== Bootstrap =====
+  document.addEventListener('DOMContentLoaded', () => {
+    // Inject header & footer
+    document.getElementById('header-root').innerHTML = Header.render();
+    Header.init();
+    document.getElementById('footer-root').innerHTML = Footer.render();
+    Footer.init();
+    </script>
   <script>
     // ========== WHEEL DATA ==========
     const WHEELS = {
