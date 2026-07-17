@@ -151,10 +151,10 @@ const WHEELS = {
     ]
   },
   'color': {
-    name: 'Color Picker',
+    name: 'Color Wheel Spinner',
     icon: '🎨',
     description: 'Spin for a random color! Great for art, design, and color challenges.',
-    longDescription: 'The Color Picker Wheel is a vibrant tool for artists, designers, and anyone who loves color. Featuring 10 stunning colors — Red 🔴, Orange 🟠, Yellow 🟡, Green 🟢, Blue 🔵, Indigo 🟣, Violet 💜, Pink 🩷, Cyan 🩵, and Lime 🟩 — this wheel provides endless inspiration for creative projects. Use it to choose color schemes for art projects, randomly select colors for design challenges, or just explore the beautiful spectrum of colors. Perfect for graphic designers, painters, interior decorators, or anyone needing a splash of color inspiration. Each color is represented with its emoji, making the wheel visually appealing and easy to use. Spin for your next color challenge or creative project!',
+    longDescription: 'The Color Wheel Spinner is a vibrant tool for artists, designers, and anyone who loves color. Featuring 10 stunning colors — Red 🔴, Orange 🟠, Yellow 🟡, Green 🟢, Blue 🔵, Indigo 🟣, Violet 💜, Pink 🩷, Cyan 🩵, and Lime 🟩 — this wheel provides endless inspiration for creative projects. Use it to choose color schemes for art projects, randomly select colors for design challenges, or just explore the beautiful spectrum of colors. Perfect for graphic designers, painters, interior decorators, or anyone needing a splash of color inspiration. Each color is represented with its emoji, making the wheel visually appealing and easy to use. Spin for your next color challenge or creative project!',
     segments: [
       { label: 'Red', color: '#EF4444', emoji: '🔴' },
       { label: 'Orange', color: '#F97316', emoji: '🟠' },
