@@ -33,18 +33,19 @@ const Header = {
             <li><a href="/#features">Features</a></li>
             <li><a href="/#faq">FAQ</a></li>
             <li><a href="/blog">Blog</a></li>
-            <li class="dropdown-container">
-              <button class="dropdown-toggle" id="gamesDropdownToggle" aria-expanded="false">
-                🎮 Games
+            <!-- More Games Dropdown -->
+            <li class="games-dropdown-container" id="games-dropdown-container">
+              <button class="games-dropdown-toggle" id="games-dropdown-toggle" aria-expanded="false">
+                More Games
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:4px;">
                   <polyline points="6 9 12 15 18 9"/>
                 </svg>
               </button>
-              <ul class="dropdown-menu" id="gamesDropdown">
-                <li><a href="/games/tic-tac-toe.html">Tic Tac Toe</a></li>
-                <li><a href="/games/snake-game.html">Snake</a></li>
-                <li><a href="/games/solitaire.html">Solitaire</a></li>
-                <li><a href="/games/word-search.html">Word Search</a></li>
+              <ul class="games-dropdown-menu" id="games-dropdown-menu" role="menu">
+                <li><a href="/games/tic-tac-toe" role="menuitem">Tic-Tac-Toe</a></li>
+                <li><a href="/games/snake" role="menuitem">Snake</a></li>
+                <li><a href="/games/solitaire" role="menuitem">Solitaire</a></li>
+                <li><a href="/games/word-search" role="menuitem">Word Search</a></li>
               </ul>
             </li>
           </ul>          
@@ -59,64 +60,29 @@ const Header = {
             <span></span><span></span><span></span>
           </button>
         </div>
-
-       
       </div>
     </header>`;
   },
+
   init() {
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('main-nav');
     const ctaButton = document.getElementById('btn-spin-cta');
     const headerActions = document.getElementById('header-actions');
-    const dropdownToggle = document.getElementById('gamesDropdownToggle');
-    const dropdownMenu = document.getElementById('gamesDropdown');
 
-    // Hamburger toggle
+    // --- Hamburger toggle ---
     if (hamburger && nav) {
       hamburger.addEventListener('click', () => {
         const open = nav.classList.toggle('nav-open');
         hamburger.classList.toggle('active');
         hamburger.setAttribute('aria-expanded', open);
-        // Close dropdown when hamburger closes
-        if (!open && dropdownMenu) {
-          dropdownMenu.classList.remove('open');
-          if (dropdownToggle) dropdownToggle.setAttribute('aria-expanded', 'false');
-        }
       });
     }
 
-    // Dropdown toggle
-    if (dropdownToggle && dropdownMenu) {
-      dropdownToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = dropdownMenu.classList.toggle('open');
-        dropdownToggle.setAttribute('aria-expanded', isOpen);
-      });
-
-      // Close dropdown when clicking outside
-      document.addEventListener('click', (e) => {
-        const container = dropdownToggle.closest('.dropdown-container');
-        if (container && !container.contains(e.target)) {
-          dropdownMenu.classList.remove('open');
-          dropdownToggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Close dropdown on Escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && dropdownMenu.classList.contains('open')) {
-          dropdownMenu.classList.remove('open');
-          dropdownToggle.setAttribute('aria-expanded', 'false');
-          dropdownToggle.focus();
-        }
-      });
-    }
-
-    // Handle moving the CTA button into mobile nav or back to header
+    // --- Responsive CTA button (moves into mobile nav) ---
     if (ctaButton && nav && headerActions) {
       const handleCtaResponsive = () => {
-        if (window.innerWidth <= 768) { // Matches your mobile breakpoint
+        if (window.innerWidth <= 768) {
           if (!nav.contains(ctaButton)) {
             nav.appendChild(ctaButton);
           }
@@ -126,16 +92,67 @@ const Header = {
           }
         }
       };
-
-      // Run on load and on window resize
       handleCtaResponsive();
       window.addEventListener('resize', handleCtaResponsive);
     }
 
-    // Sticky header shadow
+    // --- Sticky header shadow ---
     window.addEventListener('scroll', () => {
       const h = document.getElementById('site-header');
       if (h) h.classList.toggle('scrolled', window.scrollY > 40);
     });
+
+    // --- More Games Dropdown ---
+    const dropdownToggle = document.getElementById('games-dropdown-toggle');
+    const dropdownMenu = document.getElementById('games-dropdown-menu');
+    const dropdownContainer = document.getElementById('games-dropdown-container');
+
+    if (dropdownToggle && dropdownMenu && dropdownContainer) {
+      // Toggle on click
+      dropdownToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdownMenu.classList.toggle('show');
+        dropdownToggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!dropdownContainer.contains(e.target)) {
+          dropdownMenu.classList.remove('show');
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          dropdownMenu.classList.remove('show');
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // On mobile, if dropdown is inside the nav and we're in mobile view,
+      // tapping a link closes the whole nav (optional, but nice UX)
+      dropdownMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          // Close dropdown
+          dropdownMenu.classList.remove('show');
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+          // Close mobile nav if open
+          if (nav.classList.contains('nav-open')) {
+            nav.classList.remove('nav-open');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    }
   }
 };
+
+// Auto-init when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => Header.init());
+} else {
+  Header.init();
+}
