@@ -33,6 +33,20 @@ const Header = {
             <li><a href="/#features">Features</a></li>
             <li><a href="/#faq">FAQ</a></li>
             <li><a href="/blog">Blog</a></li>
+            <li class="dropdown-container">
+              <button class="dropdown-toggle" id="gamesDropdownToggle" aria-expanded="false">
+                🎮 Games
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:4px;">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <ul class="dropdown-menu" id="gamesDropdown">
+                <li><a href="/games/tic-tac-toe">Tic Tac Toe</a></li>
+                <li><a href="/games/snake-game">Snake</a></li>
+                <li><a href="/games/solitaire">Solitaire</a></li>
+                <li><a href="/games/word-search">Word Search</a></li>
+              </ul>
+            </li>
           </ul>          
         </nav>
 
@@ -55,12 +69,47 @@ const Header = {
     const nav = document.getElementById('main-nav');
     const ctaButton = document.getElementById('btn-spin-cta');
     const headerActions = document.getElementById('header-actions');
+    const dropdownToggle = document.getElementById('gamesDropdownToggle');
+    const dropdownMenu = document.getElementById('gamesDropdown');
 
+    // Hamburger toggle
     if (hamburger && nav) {
       hamburger.addEventListener('click', () => {
         const open = nav.classList.toggle('nav-open');
         hamburger.classList.toggle('active');
         hamburger.setAttribute('aria-expanded', open);
+        // Close dropdown when hamburger closes
+        if (!open && dropdownMenu) {
+          dropdownMenu.classList.remove('open');
+          if (dropdownToggle) dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // Dropdown toggle
+    if (dropdownToggle && dropdownMenu) {
+      dropdownToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdownMenu.classList.toggle('open');
+        dropdownToggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        const container = dropdownToggle.closest('.dropdown-container');
+        if (container && !container.contains(e.target)) {
+          dropdownMenu.classList.remove('open');
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close dropdown on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && dropdownMenu.classList.contains('open')) {
+          dropdownMenu.classList.remove('open');
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+          dropdownToggle.focus();
+        }
       });
     }
 
