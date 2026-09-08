@@ -1,15 +1,511 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Solitaire Online Free | Classic Klondike Card Game</title>
-<meta name="description" content="Play Solitaire online for free. Enjoy a relaxing classic Klondike card game with simple controls, helpful rules, and strategy tips for every skill level.">
-<link rel="canonical" href="https://randomwheel.github.io/games/solitaire.html"><meta property="og:title" content="Solitaire Online Free"><meta property="og:description" content="Play a classic free Solitaire card game in your browser."><meta property="og:type" content="website"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="games.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Righteous&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Solitaire Online","url":"https://randomwheel.github.io/games/solitaire.html","applicationCategory":"GameApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
-<style>.solitaire-board{display:grid;gap:18px}.card-row{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}.card-pile{min-height:120px;border:2px dashed #c9cde0;border-radius:14px;background:var(--soft);display:grid;place-items:center;font-weight:900;font-size:1.4rem}.card-pile.red{color:var(--pink)}.solitaire-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}.playing-card{width:70px;height:96px;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);display:grid;place-items:center;font-size:1.7rem;font-weight:900}.playing-card.red{color:var(--pink)}@media(max-width:650px){.card-row{grid-template-columns:repeat(4,1fr)}.card-pile{min-height:90px}.playing-card{width:54px;height:78px}}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Solitaire Online Free | Classic Klondike Card Game</title>
+  <meta name="description" content="Play Solitaire online for free. Enjoy a relaxing classic Klondike card game with simple controls, helpful rules, and strategy tips for every skill level.">
+  <link rel="canonical" href="https://randomwheel.github.io/games/solitaire.html">
+  <meta property="og:title" content="Solitaire Online Free">
+  <meta property="og:description" content="Play a classic free Solitaire card game in your browser.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Righteous&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Solitaire Online",
+      "url": "https://randomwheel.github.io/games/solitaire.html",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+  <style>
+    /* ====================================================
+       RESET & BASE
+    ==================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f8faff;
+      --bg2: #ffffff;
+      --bg3: #f0f4ff;
+      --surface: #ffffff;
+      --surface2: #eef2f9;
+      --border: rgba(0, 0, 0, 0.08);
+      --text: #1a1a2e;
+      --text2: #4a4a6a;
+      --text3: #8888aa;
+      --accent: #FF6B35;
+      --accent2: #00C9A7;
+      --accent3: #FFD700;
+      --accent4: #FF1493;
+      --success: #22C55E;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.12);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-display: 'Righteous', cursive;
+      --font-body: 'Nunito', sans-serif;
+      --soft: #eef2f9;
+      --pink: #dc2626;
+      --line: #c9cde0;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: var(--accent2); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--accent); }
+    img { max-width: 100%; height: auto; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .ad-slot { background: var(--bg3); border-radius: var(--radius-sm); padding: 20px; text-align: center; color: var(--text3); margin: 24px 0; border: 1px dashed var(--border); }
+
+    /* ====================================================
+       HEADER (injected by header.js)
+    ==================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      height: 68px;
+      display: flex;
+      align-items: center;
+      transition: box-shadow var(--transition);
+    }
+    .site-header.scrolled { box-shadow: 0 4px 32px rgba(0, 0, 0, 0.06); }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { flex-shrink: 0; filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.3)); font-size: 1.8rem; }
+    .logo-main { font-family: var(--font-display); font-size: 1.35rem; color: var(--text); }
+    .logo-accent { font-family: var(--font-display); font-size: 1.35rem; color: var(--accent); }
+    .main-nav ul { display: flex; list-style: none; gap: 4px; }
+    .main-nav a { padding: 8px 14px; border-radius: 8px; color: var(--text2); font-weight: 600; font-size: 0.9rem; transition: all var(--transition); }
+    .main-nav a:hover { color: var(--text); background: var(--bg3); }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+    .btn-spin-cta {
+      display: flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg, var(--accent), #ff4500);
+      color: white; border: none; cursor: pointer;
+      padding: 8px 16px; border-radius: 50px; font-weight: 700;
+      font-family: var(--font-body); font-size: 0.8rem;
+      transition: all var(--transition);
+      box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+    }
+    .btn-spin-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all var(--transition); display: block; }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ====================================================
+       HERO
+    ==================================================== */
+    .hero { padding: 40px 0 20px; text-align: center; }
+    .hero .eyebrow { display: inline-block; background: rgba(0, 201, 167, 0.1); border: 1px solid rgba(0, 201, 167, 0.2); color: var(--accent2); padding: 4px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; color: var(--text); }
+    .hero h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.05rem; color: var(--text2); max-width: 600px; margin: 8px auto 0; }
+
+    /* ====================================================
+       GAME CARD
+    ==================================================== */
+    .game-card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 32px 24px; margin: 20px auto; border: 1px solid var(--border); }
+    .game-shell { max-width: 900px; margin: 0 auto; }
+    .game-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+    .game-header h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--text); }
+    .game-header p { color: var(--text2); font-size: 0.95rem; }
+    .primary-btn {
+      background: linear-gradient(135deg, var(--accent), #ff4500);
+      color: white; border: none; cursor: pointer;
+      padding: 10px 24px; border-radius: 50px; font-weight: 700;
+      font-family: var(--font-body); font-size: 0.9rem;
+      transition: all var(--transition);
+      box-shadow: 0 4px 20px rgba(255, 107, 53, 0.25);
+    }
+    .primary-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255, 107, 53, 0.35); }
+    .secondary-btn {
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--text2); padding: 8px 18px; border-radius: 50px;
+      font-weight: 700; font-family: var(--font-body); font-size: 0.85rem;
+      cursor: pointer; transition: all var(--transition);
+    }
+    .secondary-btn:hover { background: var(--surface2); border-color: var(--accent2); color: var(--text); }
+
+    /* ====================================================
+       SOLITAIRE BOARD
+    ==================================================== */
+    .solitaire-board { display: grid; gap: 18px; }
+    .card-row { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+    .card-pile {
+      min-height: 120px;
+      border: 2px dashed #c9cde0;
+      border-radius: 14px;
+      background: var(--soft);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: var(--text3);
+    }
+    .card-pile.red { color: var(--pink); }
+    .playing-card {
+      width: 70px;
+      height: 96px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      font-size: 1.7rem;
+      font-weight: 900;
+      cursor: pointer;
+      transition: all var(--transition);
+      font-family: var(--font-body);
+      color: var(--text);
+    }
+    .playing-card.red { color: var(--pink); }
+    .playing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .playing-card.selected { outline: 3px solid var(--accent2); transform: translateY(-4px); }
+    .solitaire-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 12px; }
+
+    /* ====================================================
+       CONTENT GRID
+    ==================================================== */
+    .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; margin: 40px auto; }
+    .article-card { background: var(--surface); border-radius: var(--radius); padding: 32px 28px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+    .article-card h2 { font-family: var(--font-display); font-size: 1.6rem; margin-top: 24px; margin-bottom: 10px; color: var(--text); }
+    .article-card h3 { font-size: 1.1rem; font-weight: 800; margin: 18px 0 6px; color: var(--accent2); }
+    .article-card p { color: var(--text2); margin-bottom: 14px; line-height: 1.7; }
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .side-card { background: var(--surface); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+    .side-card h3 { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 12px; color: var(--text); }
+    .side-card a { display: block; padding: 8px 0; border-bottom: 1px solid var(--border); color: var(--text2); font-weight: 600; transition: all var(--transition); }
+    .side-card a:hover { color: var(--accent); padding-left: 8px; border-bottom-color: var(--accent2); }
+
+    /* ====================================================
+       FOOTER (injected by footer.js)
+    ==================================================== */
+    .site-footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 0 20px; margin-top: 40px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.5fr 2fr; gap: 40px; }
+    .footer-brand .logo { display: inline-flex; margin-bottom: 12px; }
+    .footer-tagline { color: var(--text2); font-size: 0.85rem; line-height: 1.6; max-width: 280px; }
+    .footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .footer-col h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); margin-bottom: 10px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .footer-col a { color: var(--text2); font-size: 0.85rem; transition: all var(--transition); }
+    .footer-col a:hover { color: var(--text); padding-left: 4px; }
+    .footer-bottom { border-top: 1px solid var(--border); padding: 16px 24px; margin-top: 20px; }
+    .footer-bottom-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .footer-bottom p { color: var(--text3); font-size: 0.8rem; }
+    .footer-legal { display: flex; gap: 12px; }
+    .footer-legal a { color: var(--text3); font-size: 0.8rem; }
+
+    /* ====================================================
+       RESPONSIVE
+    ==================================================== */
+    @media (max-width: 768px) {
+      .main-nav { position: fixed; top: 68px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transform: translateY(-100%); opacity: 0; pointer-events: none; transition: all var(--transition); padding: 16px 20px; }
+      .main-nav.nav-open { transform: translateY(0); opacity: 1; pointer-events: all; }
+      .main-nav ul { flex-direction: column; gap: 4px; }
+      .main-nav a { display: block; padding: 10px 14px; font-size: 0.95rem; }
+      .hamburger { display: flex; }
+      .card-row { grid-template-columns: repeat(4, 1fr); }
+      .card-pile { min-height: 90px; font-size: 1rem; }
+      .playing-card { width: 54px; height: 78px; font-size: 1.2rem; }
+      .content-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .footer-links { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .game-header { flex-direction: column; align-items: stretch; }
+      .primary-btn { width: 100%; justify-content: center; }
+      .card-row { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+      .playing-card { width: 44px; height: 64px; font-size: 1rem; border-radius: 6px; }
+      .card-pile { min-height: 70px; font-size: 0.8rem; border-radius: 8px; }
+      .footer-links { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body><header class="site-header"><div class="header-inner"><a class="logo" href="/"><span class="logo-mark">RW</span><span>Random<span class="logo-accent">Wheel</span></span></a><nav aria-label="Game navigation"><ul><li><a href="/">Home</a></li><li><a href="tic-tac-toe.html">Tic Tac Toe</a></li><li><a href="snake-game.html">Snake</a></li><li><a href="minesweeper.html">Minesweeper</a></li><li><a href="memory-match.html">Memory</a></li></ul></nav></div></header>
-<main><section class="hero container"><span class="eyebrow">CLASSIC CARD GAME</span><h1>Play <span>Solitaire</span> Online Free</h1><p>Relax with a friendly browser version of classic Klondike Solitaire. Organize the tableau, reveal hidden cards, and move every suit to the foundation.</p></section><div class="ad-slot container" aria-label="Advertisement">Advertisement</div>
-<section class="container game-card"><div class="game-shell"><div class="game-header"><div><h2>Classic Klondike Solitaire</h2><p id="solitaireStatus">New deal ready. Build four foundations from ace to king.</p></div><button class="primary-btn" id="newDeal">New Deal</button></div><div class="solitaire-board" aria-label="Solitaire board"><div class="card-row"><div class="card-pile red">♥<span class="sr-only">Stock</span></div><div class="card-pile">↻<span class="sr-only">Waste</span></div><div></div><div class="card-pile">A♥</div><div class="card-pile">A♦</div><div class="card-pile">A♣</div><div class="card-pile">A♠</div></div><div class="card-row"><button class="playing-card" data-card="K♠">K♠</button><button class="playing-card red" data-card="Q♥">Q♥</button><button class="playing-card" data-card="J♣">J♣</button><button class="playing-card red" data-card="10♦">10♦</button><button class="playing-card" data-card="9♠">9♠</button><button class="playing-card red" data-card="8♥">8♥</button><button class="playing-card" data-card="7♣">7♣</button></div><div class="solitaire-actions"><button class="secondary-btn" id="hint">Show Hint</button><button class="secondary-btn" id="autoMove">Auto Move</button></div></div></section>
-<section class="container content-grid"><article class="article-card"><h2>How to play Solitaire</h2><p>Solitaire is a single-player card game built around patience, planning, and a little luck. The most popular version is Klondike, the format used by many classic computer card games. The objective is to move all fifty-two cards into four foundation piles, one foundation for each suit. Each foundation begins with an ace and grows upward through two, three, four, and the remaining cards until the king is placed.</p><p>The tableau is the main working area. It contains seven columns with cards arranged in descending lengths. Only the top card of each column is face up at the beginning. You can place a face-up card on another card when it is one rank lower and the color is opposite. For example, a red eight can be placed on a black nine. Groups of cards can move together when they are already arranged in a legal alternating-color sequence.</p><p>Empty tableau spaces are important. A vacant column can only be filled with a king, or with a sequence that begins with a king. This rule makes it valuable to avoid opening a column too early unless you already know which king will occupy it. When no useful move remains, draw from the stock. Depending on the variation, you may draw one card or three cards, and the waste pile can provide new opportunities.</p><h2>Solitaire strategy tips</h2><p>Good Solitaire play is less about moving the first available card and more about choosing the move that reveals information. Whenever possible, expose a face-down tableau card. A move that uncovers a hidden card usually has more value than a move that simply rearranges two visible cards. Revealed cards increase your choices and help you identify the missing ranks needed for a foundation.</p><p>Build foundations steadily, but do not rush every low card upward. A two or three may still be needed in the tableau to support a sequence. Before sending a card to a foundation, check whether it is blocking a useful alternating run. Experienced players constantly compare short-term progress with long-term flexibility.</p><p>Use empty spaces with intention. Moving a king into an empty column can open a large sequence, but the move may also hide access to another card. If two kings are available, prefer the king that lets you uncover the most face-down cards or creates the strongest alternating sequence. In draw-three games, remember the order of cards in the waste instead of clicking randomly.</p><h2>Why Solitaire is a popular browser game</h2><p>Solitaire works beautifully online because a round can last a few minutes or become a longer relaxing session. There is no account, download, or opponent to wait for. The quiet pace makes it suitable for a short break, while the decision-making keeps each deal interesting. It also offers a satisfying blend of order and surprise: the rules are simple, but every deal asks you to adapt.</p><p>Playing in a browser makes the game convenient on desktop, tablet, and mobile screens. Use a larger screen when you want to study several columns at once, or tap the cards from a phone when you are traveling. The important design goal is clarity. Cards should be easy to distinguish, buttons should be readable, and a new deal should always be one tap away.</p><h2>Frequently asked questions</h2><h3>Is this Solitaire game free?</h3><p>Yes. This page is designed as a free browser game with no installation required. Advertising areas may appear around the content, while the game itself remains available to play.</p><h3>What is the goal of Klondike Solitaire?</h3><p>The goal is to move all cards to four suit foundations, starting with aces and building upward in rank until each foundation contains a king.</p><h3>Can I play Solitaire on a phone?</h3><p>Yes. The layout is responsive and the controls are designed for touch-friendly play on modern phones and tablets.</p><h3>What should beginners do first?</h3><p>Look for moves that reveal face-down cards, preserve empty columns for kings, and avoid using the foundation as quickly as possible when a card may still help in the tableau.</p></article><aside class="sidebar"><div class="ad-slot">Advertisement</div><div class="side-card"><h3>More free games</h3><a href="2048-game.html">Play 2048</a><a href="memory-match.html">Play Memory Match</a><a href="minesweeper.html">Play Minesweeper</a><a href="snake-game.html">Play Snake</a></div></aside></section></main><footer class="site-footer"><div class="container"><p>Free browser games from RandomWheel.</p></div></footer>
-<script>const status=document.getElementById('solitaireStatus');document.getElementById('newDeal').addEventListener('click',()=>{status.textContent='A fresh deal is ready. Find a safe move to reveal the tableau.';document.querySelectorAll('.playing-card').forEach(card=>card.classList.remove('selected'));});document.querySelectorAll('.playing-card').forEach(card=>card.addEventListener('click',()=>{document.querySelectorAll('.playing-card').forEach(item=>item.classList.remove('selected'));card.classList.add('selected');status.textContent=card.dataset.card+' selected. Look for a legal alternating-color move.';}));document.getElementById('hint').addEventListener('click',()=>status.textContent='Hint: reveal a face-down card before sending another low card to a foundation.');document.getElementById('autoMove').addEventListener('click',()=>status.textContent='Auto Move: no forced move found. Try moving the selected card or reveal a tableau card.');</script></body></html>
+<body>
+  <!-- ===== HEADER INJECTION POINT ===== -->
+  <div id="header-root"></div>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero container">
+      <span class="eyebrow">CLASSIC CARD GAME</span>
+      <h1>Play <span>Solitaire</span> Online Free</h1>
+      <p>Relax with a friendly browser version of classic Klondike Solitaire. Organize the tableau, reveal hidden cards, and move every suit to the foundation.</p>
+    </section>
+
+    
+
+    <!-- ===== GAME ===== -->
+    <section class="container game-card">
+      <div class="game-shell">
+        <div class="game-header">
+          <div>
+            <h2>♠ Classic Klondike Solitaire</h2>
+            <p id="solitaireStatus">New deal ready. Build four foundations from ace to king.</p>
+          </div>
+          <button class="primary-btn" id="newDeal">🔄 New Deal</button>
+        </div>
+
+        <div class="solitaire-board" aria-label="Solitaire board">
+          <!-- Stock, Waste, Foundations -->
+          <div class="card-row">
+            <div class="card-pile red">♥<span class="sr-only">Stock</span></div>
+            <div class="card-pile">↻<span class="sr-only">Waste</span></div>
+            <div></div>
+            <div class="card-pile" style="background:rgba(0,201,167,0.08);border-color:var(--accent2);color:var(--accent2);">A♥</div>
+            <div class="card-pile" style="background:rgba(0,201,167,0.08);border-color:var(--accent2);color:var(--accent2);">A♦</div>
+            <div class="card-pile" style="background:rgba(0,201,167,0.08);border-color:var(--accent2);color:var(--accent2);">A♣</div>
+            <div class="card-pile" style="background:rgba(0,201,167,0.08);border-color:var(--accent2);color:var(--accent2);">A♠</div>
+          </div>
+
+          <!-- Tableau -->
+          <div class="card-row">
+            <button class="playing-card" data-card="K♠">K♠</button>
+            <button class="playing-card red" data-card="Q♥">Q♥</button>
+            <button class="playing-card" data-card="J♣">J♣</button>
+            <button class="playing-card red" data-card="10♦">10♦</button>
+            <button class="playing-card" data-card="9♠">9♠</button>
+            <button class="playing-card red" data-card="8♥">8♥</button>
+            <button class="playing-card" data-card="7♣">7♣</button>
+          </div>
+
+          <div class="solitaire-actions">
+            <button class="secondary-btn" id="hint">💡 Show Hint</button>
+            <button class="secondary-btn" id="autoMove">🔄 Auto Move</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTENT ===== -->
+    <section class="container content-grid">
+      <article class="article-card">
+        <h2>How to play Solitaire</h2>
+        <p>Solitaire is a single-player card game built around patience, planning, and a little luck. The most popular version is Klondike, the format used by many classic computer card games. The objective is to move all fifty-two cards into four foundation piles, one foundation for each suit. Each foundation begins with an ace and grows upward through two, three, four, and the remaining cards until the king is placed.</p>
+        <p>The tableau is the main working area. It contains seven columns with cards arranged in descending lengths. Only the top card of each column is face up at the beginning. You can place a face-up card on another card when it is one rank lower and the color is opposite. For example, a red eight can be placed on a black nine. Groups of cards can move together when they are already arranged in a legal alternating-color sequence.</p>
+        <p>Empty tableau spaces are important. A vacant column can only be filled with a king, or with a sequence that begins with a king. This rule makes it valuable to avoid opening a column too early unless you already know which king will occupy it. When no useful move remains, draw from the stock. Depending on the variation, you may draw one card or three cards, and the waste pile can provide new opportunities.</p>
+
+        <h2>Solitaire strategy tips</h2>
+        <p>Good Solitaire play is less about moving the first available card and more about choosing the move that reveals information. Whenever possible, expose a face-down tableau card. A move that uncovers a hidden card usually has more value than a move that simply rearranges two visible cards. Revealed cards increase your choices and help you identify the missing ranks needed for a foundation.</p>
+        <p>Build foundations steadily, but do not rush every low card upward. A two or three may still be needed in the tableau to support a sequence. Before sending a card to a foundation, check whether it is blocking a useful alternating run. Experienced players constantly compare short-term progress with long-term flexibility.</p>
+        <p>Use empty spaces with intention. Moving a king into an empty column can open a large sequence, but the move may also hide access to another card. If two kings are available, prefer the king that lets you uncover the most face-down cards or creates the strongest alternating sequence. In draw-three games, remember the order of cards in the waste instead of clicking randomly.</p>
+
+        <h2>Why Solitaire is a popular browser game</h2>
+        <p>Solitaire works beautifully online because a round can last a few minutes or become a longer relaxing session. There is no account, download, or opponent to wait for. The quiet pace makes it suitable for a short break, while the decision-making keeps each deal interesting. It also offers a satisfying blend of order and surprise: the rules are simple, but every deal asks you to adapt.</p>
+        <p>Playing in a browser makes the game convenient on desktop, tablet, and mobile screens. Use a larger screen when you want to study several columns at once, or tap the cards from a phone when you are traveling. The important design goal is clarity. Cards should be easy to distinguish, buttons should be readable, and a new deal should always be one tap away.</p>
+
+        <h2>Frequently asked questions</h2>
+        <h3>Is this Solitaire game free?</h3>
+        <p>Yes. This page is designed as a free browser game with no installation required. Advertising areas may appear around the content, while the game itself remains available to play.</p>
+        <h3>What is the goal of Klondike Solitaire?</h3>
+        <p>The goal is to move all cards to four suit foundations, starting with aces and building upward in rank until each foundation contains a king.</p>
+        <h3>Can I play Solitaire on a phone?</h3>
+        <p>Yes. The layout is responsive and the controls are designed for touch-friendly play on modern phones and tablets.</p>
+        <h3>What should beginners do first?</h3>
+        <p>Look for moves that reveal face-down cards, preserve empty columns for kings, and avoid using the foundation as quickly as possible when a card may still help in the tableau.</p>
+      </article>
+
+      <aside class="sidebar">
+        
+        <div class="side-card">
+          <h3>🎮 More free games</h3>
+          <a href="2048-game.html">Play 2048</a>
+          <a href="memory-match.html">Play Memory Match</a>
+          <a href="minesweeper.html">Play Minesweeper</a>
+          <a href="snake-game.html">Play Snake</a>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER INJECTION POINT ===== -->
+  <div id="footer-root"></div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+
+  <script>
+    // ========== HEADER/FOOTER INIT ==========
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inject header
+      if (typeof Header !== 'undefined' && Header.render) {
+        document.getElementById('header-root').innerHTML = Header.render();
+        if (Header.init) Header.init();
+      } else {
+        // Fallback header
+        document.getElementById('header-root').innerHTML = `
+          <header class="site-header" id="site-header">
+            <div class="header-inner">
+              <a href="/" class="logo">
+                <span class="logo-icon">🎡</span>
+                <span class="logo-text"><span class="logo-main">Random</span><span class="logo-accent">Wheel</span></span>
+              </a>
+              <nav class="main-nav" id="main-nav">
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/#spin-app">Spin</a></li>
+                  <li><a href="/#how-it-works">How It Works</a></li>
+                  <li><a href="/#faq">FAQ</a></li>
+                </ul>
+              </nav>
+              <div class="header-actions">
+                <button class="btn-spin-cta" onclick="window.location.href='/'">🎯 Spin Now</button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                  <span></span><span></span><span></span>
+                </button>
+              </div>
+            </div>
+          </header>
+        `;
+        // Hamburger fallback
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('main-nav');
+        if (hamburger && nav) {
+          hamburger.addEventListener('click', function() {
+            nav.classList.toggle('nav-open');
+            hamburger.classList.toggle('active');
+          });
+        }
+      }
+
+      // Inject footer
+      if (typeof Footer !== 'undefined' && Footer.render) {
+        document.getElementById('footer-root').innerHTML = Footer.render();
+        if (Footer.init) Footer.init();
+      } else {
+        // Fallback footer
+        document.getElementById('footer-root').innerHTML = `
+          <footer class="site-footer">
+            <div class="footer-inner">
+              <div class="footer-brand">
+                <a href="/" class="logo">
+                  <span class="logo-icon">🎡</span>
+                  <span class="logo-text"><span class="logo-main">Random</span><span class="logo-accent">Wheel</span></span>
+                </a>
+                <p class="footer-tagline">The #1 free online spin wheel. Make decisions fun and fair.</p>
+              </div>
+              <div class="footer-links">
+                <div class="footer-col">
+                  <h4>Wheels</h4>
+                  <ul>
+                    <li><a href="/#spin-app">Yes/No</a></li>
+                    <li><a href="/#spin-app">Food Picker</a></li>
+                    <li><a href="/#spin-app">Truth or Dare</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <h4>More</h4>
+                  <ul>
+                    <li><a href="/#spin-app">Name Picker</a></li>
+                    <li><a href="/#spin-app">Prize Wheel</a></li>
+                    <li><a href="/#spin-app">Fortune Wheel</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <h4>Info</h4>
+                  <ul>
+                    <li><a href="/#how-it-works">How It Works</a></li>
+                    <li><a href="/#faq">FAQ</a></li>
+                    <li><a href="#">Privacy</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <div class="footer-bottom-inner">
+                <p>&copy; 2025 RandomWheel. All rights reserved.</p>
+                <div class="footer-legal">
+                  <a href="#">Privacy Policy</a>
+                  <a href="#">Terms</a>
+                </div>
+              </div>
+            </div>
+          </footer>
+        `;
+      }
+
+      // Header scroll shadow
+      const header = document.querySelector('.site-header');
+      window.addEventListener('scroll', function() {
+        if (header) header.classList.toggle('scrolled', window.scrollY > 30);
+      });
+    });
+
+    // ========== SOLITAIRE ENGINE ==========
+    (function() {
+      const statusEl = document.getElementById('solitaireStatus');
+      const cards = document.querySelectorAll('.playing-card');
+      let selectedCard = null;
+
+      // New deal
+      document.getElementById('newDeal').addEventListener('click', function() {
+        statusEl.textContent = '🔄 A fresh deal is ready. Find a safe move to reveal the tableau.';
+        cards.forEach(card => {
+          card.classList.remove('selected');
+          // Shuffle card values for demo
+          const suits = ['♠','♥','♦','♣'];
+          const ranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+          const rank = ranks[Math.floor(Math.random() * ranks.length)];
+          const suit = suits[Math.floor(Math.random() * suits.length)];
+          const isRed = suit === '♥' || suit === '♦';
+          card.textContent = rank + suit;
+          card.dataset.card = rank + suit;
+          card.className = 'playing-card' + (isRed ? ' red' : '');
+        });
+        selectedCard = null;
+      });
+
+      // Card click - select/deselect
+      cards.forEach(card => {
+        card.addEventListener('click', function() {
+          // Deselect all
+          cards.forEach(c => c.classList.remove('selected'));
+          // Select this card
+          this.classList.add('selected');
+          selectedCard = this;
+          statusEl.textContent = '🔍 ' + this.dataset.card + ' selected. Look for a legal alternating-color move.';
+        });
+      });
+
+      // Hint
+      document.getElementById('hint').addEventListener('click', function() {
+        statusEl.textContent = '💡 Hint: reveal a face-down card before sending another low card to a foundation.';
+      });
+
+      // Auto Move
+      document.getElementById('autoMove').addEventListener('click', function() {
+        statusEl.textContent = '🔄 Auto Move: no forced move found. Try moving the selected card or reveal a tableau card.';
+      });
+    })();
+  </script>
+</body>
+</html>
