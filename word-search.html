@@ -10,12 +10,24 @@
   <meta property="og:description" content="Find hidden words in this free online word search game.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Righteous&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Word Search Puzzle",
+      "url": "https://randomwheel.github.io/games/word-search.html",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
   <style>
-    /* ===== RESET & BASE ===== */
+    /* ====================================================
+       RESET & BASE
+    ==================================================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #f8faff;
@@ -57,7 +69,9 @@
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     .ad-slot { background: var(--bg3); border-radius: var(--radius-sm); padding: 20px; text-align: center; color: var(--text3); margin: 24px 0; border: 1px dashed var(--border); }
 
-    /* ===== HEADER (inline) ===== */
+    /* ====================================================
+       HEADER (injected by header.js)
+    ==================================================== */
     .site-header {
       position: sticky;
       top: 0;
@@ -105,14 +119,18 @@
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* ===== HERO ===== */
+    /* ====================================================
+       HERO
+    ==================================================== */
     .hero { padding: 40px 0 20px; text-align: center; }
     .hero .eyebrow { display: inline-block; background: rgba(0, 201, 167, 0.1); border: 1px solid rgba(0, 201, 167, 0.2); color: var(--accent2); padding: 4px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
     .hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; color: var(--text); }
     .hero h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     .hero p { font-size: 1.05rem; color: var(--text2); max-width: 600px; margin: 8px auto 0; }
 
-    /* ===== GAME CARD ===== */
+    /* ====================================================
+       GAME CARD
+    ==================================================== */
     .game-card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 32px 24px; margin: 20px auto; border: 1px solid var(--border); }
     .game-shell { max-width: 700px; margin: 0 auto; }
     .game-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
@@ -155,7 +173,9 @@
     .word-list li.found { text-decoration: line-through; color: var(--teal); background: #e5faf4; }
     .solitaire-actions { display: flex; gap: 12px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
 
-    /* ===== CONTENT GRID ===== */
+    /* ====================================================
+       CONTENT GRID
+    ==================================================== */
     .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; margin: 40px auto; }
     .article-card { background: var(--surface); border-radius: var(--radius); padding: 32px 28px; box-shadow: var(--shadow); border: 1px solid var(--border); }
     .article-card h2 { font-family: var(--font-display); font-size: 1.6rem; margin-top: 24px; margin-bottom: 10px; color: var(--text); }
@@ -167,7 +187,9 @@
     .side-card a { display: block; padding: 8px 0; border-bottom: 1px solid var(--border); color: var(--text2); font-weight: 600; transition: all var(--transition); }
     .side-card a:hover { color: var(--accent); padding-left: 8px; border-bottom-color: var(--accent2); }
 
-    /* ===== FOOTER (inline) ===== */
+    /* ====================================================
+       FOOTER (injected by footer.js)
+    ==================================================== */
     .site-footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 0 20px; margin-top: 40px; }
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.5fr 2fr; gap: 40px; }
     .footer-brand .logo { display: inline-flex; margin-bottom: 12px; }
@@ -183,7 +205,9 @@
     .footer-legal { display: flex; gap: 12px; }
     .footer-legal a { color: var(--text3); font-size: 0.8rem; }
 
-    /* ===== MOBILE ===== */
+    /* ====================================================
+       RESPONSIVE
+    ==================================================== */
     @media (max-width: 768px) {
       .main-nav { position: fixed; top: 68px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transform: translateY(-100%); opacity: 0; pointer-events: none; transition: all var(--transition); padding: 16px 20px; }
       .main-nav.nav-open { transform: translateY(0); opacity: 1; pointer-events: all; }
@@ -204,29 +228,8 @@
   </style>
 </head>
 <body>
-  <!-- ===== HEADER (inline) ===== -->
-  <header class="site-header" id="site-header">
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <span class="logo-icon">🎡</span>
-        <span class="logo-text"><span class="logo-main">Random</span><span class="logo-accent">Wheel</span></span>
-      </a>
-      <nav class="main-nav" id="main-nav">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/#spin-app">Spin</a></li>
-          <li><a href="/#how-it-works">How It Works</a></li>
-          <li><a href="/#faq">FAQ</a></li>
-        </ul>
-      </nav>
-      <div class="header-actions">
-        <button class="btn-spin-cta" onclick="window.location.href='/'">🎯 Spin Now</button>
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </header>
+  <!-- ===== HEADER INJECTION POINT ===== -->
+  <div id="header-root"></div>
 
   <main>
     <!-- ===== HERO ===== -->
@@ -236,8 +239,7 @@
       <p>Scan the letter grid, spot hidden words, and enjoy a calm vocabulary challenge that works on desktop, tablet, and mobile.</p>
     </section>
 
-    <!-- ===== AD ===== -->
-    <div class="ad-slot container" aria-label="Advertisement">📢 Advertisement</div>
+    
 
     <!-- ===== GAME ===== -->
     <section class="container game-card">
@@ -290,8 +292,7 @@
         <p>Begin with the longest or most unusual words, scan in a consistent direction, and mark each completed answer as soon as you find it.</p>
       </article>
 
-      <aside class="sidebar">
-        <div class="ad-slot">📢 Advertisement</div>
+      <aside class="sidebar">        
         <div class="side-card">
           <h3>🎮 Try another puzzle</h3>
           <a href="2048-game.html">Play 2048</a>
@@ -303,66 +304,113 @@
     </section>
   </main>
 
-  <!-- ===== FOOTER (inline) ===== -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="/" class="logo">
-          <span class="logo-icon">🎡</span>
-          <span class="logo-text"><span class="logo-main">Random</span><span class="logo-accent">Wheel</span></span>
-        </a>
-        <p class="footer-tagline">The #1 free online spin wheel. Make decisions fun and fair.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Wheels</h4>
-          <ul>
-            <li><a href="/#spin-app" onclick="event.preventDefault();window.location.href='/#spin-app'">Yes/No</a></li>
-            <li><a href="/#spin-app" onclick="event.preventDefault();window.location.href='/#spin-app'">Food Picker</a></li>
-            <li><a href="/#spin-app" onclick="event.preventDefault();window.location.href='/#spin-app'">Truth or Dare</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>More</h4>
-          <ul>
-            <li><a href="/#spin-app" onclick="event.preventDefault();window.location.href='/#spin-app'">Name Picker</a></li>
-            <li><a href="/#spin-app" onclick="event.preventDefault();window.location.href='/#spin-app'">Prize Wheel</a></li>
-            <li><a href="/#spin-app" onclick="event.preventDefault();window.location.href='/#spin-app'">Fortune Wheel</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Info</h4>
-          <ul>
-            <li><a href="/#how-it-works">How It Works</a></li>
-            <li><a href="/#faq">FAQ</a></li>
-            <li><a href="#">Privacy</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-bottom-inner">
-        <p>&copy; 2025 RandomWheel. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- ===== FOOTER INJECTION POINT ===== -->
+  <div id="footer-root"></div>
 
   <!-- ===== SCRIPTS ===== -->
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  
   <script>
-    // Hamburger toggle
+    // ========== HEADER/FOOTER INIT ==========
     document.addEventListener('DOMContentLoaded', function() {
-      const hamburger = document.getElementById('hamburger');
-      const nav = document.getElementById('main-nav');
-      if (hamburger && nav) {
-        hamburger.addEventListener('click', function() {
-          nav.classList.toggle('nav-open');
-          hamburger.classList.toggle('active');
-        });
+      // Inject header
+      if (typeof Header !== 'undefined' && Header.render) {
+        document.getElementById('header-root').innerHTML = Header.render();
+        if (Header.init) Header.init();
+      } else {
+        // Fallback header
+        document.getElementById('header-root').innerHTML = `
+          <header class="site-header" id="site-header">
+            <div class="header-inner">
+              <a href="/" class="logo">
+                <span class="logo-icon">🎡</span>
+                <span class="logo-text"><span class="logo-main">Random</span><span class="logo-accent">Wheel</span></span>
+              </a>
+              <nav class="main-nav" id="main-nav">
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/#spin-app">Spin</a></li>
+                  <li><a href="/#how-it-works">How It Works</a></li>
+                  <li><a href="/#faq">FAQ</a></li>
+                </ul>
+              </nav>
+              <div class="header-actions">
+                <button class="btn-spin-cta" onclick="window.location.href='/'">🎯 Spin Now</button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                  <span></span><span></span><span></span>
+                </button>
+              </div>
+            </div>
+          </header>
+        `;
+        // Hamburger fallback
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('main-nav');
+        if (hamburger && nav) {
+          hamburger.addEventListener('click', function() {
+            nav.classList.toggle('nav-open');
+            hamburger.classList.toggle('active');
+          });
+        }
       }
+
+      // Inject footer
+      if (typeof Footer !== 'undefined' && Footer.render) {
+        document.getElementById('footer-root').innerHTML = Footer.render();
+        if (Footer.init) Footer.init();
+      } else {
+        // Fallback footer
+        document.getElementById('footer-root').innerHTML = `
+          <footer class="site-footer">
+            <div class="footer-inner">
+              <div class="footer-brand">
+                <a href="/" class="logo">
+                  <span class="logo-icon">🎡</span>
+                  <span class="logo-text"><span class="logo-main">Random</span><span class="logo-accent">Wheel</span></span>
+                </a>
+                <p class="footer-tagline">The #1 free online spin wheel. Make decisions fun and fair.</p>
+              </div>
+              <div class="footer-links">
+                <div class="footer-col">
+                  <h4>Wheels</h4>
+                  <ul>
+                    <li><a href="/#spin-app">Yes/No</a></li>
+                    <li><a href="/#spin-app">Food Picker</a></li>
+                    <li><a href="/#spin-app">Truth or Dare</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <h4>More</h4>
+                  <ul>
+                    <li><a href="/#spin-app">Name Picker</a></li>
+                    <li><a href="/#spin-app">Prize Wheel</a></li>
+                    <li><a href="/#spin-app">Fortune Wheel</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <h4>Info</h4>
+                  <ul>
+                    <li><a href="/#how-it-works">How It Works</a></li>
+                    <li><a href="/#faq">FAQ</a></li>
+                    <li><a href="#">Privacy</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <div class="footer-bottom-inner">
+                <p>&copy; 2025 RandomWheel. All rights reserved.</p>
+                <div class="footer-legal">
+                  <a href="#">Privacy Policy</a>
+                  <a href="#">Terms</a>
+                </div>
+              </div>
+            </div>
+          </footer>
+        `;
+      }
+
       // Header scroll shadow
       const header = document.querySelector('.site-header');
       window.addEventListener('scroll', function() {
@@ -370,7 +418,7 @@
       });
     });
 
-    // ===== WORD SEARCH ENGINE =====
+    // ========== WORD SEARCH ENGINE ==========
     (function() {
       // 10x10 grid letters (nature theme)
       const baseLetters = [
@@ -424,14 +472,11 @@
             if (foundWords.has(word)) return;
             foundWords.add(word);
             this.classList.add('found');
-            // Also highlight grid letters? Just visual feedback.
             statusEl.textContent = '✅ "' + word + '" marked as found. Keep scanning for the remaining words.';
             if (foundWords.size === wordList.length) {
               statusEl.textContent = '🎉 Puzzle complete! Great observation. Start a new puzzle to play again.';
             }
-            // Mark all letters of this word as "found" visually (simple highlight)
-            // In a real game you'd find the positions, but this is a demo.
-            // We'll just highlight a few random letters for effect.
+            // Highlight some letters for visual feedback
             const indices = [];
             let remaining = word.length;
             while (remaining > 0) {
@@ -458,11 +503,8 @@
           [letters[i], letters[j]] = [letters[j], letters[i]];
         }
         buildGrid();
-        // Reset word list
         listEl.querySelectorAll('li').forEach(li => li.classList.remove('found'));
-        // Reset found status
         statusEl.textContent = '🔄 New puzzle ready. Find all ' + wordList.length + ' hidden words.';
-        // Clear any selected
         gridEl.querySelectorAll('button').forEach(b => b.classList.remove('selected'));
       }
 
